@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ieffect", "/home/francis/qt/inf2610-lab4/ieffect/ieffect.vcxproj", "{DE4C4CAD-F832-386E-8EC8-B5FDB6712DFA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_teststest", "/home/francis/qt/inf2610-lab4/tests/tst_teststest.vcxproj", "{8B5B111B-1FD7-3E26-82DB-979DA6D8D1A2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qview", "/home/francis/qt/inf2610-lab4/qview/qview.vcxproj", "{B12D4BB1-FE0E-3E03-800C-4D2DE99155D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug|Win32
+		ConfigName.1 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DE4C4CAD-F832-386E-8EC8-B5FDB6712DFA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DE4C4CAD-F832-386E-8EC8-B5FDB6712DFA}.Debug|Win32.Build.0 = Debug|Win32
+		{DE4C4CAD-F832-386E-8EC8-B5FDB6712DFA}.Release|Win32.ActiveCfg = Release|Win32
+		{DE4C4CAD-F832-386E-8EC8-B5FDB6712DFA}.Release|Win32.Build.0 = Release|Win32
+		{8B5B111B-1FD7-3E26-82DB-979DA6D8D1A2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8B5B111B-1FD7-3E26-82DB-979DA6D8D1A2}.Debug|Win32.Build.0 = Debug|Win32
+		{8B5B111B-1FD7-3E26-82DB-979DA6D8D1A2}.Release|Win32.ActiveCfg = Release|Win32
+		{8B5B111B-1FD7-3E26-82DB-979DA6D8D1A2}.Release|Win32.Build.0 = Release|Win32
+		{B12D4BB1-FE0E-3E03-800C-4D2DE99155D3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B12D4BB1-FE0E-3E03-800C-4D2DE99155D3}.Debug|Win32.Build.0 = Debug|Win32
+		{B12D4BB1-FE0E-3E03-800C-4D2DE99155D3}.Release|Win32.ActiveCfg = Release|Win32
+		{B12D4BB1-FE0E-3E03-800C-4D2DE99155D3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
