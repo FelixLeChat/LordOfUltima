@@ -51,6 +51,7 @@ void main( void )
  	   	float eps = 0.01;
 	   vec2 delta1 = vec2(gl_TexCoord[0].s +eps, gl_TexCoord[0].t +eps);
 	   vec2 delta2 = vec2(gl_TexCoord[0].s +eps, gl_TexCoord[0].t);
+	   //textureColor = texture2D(avec coor modif)
 	   normal[0] = 0.0;
 	   normal[1] = 0.0;
 	   normal[2] = -1.0;
