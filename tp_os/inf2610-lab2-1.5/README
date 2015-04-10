@@ -1,0 +1,11 @@
+Sources du laboratoire INF2610-LAB2
+
+== Dépendances ==
+
+* Ubuntu
+
+  apt-get install build-essential pkg-config nasm libglib2.0-dev
+
+* Fedora
+
+  yum gcc gcc-c++ automake glibc-devel nasm glib2-devel
