@@ -263,11 +263,11 @@ void afficherModele()
    {
       glBegin( GL_LINES );
       glVertex3f( 0, 0, 0 );
-      if(posZ > 0)
-      {
-      	  glVertex3f( 2*posX, -2*posY, 2*posZ );
-      }
-	  else
+    //  if(posZ > 0)
+     // {
+    //  	  glVertex3f( 2*posX, -2*posY, 2*posZ );
+    //  }
+	//  else
 	  {
 	  	  glVertex3f( 2*posX, 2*posY, 2*posZ );
 	  }
@@ -275,11 +275,11 @@ void afficherModele()
       glEnd( );
    }
    glPushMatrix();{
-   	   if(posZ > 0)
-      {
-      	  glTranslatef( posX, -posY, posZ );
-      }
-	  else
+   	//   if(posZ > 0)
+   //   {
+   //   	  glTranslatef( posX, -posY, posZ );
+   //   }
+	//  else
 	  {
 	  	  glTranslatef( posX, posY, posZ );
 	  }

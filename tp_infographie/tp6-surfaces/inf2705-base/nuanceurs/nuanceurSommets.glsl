@@ -47,13 +47,25 @@ void main( void )
    }
    else
    {
- 	   position = vec4(gl_Vertex.x, gl_Vertex.y,  textureColor[0] , 1.0);
- 	   	float eps = 0.01;
-	   vec2 delta1 = vec2(gl_TexCoord[0].s +eps, gl_TexCoord[0].t +eps);
-	   vec2 delta2 = vec2(gl_TexCoord[0].s +eps, gl_TexCoord[0].t);
+ 	   position = vec4(gl_Vertex.x, gl_Vertex.y,  textureColor[0]*facteurZ , 1.0);
+ 	   float eps = 0.01;
+
+ 	   vec2 deltaX1 = vec2(gl_TexCoord[0].s +eps, gl_TexCoord[0].t);
+	   vec2 deltaX2 = vec2(gl_TexCoord[0].s -eps, gl_TexCoord[0].t);
+ 	   vec4 textureColorDelta1 = texture2D( displacementMap, deltaX1);
+ 	   vec4 textureColorDelta2 = texture2D( displacementMap, deltaX2);
+ 	   float dx = (textureColorDelta1[0] - textureColorDelta2[0])/(2.0*de);
+
+ 	   vec2 deltaY1 = vec2(gl_TexCoord[0].s, gl_TexCoord[0].t + eps);
+	   vec2 deltaY2 = vec2(gl_TexCoord[0].s, gl_TexCoord[0].t - eps);
+ 	   textureColorDelta1 = texture2D( displacementMap, deltaY1);
+ 	   textureColorDelta2 = texture2D( displacementMap, deltaY2);
+ 	   float dy = (textureColorDelta1[0] - textureColorDelta2[0])/(2.0*de);
+
+
 	   //textureColor = texture2D(avec coor modif)
-	   normal[0] = 0.0;
-	   normal[1] = 0.0;
+	   normal[0] = dx;
+	   normal[1] = dy;
 	   normal[2] = -1.0;
    }
 
