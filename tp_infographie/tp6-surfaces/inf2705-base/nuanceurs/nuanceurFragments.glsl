@@ -1,5 +1,6 @@
 uniform sampler2D colorMap;
-uniform int utiliseTexture;
+uniform int utiliseTexture, indiceTexture;
+uniform int indiceCouleur;
 
 varying vec3 normal, lightDir, eyeVec;
 
@@ -40,6 +41,12 @@ void main( void )
 		couleur += (gl_LightSource[0].specular * gl_FrontMaterial.specular * pow( intensiteSpeculaire, gl_FrontMaterial.shininess ));
 	}
 
-	gl_FragColor = clamp( couleur, 0.0, 1.0 );
+
+	vec4 textureColor = texture2D( colorMap, gl_TexCoord[0].st);
+	couleur += textureColor;
+
+	
+   gl_FragColor = clamp( couleur, 0.0, 1.0 );
+
    
 }

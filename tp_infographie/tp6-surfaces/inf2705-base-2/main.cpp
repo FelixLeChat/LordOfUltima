@@ -1,7 +1,7 @@
 // Prénoms, noms et matricule des membres de l'équipe:
-// - Mathieu GAMACHE (1626377)
-// - Félix LA ROCQUE CARRIER (1621348)
-
+// - Prénom1 NOM1 (matricule1)
+// - Prénom2 NOM2 (matricule2)
+#warning "Écrire les prénoms, noms et matricule des membres de l'équipe dans le fichier et commenter cette ligne"
 
 #include <iostream>
 #define GL_GLEXT_PROTOTYPES 1
@@ -18,12 +18,11 @@ float MINPHI = 0.001, MINTHETA = 0.001;
 float posX = 0.25, posY = 0.25, posZ = -1.75;
 bool positionnelle = true;
 bool localViewer = false;        // la valeur de GL_LIGHT_MODEL_LOCAL_VIEWER
-float cutoff = 5.0;
 
 int affichageStereo = 0;         // l'affichage est en mono
 
 GLuint textures[9];              // les textures chargées
-int indiceTexture = 0;           // indice de la texture à utiliser
+int indiceTexture = 0;           // indice de la texture à utiliser pour le déplacement
 int indiceCouleur = 0;           // indice de la texture à utiliser pour la couleur
 int indiceFonction = 0;          // indice de la fonction à afficher
 float facteurZ = 1.0;            // facteur de déplacement initial en Z
@@ -91,8 +90,8 @@ void initialisation()
    glob.rotationY = 0.0;
    glob.rotationIncrement = 2.0;
 
-   glLightModeli( GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE );     // two-side mode en openGL
-   glEnable( GL_VERTEX_PROGRAM_TWO_SIDE );                // two-side mode en GLSL
+   //glLightModeli( GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE );     // two-side mode en openGL
+   //glEnable( GL_VERTEX_PROGRAM_TWO_SIDE );                // two-side mode en GLSL
    glEnable( GL_LIGHTING );
 
    // charger les nuanceurs
@@ -109,18 +108,10 @@ void initialisation()
       {
          const int larg = 4.0;  // intervalle [-2.0,2.0]
          const float dl = 1.0 / ( NSOMMETS-1 );
-
          sommets[decalage+0] = larg * (  i   *dl - 0.5 );  sommets[decalage+1] = larg * (  j   *dl - 0.5 );
          sommets[decalage+2] = larg * (  i   *dl - 0.5 );  sommets[decalage+3] = larg * ( (j+1)*dl - 0.5 );
          sommets[decalage+4] = larg * ( (i+1)*dl - 0.5 );  sommets[decalage+5] = larg * ( (j+1)*dl - 0.5 );
          sommets[decalage+6] = larg * ( (i+1)*dl - 0.5 );  sommets[decalage+7] = larg * (  j   *dl - 0.5 );
-
-         const int largTex = 1;
-         texcoords[decalage+0] = largTex * (  i   *dl);  texcoords[decalage+1] = largTex * (  j   *dl);
-         texcoords[decalage+2] = largTex * (  i   *dl);  texcoords[decalage+3] = largTex * ( (j+1)*dl);
-         texcoords[decalage+4] = largTex * ( (i+1)*dl);  texcoords[decalage+5] = largTex * ( (j+1)*dl);
-         texcoords[decalage+6] = largTex * ( (i+1)*dl);  texcoords[decalage+7] = largTex * (  j   *dl);
-         
          decalage += 8;
       }
    }
@@ -134,55 +125,20 @@ void definirEclairage()
    glLightfv( GL_LIGHT0, GL_AMBIENT, LumiAmbiant );
    glLightfv( GL_LIGHT0, GL_DIFFUSE, LumiDiffuse );
    glLightfv( GL_LIGHT0, GL_SPECULAR, LumiSpeculaire );
-   glLightfv( GL_LIGHT1, GL_AMBIENT, LumiAmbiant );
-   glLightfv( GL_LIGHT1, GL_DIFFUSE, LumiDiffuse );
-   glLightfv( GL_LIGHT1, GL_SPECULAR, LumiSpeculaire );
    // partie 1: définir la lumière
-   GLfloat LumiPosition[] = {posX, posY, posZ,1.0};
-   //GLfloat direction
-   glColor3f( 1.0, 1.0, 0.5 );
-   glLightfv( GL_LIGHT0, GL_POSITION, LumiPosition );
-   glLightfv(GL_LIGHT1, GL_POSITION, LumiPosition);
-   glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, cutoff);
-   glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 1.0);
-   //glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, );
+   //GLfloat LumiPosition[] = ...
+   //glLightfv( GL_LIGHT0, GL_POSITION, LumiPosition );
 
-   if(!positionnelle)
-   {
-   		glEnable( GL_LIGHT0 );
-   		glDisable(GL_LIGHT1);
-   }
-   else
-   {
-   		glEnable( GL_LIGHT1);
-   		glDisable(GL_LIGHT0);
-
-   }
-   
+   glEnable( GL_LIGHT0 );
 }
 
 void definirProjection( int OeilMult ) // 0: mono, -1: oeil gauche, +1: oeil droit
 {
-   const GLdouble resolution = 100.0; // pixels par pouce
-   GLdouble oeilDecalage = OeilMult * glob.dip;
-   GLdouble proportionProfondeur = glob.zavant / glob.zecran;  // la profondeur du plan de parallaxe nulle
-
-
    glMatrixMode( GL_PROJECTION );
-   glLoadIdentity();
-   glFrustum( (-0.5 * glob.w / resolution - oeilDecalage ) * proportionProfondeur,
-              ( 0.5 * glob.w / resolution - oeilDecalage ) * proportionProfondeur,
-              (-0.5 * glob.h / resolution                ) * proportionProfondeur,
-              ( 0.5 * glob.h / resolution                ) * proportionProfondeur,
-              glob.zavant, glob.zarriere );
-   glTranslatef( -oeilDecalage, 0.0, 0.0 );
-   glMatrixMode( GL_MODELVIEW );
-
-  /* glMatrixMode( GL_PROJECTION );
    glLoadIdentity();
    // changer pour glFrustum()
    gluPerspective( 50.0, (GLdouble) g_largeur / (GLdouble) g_hauteur, 1, 30.0 );
-   glMatrixMode( GL_MODELVIEW );*/
+   glMatrixMode( GL_MODELVIEW );
 }
 
 void afficherModele()
@@ -203,12 +159,10 @@ void afficherModele()
    // dessiner la géométrie
    if ( utiliseNuanceurs )
    {
-      //GLint utiliseTexture = indiceTexture != 0 ? 1 : 0;
       glUseProgram( progNuanceur );
       glUniform1i( glGetUniformLocation( progNuanceur, "indiceFonction" ), indiceFonction );
       glUniform1i( glGetUniformLocation( progNuanceur, "localViewer" ), localViewer );
       //glUniform3f( glGetUniformLocation( progNuanceur, "vecteurQuelconque" ), comp1, comp2, comp3 );
-      //glUniform1i( glGetUniformLocation( progNuanceur, "utiliseTexture" ), utiliseTexture );
       glUniform1i( glGetUniformLocation( progNuanceur, "indiceTexture" ), indiceTexture );
       glUniform1i( glGetUniformLocation( progNuanceur, "indiceCouleur" ), indiceCouleur );
       glUniform1f( glGetUniformLocation( progNuanceur, "facteurZ" ), facteurZ );
@@ -218,33 +172,17 @@ void afficherModele()
    else
       glUseProgram( 0 );
 
+   // partie 2: s'il y a lieu, assigner la texture à utiliser
+   //glBindTexture( GL_TEXTURE_2D, textures[indiceTexture-1] );
    
-   // définir les glClipPane limitant le z vers le haut et vers le bas
-   glEnable(GL_CLIP_PLANE0);
-   glEnable(GL_CLIP_PLANE1);
-   GLdouble planBas[] = {0,0,1,2.01};
-   glClipPlane(GL_CLIP_PLANE0, planBas);
-   GLdouble planHaut[] = {0,0,-1,2.01};
-   glClipPlane(GL_CLIP_PLANE1, planHaut);
+   // partie 1: définir les glClipPane limitant le z vers le haut et vers le bas
+   // ...
 
    // afficher la surface (plane)
    glEnableClientState( GL_VERTEX_ARRAY );
-
-   	glEnable(GL_TEXTURE_2D); 
-   	glEnableClientState( GL_TEXTURE_COORD_ARRAY );
-   	glActiveTexture(GL_TEXTURE0);
-   	glBindTexture( GL_TEXTURE_2D, textures[indiceTexture-1] );
-   
-   glActiveTexture(GL_TEXTURE1);
-   glBindTexture( GL_TEXTURE_2D, textures[indiceCouleur-1] );
-    
    glVertexPointer( 2, GL_FLOAT, 0, sommets );
-   glTexCoordPointer( 2, GL_FLOAT, 0, texcoords );
    glDrawArrays( GL_QUADS, 0, 8*(NSOMMETS-1)*(NSOMMETS-1) );
    glDisableClientState( GL_VERTEX_ARRAY );
-
-    glDisableClientState( GL_TEXTURE_COORD_ARRAY );
-    glDisable(GL_TEXTURE_2D); 
 
    // dessiner le cube englobant
    glPushAttrib( GL_ENABLE_BIT | GL_CURRENT_BIT );
@@ -254,8 +192,6 @@ void afficherModele()
    // dessiner le cube englobant
    glColor3f( 1.0, 1.0, 1.0 );
    glutWireCube( 4.0 );
-   
-
 
    // dessiner une sphère à la position de la lumière
    glColor3f( 1.0, 1.0, 1.0 );
@@ -263,26 +199,11 @@ void afficherModele()
    {
       glBegin( GL_LINES );
       glVertex3f( 0, 0, 0 );
-      if(posZ > 0)
-      {
-      	  glVertex3f( 2*posX, -2*posY, 2*posZ );
-      }
-	  else
-	  {
-	  	  glVertex3f( 2*posX, 2*posY, 2*posZ );
-	  }
-    
+      glVertex3f( 2*posX, 2*posY, 2*posZ );
       glEnd( );
    }
    glPushMatrix();{
-   	   if(posZ > 0)
-      {
-      	  glTranslatef( posX, -posY, posZ );
-      }
-	  else
-	  {
-	  	  glTranslatef( posX, posY, posZ );
-	  }
+      glTranslatef( posX, posY, posZ );
       glutSolidSphere( 0.1, 10, 10 );
    }glPopMatrix();
 
@@ -297,50 +218,10 @@ void afficherScene()
    glLoadIdentity();
    gluLookAt( dist*cos(phi)*sin(theta), dist*sin(theta)*sin(phi), dist*cos(theta), 0, 0, 0, 0, 0, 1 );
    afficherAxes( );
-   //glScaled(glob.factzoom, glob.factzoom, glob.factzoom);
-   glViewport( 0, 0, glob.w, glob.h );
 
    // partie 1: afficher la surface en mono ou en stéréo
-   switch(affichageStereo)
-   {
-      //Mono
-      case 0:
-         definirProjection( 0 );
-         afficherModele();
-      break;
-      // Stréo
-      case 1:
-      
-       //glDrawBuffer( GL_BACK_LEFT );
-        definirProjection( -1 );
-        glColorMask( GL_TRUE, GL_FALSE, GL_FALSE, GL_TRUE );
-        afficherModele();
-
-  //glDrawBuffer( GL_BACK_RIGHT );
-         glClear( GL_DEPTH_BUFFER_BIT );
-         definirProjection( 1 );
-         glColorMask( GL_FALSE, GL_TRUE, GL_TRUE, GL_TRUE );
-         afficherModele();
-
-         glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE );
-      break;
-      //Autre chose
-      case 2:
-     	glViewport( 0, 0, glob.w/2, glob.h );
-	   	glutPostRedisplay();
-        definirProjection( -1 );
-        afficherModele();
-
-	   glViewport( glob.w/2, 0, glob.w/2, glob.h );
-	   glutPostRedisplay();
-       glClear( GL_DEPTH_BUFFER_BIT );
-       definirProjection( 1 );
-       afficherModele();
-
-
-      break;
-   }
-
+   definirProjection( 0 );
+   afficherModele();
 
    glutSwapBuffers();
 }
@@ -350,8 +231,6 @@ void redimensionnement( GLsizei w, GLsizei h )
 {
    g_largeur = w;
    g_hauteur = h;
-   glob.w = w;
-   glob.h = h;
    glViewport( 0, 0, w, h );
    glutPostRedisplay();
 }
@@ -433,7 +312,7 @@ void clavier( unsigned char touche, int x, int y )
    case '6':
    case '7':
    case '8':
-   case '9':
+   case '9': // indice de la texture à utiliser pour le déplacement
       indiceTexture = touche - '0';
       std::cout << " indiceTexture=" << indiceTexture << std::endl;
       glutPostRedisplay();
@@ -592,6 +471,7 @@ int main( int argc, char *argv[] )
    glutMouseFunc( sourisClic );
 
    glewInit();
+   printGLStrings( );
 
    initialisation();
 
