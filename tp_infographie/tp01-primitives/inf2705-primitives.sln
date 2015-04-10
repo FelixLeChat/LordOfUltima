@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inf2705-primitives", "inf2705-base\inf2705-base.vcxproj", "{B2862EAF-CCBD-4D8B-BDB5-5988BB0DEA9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2862EAF-CCBD-4D8B-BDB5-5988BB0DEA9D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B2862EAF-CCBD-4D8B-BDB5-5988BB0DEA9D}.Debug|Win32.Build.0 = Debug|Win32
+		{B2862EAF-CCBD-4D8B-BDB5-5988BB0DEA9D}.Release|Win32.ActiveCfg = Release|Win32
+		{B2862EAF-CCBD-4D8B-BDB5-5988BB0DEA9D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

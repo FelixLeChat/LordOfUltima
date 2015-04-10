@@ -1,0 +1,11 @@
+Sources du laboratoire INF2610-TD0
+
+== Dépendances ==
+
+* Ubuntu
+
+  apt-get install build-essential pkg-config nasm
+
+* Fedora
+
+  yum gcc gcc-c++ automake glibc-devel nasm
