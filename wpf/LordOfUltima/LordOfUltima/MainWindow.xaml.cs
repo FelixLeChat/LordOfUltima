@@ -38,8 +38,13 @@ namespace LordOfUltima
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            mousePosX.Content = "Mouse X : " + Mouse.GetPosition(grid).X;
-            mousePosY.Content = "Mouse Y : " + Mouse.GetPosition(grid).Y;
+            double mouseX = Mouse.GetPosition(grid).X;
+            double mouseY = Mouse.GetPosition(grid).Y;
+            mousePosX.Content = "Mouse X : " + mouseX;
+            mousePosY.Content = "Mouse Y : " + mouseY;
+
+            frameX.Content = "Frame X : " + m_gameboard.getXFrame(mouseX);
+            frameY.Content = "Frame Y : " + m_gameboard.getYFrame(mouseY);
         }
     }
 }
