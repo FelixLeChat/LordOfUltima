@@ -46,6 +46,7 @@ namespace LordOfUltima
                     m_map[i, j].getElement().Margin = new Thickness(i*frame_width + start_width, j*frame_height + (start_height-frame_height), 0, 0);
                 }
             }
+            verifyMap();
 
             /*
             // Definition de la fonction de callback
@@ -76,12 +77,12 @@ namespace LordOfUltima
         */
         public int getXFrame(double x)
         {
-            int frame = (int)((x-start_width)/frame_width + 1);
+            int frame = (int)((x-start_width)/frame_width);
             return frame;
         }
         public int getYFrame(double y)
         {
-            int frame = (int)((y - start_height)/frame_height + 1);
+            int frame = (int)((y - start_height)/frame_height);
             return frame;
         }
 
@@ -94,6 +95,20 @@ namespace LordOfUltima
         */
         private void verifyMap()
         {
+            // coin haut gauche
+            m_map[0, 0].setInvalid(); m_map[0, 1].setInvalid(); m_map[1, 0].setInvalid();
+            // coin bas gauche
+            m_map[0, 18].setInvalid(); m_map[0, 17].setInvalid(); m_map[1, 18].setInvalid();
+            // coin haut droit
+            m_map[18, 0].setInvalid(); m_map[17, 0].setInvalid(); m_map[18, 1].setInvalid();
+            // coin bas droit
+            m_map[18, 18].setInvalid(); m_map[18, 17].setInvalid(); m_map[17, 18].setInvalid();
+
+            for(int i = 0; i < 5; i++)
+            {
+                m_map[i, 9].setInvalid(); m_map[18 - i, 9].setInvalid();
+                m_map[9, i].setInvalid(); m_map[9, 18 - i].setInvalid();
+            }
 
         }
     }

@@ -44,11 +44,20 @@ namespace LordOfUltima
             return m_rect;
         }
 
+        /*
+         * Met invalide l'element (ne sera pas affiche)
+        */
+        public void setInvalid()
+        {
+            m_isValid = false;
+            m_rect.Opacity = 0;
+        }
+
         private Rectangle m_rect;
         ImageBrush m_imgbrush;
         private string m_path = "";
         public int m_width = 40;
         public int m_height = 40;
-        public bool m_isValid = true;
+        private bool m_isValid = true;
     }
 }

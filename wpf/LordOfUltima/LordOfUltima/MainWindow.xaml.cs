@@ -36,6 +36,7 @@ namespace LordOfUltima
             m_gameboard = Gameboard.getInstance();
             // Insertion des elements dans la carte
             insertMap();
+            
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
