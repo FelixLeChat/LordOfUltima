@@ -62,6 +62,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Events\EventDispatcher.cs" />
+    <Compile Include="Gameboard\Element.cs" />
     <Compile Include="Gameboard\Gameboard.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
