@@ -1,0 +1,22 @@
+﻿<Window x:Class="LordOfUltima.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" 
+        Height="620" 
+        Width="1050"
+        MinHeight="620"
+        MinWidth="1050">
+
+    <Grid Name="grid">
+        <Label Content="Mouse X : " Name="mousePosX" HorizontalAlignment="Left" Margin="0,0,-56,-39"/>
+        <Label Content="Mouse Y : " Name="mousePosY" HorizontalAlignment="Left" Margin="140,0,0,0"/>
+        <Label Content="Frame X : " Name="frameX" HorizontalAlignment="Left" Margin="366,0,0,0"/>
+        <Label Content="Frame Y : " Name="frameY" HorizontalAlignment="Left" Margin="485,0,0,0"/>
+        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1">
+            <Canvas.Background>
+                <ImageBrush/>
+            </Canvas.Background>
+        </Canvas>
+       
+    </Grid>
+</Window>
