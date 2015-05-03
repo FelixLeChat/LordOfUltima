@@ -3,20 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" 
         Height="640" 
-        Width="1050"
+        Width="1175"
         MinHeight="640"
-        MinWidth="1050">
+        MinWidth="1175">
 
     <Grid Name="grid">
-        <Label Content="Mouse X : " Name="mousePosX" HorizontalAlignment="Left" Margin="0,0,-56,-39"/>
-        <Label Content="Mouse Y : " Name="mousePosY" HorizontalAlignment="Left" Margin="140,0,0,0"/>
-        <Label Content="Frame X : " Name="frameX" HorizontalAlignment="Left" Margin="366,0,0,0"/>
-        <Label Content="Frame Y : " Name="frameY" HorizontalAlignment="Left" Margin="485,0,0,0"/>
-        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1">
+        <!-- Wood ressource Label + img -->
+        <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522"/>
+        <Label Content="Wood : " HorizontalAlignment="Left" Margin="38,-2,0,0"/>
+        <Label Content="1000" Name="qty_wood" HorizontalAlignment="Left" Margin="82,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538"/>
+        
+        
+        <Label Content="Frame X : " Name="frameX" HorizontalAlignment="Left" Margin="957,0,0,0"/>
+        <Label Content="Frame Y : " Name="frameY" HorizontalAlignment="Left" Margin="1063,0,0,0"/>
+        
+        
+        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel">
+            <Canvas.RenderTransform>
+                <ScaleTransform x:Name="st"/>
+            </Canvas.RenderTransform>
             <Canvas.Background>
-                <ImageBrush/>
-            </Canvas.Background>
+                    <ImageBrush/>
+                </Canvas.Background>
         </Canvas>
-       
+        
+        <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="580" Margin="890,22,0,0" VerticalAlignment="Top" Width="267">
+            <Canvas Name="canvas2" Height="700" Width="244" RenderTransformOrigin="0.527,0.569"/>
+        </ScrollViewer>
+        
     </Grid>
 </Window>

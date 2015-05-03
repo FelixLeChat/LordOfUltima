@@ -21,7 +21,8 @@ namespace LordOfUltima
 
             // Images
             m_imgbrush = new ImageBrush();
-            m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/none.png", UriKind.Relative));
+            //m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/none.png", UriKind.Relative));
+            m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/building/building_iron_quary.png", UriKind.Relative));
             m_rect.Fill = m_imgbrush;
         }
 

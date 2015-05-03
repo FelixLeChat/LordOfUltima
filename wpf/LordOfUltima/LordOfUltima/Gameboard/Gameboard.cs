@@ -17,7 +17,7 @@ namespace LordOfUltima
         private double width = 830;
         private double start_width = 55;
         private double height = 560;
-        private double start_height = 70;
+        private double start_height = 55; //70
         
         // Information sur les divisions dans le jeu
         private double frame_width;
@@ -110,6 +110,20 @@ namespace LordOfUltima
                 m_map[9, i].setInvalid(); m_map[9, 18 - i].setInvalid();
             }
 
+            for(int i = 0; i < 7; i++)
+            {
+                m_map[6 + i, 4].setInvalid(); m_map[6 + i, 14].setInvalid();
+                m_map[4, 6 + i].setInvalid(); m_map[14, 6 + i].setInvalid();
+            }
+
+            m_map[5, 5].setInvalid(); m_map[6, 5].setInvalid(); m_map[5, 6].setInvalid();
+            m_map[5, 13].setInvalid(); m_map[5, 12].setInvalid(); m_map[6, 13].setInvalid();
+
+            m_map[13, 5].setInvalid(); m_map[12, 5].setInvalid(); m_map[13, 6].setInvalid();
+            m_map[13, 13].setInvalid(); m_map[13, 12].setInvalid(); m_map[12, 13].setInvalid();
+
+            // Default img for townhall
+            m_map[9, 9].setPath("Media/building/building_townhall.png");
         }
     }
 }
