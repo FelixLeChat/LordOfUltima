@@ -46,6 +46,11 @@ namespace LordOfUltima
             imageRWood.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_wood.png", UriKind.Relative));
             ress_wood.Background = imageRWood;
 
+            // Image for stone
+            ImageBrush imageRStone = new ImageBrush();
+            imageRStone.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_stone.png", UriKind.Relative));
+            ress_stone.Background = imageRStone;
+
             // Set the gameboard Instance
             m_gameboard = Gameboard.getInstance();
             // Insertion des elements dans la carte
@@ -84,51 +89,43 @@ namespace LordOfUltima
         */
         const double ScaleRate = 1.05;
         const double ScaleMin = 1.0;
-        const double ScaleMax = 1.7;
+        const double ScaleMax = 2.5;
+        private Point m_p = new Point(0, 0);
+        private double m_scale = 1;
+        private bool m_isset = false;
+
         private void canvas1_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            /*Point p = e.MouseDevice.GetPosition(canvas1);
+            if(e.Delta > 0 && !m_isset)
+            {
+                m_isset = true;
+                m_p = e.MouseDevice.GetPosition(canvas1);
+            }
 
             Matrix m = canvas1.RenderTransform.Value;
             if (e.Delta > 0)
-                m.ScaleAtPrepend(1.1, 1.1, p.X, p.Y);
+            {
+                if(m_scale * ScaleRate > ScaleMax)
+                {
+                    return;
+                }
+                m.ScaleAtPrepend(ScaleRate, ScaleRate, m_p.X, m_p.Y);
+                m_scale *= ScaleRate;
+            }
             else
-                m.ScaleAtPrepend(1 / 1.1, 1 / 1.1, p.X, p.Y);
+            {
+                if (m_scale / ScaleRate < ScaleMin)
+                {
+                    m_isset = false;
+                    return;
+                }
+                m.ScaleAtPrepend(1 / ScaleRate, 1 / ScaleRate, m_p.X, m_p.Y);
+                m_scale /= ScaleRate;
+            }
+                
 
-            canvas1.RenderTransform = new MatrixTransform(m);*/
-
-            if (e.Delta>0)
-           {
-               if(st.ScaleX * ScaleRate >= ScaleMax)
-               {
-                   st.ScaleX = ScaleMax;
-                   st.ScaleY = ScaleMax;
-                   return;
-               }
-               else
-               {
-                   st.ScaleX *= ScaleRate;
-                   st.ScaleY *= ScaleRate;
-               }
-           }
-           else
-           {
-               if (st.ScaleX / ScaleRate <= ScaleMin)
-               {
-                   st.ScaleX = ScaleMin;
-                   st.ScaleY = ScaleMin;
-               }
-               else
-               {
-                   st.ScaleX /= ScaleRate;
-                   st.ScaleY /= ScaleRate;
-               }
-           }
-
-           tt.X = -(st.ScaleX - 1) * (Mouse.GetPosition(canvas1).X/ScaleRate);
-           tt.Y = -(st.ScaleY - 1) * (Mouse.GetPosition(canvas1).Y/ScaleRate);
+            canvas1.RenderTransform = new MatrixTransform(m);
         }
-
 
     }
 }

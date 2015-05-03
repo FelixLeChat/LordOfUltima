@@ -27,7 +27,12 @@
             <!-- Wood ressource Label + img -->
             <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522"/>
             <Label Content="Wood : " HorizontalAlignment="Left" Margin="38,-2,0,0"/>
-            <Label Content="1000" Name="qty_wood" HorizontalAlignment="Left" Margin="82,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538"/>
+            <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" Margin="82,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538"/>
+
+            <!-- Stone ressource Label + img -->
+            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="221"/>
+            <Label Content="Stone : " HorizontalAlignment="Left" Canvas.Left="244" Canvas.Top="-2"/>
+            <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="286" Canvas.Top="-2"/>
 
             <Label Content="Frame X : " Name="frameX" HorizontalAlignment="Left" Margin="957,0,0,0"/>
             <Label Content="Frame Y : " Name="frameY" HorizontalAlignment="Left" Margin="1063,0,0,0"/>

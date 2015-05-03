@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -24,6 +25,8 @@ namespace LordOfUltima
             //m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/none.png", UriKind.Relative));
             m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/building/building_iron_quary.png", UriKind.Relative));
             m_rect.Fill = m_imgbrush;
+
+            m_rect.AddHandler(Rectangle.MouseLeftButtonDownEvent, new RoutedEventHandler(leftButtonDown));
         }
 
         /*
@@ -52,6 +55,13 @@ namespace LordOfUltima
         {
             m_isValid = false;
             m_rect.Opacity = 0;
+        }
+
+        /*
+         * Ajout d'un evenement sur le clic de l'item
+        */
+        private void leftButtonDown(object sender, RoutedEventArgs e)
+        {
         }
 
         private Rectangle m_rect;
