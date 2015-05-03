@@ -10,29 +10,31 @@
     <Grid Name="grid">
 
         <!-- Canvas for game board -->
-        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" Name="canvas_mouse_pos">
-            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove" Canvas.Left="0" Canvas.Top="0">
-            </Canvas>
+        <Canvas HorizontalAlignment="Left" Height="580" Margin="273,28,0,0" VerticalAlignment="Top" Width="890" Name="canvas_mouse_pos">
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove"/>
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="890" Name="canvas_fog"/>
         </Canvas>
 
-
-        <!-- Top canvas for menu and ressources -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,-1,0,0">
-            <!-- Wood ressource Label + img -->
-            <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522"/>
-            <Label Content="Wood : " HorizontalAlignment="Left" Margin="38,-2,0,0"/>
-            <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" Margin="82,-2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538"/>
-
-            <!-- Stone ressource Label + img -->
-            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="221"/>
-            <Label Content="Stone : " HorizontalAlignment="Left" Canvas.Left="244" Canvas.Top="-2"/>
-            <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="286" Canvas.Top="-2"/>
         </Canvas>
 
         <!-- Canvas and scroll Viewer for side menu -->
-        <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="580" Margin="890,22,0,0" VerticalAlignment="Top" Width="269">
+        <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="580" Margin="0,23,0,0" VerticalAlignment="Top" Width="268">
             <Canvas Name="canvas2" Height="700" Width="244" RenderTransformOrigin="0.527,0.569"/>
         </ScrollViewer>
+
+        <!-- Top canvas for menu and ressources -->
+        <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
+            <!-- Wood ressource Label + img -->
+            <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="8"/>
+            <Label Content="Wood : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="8"/>
+            <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="8"/>
+
+            <!-- Stone ressource Label + img -->
+            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="30"/>
+            <Label Content="Stone : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="30"/>
+            <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="30"/>
+        </Canvas>
 
     </Grid>
 </Window>

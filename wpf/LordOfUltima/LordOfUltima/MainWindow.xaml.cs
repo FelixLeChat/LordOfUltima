@@ -36,6 +36,19 @@ namespace LordOfUltima
             imageBrush.ImageSource = new BitmapImage(new Uri(@"Media/main.png", UriKind.Relative));
             canvas1.Background = imageBrush;
 
+            /*LinearGradientBrush vertical_gradient = new LinearGradientBrush();
+            vertical_gradient.StartPoint = new Point(0.0, 0.0);
+            vertical_gradient.EndPoint = new Point(0.0, 0.25);
+
+            // Create and add Gradient stops
+            GradientStop blueGS = new GradientStop();
+            blueGS.Color = Colors.White;
+            blueGS.Offset = 0.25;
+            vertical_gradient.GradientStops.Add(blueGS);
+
+            canvas_fog.Background = vertical_gradient;*/
+
+
             // Backgrouound pour Scroll View
             ImageBrush imageScroll = new ImageBrush();
             imageScroll.ImageSource = new BitmapImage(new Uri(@"Media/menu.png", UriKind.Relative));
@@ -50,6 +63,10 @@ namespace LordOfUltima
             ImageBrush imageRStone = new ImageBrush();
             imageRStone.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_stone.png", UriKind.Relative));
             ress_stone.Background = imageRStone;
+
+            ImageBrush ressMenu = new ImageBrush();
+            ressMenu.ImageSource = new BitmapImage(new Uri(@"Media/ress_menu.png", UriKind.Relative));
+            ress_menu.Background = ressMenu;
 
             // Set the gameboard Instance
             m_gameboard = Gameboard.getInstance();
