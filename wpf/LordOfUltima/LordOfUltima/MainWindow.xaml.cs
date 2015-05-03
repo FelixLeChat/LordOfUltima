@@ -28,7 +28,8 @@ namespace LordOfUltima
             InitializeComponent();
 
             // Couleur du menu
-            grid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE)); ;
+            top_menu.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
+            grid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
 
             // Background pour canvas
             ImageBrush imageBrush = new ImageBrush();
@@ -81,7 +82,7 @@ namespace LordOfUltima
         /*
          * Gestion du scroll Wheel dans le canvas
         */
-        const double ScaleRate = 1.1;
+        const double ScaleRate = 1.05;
         const double ScaleMin = 1.0;
         const double ScaleMax = 1.7;
         private void canvas1_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -95,9 +96,8 @@ namespace LordOfUltima
                 m.ScaleAtPrepend(1 / 1.1, 1 / 1.1, p.X, p.Y);
 
             canvas1.RenderTransform = new MatrixTransform(m);*/
-            
 
-           if(e.Delta>0)
+            if (e.Delta>0)
            {
                if(st.ScaleX * ScaleRate >= ScaleMax)
                {
@@ -105,8 +105,11 @@ namespace LordOfUltima
                    st.ScaleY = ScaleMax;
                    return;
                }
-            st.ScaleX *= ScaleRate;
-            st.ScaleY *= ScaleRate;
+               else
+               {
+                   st.ScaleX *= ScaleRate;
+                   st.ScaleY *= ScaleRate;
+               }
            }
            else
            {
@@ -114,12 +117,16 @@ namespace LordOfUltima
                {
                    st.ScaleX = ScaleMin;
                    st.ScaleY = ScaleMin;
-                    return;
                }
-                   
-            st.ScaleX /= ScaleRate;
-            st.ScaleY /= ScaleRate;
+               else
+               {
+                   st.ScaleX /= ScaleRate;
+                   st.ScaleY /= ScaleRate;
+               }
            }
+
+           tt.X = -(st.ScaleX - 1) * (Mouse.GetPosition(canvas1).X/ScaleRate);
+           tt.Y = -(st.ScaleY - 1) * (Mouse.GetPosition(canvas1).Y/ScaleRate);
         }
 
 
