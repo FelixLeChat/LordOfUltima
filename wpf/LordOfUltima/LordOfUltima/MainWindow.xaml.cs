@@ -62,10 +62,6 @@ namespace LordOfUltima
         {
             double mouseX = Mouse.GetPosition(grid).X;
             double mouseY = Mouse.GetPosition(grid).Y;
-
-            // Obtention de la position dans le tableau (prend en compte le zoom)
-            frameX.Content = "Frame X : " + m_gameboard.getXFrame(mouseX/st.ScaleX);
-            frameY.Content = "Frame Y : " + m_gameboard.getYFrame(mouseY/st.ScaleY);
         }
 
         /*
@@ -84,19 +80,19 @@ namespace LordOfUltima
 
         }
 
-        /*
-         * Gestion du scroll Wheel dans le canvas
-        */
+
         const double ScaleRate = 1.05;
         const double ScaleMin = 1.0;
         const double ScaleMax = 2.5;
         private Point m_p = new Point(0, 0);
         private double m_scale = 1;
         private bool m_isset = false;
-
+        /*
+         * Gestion du scroll Wheel dans le canvas
+        */
         private void canvas1_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if(e.Delta > 0 && !m_isset)
+            if (e.Delta > 0 && !m_isset)
             {
                 m_isset = true;
                 m_p = e.MouseDevice.GetPosition(canvas1);
@@ -122,9 +118,48 @@ namespace LordOfUltima
                 m.ScaleAtPrepend(1 / ScaleRate, 1 / ScaleRate, m_p.X, m_p.Y);
                 m_scale /= ScaleRate;
             }
-                
-
             canvas1.RenderTransform = new MatrixTransform(m);
+        }
+
+        /*
+         * Gestion du drag
+        */
+        private bool m_isMouseDown = false;
+        private Point m_start_mouse_pos;
+        private Point m_old_pos = new Point(0, 0);
+        private void canvas1_leftMouseDown(object sender, RoutedEventArgs e)
+        {
+            m_isMouseDown = true;
+            m_start_mouse_pos = Mouse.GetPosition(canvas_mouse_pos);
+            canvas1.CaptureMouse();
+        }
+
+        private void canvas1_leftMouseUp(object sender, RoutedEventArgs e)
+        {
+            m_isMouseDown = false;
+            canvas1.ReleaseMouseCapture();
+            m_old_pos.X = Canvas.GetLeft(canvas1);
+            m_old_pos.Y = Canvas.GetTop(canvas1);
+        }
+
+        private void canvas1_mouseMove(object sender, MouseEventArgs e)
+        {
+            if (!m_isMouseDown) return;
+
+            Point currentMousePos = Mouse.GetPosition(canvas_mouse_pos);
+
+            // center the rect on the mouse
+            double max_deplacement = 100 * Math.Pow(m_scale,3);
+            double dx = m_old_pos.X + (currentMousePos.X - m_start_mouse_pos.X);
+            double dy = m_old_pos.Y + (currentMousePos.Y - m_start_mouse_pos.Y);
+
+            if (Math.Abs(dx) < max_deplacement )
+                Canvas.SetLeft(canvas1, dx);
+
+            if (Math.Abs(dy) < max_deplacement)
+                Canvas.SetTop(canvas1, dy);
+
+           // m_start_mouse_pos = currentMousePos;
         }
 
     }

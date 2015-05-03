@@ -10,17 +10,11 @@
     <Grid Name="grid">
 
         <!-- Canvas for game board -->
-        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel">
-            <Canvas.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform x:Name="st"/>
-                    <TranslateTransform x:Name="tt"/>
-                </TransformGroup>
-            </Canvas.RenderTransform>
-            <Canvas.Background>
-                <ImageBrush/>
-            </Canvas.Background>
+        <Canvas HorizontalAlignment="Left" Height="580" Margin="0,22,-289,-217" VerticalAlignment="Top" Width="890" Name="canvas_mouse_pos">
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="890" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove" Canvas.Left="0" Canvas.Top="0">
+            </Canvas>
         </Canvas>
+
 
         <!-- Top canvas for menu and ressources -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,-1,0,0">
@@ -33,9 +27,6 @@
             <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="221"/>
             <Label Content="Stone : " HorizontalAlignment="Left" Canvas.Left="244" Canvas.Top="-2"/>
             <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="286" Canvas.Top="-2"/>
-
-            <Label Content="Frame X : " Name="frameX" HorizontalAlignment="Left" Margin="957,0,0,0"/>
-            <Label Content="Frame Y : " Name="frameY" HorizontalAlignment="Left" Margin="1063,0,0,0"/>
         </Canvas>
 
         <!-- Canvas and scroll Viewer for side menu -->

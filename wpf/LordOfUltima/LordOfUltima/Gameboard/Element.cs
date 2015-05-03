@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -60,8 +62,10 @@ namespace LordOfUltima
         /*
          * Ajout d'un evenement sur le clic de l'item
         */
+        static bool _isRectDragInProg = false;
         private void leftButtonDown(object sender, RoutedEventArgs e)
         {
+            _isRectDragInProg = true;
         }
 
         private Rectangle m_rect;
