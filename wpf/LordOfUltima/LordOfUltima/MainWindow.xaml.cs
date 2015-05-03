@@ -36,17 +36,17 @@ namespace LordOfUltima
             imageBrush.ImageSource = new BitmapImage(new Uri(@"Media/main.png", UriKind.Relative));
             canvas1.Background = imageBrush;
 
-            /*LinearGradientBrush vertical_gradient = new LinearGradientBrush();
-            vertical_gradient.StartPoint = new Point(0.0, 0.0);
-            vertical_gradient.EndPoint = new Point(0.0, 0.25);
 
-            // Create and add Gradient stops
-            GradientStop blueGS = new GradientStop();
-            blueGS.Color = Colors.White;
-            blueGS.Offset = 0.25;
-            vertical_gradient.GradientStops.Add(blueGS);
+            LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
+            myLinearGradientBrush.StartPoint = new Point(0, 0);
+            myLinearGradientBrush.EndPoint = new Point(0, 1);
 
-            canvas_fog.Background = vertical_gradient;*/
+            myLinearGradientBrush.GradientStops.Add( new GradientStop(Colors.White, -0.03));
+            myLinearGradientBrush.GradientStops.Add( new GradientStop(Colors.Transparent, 0.10));
+            myLinearGradientBrush.GradientStops.Add( new GradientStop(Colors.Transparent, 0.90));
+            myLinearGradientBrush.GradientStops.Add( new GradientStop(Colors.White, 1.03));
+
+            canvas_fog.Fill = myLinearGradientBrush;
 
 
             // Backgrouound pour Scroll View

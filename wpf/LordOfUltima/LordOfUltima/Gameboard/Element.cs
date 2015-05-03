@@ -62,10 +62,10 @@ namespace LordOfUltima
         /*
          * Ajout d'un evenement sur le clic de l'item
         */
-        static bool _isRectDragInProg = false;
+        private bool m_isClicked = false;
         private void leftButtonDown(object sender, RoutedEventArgs e)
         {
-            _isRectDragInProg = true;
+            m_isClicked = true;
         }
 
         private Rectangle m_rect;
