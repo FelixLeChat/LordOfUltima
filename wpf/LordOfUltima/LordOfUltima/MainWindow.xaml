@@ -10,6 +10,7 @@
         MaxWidth="1175">
 
     <Grid Name="grid">
+        
 
         <!-- Canvas for game board -->
         <Canvas HorizontalAlignment="Left" Height="580" Margin="268,23,0,0" VerticalAlignment="Top" Width="891" Name="canvas_mouse_pos">
@@ -57,7 +58,7 @@
             <Label Content="0" Name="qty_stone_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="25" Foreground="#443025" Width="83"/>
 
             <!--<Line X1="10" Y1="54" X2="234" Y2="54" Stroke="#443025" StrokeThickness="1" />-->
-            
+
             <!-- Grain ressource Label + img -->
             <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="65"/>
             <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="65" Foreground="#247624"/>
@@ -71,5 +72,12 @@
             <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="82" Foreground="#443025" Width="83"/>
         </Canvas>
 
+        <Menu IsMainMenu="True" Height="24" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="53" Margin="960,-1,0,0" >
+            <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
+                <MenuItem Header="Show level"  x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+            </MenuItem>
+
+        </Menu>
+        
     </Grid>
 </Window>

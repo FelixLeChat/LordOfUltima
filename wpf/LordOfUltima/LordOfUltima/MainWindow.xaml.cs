@@ -71,10 +71,7 @@ namespace LordOfUltima
             // Couleur du menu
             ImageBrush imageMenuRepeat = new ImageBrush();
             imageMenuRepeat.ImageSource = new BitmapImage(new Uri(@"Media/menu_repeat.png", UriKind.Relative));
-            /*imageMenuRepeat.TileMode = TileMode.FlipX;
-            imageMenuRepeat.Stretch = Stretch.Uniform;
-            imageMenuRepeat.Viewport = new Rect(0, 0, 92, 61);
-            imageMenuRepeat.ViewportUnits = BrushMappingMode.Absolute;*/
+            menu1.Background = imageMenuRepeat;
             top_menu.Background = imageMenuRepeat;
 
             grid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
@@ -216,6 +213,11 @@ namespace LordOfUltima
                 Canvas.SetTop(canvas1, dy);
 
            // m_start_mouse_pos = currentMousePos;
+        }
+
+        private void trigger_level_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

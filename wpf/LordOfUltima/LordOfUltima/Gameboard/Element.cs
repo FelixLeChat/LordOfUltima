@@ -105,5 +105,19 @@ namespace LordOfUltima
         public int m_height = 40;
         private bool m_isValid = true;
         private int m_level = 0;
+
+        public void hideLevelIndicator()
+        {
+            m_level_rect.Opacity = 0;
+            m_level_label.Opacity = 0;
+        }
+        public void showLevelIndicator()
+        {
+            if(m_isValid)
+            {
+                m_level_rect.Opacity = 1;
+                m_level_label.Opacity = 1;
+            }
+        }
     }
 }

@@ -137,5 +137,21 @@ namespace LordOfUltima
             // Default img for townhall
             m_map[9, 9].setPath("Media/building/building_townhall.png");
         }
+
+        private void hideLevelIndicator()
+        {
+            foreach( Element element in m_map)
+            {
+                element.hideLevelIndicator();
+            }
+        }
+
+        private void showLevelIndicator()
+        {
+            foreach (Element element in m_map)
+            {
+                element.showLevelIndicator();
+            }
+        }
     }
 }
