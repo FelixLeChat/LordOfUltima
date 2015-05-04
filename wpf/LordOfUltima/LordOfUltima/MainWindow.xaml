@@ -21,6 +21,18 @@
         </Canvas>
 
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">
+            <Label Name="label_player_name" Content="Name" Width="75" Height="24" Foreground="#FCEB43"/>
+            <Label Content="Title: " Width="39" Height="24" Canvas.Left="80" Foreground="#918544"/>
+            <Label Name="label_player_title" Content="Prince" Width="80" Height="24" Foreground="#FCEB43" Canvas.Left="110"/>
+            <Label Content="Score: " Width="45" Height="24" Canvas.Left="224" Foreground="#918544"/>
+            <Label Name="label_player_score" Content="1234556" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="260"/>
+            <Label Name="label_player_position" Content="(21.)" Width="51" Height="24" Foreground="#FCEB43" Canvas.Left="320"/>
+
+            <Canvas Name="ress_gold" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23"  Canvas.Left="375"/>
+            <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400"/>
+
+            <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1"/>
+            <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486"/>
         </Canvas>
 
         <!-- Canvas and scroll Viewer for side menu -->
@@ -32,23 +44,31 @@
         <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
             <!-- Wood ressource Label + img -->
             <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="8"/>
-            <Label Content="Wood : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="8"/>
-            <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="8"/>
+            <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="8" Foreground="#247624" Width="83"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="25" Foreground="#443025"/>
+            <Label Content="0" Name="qty_wood_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="25" Foreground="#443025" Width="83"/>
+
+            <!--<Line X1="10" Y1="31" X2="234" Y2="31" Stroke="#443025" StrokeThickness="1" />-->
 
             <!-- Stone ressource Label + img -->
-            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="30"/>
-            <Label Content="Stone : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="30"/>
-            <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="30"/>
+            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="8"/>
+            <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="8" Foreground="#247624" Width="83"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="25" Foreground="#443025"/>
+            <Label Content="0" Name="qty_stone_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="25" Foreground="#443025" Width="83"/>
 
+            <!--<Line X1="10" Y1="54" X2="234" Y2="54" Stroke="#443025" StrokeThickness="1" />-->
+            
             <!-- Grain ressource Label + img -->
-            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="52"/>
-            <Label Content="Grain : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="52"/>
-            <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="52"/>
+            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="65"/>
+            <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="65" Foreground="#247624"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="82" Foreground="#443025"/>
+            <Label Content="0" Name="qty_grain_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="82" Foreground="#443025" Width="83"/>
 
             <!-- Iron ressource Label + img -->
-            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="74"/>
-            <Label Content="Iron : " HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="74"/>
-            <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="72" Canvas.Top="74"/>
+            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="65"/>
+            <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="65" Foreground="#247624"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="82" Foreground="#443025"/>
+            <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="82" Foreground="#443025" Width="83"/>
         </Canvas>
 
     </Grid>

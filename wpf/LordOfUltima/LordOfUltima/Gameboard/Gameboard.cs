@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 using System.Windows;
 
 namespace LordOfUltima
@@ -42,8 +43,19 @@ namespace LordOfUltima
                 for (int j = 0; j < frame_count; j++)
                 {
                     m_map[i, j] = new Element();
+                    Rectangle element_rect = m_map[i, j].getElement();
 
-                    m_map[i, j].getElement().Margin = new Thickness(i*frame_width + start_width, j*frame_height + (start_height-frame_height), 0, 0);
+                    // Position for building element
+                    element_rect.Margin = new Thickness(i*frame_width + start_width, j*frame_height + (start_height-frame_height), 0, 0);
+
+                    // Position for building level
+                    Rectangle level_rect = m_map[i, j].getLevelElement();
+                    level_rect.Margin = new Thickness(element_rect.Margin.Left + frame_width / 3, element_rect.Margin.Top + frame_height, 0, 0);
+
+                    // Position for label level
+                    double left = level_rect.Margin.Left;
+                    double top = level_rect.Margin.Top;
+                    m_map[i, j].getLevelLabel().Margin = new Thickness(left-3.1, top-7, 0, 0);
                 }
             }
             verifyMap();

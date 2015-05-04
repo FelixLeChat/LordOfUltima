@@ -50,7 +50,13 @@ namespace LordOfUltima
         {
             foreach(Element element in m_gameboard.getMap())
             {
+                // Add building to canvas
                 canvas1.Children.Add(element.getElement());
+                // Add building level to canvas
+                canvas1.Children.Add(element.getLevelElement());
+                // Add level label to canvas
+                //canvas1.Children.Add(element.getLevelLabel());
+                canvas1.Children.Add(element.getLevelLabel());
             }
         }
 
@@ -118,6 +124,16 @@ namespace LordOfUltima
             ImageBrush imageRIron = new ImageBrush();
             imageRIron.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_iron.png", UriKind.Relative));
             ress_iron.Background = imageRIron;
+
+            // Image for gold
+            ImageBrush imageRGold = new ImageBrush();
+            imageRGold.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_gold.png", UriKind.Relative));
+            ress_gold.Background = imageRGold;
+
+            // Image for researh
+            ImageBrush imageRResearch = new ImageBrush();
+            imageRResearch.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/research.png", UriKind.Relative));
+            ress_research.Background = imageRResearch;
         }
 
 
