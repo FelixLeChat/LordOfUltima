@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -23,6 +26,7 @@ namespace LordOfUltima
     {
         private Gameboard m_gameboard;
 
+        private Stopwatch m_watch;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +39,26 @@ namespace LordOfUltima
             insertMap();
             // Inserer les elements dans le menu
             insertMenu();
+            // Cacher les niveaux a la base
+            m_gameboard.hideLevelIndicator();
+
+            // Start watch
+            m_watch = new Stopwatch();
+            m_watch.Start();
+
+            // Dispatcher pour programme Idle
+            ComponentDispatcher.ThreadIdle += new System.EventHandler(ComponentDispatcher_ThreadIdle);
+
+        }
+
+        // Idle loop
+        void ComponentDispatcher_ThreadIdle(object sender, EventArgs e)
+        {
+            //do your idle stuff here
+
+            // Show stopwatch in menu :D
+            TimeSpan ts = m_watch.Elapsed;
+            stop_watch.Content = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -62,7 +86,7 @@ namespace LordOfUltima
 
         private void insertMenu()
         {
-            // TODO : Insertion des elements graphique dans le menu
+            // TODO : Insertion des elements graphique dans le menu de gauche
         }
 
         private void initImages()
@@ -178,11 +202,16 @@ namespace LordOfUltima
          * Gestion du drag
         */
         private bool m_isMouseDown = false;
+        private bool m_isMouseMove = false;
         private Point m_start_mouse_pos;
         private Point m_old_pos = new Point(0, 0);
         private void canvas1_leftMouseDown(object sender, RoutedEventArgs e)
         {
             m_isMouseDown = true;
+            // Reinitialiser le mouve a false au click down
+            m_isMouseMove = false;
+            m_totalMove = 0.0;
+
             m_start_mouse_pos = Mouse.GetPosition(canvas_mouse_pos);
             canvas1.CaptureMouse();
         }
@@ -195,29 +224,54 @@ namespace LordOfUltima
             m_old_pos.Y = Canvas.GetTop(canvas1);
         }
 
+        /*
+         * Gestion du deplacement de la souris sur la carte
+        */
+        private double m_totalMove = 0;
         private void canvas1_mouseMove(object sender, MouseEventArgs e)
         {
             if (!m_isMouseDown) return;
+            
+            // Si on se deplace de plus d'un certain nombre de pixel, on ignore le click up pour la selection d'un batiment
+            if(m_totalMove > 5)
+            {
+                m_isMouseMove = true;
+            }
 
             Point currentMousePos = Mouse.GetPosition(canvas_mouse_pos);
 
-            // center the rect on the mouse
             double max_deplacement = 100 * Math.Pow(m_scale,3);
             double dx = m_old_pos.X + (currentMousePos.X - m_start_mouse_pos.X);
             double dy = m_old_pos.Y + (currentMousePos.Y - m_start_mouse_pos.Y);
+
+            // Calcul du mouse move totale
+            m_totalMove += dx + dy;
 
             if (Math.Abs(dx) < max_deplacement )
                 Canvas.SetLeft(canvas1, dx);
 
             if (Math.Abs(dy) < max_deplacement)
                 Canvas.SetTop(canvas1, dy);
-
-           // m_start_mouse_pos = currentMousePos;
         }
 
+        /*
+         * Trigger building level indicator on map
+        */
         private void trigger_level_Click(object sender, RoutedEventArgs e)
         {
+            if(trigger_level.IsChecked)
+            {
+                m_gameboard.showLevelIndicator();
+            }
+            else
+            {
+                m_gameboard.hideLevelIndicator();
+            }
+        }
 
+        public bool getIsMouseMove()
+        {
+            return m_isMouseMove;
         }
 
     }

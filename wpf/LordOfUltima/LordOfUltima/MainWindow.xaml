@@ -21,6 +21,7 @@
                        Name="canvas_fog" IsHitTestVisible="false"/>
         </Canvas>
 
+        <!-- Menu du haut avec informations sur le joueur -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">
             <Label Name="label_player_name" Content="Name" Width="75" Height="24" Foreground="#FCEB43"/>
             <Label Content="Title: " Width="39" Height="24" Canvas.Left="80" Foreground="#918544"/>
@@ -34,6 +35,9 @@
 
             <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1"/>
             <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486"/>
+
+            <Label Name="stop_watch" Content="0" Width="85" Height="24" Foreground="#FCEB43" Canvas.Left="733"/>
+
         </Canvas>
 
         <!-- Canvas and scroll Viewer for side menu -->
@@ -72,11 +76,12 @@
             <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="82" Foreground="#443025" Width="83"/>
         </Canvas>
 
+        <!-- Menu -->
         <Menu IsMainMenu="True" Height="24" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="53" Margin="960,-1,0,0" >
+            <!-- Option Menu -->
             <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
-                <MenuItem Header="Show level"  x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+                <MenuItem Header="Show buildinng level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
             </MenuItem>
-
         </Menu>
         
     </Grid>

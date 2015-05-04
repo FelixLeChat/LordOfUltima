@@ -29,6 +29,7 @@ namespace LordOfUltima
             m_rect.Fill = m_imgbrush;
 
             m_rect.AddHandler(Rectangle.MouseLeftButtonDownEvent, new RoutedEventHandler(leftButtonDown));
+            m_rect.AddHandler(Rectangle.MouseLeftButtonUpEvent, new RoutedEventHandler(leftButtonUp));
 
             // Level Rectangle
             m_level_rect = new Rectangle();
@@ -94,7 +95,15 @@ namespace LordOfUltima
         {
             m_isClicked = true;
         }
+        private void leftButtonUp(object sender, RoutedEventArgs e)
+        {
+            if(m_isClicked)
+            {
+                m_isClicked = false;
+            }
+        }
 
+        // Elements graphiques lie au building
         private Rectangle m_rect;
         private Rectangle m_level_rect;
         private Label m_level_label;
@@ -106,6 +115,9 @@ namespace LordOfUltima
         private bool m_isValid = true;
         private int m_level = 0;
 
+        /*
+         * Methode pour la gestion de la presence de l'indicateur de niveau
+        */
         public void hideLevelIndicator()
         {
             m_level_rect.Opacity = 0;
@@ -113,6 +125,7 @@ namespace LordOfUltima
         }
         public void showLevelIndicator()
         {
+            // Verifier si l'objet est valide (dois etre afficher) avant de l'afficher
             if(m_isValid)
             {
                 m_level_rect.Opacity = 1;

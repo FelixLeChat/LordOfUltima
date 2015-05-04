@@ -138,7 +138,7 @@ namespace LordOfUltima
             m_map[9, 9].setPath("Media/building/building_townhall.png");
         }
 
-        private void hideLevelIndicator()
+        public void hideLevelIndicator()
         {
             foreach( Element element in m_map)
             {
@@ -146,7 +146,7 @@ namespace LordOfUltima
             }
         }
 
-        private void showLevelIndicator()
+        public void showLevelIndicator()
         {
             foreach (Element element in m_map)
             {
