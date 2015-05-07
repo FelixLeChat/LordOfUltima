@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -16,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+
+using LordOfUltima.Web;
 
 namespace LordOfUltima
 {
@@ -42,13 +46,17 @@ namespace LordOfUltima
             // Cacher les niveaux a la base
             m_gameboard.hideLevelIndicator();
 
-            // Start watch
+            // Start Stop watch
             m_watch = new Stopwatch();
             m_watch.Start();
 
             // Dispatcher pour programme Idle
             ComponentDispatcher.ThreadIdle += new System.EventHandler(ComponentDispatcher_ThreadIdle);
 
+            // Start Chat thread
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += updateChat;
+            bw.RunWorkerAsync();
         }
 
         // Idle loop
@@ -59,6 +67,27 @@ namespace LordOfUltima
             // Show stopwatch in menu :D
             TimeSpan ts = m_watch.Elapsed;
             stop_watch.Content = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+
+            if(m_new_chat_lines != "")
+            {
+                lock(m_lock_chat)
+                {
+                    chat_textbox.Text += System.Environment.NewLine + m_new_chat_lines;
+                    m_new_chat_lines = "";
+                }
+                textbox_scroll_viewer.ScrollToBottom();
+
+
+                string text_string = chat_textbox.Text;//.Replace(Environment.NewLine, "");
+                string[] lines = text_string.Split(Environment.NewLine.ToCharArray());
+                if(lines.Length > 10)
+                {
+                    string output = string.Join(Environment.NewLine, lines, lines.Length - 10, 10);
+                    chat_textbox.Text = output;
+                }
+                
+            }
+            
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -228,7 +257,7 @@ namespace LordOfUltima
          * Gestion du deplacement de la souris sur la carte
         */
         private double m_totalMove = 0;
-        private void canvas1_mouseMove(object sender, MouseEventArgs e)
+        private void canvas1_mouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (!m_isMouseDown) return;
             
@@ -272,6 +301,41 @@ namespace LordOfUltima
         public bool getIsMouseMove()
         {
             return m_isMouseMove;
+        }
+
+        /*
+         * Gestion entrer clavier pour le chat text input
+        */
+        private void chat_text_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                // TODO : Ajout newline
+                chat_textbox.Text += chat_text.Text;
+                chat_text.Text = "";
+            }
+        }
+
+        private DateTime m_last_chat_update = DateTime.Now;
+        private bool m_stop_chat_update = false;
+        private Chat m_chat_ins = Chat.getInstance();
+        private string m_new_chat_lines = "";
+        private Object m_lock_chat = new Object();
+
+        private void updateChat(object sender, DoWorkEventArgs e)
+        {
+            while (!m_stop_chat_update)
+            {
+                // update each 2 seconds
+                System.Threading.Thread.Sleep(2000);
+                m_last_chat_update = DateTime.Now;
+
+                lock (m_lock_chat)
+                {
+                    m_new_chat_lines = m_chat_ins.getLastChatString(m_last_chat_update);
+                }
+            }
+ 
         }
 
     }

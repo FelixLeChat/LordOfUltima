@@ -10,7 +10,7 @@
         MaxWidth="1175">
 
     <Grid Name="grid">
-        
+
 
         <!-- Canvas for game board -->
         <Canvas HorizontalAlignment="Left" Height="580" Margin="268,23,0,0" VerticalAlignment="Top" Width="891" Name="canvas_mouse_pos">
@@ -19,6 +19,18 @@
             </Canvas>
             <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" 
                        Name="canvas_fog" IsHitTestVisible="false"/>
+            <ScrollViewer Height="100" Canvas.Top="457" Width="300" Opacity="0.7" Name="textbox_scroll_viewer">
+                <ScrollViewer.Background>
+                    <SolidColorBrush Color="#FFB6ABA4"/>
+                </ScrollViewer.Background>
+                <TextBlock TextWrapping="Wrap" Name="chat_textbox" Text="TextBlock" FontFamily="Vani" LineHeight="6" IsEnabled="False"/>
+            </ScrollViewer>
+            <TextBox Height="23" Name="chat_text" TextWrapping="Wrap" Text="TextBox" Canvas.Top="557" Width="300" FontFamily="Vani" KeyDown="chat_text_KeyDown" Opacity="0.7">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#B2FFFFFF" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+
         </Canvas>
 
         <!-- Menu du haut avec informations sur le joueur -->
@@ -83,6 +95,6 @@
                 <MenuItem Header="Show buildinng level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
             </MenuItem>
         </Menu>
-        
+
     </Grid>
 </Window>
