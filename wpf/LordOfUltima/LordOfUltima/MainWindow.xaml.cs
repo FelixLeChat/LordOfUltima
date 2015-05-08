@@ -29,8 +29,8 @@ namespace LordOfUltima
     public partial class MainWindow : Window
     {
         private Gameboard m_gameboard;
-
         private Stopwatch m_watch;
+        public const int chatbox_max_items = 30;
         public MainWindow()
         {
             InitializeComponent();
@@ -68,26 +68,8 @@ namespace LordOfUltima
             TimeSpan ts = m_watch.Elapsed;
             stop_watch.Content = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
-            if(m_new_chat_lines != "")
-            {
-                lock(m_lock_chat)
-                {
-                    chat_textbox.Text += System.Environment.NewLine + m_new_chat_lines;
-                    m_new_chat_lines = "";
-                }
-                textbox_scroll_viewer.ScrollToBottom();
-
-
-                string text_string = chat_textbox.Text;//.Replace(Environment.NewLine, "");
-                string[] lines = text_string.Split(Environment.NewLine.ToCharArray());
-                if(lines.Length > 10)
-                {
-                    string output = string.Join(Environment.NewLine, lines, lines.Length - 10, 10);
-                    chat_textbox.Text = output;
-                }
-                
-            }
-            
+            // Update the chat 
+            ui_thread_updateChat();
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -310,8 +292,7 @@ namespace LordOfUltima
         {
             if(e.Key == Key.Enter)
             {
-                // TODO : Ajout newline
-                chat_textbox.Text += chat_text.Text;
+                Chat.getInstance().insertNewChatLine(chat_text.Text);
                 chat_text.Text = "";
             }
         }
@@ -332,10 +313,32 @@ namespace LordOfUltima
 
                 lock (m_lock_chat)
                 {
-                    m_new_chat_lines = m_chat_ins.getLastChatString(m_last_chat_update);
+                    m_new_chat_lines = m_chat_ins.getLastChatString();
                 }
             }
- 
+        }
+
+        private List<string> m_chat_text = new List<string>();
+        private void ui_thread_updateChat()
+        {
+            if (m_new_chat_lines != "")
+            {
+                lock (m_lock_chat)
+                {
+                    m_chat_text.Add(m_new_chat_lines);
+                    m_new_chat_lines = "";
+                }
+                textbox_scroll_viewer.ScrollToBottom();
+
+                // limit the number in the chat box
+                if (m_chat_text.Count > chatbox_max_items)
+                {
+                    m_chat_text.RemoveAt(0);
+                }
+                string text = String.Join(Environment.NewLine, m_chat_text);
+                chat_textbox.Text = text;
+
+            }
         }
 
     }
