@@ -19,18 +19,48 @@
             </Canvas>
             <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" 
                        Name="canvas_fog" IsHitTestVisible="false"/>
-            <ScrollViewer Height="100" Canvas.Top="457" Width="300" Opacity="0.7" Name="textbox_scroll_viewer">
-                <ScrollViewer.Background>
-                    <SolidColorBrush Color="#FFB6ABA4"/>
-                </ScrollViewer.Background>
-                <TextBlock TextWrapping="Wrap" Name="chat_textbox" Text="TextBlock" FontFamily="Vani" LineHeight="6" IsEnabled="False"/>
-            </ScrollViewer>
-            <TextBox Height="23" Name="chat_text" TextWrapping="Wrap" Text="TextBox" Canvas.Top="557" Width="300" FontFamily="Vani" KeyDown="chat_text_KeyDown" Opacity="0.7">
-                <TextBox.Background>
-                    <SolidColorBrush Color="#B2FFFFFF" Opacity="0.7"/>
-                </TextBox.Background>
-            </TextBox>
 
+            <Border BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Height="150" Canvas.Top="-11">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="440"/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <StackPanel Height="135" Canvas.Top="445" Width="324">
+
+                    <ScrollViewer Height="100" Width="300" Name="textbox_scroll_viewer" DockPanel.Dock="Top" RenderTransformOrigin="0.5,0.5" Foreground="Black">
+                        <ScrollViewer.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="10"/>
+                            </TransformGroup>
+                        </ScrollViewer.RenderTransform>
+                        <ScrollViewer.Background>
+                            <SolidColorBrush Color="Black"/>
+                        </ScrollViewer.Background>
+                        <TextBlock TextWrapping="Wrap" Name="chat_textbox" FontFamily="Vani" LineHeight="5" IsEnabled="False" RenderTransformOrigin="0.5,0.5" Foreground="White"/>
+                    </ScrollViewer>
+                    <TextBox Height="23" x:Name="chat_text" TextWrapping="Wrap" Width="300" FontFamily="Vani" KeyDown="chat_text_KeyDown" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="12,0" Foreground="White" MaxLength="50">
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="10"/>
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                        <TextBox.Background>
+                            <SolidColorBrush Color="#B2000000" Opacity="0.7"/>
+                        </TextBox.Background>
+                    </TextBox>
+
+                </StackPanel>
+            </Border>
         </Canvas>
 
         <!-- Menu du haut avec informations sur le joueur -->

@@ -54,6 +54,7 @@ namespace LordOfUltima
             ComponentDispatcher.ThreadIdle += new System.EventHandler(ComponentDispatcher_ThreadIdle);
 
             // Start Chat thread
+            //m_chat_ins.initChat();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += updateChat;
             bw.RunWorkerAsync();
@@ -63,7 +64,7 @@ namespace LordOfUltima
         void ComponentDispatcher_ThreadIdle(object sender, EventArgs e)
         {
             //do your idle stuff here
-
+            System.Threading.Thread.Sleep(10);
             // Show stopwatch in menu :D
             TimeSpan ts = m_watch.Elapsed;
             stop_watch.Content = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
@@ -292,15 +293,23 @@ namespace LordOfUltima
         {
             if(e.Key == Key.Enter)
             {
-                Chat.getInstance().insertNewChatLine(chat_text.Text);
+                /* ADD BACKGROUND WORKER */
+                //bw_chat_text = chat_text.Text;
+                Thread thread = new Thread(new ParameterizedThreadStart(m_chat_ins.insertNewChatLine));
+                thread.Start(chat_text.Text);
+                //m_chat_ins.insertNewChatLine(chat_text.Text);
                 chat_text.Text = "";
             }
-        }
+        }/*
+        private void bw_insert_chatline(object sender, DoWorkEventArgs e)
+        {
+            m_chat_ins.insertNewChatLine(bw_chat_text);
+            bw_chat_text = "";
+        }*/
 
-        private DateTime m_last_chat_update = DateTime.Now;
         private bool m_stop_chat_update = false;
         private Chat m_chat_ins = Chat.getInstance();
-        private string m_new_chat_lines = "";
+        private List<string> m_new_chat_lines = new List<string>();
         private Object m_lock_chat = new Object();
 
         private void updateChat(object sender, DoWorkEventArgs e)
@@ -308,12 +317,18 @@ namespace LordOfUltima
             while (!m_stop_chat_update)
             {
                 // update each 2 seconds
-                System.Threading.Thread.Sleep(2000);
-                m_last_chat_update = DateTime.Now;
+                System.Threading.Thread.Sleep(1000);
 
-                lock (m_lock_chat)
+                if(!m_chat_ins.is_init)
                 {
-                    m_new_chat_lines = m_chat_ins.getLastChatString();
+                    m_chat_ins.initChat();
+                }
+                else
+                {
+                    lock (m_lock_chat)
+                    {
+                        m_new_chat_lines = m_chat_ins.getLastChatString();
+                    }
                 }
             }
         }
@@ -321,12 +336,15 @@ namespace LordOfUltima
         private List<string> m_chat_text = new List<string>();
         private void ui_thread_updateChat()
         {
-            if (m_new_chat_lines != "")
+            if (m_new_chat_lines != null && m_new_chat_lines.Count() != 0)
             {
                 lock (m_lock_chat)
                 {
-                    m_chat_text.Add(m_new_chat_lines);
-                    m_new_chat_lines = "";
+                    m_new_chat_lines.ForEach(delegate(String chatText)
+                    {
+                        m_chat_text.Add(chatText);
+                    });
+                    m_new_chat_lines.Clear();
                 }
                 textbox_scroll_viewer.ScrollToBottom();
 
@@ -337,9 +355,7 @@ namespace LordOfUltima
                 }
                 string text = String.Join(Environment.NewLine, m_chat_text);
                 chat_textbox.Text = text;
-
             }
         }
-
     }
 }
