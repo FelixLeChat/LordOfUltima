@@ -8,7 +8,7 @@
         MinWidth="600"
         MaxHeight="380"
         MaxWidth="600">
-    
+
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#373737" />
@@ -43,11 +43,37 @@
     </Window.Resources>
     <Grid Name="grid">
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="414,232,0,0" VerticalAlignment="Top" Width="149">
-            <Button Content="Login" Margin="0,25,0,5" Click="Button_Click"/>
-            <Button Content="Sign Up" Margin="0,5,0,5"/>
+            <Button Name="login_button" Content="Login" Margin="0,25,0,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
+            <Button Name="signup_button" Content="Sign Up" Margin="0,5,0,5" Click="signup_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
         </StackPanel>
 
-        
+        <Border Name="login_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,46,213,73" Visibility="Hidden">
+            <StackPanel  HorizontalAlignment="Left" Height="204" Margin="10,10,10,10" VerticalAlignment="Top" Width="290" Background="#FFFDFBFB" Opacity="0.8">
+                <Label Content="Email" Margin="20,20,183,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <TextBox Name="login_email_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="12"/>
+                <Label Content="Password" Margin="20,20,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <PasswordBox Name="login_password_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
+                <Button Name="login_panel_button" Content="Login" Margin="5,25,12,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
+            </StackPanel>
+        </Border>
+
+        <Border Name="signup_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,15,213,50">
+            <StackPanel  HorizontalAlignment="Left" Height="258" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" Background="#FFFDFBFB" Opacity="0.8">
+                <Label Content="Username" Margin="20,5,183,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <TextBox Name="signup_username_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="12"/>
+                <Label Content="Email" Margin="20,5,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <PasswordBox Name="signup_email_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
+                <Label Content="Password" Margin="20,5,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <PasswordBox Name="signup_password_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
+                <Label Content="Password confirmation" Margin="20,5,91,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <PasswordBox Name="signup_password_confirm_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
+                <Button Name="signup_panel_button" Content="Signup" Margin="5,10,12,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
+            </StackPanel>
+        </Border>
+
+
+        <Label Content="Made by : Félix - github (FelixLeChat) " HorizontalAlignment="Left" Margin="11,314,0,0" VerticalAlignment="Top" Width="284" Foreground="#918544" FontFamily="Vani"/>
+
 
     </Grid>
 </Window>
