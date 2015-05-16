@@ -64,12 +64,6 @@ namespace LordOfUltima
                 }
             }
             verifyMap();
-
-            /*
-            // Definition de la fonction de callback
-            Action<string> callback = s => onClick(s);
-            // Souscription a l'evenement de click
-            EventDispatcher.getInstance().subcribe((int)EventDispatcher.action.CANEVAS_CLICK, callback);*/
         }
 
         /* Implementation du patron singleton
@@ -101,10 +95,6 @@ namespace LordOfUltima
         {
             int frame = (int)((y - start_height)/frame_height);
             return frame;
-        }
-
-        public void onClick(string data)
-        {
         }
 
         /*

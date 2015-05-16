@@ -14,7 +14,7 @@
 
         <!-- Canvas for game board -->
         <Canvas HorizontalAlignment="Left" Height="580" Margin="268,23,0,0" VerticalAlignment="Top" Width="891" Name="canvas_mouse_pos">
-            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove"/>
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Name="canvas1" PreviewMouseWheel="canvas1_MouseWheel" PreviewMouseLeftButtonDown="canvas1_leftMouseDown" PreviewMouseLeftButtonUp="canvas1_leftMouseUp" PreviewMouseMove="canvas1_mouseMove"/>
         </Canvas>
 
         <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="268,23,0,0" Name="canvas_fog" IsHitTestVisible="false"/>

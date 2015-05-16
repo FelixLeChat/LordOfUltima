@@ -29,8 +29,9 @@ namespace LordOfUltima
             m_rect.Fill = m_imgbrush;
             m_rect.IsEnabled = true;
 
-            m_rect.AddHandler(Rectangle.MouseLeftButtonDownEvent, new RoutedEventHandler(leftButtonDown));
-            m_rect.AddHandler(Rectangle.MouseLeftButtonUpEvent, new RoutedEventHandler(leftButtonUp));
+            m_rect.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(leftButtonDown);
+            m_rect.MouseLeftButtonUp += new MouseButtonEventHandler(leftButtonUp);
+
 
             // Level Rectangle
             m_level_rect = new Rectangle();
@@ -117,7 +118,9 @@ namespace LordOfUltima
             {
                 m_isClicked = false;
                 Gameboard.getInstance().resetSelectionBorder();
-                showSelectBorder();
+
+                if(m_isValid)
+                    showSelectBorder();
             }
         }
 

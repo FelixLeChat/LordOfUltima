@@ -78,12 +78,6 @@ namespace LordOfUltima
             ui_thread_updateChat();
         }
 
-        private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            double mouseX = Mouse.GetPosition(grid).X;
-            double mouseY = Mouse.GetPosition(grid).Y;
-        }
-
         /*
          * Insertion du tableau d'Elements dans le canvas (a l'initialisation de la fenetre)
         */
