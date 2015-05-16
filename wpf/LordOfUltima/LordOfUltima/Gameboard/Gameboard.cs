@@ -8,6 +8,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Controls;
+using LordOfUltima.MGameboard;
 
 namespace LordOfUltima
 {
@@ -44,6 +45,10 @@ namespace LordOfUltima
                 for (int j = 0; j < frame_count; j++)
                 {
                     m_map[i, j] = new Element();
+
+                    //set x and Y
+                    m_map[i, j].PositionX = i;
+                    m_map[i, j].PositionY = j;
                     Rectangle element_rect = m_map[i, j].getElement();
 
                     // Position for building element
@@ -60,7 +65,7 @@ namespace LordOfUltima
 
                     // Position for select element
                     Border select_rect = m_map[i, j].getSelectElement();
-                    select_rect.Margin = new Thickness(i * frame_width + start_width, j * frame_height + (start_height - frame_height), 0, 0);
+                    select_rect.Margin = new Thickness(i * frame_width + start_width, j * frame_height + (start_height - frame_height)+5, 0, 0);
                 }
             }
             verifyMap();
@@ -145,8 +150,7 @@ namespace LordOfUltima
         {
             foreach (Element element in m_map)
             {
-                if(element.m_hasLevelIndicator)
-                    element.showLevelIndicator();
+                element.showLevelIndicator();
             }
         }
 
@@ -157,5 +161,100 @@ namespace LordOfUltima
                 element.hideSelectBorder();
             }
         }
+
+        public void initialiseNewGame()
+        {
+            Element element = null;
+            for(int i = 0; i < 6; i++)
+            {
+                // wood ressources
+                element = getRandomValid();
+                element.setElementType(new ForestElementType());
+                expandRessource(element, ElementType.type.RESSOURCE_FOREST);
+
+                // stone ressources
+                element = getRandomValid();
+                element.setElementType(new StoneElementType());
+                expandRessource(element, ElementType.type.RESSOURCE_STONE);
+
+                // iron ressources
+                element = getRandomValid();
+                element.setElementType(new IronElementType());
+                expandRessource(element, ElementType.type.RESSOURCE_IRON);
+            }
+        }
+
+        private Element getRandomValid()
+        {
+            int x = 0, y = 0;
+            do
+            {
+                x = Random.Next(0, frame_count);
+                y = Random.Next(0, frame_count);
+            } while (!m_map[x, y].getInvalid() || m_map[x, y].HasElement);
+
+            return m_map[x, y];
+        }
+
+        private void expandRessource(Element element, ElementType.type elementType)
+        {
+            List<Element> firstLayer = new List<Element>();
+
+            firstLayer = firstLayer.Concat(rotateElement(element,elementType,2)).ToList();
+
+            foreach (var secondElement in firstLayer)
+            {
+                rotateElement(secondElement, elementType, 3);
+            }
+        }
+
+        private static readonly Random Random = new Random(1232);
+        private List<Element> rotateElement(Element element, ElementType.type elementType, int chance)
+        {
+            List<Element> newElements = new List<Element>();
+            List<Element> testList = new List<Element>();
+
+            if (element.PositionX > 0)
+            {
+                if (Random.Next(chance) == chance)
+                {
+                    testList.Add(m_map[element.PositionX -1, element.PositionY]);
+                }
+            }
+            if (element.PositionX < frame_count-1)
+            {
+                if (Random.Next(chance) == chance-1)
+                {
+                    testList.Add(m_map[element.PositionX + 1, element.PositionY]);
+                }
+            }
+            if (element.PositionY > 0)
+            {
+                if (Random.Next(chance) == chance-1)
+                {
+                    testList.Add(m_map[element.PositionX, element.PositionY - 1]);
+                } 
+            }
+            if (element.PositionY < frame_count-1)
+            {
+                if (Random.Next(chance) == chance-1)
+                {
+                    testList.Add(m_map[element.PositionX, element.PositionY + 1]);
+                }
+            }
+
+            foreach (var elementCheck in testList)
+            {
+                if (!elementCheck.HasElement)
+                {
+                    newElements.Add(elementCheck);
+                    elementCheck.setElementType(ElementType.getTypeObject(elementType));
+                } 
+            }
+
+            return newElements;
+        }
+
+
     }
 }

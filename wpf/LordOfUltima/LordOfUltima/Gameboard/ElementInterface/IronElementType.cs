@@ -1,0 +1,27 @@
+﻿using System;
+
+namespace LordOfUltima.MGameboard
+{
+    public class IronElementType : IElementType
+    {
+        private static readonly Random Random = new Random(121);
+        private readonly string _name;
+        private readonly string _imagePath;
+        private readonly bool _hasLevelEnable;
+        private readonly bool _isRessources;
+
+        public IronElementType()
+        {
+            _name = ElementType.getTypeName(ElementType.type.RESSOURCE_IRON);
+            _isRessources = true;
+            _hasLevelEnable = false;
+            var select = Random.Next(1, 5);
+            _imagePath = "Media/ressource/resource_iron_" + select.ToString() + ".png";
+        }
+
+        public string Name() { return _name; }
+        public bool HasLevelEnable() { return _hasLevelEnable; }
+        public bool IsRessources() { return _isRessources; }
+        public string getImagePath() { return _imagePath; }
+    }
+}

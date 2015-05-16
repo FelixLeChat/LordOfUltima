@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Shapes;
@@ -11,10 +7,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 
+using LordOfUltima.MGameboard;
+
 namespace LordOfUltima
 {
     class Element
     {
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
+        private IElementType _elementType = null;
+        public bool HasElement { get; set; }
         public Element()
         {
             // Caracteristiques pour le rectangle
@@ -24,8 +26,6 @@ namespace LordOfUltima
 
             // Images
             m_imgbrush = new ImageBrush();
-            //m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/none.png", UriKind.Relative));
-            m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/building/building_iron_quary.png", UriKind.Relative));
             m_rect.Fill = m_imgbrush;
             m_rect.IsEnabled = true;
 
@@ -54,7 +54,7 @@ namespace LordOfUltima
             // Click rect
             m_click_border = new Border();
             m_click_border.Width = m_width;
-            m_click_border.Height = m_height;
+            m_click_border.Height = m_height-10;
             int borderThickness = 2;
             m_click_border.BorderThickness = new Thickness(borderThickness, borderThickness, borderThickness, borderThickness);
             m_click_border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC9, 0xD6, 0x3A));
@@ -72,6 +72,7 @@ namespace LordOfUltima
             if (File.Exists(path))
             {
                 m_imgbrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.Relative));
+                HasElement = true;
             }
             
         }
@@ -103,6 +104,10 @@ namespace LordOfUltima
             m_level_rect.Opacity = 0;
             m_level_label.Opacity = 0;
         }
+        public bool getInvalid()
+        {
+            return m_isValid;
+        }
 
         /*
          * Ajout d'un evenement sur le clic de l'item
@@ -114,11 +119,13 @@ namespace LordOfUltima
         }
         private void leftButtonUp(object sender, RoutedEventArgs e)
         {
-            if(m_isClicked)
+            if(m_isClicked && !MainWindow.getIsMouseMove())
             {
+                // reset all select borders
                 m_isClicked = false;
                 Gameboard.getInstance().resetSelectionBorder();
 
+                // add the select border
                 if(m_isValid)
                     showSelectBorder();
             }
@@ -141,7 +148,6 @@ namespace LordOfUltima
         /*
          * Methode pour la gestion de la presence de l'indicateur de niveau
         */
-        public bool m_hasLevelIndicator = false;
         public void hideLevelIndicator()
         {
             m_level_rect.Opacity = 0;
@@ -150,7 +156,7 @@ namespace LordOfUltima
         public void showLevelIndicator()
         {
             // Verifier si l'objet est valide (dois etre afficher) avant de l'afficher
-            if(m_isValid)
+            if(m_isValid && m_level > 0)
             {
                 m_level_rect.Opacity = 1;
                 m_level_label.Opacity = 1;
@@ -165,6 +171,18 @@ namespace LordOfUltima
         public void showSelectBorder()
         {
             m_click_border.Visibility = Visibility.Visible;
+        }
+
+        public void setElementType(IElementType type)
+        {
+            if (type == null)
+            {
+                throw new Exception("Element type is null");
+            }
+            _elementType = type;
+
+            // Set new image
+            setPath(type.getImagePath());
         }
     }
 }

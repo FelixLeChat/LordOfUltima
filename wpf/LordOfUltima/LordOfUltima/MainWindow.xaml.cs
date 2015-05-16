@@ -2,25 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 
 using LordOfUltima.Web;
-using LordOfUltima.User;
 
 namespace LordOfUltima
 {
@@ -29,7 +20,7 @@ namespace LordOfUltima
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Gameboard m_gameboard;
+        private readonly Gameboard m_gameboard;
         private Stopwatch m_watch;
         private User.User m_user;
         public const int chatbox_max_items = 30;
@@ -51,6 +42,9 @@ namespace LordOfUltima
             insertMenu();
             // Cacher les niveaux a la base
             m_gameboard.hideLevelIndicator();
+
+            // Init a new game
+            m_gameboard.initialiseNewGame();
 
             // Start Stop watch
             m_watch = new Stopwatch();
@@ -215,7 +209,7 @@ namespace LordOfUltima
          * Gestion du drag
         */
         private bool m_isMouseDown = false;
-        private bool m_isMouseMove = false;
+        private static bool m_isMouseMove = false;
         private Point m_start_mouse_pos;
         private Point m_old_pos = new Point(0, 0);
         private void canvas1_leftMouseDown(object sender, RoutedEventArgs e)
@@ -282,7 +276,7 @@ namespace LordOfUltima
             }
         }
 
-        public bool getIsMouseMove()
+        public static bool getIsMouseMove()
         {
             return m_isMouseMove;
         }
