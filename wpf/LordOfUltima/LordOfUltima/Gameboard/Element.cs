@@ -184,5 +184,14 @@ namespace LordOfUltima
             // Set new image
             setPath(type.getImagePath());
         }
+
+        public void initialise()
+        {
+            HasElement = false;
+            _elementType = null;
+            m_imgbrush = new ImageBrush();
+            m_rect.Fill = m_imgbrush;
+            m_level = 0;
+        }
     }
 }

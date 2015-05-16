@@ -182,6 +182,12 @@ namespace LordOfUltima
                 element.setElementType(new IronElementType());
                 expandRessource(element, ElementType.type.RESSOURCE_IRON);
             }
+            for (int i = 0; i < 4; i++)
+            {
+                // Lake ressources
+                element = getRandomValid();
+                element.setElementType(new LakeElementType());
+            }
         }
 
         private Element getRandomValid()
@@ -208,7 +214,7 @@ namespace LordOfUltima
             }
         }
 
-        private static readonly Random Random = new Random(1232);
+        private static readonly Random Random = new Random(Guid.NewGuid().GetHashCode());
         private List<Element> rotateElement(Element element, ElementType.type elementType, int chance)
         {
             List<Element> newElements = new List<Element>();
@@ -255,6 +261,16 @@ namespace LordOfUltima
             return newElements;
         }
 
+        public void resetMap()
+        {
+            Gameboard.getInstance().resetSelectionBorder();
+            foreach (var element in m_map)
+            {
+                element.initialise();
+            }
+            // Default img for townhall
+            m_map[9, 9].setPath("Media/building/building_townhall.png");
+        }
 
     }
 }

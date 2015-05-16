@@ -112,6 +112,8 @@
             <!-- Option Menu -->
             <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
                 <MenuItem Header="Show buildinng level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+                <MenuItem Header="Reset Map" Name="reset_map" Foreground="Black" Click="reset_map_Click"/>
+                <MenuItem Header="Logout" Name="logout" Foreground="Black" Click="logout_Click"/>
             </MenuItem>
         </Menu>
 

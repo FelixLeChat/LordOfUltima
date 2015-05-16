@@ -24,8 +24,11 @@ namespace LordOfUltima
         private Stopwatch m_watch;
         private User.User m_user;
         public const int chatbox_max_items = 30;
+
+        public static MainWindow m_ins = null;
         public MainWindow()
         {
+            m_ins = this;
             InitializeComponent();
 
             initImages();
@@ -288,19 +291,11 @@ namespace LordOfUltima
         {
             if(e.Key == Key.Enter)
             {
-                /* ADD BACKGROUND WORKER */
-                //bw_chat_text = chat_text.Text;
                 Thread thread = new Thread(new ParameterizedThreadStart(m_chat_ins.insertNewChatLine));
                 thread.Start(chat_text.Text);
-                //m_chat_ins.insertNewChatLine(chat_text.Text);
                 chat_text.Text = "";
             }
-        }/*
-        private void bw_insert_chatline(object sender, DoWorkEventArgs e)
-        {
-            m_chat_ins.insertNewChatLine(bw_chat_text);
-            bw_chat_text = "";
-        }*/
+        }
 
         private bool m_stop_chat_update = false;
         private Chat m_chat_ins = Chat.getInstance();
@@ -311,7 +306,7 @@ namespace LordOfUltima
         {
             while (!m_stop_chat_update)
             {
-                // update each 2 seconds
+                // update each 1 seconds
                 System.Threading.Thread.Sleep(1000);
 
                 if(!m_chat_ins.is_init)
@@ -351,6 +346,33 @@ namespace LordOfUltima
                 string text = String.Join(Environment.NewLine, m_chat_text);
                 chat_textbox.Text = text;
             }
+        }
+
+        private void reset_map_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                m_gameboard.resetMap();
+                // Init a new game
+                m_gameboard.initialiseNewGame();
+            }
+
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(Element element in m_gameboard.getMap())
+            {
+                canvas1.Children.Remove(element.getElement());
+                canvas1.Children.Remove(element.getLevelElement());
+                canvas1.Children.Remove(element.getLevelLabel());
+                canvas1.Children.Remove(element.getSelectElement());
+            }
+            m_gameboard.resetMap();
+            LoginWindow window = new LoginWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

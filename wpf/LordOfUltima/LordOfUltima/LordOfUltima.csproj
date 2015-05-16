@@ -74,6 +74,7 @@
     <Compile Include="Gameboard\ElementInterface\ForestElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IronElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\LakeElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\StoneElementType.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
