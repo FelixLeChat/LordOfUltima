@@ -10,7 +10,8 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-
+using LordOfUltima.Events;
+using LordOfUltima.MGameboard;
 using LordOfUltima.Web;
 
 namespace LordOfUltima
@@ -48,6 +49,9 @@ namespace LordOfUltima
 
             // Init a new game
             m_gameboard.initialiseNewGame();
+
+            // hide building menu
+            setVisibleBuildingMenu(false);
 
             // Start Stop watch
             m_watch = new Stopwatch();
@@ -96,7 +100,35 @@ namespace LordOfUltima
 
         private void insertMenu()
         {
-            // TODO : Insertion des elements graphique dans le menu de gauche
+            // Image for Woodcutter
+            ImageBrush imageWoodcutter = new ImageBrush();
+            imageWoodcutter.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_woodcutter.png", UriKind.Relative));
+            building_woodcutter.Fill = imageWoodcutter;
+
+            // Image for Sawmill
+            ImageBrush imageSawmill = new ImageBrush();
+            imageSawmill.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_sawmill.png", UriKind.Relative));
+            building_sawmill.Fill = imageSawmill;
+
+            // Image for Quarry
+            ImageBrush imageQuarry = new ImageBrush();
+            imageQuarry.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_quarry.png", UriKind.Relative));
+            building_quarry.Fill = imageQuarry;
+
+            // Image for StoneMason
+            ImageBrush imageStonemason = new ImageBrush();
+            imageStonemason.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_stonemason.png", UriKind.Relative));
+            building_stonemason.Fill = imageStonemason;
+
+            // Image for Iron mine
+            ImageBrush imageIronmine = new ImageBrush();
+            imageIronmine.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_ironmine.png", UriKind.Relative));
+            building_ironmine.Fill = imageIronmine;
+
+            // Image for Foundry
+            ImageBrush imageFoundry = new ImageBrush();
+            imageFoundry.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_foundry.png", UriKind.Relative));
+            building_foundry.Fill = imageFoundry;
         }
 
         private void initImages()
@@ -373,6 +405,37 @@ namespace LordOfUltima
             LoginWindow window = new LoginWindow();
             window.Show();
             this.Close();
+        }
+
+        public void setVisibleBuildingMenu(bool isVisible)
+        {
+            if (isVisible)
+            {
+                building_menu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                building_menu.Visibility = Visibility.Hidden;               
+            }
+
+
+        }
+
+        private BuildEvent m_buildEvent = BuildEvent.getInstance();
+        private void building_woodcutter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new WoodcutterElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
+
+        private void building_sawmill_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new SawmillElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
         }
     }
 }

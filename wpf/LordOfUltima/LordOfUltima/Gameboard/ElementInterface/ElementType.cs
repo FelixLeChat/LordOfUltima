@@ -14,7 +14,10 @@ namespace LordOfUltima.MGameboard
             RESSOURCE_STONE,
             RESSOURCE_IRON,
             RESSOURCE_WATER,
-            RESSOURCE_FIELDS
+            RESSOURCE_FIELDS,
+
+            BUILDING_WOODCUTTER,
+            BUILDING_SAWMILL
         }
 
         public static string getTypeName(type resstype)
@@ -36,6 +39,12 @@ namespace LordOfUltima.MGameboard
                     break;
                 case type.RESSOURCE_FIELDS:
                     name = "Field";
+                    break;
+                case type.BUILDING_WOODCUTTER:
+                    name = "Woodcutter's Hut";
+                    break;
+                case type.BUILDING_SAWMILL:
+                    name = "Sawmill";
                     break;
                 default:
                     break;

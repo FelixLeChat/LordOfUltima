@@ -73,7 +73,14 @@
 
         <!-- Canvas and scroll Viewer for side menu -->
         <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="578" Margin="0,24,0,0" VerticalAlignment="Top" Width="268">
-            <Canvas Name="canvas2" Height="700" Width="244" RenderTransformOrigin="0.527,0.569"/>
+            <Canvas Name="building_menu" Height="432" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,100,0,0">
+                <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown"/>
+                <Rectangle Name="building_sawmill" Height="115" Width="100" Canvas.Left="125" Canvas.Top="10" MouseLeftButtonDown="building_sawmill_MouseLeftButtonDown"/>
+                <Rectangle Name="building_quarry" Height="115" Width="100" Canvas.Left="10" Canvas.Top="140"/>
+                <Rectangle Name="building_stonemason" Height="115" Width="100" Canvas.Left="125" Canvas.Top="140"/>
+                <Rectangle Name="building_ironmine" Height="115" Width="100" Canvas.Left="10" Canvas.Top="270"/>
+                <Rectangle Name="building_foundry" Height="115" Width="100" Canvas.Left="125" Canvas.Top="270"/>
+            </Canvas>
         </ScrollViewer>
 
         <!-- Top canvas for menu and ressources -->

@@ -6,7 +6,7 @@ using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
-
+using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 
 namespace LordOfUltima
@@ -28,7 +28,6 @@ namespace LordOfUltima
             m_imgbrush = new ImageBrush();
             m_rect.Fill = m_imgbrush;
             m_rect.IsEnabled = true;
-
             m_rect.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(leftButtonDown);
             m_rect.MouseLeftButtonUp += new MouseButtonEventHandler(leftButtonUp);
 
@@ -128,6 +127,17 @@ namespace LordOfUltima
                 // add the select border
                 if(m_isValid)
                     showSelectBorder();
+
+                // Trigger menu
+                if (m_isValid && !HasElement)
+                {
+                    MainWindow.m_ins.setVisibleBuildingMenu(true);
+                    BuildEvent.getInstance().setElementToBuild(this);
+                }
+                else
+                {
+                    MainWindow.m_ins.setVisibleBuildingMenu(false);
+                }
             }
         }
 
