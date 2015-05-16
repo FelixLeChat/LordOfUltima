@@ -157,7 +157,7 @@ namespace LordOfUltima.Web
         private static Object m_lock_chat = new Object();
         public void insertNewChatLine(object textobj)
         {
-            string text = (string)textobj;
+            string text = User.User.getInstance().Name + " : " + (string)textobj;
             if (text.Length < 1)
                 return;
 

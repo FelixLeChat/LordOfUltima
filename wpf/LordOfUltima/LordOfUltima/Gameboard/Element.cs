@@ -27,6 +27,7 @@ namespace LordOfUltima
             //m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/none.png", UriKind.Relative));
             m_imgbrush.ImageSource = new BitmapImage(new Uri(@"Media/building/building_iron_quary.png", UriKind.Relative));
             m_rect.Fill = m_imgbrush;
+            m_rect.IsEnabled = true;
 
             m_rect.AddHandler(Rectangle.MouseLeftButtonDownEvent, new RoutedEventHandler(leftButtonDown));
             m_rect.AddHandler(Rectangle.MouseLeftButtonUpEvent, new RoutedEventHandler(leftButtonUp));
@@ -47,6 +48,17 @@ namespace LordOfUltima
             m_level_label.FontSize = 8;
             m_level_label.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xB3, 0x7B));
             m_level_label.Content = m_level.ToString();
+            m_level_label.IsHitTestVisible = false;
+
+            // Click rect
+            m_click_border = new Border();
+            m_click_border.Width = m_width;
+            m_click_border.Height = m_height;
+            int borderThickness = 2;
+            m_click_border.BorderThickness = new Thickness(borderThickness, borderThickness, borderThickness, borderThickness);
+            m_click_border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC9, 0xD6, 0x3A));
+            m_click_border.Visibility = Visibility.Hidden;
+            m_click_border.IsHitTestVisible = false;
         }
 
         /*
@@ -75,6 +87,10 @@ namespace LordOfUltima
         {
             return m_level_label;
         }
+        public Border getSelectElement()
+        {
+            return m_click_border;
+        }
 
         /*
          * Met invalide l'element (ne sera pas affiche)
@@ -100,13 +116,17 @@ namespace LordOfUltima
             if(m_isClicked)
             {
                 m_isClicked = false;
+                Gameboard.getInstance().resetSelectionBorder();
+                showSelectBorder();
             }
         }
 
         // Elements graphiques lie au building
         private Rectangle m_rect;
         private Rectangle m_level_rect;
+        private Border m_click_border;
         private Label m_level_label;
+
 
         ImageBrush m_imgbrush;
         private string m_path = "";
@@ -118,6 +138,7 @@ namespace LordOfUltima
         /*
          * Methode pour la gestion de la presence de l'indicateur de niveau
         */
+        public bool m_hasLevelIndicator = false;
         public void hideLevelIndicator()
         {
             m_level_rect.Opacity = 0;
@@ -131,6 +152,16 @@ namespace LordOfUltima
                 m_level_rect.Opacity = 1;
                 m_level_label.Opacity = 1;
             }
+        }
+
+        public bool m_hasSelectBorder = false;
+        public void hideSelectBorder()
+        {
+            m_click_border.Visibility = Visibility.Hidden;
+        }
+        public void showSelectBorder()
+        {
+            m_click_border.Visibility = Visibility.Visible;
         }
     }
 }

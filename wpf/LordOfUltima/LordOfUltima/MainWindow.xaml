@@ -14,54 +14,43 @@
 
         <!-- Canvas for game board -->
         <Canvas HorizontalAlignment="Left" Height="580" Margin="268,23,0,0" VerticalAlignment="Top" Width="891" Name="canvas_mouse_pos">
-            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove">
-                <!--<Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="890" Name="canvas_fog"/> -->
-            </Canvas>
-            <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" 
-                       Name="canvas_fog" IsHitTestVisible="false"/>
-
-            <Border BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Height="150" Canvas.Top="-11">
-                <Border.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="440"/>
-                    </TransformGroup>
-                </Border.RenderTransform>
-                <StackPanel Height="135" Canvas.Top="445" Width="324">
-
-                    <ScrollViewer Height="100" Width="300" Name="textbox_scroll_viewer" DockPanel.Dock="Top" RenderTransformOrigin="0.5,0.5" Foreground="Black">
-                        <ScrollViewer.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform Y="10"/>
-                            </TransformGroup>
-                        </ScrollViewer.RenderTransform>
-                        <ScrollViewer.Background>
-                            <SolidColorBrush Color="Black"/>
-                        </ScrollViewer.Background>
-                        <TextBlock TextWrapping="Wrap" Name="chat_textbox" FontFamily="Vani" LineHeight="5" IsEnabled="False" RenderTransformOrigin="0.5,0.5" Foreground="White"/>
-                    </ScrollViewer>
-                    <TextBox Height="23" x:Name="chat_text" TextWrapping="Wrap" Width="300" FontFamily="Vani" KeyDown="chat_text_KeyDown" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="12,0" Foreground="White" MaxLength="50">
-                        <TextBox.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform Y="10"/>
-                            </TransformGroup>
-                        </TextBox.RenderTransform>
-                        <TextBox.Background>
-                            <SolidColorBrush Color="#B2000000" Opacity="0.7"/>
-                        </TextBox.Background>
-                    </TextBox>
-
-                </StackPanel>
-            </Border>
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" MouseUp="Canvas_MouseUp" Name="canvas1" MouseWheel="canvas1_MouseWheel" MouseLeftButtonDown="canvas1_leftMouseDown" MouseLeftButtonUp="canvas1_leftMouseUp" MouseMove="canvas1_mouseMove"/>
         </Canvas>
+
+        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="268,23,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
+
+        <Border BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Height="150" Margin="268,450,570,4">
+            <StackPanel Height="135" Canvas.Top="445" Width="324">
+                <ScrollViewer Height="100" Width="300" Name="textbox_scroll_viewer" DockPanel.Dock="Top" RenderTransformOrigin="0.5,0.5" Foreground="Black">
+                    <ScrollViewer.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="10"/>
+                        </TransformGroup>
+                    </ScrollViewer.RenderTransform>
+                    <ScrollViewer.Background>
+                        <SolidColorBrush Color="Black"/>
+                    </ScrollViewer.Background>
+                    <TextBlock TextWrapping="Wrap" Name="chat_textbox" FontFamily="Vani" LineHeight="5" IsEnabled="False" RenderTransformOrigin="0.5,0.5" Foreground="White"/>
+                </ScrollViewer>
+                <TextBox Height="23" x:Name="chat_text" TextWrapping="Wrap" Width="300" FontFamily="Vani" KeyDown="chat_text_KeyDown" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="12,0" Foreground="White" MaxLength="50">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="10"/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                    <TextBox.Background>
+                        <SolidColorBrush Color="#B2000000" Opacity="0.7"/>
+                    </TextBox.Background>
+                </TextBox>
+
+            </StackPanel>
+        </Border>
 
         <!-- Menu du haut avec informations sur le joueur -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">

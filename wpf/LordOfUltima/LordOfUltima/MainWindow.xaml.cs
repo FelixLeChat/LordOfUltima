@@ -20,6 +20,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 
 using LordOfUltima.Web;
+using LordOfUltima.User;
 
 namespace LordOfUltima
 {
@@ -30,12 +31,17 @@ namespace LordOfUltima
     {
         private Gameboard m_gameboard;
         private Stopwatch m_watch;
+        private User.User m_user;
         public const int chatbox_max_items = 30;
         public MainWindow()
         {
             InitializeComponent();
 
             initImages();
+
+            // Set the user instance
+            m_user = User.User.getInstance();
+            label_player_name.Content = m_user.Name;
 
             // Set the gameboard Instance
             m_gameboard = Gameboard.getInstance();
@@ -54,7 +60,6 @@ namespace LordOfUltima
             ComponentDispatcher.ThreadIdle += new System.EventHandler(ComponentDispatcher_ThreadIdle);
 
             // Start Chat thread
-            //m_chat_ins.initChat();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += updateChat;
             bw.RunWorkerAsync();
@@ -91,8 +96,10 @@ namespace LordOfUltima
                 // Add building level to canvas
                 canvas1.Children.Add(element.getLevelElement());
                 // Add level label to canvas
-                //canvas1.Children.Add(element.getLevelLabel());
                 canvas1.Children.Add(element.getLevelLabel());
+                // Add select rect to canvas
+                canvas1.Children.Add(element.getSelectElement());
+                
             }
         }
 

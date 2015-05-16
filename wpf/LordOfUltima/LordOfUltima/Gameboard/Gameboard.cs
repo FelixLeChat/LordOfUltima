@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LordOfUltima
 {
@@ -56,6 +57,10 @@ namespace LordOfUltima
                     double left = level_rect.Margin.Left;
                     double top = level_rect.Margin.Top;
                     m_map[i, j].getLevelLabel().Margin = new Thickness(left-3.1, top-7, 0, 0);
+
+                    // Position for select element
+                    Border select_rect = m_map[i, j].getSelectElement();
+                    select_rect.Margin = new Thickness(i * frame_width + start_width, j * frame_height + (start_height - frame_height), 0, 0);
                 }
             }
             verifyMap();
@@ -142,7 +147,7 @@ namespace LordOfUltima
         {
             foreach( Element element in m_map)
             {
-                element.hideLevelIndicator();
+                    element.hideLevelIndicator();
             }
         }
 
@@ -150,7 +155,16 @@ namespace LordOfUltima
         {
             foreach (Element element in m_map)
             {
-                element.showLevelIndicator();
+                if(element.m_hasLevelIndicator)
+                    element.showLevelIndicator();
+            }
+        }
+
+        public void resetSelectionBorder()
+        {
+            foreach(Element element in m_map)
+            {
+                element.hideSelectBorder();
             }
         }
     }

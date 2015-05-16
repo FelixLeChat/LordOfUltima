@@ -47,27 +47,34 @@
             <Button Name="signup_button" Content="Sign Up" Margin="0,5,0,5" Click="signup_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
         </StackPanel>
 
-        <Border Name="login_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,46,213,73" Visibility="Hidden">
+        <Border Name="login_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,46,213,73" Visibility="Visible">
             <StackPanel  HorizontalAlignment="Left" Height="204" Margin="10,10,10,10" VerticalAlignment="Top" Width="290" Background="#FFFDFBFB" Opacity="0.8">
-                <Label Content="Email" Margin="20,20,183,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
-                <TextBox Name="login_email_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="12"/>
-                <Label Content="Password" Margin="20,20,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <Label Name="signup_sucess" Height="24" Margin="20,0,10,0" Foreground="#FF045D00"/>
+                <Label Name="login_fail" Height="24" Margin="20,-24,10,0" Foreground="#FF640000"/>
+                <Label Content="Email" Margin="20,-5,183,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <Label Name="login_email_error" Height="24" Margin="112,-25,10,0" Foreground="#FF640000"/>
+                <TextBox Name="login_email_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="50"/>
+                <Label Content="Password" Margin="20,10,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <Label Name="login_password_error" Height="24" Margin="112,-25,10,0" Foreground="#FF640000"/>
                 <PasswordBox Name="login_password_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
-                <Button Name="login_panel_button" Content="Login" Margin="5,25,12,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
+                <Button Name="login_panel_button" Content="Login" Margin="5,25,12,5" FontFamily="Vani" FontWeight="Bold" Height="20" Click="login_panel_button_Click"/>
             </StackPanel>
         </Border>
 
-        <Border Name="signup_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,15,213,50">
+        <Border Name="signup_panel" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7FFFFFFF" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="64,15,213,50" Visibility="Hidden">
             <StackPanel  HorizontalAlignment="Left" Height="258" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" Background="#FFFDFBFB" Opacity="0.8">
                 <Label Content="Username" Margin="20,5,183,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <Label Name="signup_username_error" Height="24" Margin="112,-25,10,0" Foreground="#FF640000"/>
                 <TextBox Name="signup_username_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="12"/>
                 <Label Content="Email" Margin="20,5,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
-                <PasswordBox Name="signup_email_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
+                <Label Name="signup_email_error" Height="24" Margin="115,-25,10,0" Foreground="#FF640000"/>
+                <TextBox Name="signup_email_textbox" Height="23" TextWrapping="Wrap" Margin="20,0,20,0" MaxLength="30"/>
                 <Label Content="Password" Margin="20,5,180,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
+                <Label Name="signup_password_error" Height="24" Margin="115,-25,10,0" Foreground="#FF640000"/>
                 <PasswordBox Name="signup_password_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
                 <Label Content="Password confirmation" Margin="20,5,91,0" FontWeight="Bold" FontSize="14" FontFamily="Vani" Height="25"/>
                 <PasswordBox Name="signup_password_confirm_textbox" Height="23" Margin="20,0,20,0" MaxLength="30"/>
-                <Button Name="signup_panel_button" Content="Signup" Margin="5,10,12,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>
+                <Button Name="signup_panel_button" Content="Signup" Margin="5,10,12,5" FontFamily="Vani" FontWeight="Bold" Height="20" Click="signup_panel_button_Click"/>
             </StackPanel>
         </Border>
 

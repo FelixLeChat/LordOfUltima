@@ -69,10 +69,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Error\LoginError.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User\User.cs" />
     <Compile Include="Web\Chat.cs" />
+    <Compile Include="Web\Login.cs" />
+    <Compile Include="Web\Utility.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
