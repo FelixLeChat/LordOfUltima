@@ -437,5 +437,37 @@ namespace LordOfUltima
             m_buildEvent.setElementToBuild(null);
             setVisibleBuildingMenu(false);
         }
+
+        private void building_quarry_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new QuarryElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
+
+        private void building_stonemason_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new StoneMasonElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
+
+        private void building_ironmine_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new IronMineElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
+
+        private void building_foundry_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new FoundryElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
     }
 }
