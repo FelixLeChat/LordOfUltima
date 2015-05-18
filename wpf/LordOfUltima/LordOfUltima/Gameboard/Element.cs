@@ -13,6 +13,8 @@ namespace LordOfUltima
 {
     class Element
     {
+        private int m_neighbour_ressources = 0;
+        private bool m_has_bonus_building = false;
         public int PositionX { get; set; }
         public int PositionY { get; set; }
         private IElementType _elementType = null;
@@ -195,6 +197,11 @@ namespace LordOfUltima
             setPath(type.getImagePath());
         }
 
+        public IElementType GetElementType()
+        {
+            return _elementType;
+        }
+
         public void initialise()
         {
             HasElement = false;
@@ -202,6 +209,17 @@ namespace LordOfUltima
             m_imgbrush = new ImageBrush();
             m_rect.Fill = m_imgbrush;
             m_level = 0;
+
+            // Natural ressources near
+            m_neighbour_ressources = 0;
+            // Bonus building near
+            m_has_bonus_building = false;
+        }
+
+        public int NbRessourcesAround 
+        {
+            get { return m_neighbour_ressources;}
+            set { if (value < 9) m_neighbour_ressources = value; }
         }
     }
 }

@@ -7,11 +7,12 @@ using System.Windows.Media.Imaging;
 
 namespace LordOfUltima.MGameboard
 {
-    interface IElementType
+    public interface IElementType
     {
         string getImagePath();
         string Name();
         bool HasLevelEnable();
         bool IsRessources();
+        ElementType.type GetElementType();
     }
 }

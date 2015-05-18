@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LordOfUltima.MGameboard
 {
-    class ElementType
+    public class ElementType
     {
         public enum type
         {
+            DEFAULT,
             RESSOURCE_FOREST,
             RESSOURCE_STONE,
             RESSOURCE_IRON,
@@ -82,10 +83,10 @@ namespace LordOfUltima.MGameboard
                 case type.RESSOURCE_IRON:
                     result = new IronElementType();
                     break;
-                /*case type.RESSOURCE_WATER:
-                    name = "Water";
+                case type.RESSOURCE_WATER:
+                    result = new LakeElementType();
                     break;
-                case type.RESSOURCE_FIELDS:
+                /*case type.RESSOURCE_FIELDS:
                     name = "Field";
                     break;*/
                 default:
@@ -93,5 +94,28 @@ namespace LordOfUltima.MGameboard
             }
             return result;
         }
+
+        public static type getBonusRessource(type buildingType)
+        {
+            type result = type.DEFAULT;
+
+            switch (buildingType)
+            {
+                case type.BUILDING_WOODCUTTER:
+                    result = type.RESSOURCE_FOREST;
+                    break;
+                case type.BUILDING_QUARRY:
+                    result = type.RESSOURCE_STONE;
+                    break;
+                case type.BUILDING_IRONMINE:
+                    result = type.RESSOURCE_IRON;
+                    break;
+                default:
+                    break;
+            }
+
+            return result;
+        }
+
     }
 }

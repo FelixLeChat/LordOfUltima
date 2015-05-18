@@ -12,6 +12,7 @@ namespace LordOfUltima.Events
         private static IElementType typeToBuild = null;
         private static Element elementToBuild = null;
         private static BuildEvent m_ins = null;
+        private static Gameboard m_gameboard = Gameboard.getInstance();
 
         public static BuildEvent getInstance()
         {
@@ -34,8 +35,13 @@ namespace LordOfUltima.Events
 
         public void buildElement()
         {
-            if(elementToBuild != null && typeToBuild!=null)
+            if (elementToBuild != null && typeToBuild != null)
+            {
+                // build the building
                 elementToBuild.setElementType(typeToBuild);
+                // check neighbours for ressources
+                m_gameboard.checkNeignbourRessources(elementToBuild);
+            }     
         }
 
     }

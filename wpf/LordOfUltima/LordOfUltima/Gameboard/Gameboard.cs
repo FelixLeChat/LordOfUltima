@@ -272,5 +272,68 @@ namespace LordOfUltima
             m_map[9, 9].setPath("Media/building/building_townhall.png");
         }
 
+        public void checkNeignbourRessources(Element element)
+        {
+            int x = element.PositionX;
+            int y = element.PositionY;
+            int ressourceCount = 0;
+
+            ElementType.type ressourceType = ElementType.getBonusRessource(element.GetElementType().GetElementType());
+
+            if (ressourceType == ElementType.type.DEFAULT)
+            {
+                return;
+            }
+
+            if (y > 0)
+            {
+                if (x > 0)
+                {
+                    if (m_map[x - 1, y - 1].HasElement && m_map[x - 1, y - 1].GetElementType().GetElementType() == ressourceType)
+                        ressourceCount++;  
+                }
+                if (m_map[x, y - 1].HasElement && m_map[x, y - 1].GetElementType().GetElementType() == ressourceType)
+                    ressourceCount++;
+
+                if (x < frame_count - 1)
+                {
+                    if(m_map[x + 1, y - 1].HasElement && m_map[x + 1, y - 1].GetElementType().GetElementType() == ressourceType)
+                        ressourceCount++;                    
+                }
+
+            }
+            if (y < frame_count - 1)
+            {
+                if (x > 0)
+                {
+                    if (m_map[x - 1, y + 1].HasElement && m_map[x - 1, y + 1].GetElementType().GetElementType() == ressourceType)
+                        ressourceCount++;
+                }
+
+                if (m_map[x, y + 1].HasElement && m_map[x, y + 1].GetElementType().GetElementType() == ressourceType)
+                    ressourceCount++;
+
+                if (x < frame_count - 1)
+                {
+                    if (m_map[x + 1, y + 1].HasElement && m_map[x + 1, y + 1].GetElementType().GetElementType() == ressourceType)
+                        ressourceCount++;
+                }
+            }
+
+            if (x > 0)
+            {
+                if (m_map[x -1, y].HasElement && m_map[x -1, y].GetElementType().GetElementType() == ressourceType)
+                    ressourceCount++;
+            }
+            if (x < frame_count - 1)
+            {
+                if (m_map[x + 1, y].HasElement && m_map[x + 1, y].GetElementType().GetElementType() == ressourceType)
+                    ressourceCount++;
+            }
+
+            element.NbRessourcesAround = ressourceCount;
+
+        }
+
     }
 }

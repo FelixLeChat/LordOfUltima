@@ -9,10 +9,12 @@ namespace LordOfUltima.MGameboard
         private readonly string _imagePath;
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
+        private readonly ElementType.type _elementType;
 
         public ForestElementType()
         {
-            _name = ElementType.getTypeName(ElementType.type.RESSOURCE_FOREST);
+            _elementType = ElementType.type.RESSOURCE_FOREST;
+            _name = ElementType.getTypeName(_elementType);
             _isRessources = true;
             _hasLevelEnable = false;
             var select = Random.Next(1, 5);
@@ -23,5 +25,6 @@ namespace LordOfUltima.MGameboard
         public bool HasLevelEnable() { return _hasLevelEnable; }
         public bool IsRessources() { return _isRessources; }
         public string getImagePath() { return _imagePath; }
+        public ElementType.type GetElementType() { return _elementType;}
     }
 }
