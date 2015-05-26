@@ -11,7 +11,7 @@ using LordOfUltima.MGameboard;
 
 namespace LordOfUltima
 {
-    class Element
+    public class Element
     {
         private int m_neighbour_ressources = 0;
         private bool m_has_bonus_building = false;
@@ -140,6 +140,17 @@ namespace LordOfUltima
                 {
                     MainWindow.m_ins.setVisibleBuildingMenu(false);
                 }
+
+
+                if (m_isValid && HasElement)
+                {
+                    MainWindow.m_ins.setElementMeduDetail(this);
+                    MainWindow.m_ins.setVisibleBuildingDetails(true);
+                }
+                else
+                {
+                    MainWindow.m_ins.setVisibleBuildingDetails(false);
+                }
             }
         }
 
@@ -150,7 +161,8 @@ namespace LordOfUltima
         private Label m_level_label;
 
 
-        ImageBrush m_imgbrush;
+        private ImageBrush m_imgbrush;
+        public ImageBrush GetImageBrush() { return m_imgbrush;}
         private string m_path = "";
         public int m_width = 40;
         public int m_height = 40;

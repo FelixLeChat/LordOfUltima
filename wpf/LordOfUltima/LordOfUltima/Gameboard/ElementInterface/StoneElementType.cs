@@ -24,5 +24,7 @@ namespace LordOfUltima.MGameboard
         public bool IsRessources() { return _isRessources; }
         public string getImagePath() { return _imagePath; }
         public ElementType.type GetElementType() { return _elementType; }
+        public ElementCost GetElementCost(int level) { return null; } // Return null because there is no level with ressources
+
     }
 }

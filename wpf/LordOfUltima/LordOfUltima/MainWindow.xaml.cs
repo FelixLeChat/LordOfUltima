@@ -52,6 +52,7 @@ namespace LordOfUltima
 
             // hide building menu
             setVisibleBuildingMenu(false);
+            setVisibleBuildingDetails(false);
 
             // Start Stop watch
             m_watch = new Stopwatch();
@@ -417,8 +418,33 @@ namespace LordOfUltima
             {
                 building_menu.Visibility = Visibility.Hidden;               
             }
+        }
+        public void setVisibleBuildingDetails(bool isVisible)
+        {
+            if (isVisible)
+            {
+                building_details.Visibility = Visibility.Visible;
 
+                // Add visual elements
+                if (_elementMenuDetail == null)
+                    return;
 
+                building_details_img.Fill = _elementMenuDetail.GetImageBrush();
+            }
+            else
+            {
+                building_details.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private Element _elementMenuDetail = null;
+
+        public void setElementMeduDetail(Element element)
+        {
+            if (element != null)
+            {
+                _elementMenuDetail = element;
+            }
         }
 
         private BuildEvent m_buildEvent = BuildEvent.getInstance();

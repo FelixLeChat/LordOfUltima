@@ -14,5 +14,6 @@ namespace LordOfUltima.MGameboard
         bool HasLevelEnable();
         bool IsRessources();
         ElementType.type GetElementType();
+        ElementCost GetElementCost(int level);
     }
 }

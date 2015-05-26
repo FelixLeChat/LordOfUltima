@@ -73,63 +73,70 @@
 
         <!-- Canvas and scroll Viewer for side menu -->
         <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="578" Margin="0,24,0,0" VerticalAlignment="Top" Width="268">
-            <Canvas Name="building_menu" Height="432" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,100,0,0">
+            <Canvas Height="432" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,100,0,0">
+
+                <Canvas Name="building_menu" Height="432" Width="244" Visibility="Hidden">
+                    <!-- Woodcuter's Hut -->
+                    <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="80" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces wood. Any bordering woods, Cottages and Sawmills will increase productivity.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="75" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 
-                <!-- Woodcuter's Hut -->
-                <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="80" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces wood. Any bordering woods, Cottages and Sawmills will increase productivity.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="75" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
+                    <!-- Sawmill -->
+                    <Rectangle Name="building_sawmill" Height="115" Width="100" Canvas.Left="125" Canvas.Top="10" MouseLeftButtonDown="building_sawmill_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Woodcutter's Huts and wood storage capacity of any bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 
-                <!-- Sawmill -->
-                <Rectangle Name="building_sawmill" Height="115" Width="100" Canvas.Left="125" Canvas.Top="10" MouseLeftButtonDown="building_sawmill_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Woodcutter's Huts and wood storage capacity of any bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
+                    <!-- Quarry -->
+                    <Rectangle Name="building_quarry" Height="115" Width="100" Canvas.Left="10" Canvas.Top="140" MouseLeftButtonDown="building_quarry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces Stone. Productivity can be increased by bordering Rocks, Cottages and Stonemason.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 
-                <!-- Quarry -->
-                <Rectangle Name="building_quarry" Height="115" Width="100" Canvas.Left="10" Canvas.Top="140" MouseLeftButtonDown="building_quarry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces Stone. Productivity can be increased by bordering Rocks, Cottages and Stonemason.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
+                    <!-- Stonemason -->
+                    <Rectangle Name="building_stonemason" Height="115" Width="100" Canvas.Left="125" Canvas.Top="140" MouseLeftButtonDown="building_stonemason_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Quarries and stone storage capacity of any bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 
-                <!-- Stonemason -->
-                <Rectangle Name="building_stonemason" Height="115" Width="100" Canvas.Left="125" Canvas.Top="140" MouseLeftButtonDown="building_stonemason_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Quarries and stone storage capacity of any bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
+                    <!-- Iron Mine -->
+                    <Rectangle Name="building_ironmine" Height="115" Width="100" Canvas.Left="10" Canvas.Top="270" MouseLeftButtonDown="building_ironmine_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces iron. Any bordering ore deposits, Cottages and Foundry will increase productivity.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 
-                <!-- Iron Mine -->
-                <Rectangle Name="building_ironmine" Height="115" Width="100" Canvas.Left="10" Canvas.Top="270" MouseLeftButtonDown="building_ironmine_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces iron. Any bordering ore deposits, Cottages and Foundry will increase productivity.&#x0a;&#x0a;Initial cost: &#x0a;50 woods" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
-                
-                <!-- Foundry -->
-                <Rectangle Name="building_foundry" Height="115" Width="100" Canvas.Left="125" Canvas.Top="270" MouseLeftButtonDown="building_foundry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
-                    <Rectangle.ToolTip >
-                        <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                            <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Iron Mines and iron storage capacity of bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                        </Border>
-                    </Rectangle.ToolTip>
-                </Rectangle>
+                    <!-- Foundry -->
+                    <Rectangle Name="building_foundry" Height="115" Width="100" Canvas.Left="125" Canvas.Top="270" MouseLeftButtonDown="building_foundry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
+                        <Rectangle.ToolTip >
+                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Iron Mines and iron storage capacity of bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>                    
+                </Canvas>
+    
+                <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible">
+                    <Rectangle Name="building_details_img" Width="100" Height="145" Canvas.Left="10" Canvas.Top="10"></Rectangle>
+                    </Canvas>
             </Canvas>
-        </ScrollViewer>
+            
+       </ScrollViewer>
 
         <!-- Top canvas for menu and ressources -->
         <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">

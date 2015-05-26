@@ -33,6 +33,7 @@ namespace LordOfUltima.Events
             elementToBuild = element;
         }
 
+        // Here is the place where we build the element for the first time(on map)
         public void buildElement()
         {
             if (elementToBuild != null && typeToBuild != null)
@@ -41,6 +42,10 @@ namespace LordOfUltima.Events
                 elementToBuild.setElementType(typeToBuild);
                 // check neighbours for ressources
                 m_gameboard.checkNeignbourRessources(elementToBuild);
+
+                //if build sucessfull, show in side menu
+                MainWindow.m_ins.setElementMeduDetail(elementToBuild);
+                MainWindow.m_ins.setVisibleBuildingDetails(true);
             }     
         }
 
