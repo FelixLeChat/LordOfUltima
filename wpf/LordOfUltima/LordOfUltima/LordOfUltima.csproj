@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Gameboard\ElementInterface\SawmillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\StoneElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\StoneMasonElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\TownHallElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\WoodcutterElementType.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>

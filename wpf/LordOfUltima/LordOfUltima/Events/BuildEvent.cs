@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LordOfUltima.MGameboard;
+﻿using LordOfUltima.MGameboard;
 
 namespace LordOfUltima.Events
 {
@@ -38,10 +33,13 @@ namespace LordOfUltima.Events
         {
             if (elementToBuild != null && typeToBuild != null)
             {
+                // Increase Level of building
+                elementToBuild.Level = 1;
                 // build the building
                 elementToBuild.setElementType(typeToBuild);
                 // check neighbours for ressources
                 m_gameboard.checkNeignbourRessources(elementToBuild);
+
 
                 //if build sucessfull, show in side menu
                 MainWindow.m_ins.setElementMeduDetail(elementToBuild);

@@ -8,6 +8,7 @@ using LordOfUltima.User;
 using LordOfUltima;
 using System.Xml;
 using LordOfUltima.MGameboard;
+using LordOfUltima.Error;
 
 namespace LordOfUltima.XML
 {
@@ -36,6 +37,11 @@ namespace LordOfUltima.XML
 
         public void Save()
         {
+            // visual reset
+            MainWindow.m_ins.setVisibleBuildingMenu(false);
+            MainWindow.m_ins.setVisibleBuildingDetails(false);
+            _gameboard.resetSelectionBorder();
+
             // No username set
             if (_user.Name == "")
                 return;
@@ -75,6 +81,11 @@ namespace LordOfUltima.XML
 
         public void Load()
         {
+            // visual reset
+            MainWindow.m_ins.setVisibleBuildingMenu(false);
+            MainWindow.m_ins.setVisibleBuildingDetails(false);
+            _gameboard.resetSelectionBorder();
+
             if(!File.Exists(_user.Name + ".xml"))
                 return;
 
@@ -118,12 +129,11 @@ namespace LordOfUltima.XML
                                             }
                                             
                                         }
-                                        else { throw new XmlException(); }
+                                        else { throw new LoadException("Invalid level range : " + level); }
                                     }
-                                    else { throw new XmlException(); }
-
-
+                                    else { throw new LoadException("Invalid X and Y range. X = " + x + " Y = " + y); }
                                     break;
+
                                 default:
                                     break;
                             }
@@ -137,6 +147,7 @@ namespace LordOfUltima.XML
             {
                 // reset map if there was an exception
                 _gameboard.resetMap();
+                _gameboard.initialiseNewGame();
             }
 
         }

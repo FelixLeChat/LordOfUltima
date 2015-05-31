@@ -2,7 +2,7 @@
 
 namespace LordOfUltima.MGameboard
 {
-    public class IronMineElementType : IElementType
+    public class TownHallElementType : IElementType
     {
         private readonly string _name;
         private readonly string _imagePath;
@@ -11,29 +11,29 @@ namespace LordOfUltima.MGameboard
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
-        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>(); 
+        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
 
-        public IronMineElementType()
+        public TownHallElementType()
         {
-            _elementType = ElementType.type.BUILDING_IRONMINE;
+            _elementType = ElementType.type.BUILDING_TOWNHALL;
             _name = ElementType.getTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_iron_quary.png";
-            _detailImagePath = "Media/menu/menu_ironmine.png";
-            _elementInfo = "It produces iron. Any bordering ore deposits, Cottages and a maximum of one Foundry will increase productivity.";
+            _imagePath = "Media/building/building_townhall.png";
+            _detailImagePath = "Media/menu/menu_townhall.png";
+            _elementInfo = "It provides basic storage and wood production. Also determines the maximum number of buildings in a city. Only one can be built in each city. Cannot be totally demolished or destroyed.";
 
             // Element cost for each level
-            _elementCostsList.Add(1, new ElementCost(50, 0, 0));
+            _elementCostsList.Add(1, new ElementCost(0, 0, 0));
             _elementCostsList.Add(2, new ElementCost(200, 0, 0));
-            _elementCostsList.Add(3, new ElementCost(400, 200, 0));
-            _elementCostsList.Add(4, new ElementCost(1400, 600, 0));
-            _elementCostsList.Add(5, new ElementCost(3500, 1500, 0));
-            _elementCostsList.Add(6, new ElementCost(6000, 3000, 0));
-            _elementCostsList.Add(7, new ElementCost(10000, 5000, 0));
-            _elementCostsList.Add(8, new ElementCost(16000, 8000, 0));
-            _elementCostsList.Add(9, new ElementCost(25000, 13000, 0));
-            _elementCostsList.Add(10, new ElementCost(38000, 20000, 0));
+            _elementCostsList.Add(3, new ElementCost(500, 100, 0));
+            _elementCostsList.Add(4, new ElementCost(1000, 300, 0));
+            _elementCostsList.Add(5, new ElementCost(3000, 1500, 0));
+            _elementCostsList.Add(6, new ElementCost(8000, 4000, 0));
+            _elementCostsList.Add(7, new ElementCost(15000, 10000, 0));
+            _elementCostsList.Add(8, new ElementCost(30000, 25000, 0));
+            _elementCostsList.Add(9, new ElementCost(60000, 60000, 0));
+            _elementCostsList.Add(10, new ElementCost(120000, 120000, 0));
         }
 
         public string Name() { return _name; }

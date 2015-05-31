@@ -139,7 +139,8 @@ namespace LordOfUltima
             m_map[13, 13].setInvalid(); m_map[13, 12].setInvalid(); m_map[12, 13].setInvalid();
 
             // Default img for townhall
-            m_map[9, 9].setPath("Media/building/building_townhall.png");
+            m_map[9, 9].setElementType(new TownHallElementType());
+            m_map[9, 9].Level = 1;
         }
 
         public void hideLevelIndicator()
@@ -273,7 +274,7 @@ namespace LordOfUltima
                 element.initialise();
             }
             // Default img for townhall
-            m_map[9, 9].setPath("Media/building/building_townhall.png");
+            m_map[9, 9].setElementType(new TownHallElementType());
         }
 
         public void checkNeignbourRessources(Element element)

@@ -22,7 +22,9 @@ namespace LordOfUltima.MGameboard
             BUILDING_QUARRY,
             BUILDING_STONEMASON,
             BUILDING_IRONMINE,
-            BUILDING_FOUNDRY
+            BUILDING_FOUNDRY,
+
+            BUILDING_TOWNHALL
         }
 
         public static string getTypeName(type resstype)
@@ -62,6 +64,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case type.BUILDING_FOUNDRY:
                     name = "Foundry";
+                    break;
+                case type.BUILDING_TOWNHALL:
+                    name = "Town Hall";
                     break;
                 default:
                     break;
@@ -151,6 +156,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case "BUILDING_FOUNDRY":
                     newElement = new FoundryElementType();
+                    break;
+                case "BUILDING_TOWNHALL":
+                    newElement = new TownHallElementType();
                     break;
             }
 

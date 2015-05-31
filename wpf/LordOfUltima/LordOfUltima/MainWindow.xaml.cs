@@ -49,7 +49,10 @@ namespace LordOfUltima
             m_gameboard.hideLevelIndicator();
 
             // Init a new game
-            m_gameboard.initialiseNewGame();
+            //m_gameboard.initialiseNewGame();
+
+            // load game
+            SaveGame.Instance.Load();
 
             // hide building menu
             setVisibleBuildingMenu(false);
@@ -104,32 +107,32 @@ namespace LordOfUltima
         {
             // Image for Woodcutter
             ImageBrush imageWoodcutter = new ImageBrush();
-            imageWoodcutter.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_woodcutter.png", UriKind.Relative));
+            imageWoodcutter.ImageSource = new BitmapImage(new Uri(new WoodcutterElementType().getDetailImagePath(), UriKind.Relative));
             building_woodcutter.Fill = imageWoodcutter;
 
             // Image for Sawmill
             ImageBrush imageSawmill = new ImageBrush();
-            imageSawmill.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_sawmill.png", UriKind.Relative));
+            imageSawmill.ImageSource = new BitmapImage(new Uri(new SawmillElementType().getDetailImagePath(), UriKind.Relative));
             building_sawmill.Fill = imageSawmill;
 
             // Image for Quarry
             ImageBrush imageQuarry = new ImageBrush();
-            imageQuarry.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_quarry.png", UriKind.Relative));
+            imageQuarry.ImageSource = new BitmapImage(new Uri(new QuarryElementType().getDetailImagePath(), UriKind.Relative));
             building_quarry.Fill = imageQuarry;
 
             // Image for StoneMason
             ImageBrush imageStonemason = new ImageBrush();
-            imageStonemason.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_stonemason.png", UriKind.Relative));
+            imageStonemason.ImageSource = new BitmapImage(new Uri(new StoneMasonElementType().getDetailImagePath(), UriKind.Relative));
             building_stonemason.Fill = imageStonemason;
 
             // Image for Iron mine
             ImageBrush imageIronmine = new ImageBrush();
-            imageIronmine.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_ironmine.png", UriKind.Relative));
+            imageIronmine.ImageSource = new BitmapImage(new Uri(new IronMineElementType().getDetailImagePath(), UriKind.Relative));
             building_ironmine.Fill = imageIronmine;
 
             // Image for Foundry
             ImageBrush imageFoundry = new ImageBrush();
-            imageFoundry.ImageSource = new BitmapImage(new Uri(@"Media/menu/menu_foundry.png", UriKind.Relative));
+            imageFoundry.ImageSource = new BitmapImage(new Uri(new FoundryElementType().getDetailImagePath(), UriKind.Relative));
             building_foundry.Fill = imageFoundry;
         }
 
@@ -427,10 +430,35 @@ namespace LordOfUltima
                 building_details.Visibility = Visibility.Visible;
 
                 // Add visual elements
-                if (_elementMenuDetail == null)
+                if (_elementMenuDetail == null || _elementMenuDetail.GetElementType() == null)
                     return;
 
-                building_details_img.Fill = _elementMenuDetail.GetImageBrush();
+                ImageBrush image = new ImageBrush();
+                image.ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().getDetailImagePath(), UriKind.Relative));
+                building_details_img.Fill = image;
+
+                // set the elementInfo
+                building_detail_info.Text = _elementMenuDetail.GetElementType().GetElementInfo();
+
+                int elementLevel = _elementMenuDetail.Level;
+                if (elementLevel > 0 && elementLevel < 10)
+                {
+                    // it's a building, show level info
+                    building_detail_level_info.Visibility = Visibility.Visible;
+                    building_detail_level.Content = _elementMenuDetail.Level;
+
+                    ElementCost elementCost = _elementMenuDetail.GetElementType().GetElementCost(elementLevel+1);
+
+                    building_detail_wood_cost.Content = elementCost.Wood;
+                    building_detail_stone_cost.Content = elementCost.Stone;
+                    building_detail_iron_cost.Content = elementCost.Iron;
+                }
+                else
+                {
+                    building_detail_level_info.Visibility = Visibility.Collapsed;
+                }
+
+
             }
             else
             {

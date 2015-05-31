@@ -171,16 +171,25 @@ namespace LordOfUltima
         public int Level
         {
             get { return m_level; }
-            set { if (value >= 0 && value <= 10) { m_level = value; } }
+            set
+            {
+                if (value >= 0 && value <= 10)
+                {
+                    m_level = value;
+                    m_level_label.Content = m_level;
+                }
+            }
         }
 
         /*
          * Methode pour la gestion de la presence de l'indicateur de niveau
         */
+        private bool _levelIndicatorVisibility;
         public void hideLevelIndicator()
         {
             m_level_rect.Opacity = 0;
             m_level_label.Opacity = 0;
+            _levelIndicatorVisibility = false;
         }
         public void showLevelIndicator()
         {
@@ -190,6 +199,7 @@ namespace LordOfUltima
                 m_level_rect.Opacity = 1;
                 m_level_label.Opacity = 1;
             }
+            _levelIndicatorVisibility = true;
         }
 
         public bool m_hasSelectBorder = false;
@@ -212,6 +222,11 @@ namespace LordOfUltima
 
             // Set new image
             setPath(type.getImagePath());
+
+            if (_levelIndicatorVisibility)
+            {
+                showLevelIndicator();
+            }
         }
 
         public IElementType GetElementType()

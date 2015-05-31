@@ -84,7 +84,7 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
-                
+
                     <!-- Sawmill -->
                     <Rectangle Name="building_sawmill" Height="115" Width="100" Canvas.Left="125" Canvas.Top="10" MouseLeftButtonDown="building_sawmill_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -93,7 +93,7 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
-                
+
                     <!-- Quarry -->
                     <Rectangle Name="building_quarry" Height="115" Width="100" Canvas.Left="10" Canvas.Top="140" MouseLeftButtonDown="building_quarry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -102,7 +102,7 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
-                
+
                     <!-- Stonemason -->
                     <Rectangle Name="building_stonemason" Height="115" Width="100" Canvas.Left="125" Canvas.Top="140" MouseLeftButtonDown="building_stonemason_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -111,7 +111,7 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
-                
+
                     <!-- Iron Mine -->
                     <Rectangle Name="building_ironmine" Height="115" Width="100" Canvas.Left="10" Canvas.Top="270" MouseLeftButtonDown="building_ironmine_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -120,7 +120,7 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
-                
+
                     <!-- Foundry -->
                     <Rectangle Name="building_foundry" Height="115" Width="100" Canvas.Left="125" Canvas.Top="270" MouseLeftButtonDown="building_foundry_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -128,15 +128,49 @@
                                 <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Increases the efficiency of bordering Iron Mines and iron storage capacity of bordering Storage.&#x0a;&#x0a;Initial cost: &#x0a;60 woods &#x0a;60 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
                             </Border>
                         </Rectangle.ToolTip>
-                    </Rectangle>                    
+                    </Rectangle>
                 </Canvas>
-    
+
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible">
-                    <Rectangle Name="building_details_img" Width="100" Height="145" Canvas.Left="10" Canvas.Top="10"></Rectangle>
-                    </Canvas>
+                    <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
+                    <WrapPanel Height="262" Width="244" Canvas.Top="160">
+                        <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,10,0" Width="225"/>
+
+                        <WrapPanel Name="building_detail_level_info">
+                            <DockPanel  Width="224" >
+                                <Label Height="30" Width="43" Content="Level : " Margin="10,0,0,0"/>
+                                <Label Name="building_detail_level" Height="30" Width="43" Content="0" Margin="-100,0,0,0"/>
+                            </DockPanel >
+                            
+                            <Button Content="Upgrade" Width="229" Height="30" Margin="5,10,10,0" Foreground="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <DockPanel Width="235">
+                                <Label Content="Wood :" Width="50" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_wood_cost" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
+                            <DockPanel Width="235" Margin="0,-10,0,0">
+                                <Label Content="Stone :" Width="50" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_stone_cost" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
+                            <DockPanel Width="235" Margin="0,-10,0,0">
+                                <Label Content="Iron    :" Width="50" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_iron_cost" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>   
+                        </WrapPanel>
+                       
+                    </WrapPanel>
+
+                </Canvas>
             </Canvas>
-            
-       </ScrollViewer>
+
+        </ScrollViewer>
 
         <!-- Top canvas for menu and ressources -->
         <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
