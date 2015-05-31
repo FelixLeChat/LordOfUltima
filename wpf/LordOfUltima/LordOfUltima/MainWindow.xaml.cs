@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Web;
+using LordOfUltima.XML;
 
 namespace LordOfUltima
 {
@@ -494,6 +495,21 @@ namespace LordOfUltima
             m_buildEvent.buildElement();
             m_buildEvent.setElementToBuild(null);
             setVisibleBuildingMenu(false);
+        }
+
+        private void game_save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveGame.Instance.Save();
+        }
+
+        private void game_load_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                m_gameboard.resetMap();
+                SaveGame.Instance.Load();
+            }
         }
     }
 }

@@ -168,6 +168,11 @@ namespace LordOfUltima
         public int m_height = 40;
         private bool m_isValid = true;
         private int m_level = 0;
+        public int Level
+        {
+            get { return m_level; }
+            set { if (value >= 0 && value <= 10) { m_level = value; } }
+        }
 
         /*
          * Methode pour la gestion de la presence de l'indicateur de niveau

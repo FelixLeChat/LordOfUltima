@@ -91,6 +91,7 @@
     <Compile Include="Web\Chat.cs" />
     <Compile Include="Web\Login.cs" />
     <Compile Include="Web\Utility.cs" />
+    <Compile Include="XML\SaveGame.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,9 +139,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="XML\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>

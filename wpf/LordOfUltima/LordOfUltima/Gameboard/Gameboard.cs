@@ -26,6 +26,10 @@ namespace LordOfUltima
         private double frame_width;
         private double frame_height;
         private int frame_count = 19;
+        public int CountXY
+        {
+            get { return frame_count; }
+        }
 
         private Element[,] m_map;
 
@@ -274,6 +278,8 @@ namespace LordOfUltima
 
         public void checkNeignbourRessources(Element element)
         {
+            if (element == null || !element.HasElement || element.GetElementType() == null)
+                return;
             int x = element.PositionX;
             int y = element.PositionY;
             int ressourceCount = 0;
@@ -335,5 +341,15 @@ namespace LordOfUltima
 
         }
 
+        public void cheakAllNeighbourRessources()
+        {
+            for(int i = 0; i < frame_count ; i ++)
+            {
+                for(int j = 0; j < frame_count ; j ++)
+                {
+                    checkNeignbourRessources(m_map[i,j]);
+                }
+            }
+        }
     }
 }

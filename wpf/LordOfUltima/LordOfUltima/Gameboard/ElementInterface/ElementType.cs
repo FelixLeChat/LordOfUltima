@@ -113,8 +113,48 @@ namespace LordOfUltima.MGameboard
                 default:
                     break;
             }
-
             return result;
+        }
+
+        public static IElementType getElementFromType(string elementType)
+        {
+            IElementType newElement = null;
+            switch(elementType)
+            {
+                case "RESSOURCE_FOREST":
+                    newElement = new ForestElementType();
+                    break;
+                case "RESSOURCE_STONE":
+                    newElement = new StoneElementType();
+                    break;
+                case "RESSOURCE_IRON":
+                    newElement = new IronElementType();
+                    break;
+                case "RESSOURCE_WATER":
+                    newElement = new LakeElementType();
+                    break;
+
+                case "BUILDING_WOODCUTTER":
+                    newElement = new WoodcutterElementType();
+                    break;
+                case "BUILDING_SAWMILL":
+                    newElement = new SawmillElementType();
+                    break;
+                case "BUILDING_QUARRY":
+                    newElement = new QuarryElementType();
+                    break;
+                case "BUILDING_STONEMASON":
+                    newElement = new StoneMasonElementType();
+                    break;
+                case "BUILDING_IRONMINE":
+                    newElement = new IronMineElementType();
+                    break;
+                case "BUILDING_FOUNDRY":
+                    newElement = new FoundryElementType();
+                    break;
+            }
+
+            return newElement;
         }
 
     }
