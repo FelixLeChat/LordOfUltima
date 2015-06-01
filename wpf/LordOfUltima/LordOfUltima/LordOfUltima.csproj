@@ -74,6 +74,7 @@
     <Compile Include="Events\BuildEvent.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\FarmElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\ForestElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\FoundryElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IElementType.cs" />

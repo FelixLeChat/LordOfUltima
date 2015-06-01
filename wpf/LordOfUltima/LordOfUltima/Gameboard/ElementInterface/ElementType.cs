@@ -23,6 +23,7 @@ namespace LordOfUltima.MGameboard
             BUILDING_STONEMASON,
             BUILDING_IRONMINE,
             BUILDING_FOUNDRY,
+            BUILDING_FARM,
 
             BUILDING_TOWNHALL
         }
@@ -46,6 +47,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case type.RESSOURCE_FIELDS:
                     name = "Field";
+                    break;
+                case type.BUILDING_FARM:
+                    name = "Farm";
                     break;
                 case type.BUILDING_WOODCUTTER:
                     name = "Woodcutter's Hut";
@@ -115,6 +119,9 @@ namespace LordOfUltima.MGameboard
                 case type.BUILDING_IRONMINE:
                     result = type.RESSOURCE_IRON;
                     break;
+                case type.BUILDING_FARM:
+                    result = type.RESSOURCE_WATER;
+                    break;
                 default:
                     break;
             }
@@ -159,6 +166,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case "BUILDING_TOWNHALL":
                     newElement = new TownHallElementType();
+                    break;
+                case "BUILDING_FARM":
+                    newElement = new FarmElementType();
                     break;
             }
 

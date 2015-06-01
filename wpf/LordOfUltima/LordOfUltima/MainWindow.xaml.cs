@@ -134,6 +134,16 @@ namespace LordOfUltima
             ImageBrush imageFoundry = new ImageBrush();
             imageFoundry.ImageSource = new BitmapImage(new Uri(new FoundryElementType().getDetailImagePath(), UriKind.Relative));
             building_foundry.Fill = imageFoundry;
+
+            // Image for Farm
+            ImageBrush imageFarm = new ImageBrush();
+            imageFarm.ImageSource = new BitmapImage(new Uri(new FarmElementType().getDetailImagePath(), UriKind.Relative));
+            building_farm.Fill = imageFarm;
+
+            // Image for Mill
+            ImageBrush imageMill = new ImageBrush();
+            imageMill.ImageSource = new BitmapImage(new Uri(new FarmElementType().getDetailImagePath(), UriKind.Relative));
+            building_mill.Fill = imageMill;
         }
 
         private void initImages()
@@ -167,6 +177,11 @@ namespace LordOfUltima
             ImageBrush imageScroll = new ImageBrush();
             imageScroll.ImageSource = new BitmapImage(new Uri(@"Media/menu.png", UriKind.Relative));
             scrollview.Background = imageScroll;
+
+            // Image for bottom menu
+            ImageBrush bottomMenu = new ImageBrush();
+            bottomMenu.ImageSource = new BitmapImage(new Uri(@"Media/menu_bottom.png", UriKind.Relative));
+            bottom_menu_rect.Fill = bottomMenu;
 
             // Image pour le menu des ressources
             ImageBrush ressMenu = new ImageBrush();
@@ -417,16 +432,21 @@ namespace LordOfUltima
             if (isVisible)
             {
                 building_menu.Visibility = Visibility.Visible;
+                scrollview.ScrollToTop();
+                building_menu_englob.Height = 600;
             }
             else
             {
-                building_menu.Visibility = Visibility.Hidden;               
+                building_menu.Visibility = Visibility.Collapsed;
+                scrollview.ScrollToTop();
+                building_menu_englob.Height = 400;
             }
         }
         public void setVisibleBuildingDetails(bool isVisible)
         {
             if (isVisible)
             {
+                building_menu_englob.Height = 400;
                 building_details.Visibility = Visibility.Visible;
 
                 // Add visual elements
@@ -525,6 +545,20 @@ namespace LordOfUltima
             setVisibleBuildingMenu(false);
         }
 
+        private void building_farm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            m_buildEvent.setTypeToBuild(new FarmElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
+        }
+
+        private void building_mill_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+
         private void game_save_Click(object sender, RoutedEventArgs e)
         {
             SaveGame.Instance.Save();
@@ -539,5 +573,6 @@ namespace LordOfUltima
                 SaveGame.Instance.Load();
             }
         }
+
     }
 }
