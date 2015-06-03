@@ -41,7 +41,7 @@ namespace LordOfUltima.Events
                 m_gameboard.checkNeignbourRessources(elementToBuild);
 
                 // if we build a farm, spawn fields around it
-                if (typeToBuild.GetElementType() == ElementType.type.BUILDING_MILL)
+                if (typeToBuild.GetElementType() == ElementType.type.BUILDING_FARM)
                 {
                     m_gameboard.spawnFields(elementToBuild);
                 }

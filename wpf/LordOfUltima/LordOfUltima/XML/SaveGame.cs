@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using LordOfUltima.User;
-using LordOfUltima;
 using System.Xml;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Error;
@@ -125,7 +119,12 @@ namespace LordOfUltima.XML
                                                 if(type != null)
                                                 {
                                                     element.setElementType(type);
-                                                }    
+
+                                                    if (type.GetElementType() == ElementType.type.RESSOURCE_FIELDS)
+                                                    {
+                                                        element.HasElement = false;
+                                                    }
+                                                }
                                             }
                                             
                                         }

@@ -143,6 +143,9 @@
                 case "RESSOURCE_WATER":
                     newElement = new LakeElementType();
                     break;
+                case "RESSOURCE_FIELDS":
+                    newElement = new FieldsElementType();
+                    break;
 
                 case "BUILDING_WOODCUTTER":
                     newElement = new WoodcutterElementType();
