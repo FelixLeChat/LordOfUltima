@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LordOfUltima.MGameboard
+﻿namespace LordOfUltima.MGameboard
 {
     public class ElementType
     {
@@ -24,6 +18,7 @@ namespace LordOfUltima.MGameboard
             BUILDING_IRONMINE,
             BUILDING_FOUNDRY,
             BUILDING_FARM,
+            BUILDING_MILL,
 
             BUILDING_TOWNHALL
         }
@@ -71,6 +66,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case type.BUILDING_TOWNHALL:
                     name = "Town Hall";
+                    break;
+                case type.BUILDING_MILL:
+                    name = "Mill";
                     break;
                 default:
                     break;
@@ -169,6 +167,9 @@ namespace LordOfUltima.MGameboard
                     break;
                 case "BUILDING_FARM":
                     newElement = new FarmElementType();
+                    break;
+                case "BUILDING_MILL":
+                    newElement = new MillElementType();
                     break;
             }
 

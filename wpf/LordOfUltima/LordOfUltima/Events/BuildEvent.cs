@@ -40,6 +40,11 @@ namespace LordOfUltima.Events
                 // check neighbours for ressources
                 m_gameboard.checkNeignbourRessources(elementToBuild);
 
+                // if we build a farm, spawn fields around it
+                if (typeToBuild.GetElementType() == ElementType.type.BUILDING_MILL)
+                {
+                    m_gameboard.spawnFields(elementToBuild);
+                }
 
                 //if build sucessfull, show in side menu
                 MainWindow.m_ins.setElementMeduDetail(elementToBuild);

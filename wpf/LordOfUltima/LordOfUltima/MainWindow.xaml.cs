@@ -99,10 +99,10 @@ namespace LordOfUltima
                 canvas1.Children.Add(element.getLevelLabel());
                 // Add select rect to canvas
                 canvas1.Children.Add(element.getSelectElement());
-                
             }
         }
 
+        #region Image Assignation
         private void insertMenu()
         {
             // Image for Woodcutter
@@ -142,7 +142,7 @@ namespace LordOfUltima
 
             // Image for Mill
             ImageBrush imageMill = new ImageBrush();
-            imageMill.ImageSource = new BitmapImage(new Uri(new FarmElementType().getDetailImagePath(), UriKind.Relative));
+            imageMill.ImageSource = new BitmapImage(new Uri(new MillElementType().getDetailImagePath(), UriKind.Relative));
             building_mill.Fill = imageMill;
         }
 
@@ -218,8 +218,9 @@ namespace LordOfUltima
             imageRResearch.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/research.png", UriKind.Relative));
             ress_research.Background = imageRResearch;
         }
+        #endregion
 
-
+        #region Map Mouvement
         const double ScaleRate = 1.05;
         const double ScaleMin = 1.0;
         const double ScaleMax = 2.5;
@@ -286,6 +287,10 @@ namespace LordOfUltima
             m_old_pos.Y = Canvas.GetTop(canvas1);
         }
 
+        public static bool getIsMouseMove()
+        {
+            return m_isMouseMove;
+        }
         /*
          * Gestion du deplacement de la souris sur la carte
         */
@@ -315,27 +320,9 @@ namespace LordOfUltima
             if (Math.Abs(dy) < max_deplacement)
                 Canvas.SetTop(canvas1, dy);
         }
+        #endregion
 
-        /*
-         * Trigger building level indicator on map
-        */
-        private void trigger_level_Click(object sender, RoutedEventArgs e)
-        {
-            if(trigger_level.IsChecked)
-            {
-                m_gameboard.showLevelIndicator();
-            }
-            else
-            {
-                m_gameboard.hideLevelIndicator();
-            }
-        }
-
-        public static bool getIsMouseMove()
-        {
-            return m_isMouseMove;
-        }
-
+        #region Chat
         /*
          * Gestion entrer clavier pour le chat text input
         */
@@ -399,6 +386,23 @@ namespace LordOfUltima
                 chat_textbox.Text = text;
             }
         }
+        #endregion
+
+        #region Menu element click
+        /*
+         * Trigger building level indicator on map
+        */
+        private void trigger_level_Click(object sender, RoutedEventArgs e)
+        {
+            if(trigger_level.IsChecked)
+            {
+                m_gameboard.showLevelIndicator();
+            }
+            else
+            {
+                m_gameboard.hideLevelIndicator();
+            }
+        }
 
         private void reset_map_Click(object sender, RoutedEventArgs e)
         {
@@ -427,6 +431,23 @@ namespace LordOfUltima
             this.Close();
         }
 
+        private void game_save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveGame.Instance.Save();
+        }
+
+        private void game_load_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                m_gameboard.resetMap();
+                SaveGame.Instance.Load();
+            }
+        }
+        #endregion
+
+        #region Side Menu for buildings
         public void setVisibleBuildingMenu(bool isVisible)
         {
             if (isVisible)
@@ -442,6 +463,7 @@ namespace LordOfUltima
                 building_menu_englob.Height = 400;
             }
         }
+
         public void setVisibleBuildingDetails(bool isVisible)
         {
             if (isVisible)
@@ -449,10 +471,10 @@ namespace LordOfUltima
                 building_menu_englob.Height = 400;
                 building_details.Visibility = Visibility.Visible;
 
-                // Add visual elements
                 if (_elementMenuDetail == null || _elementMenuDetail.GetElementType() == null)
                     return;
 
+                // Add visual elements
                 ImageBrush image = new ImageBrush();
                 image.ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().getDetailImagePath(), UriKind.Relative));
                 building_details_img.Fill = image;
@@ -469,6 +491,7 @@ namespace LordOfUltima
 
                     ElementCost elementCost = _elementMenuDetail.GetElementType().GetElementCost(elementLevel+1);
 
+                    // Show cost for upgrade
                     building_detail_wood_cost.Content = elementCost.Wood;
                     building_detail_stone_cost.Content = elementCost.Stone;
                     building_detail_iron_cost.Content = elementCost.Iron;
@@ -487,7 +510,6 @@ namespace LordOfUltima
         }
 
         private Element _elementMenuDetail = null;
-
         public void setElementMeduDetail(Element element)
         {
             if (element != null)
@@ -495,7 +517,9 @@ namespace LordOfUltima
                 _elementMenuDetail = element;
             }
         }
+        #endregion
 
+        #region SideMenu building Click
         private BuildEvent m_buildEvent = BuildEvent.getInstance();
         private void building_woodcutter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -555,24 +579,11 @@ namespace LordOfUltima
 
         private void building_mill_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            m_buildEvent.setTypeToBuild(new MillElementType());
+            m_buildEvent.buildElement();
+            m_buildEvent.setElementToBuild(null);
+            setVisibleBuildingMenu(false);
         }
-
-
-        private void game_save_Click(object sender, RoutedEventArgs e)
-        {
-            SaveGame.Instance.Save();
-        }
-
-        private void game_load_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                m_gameboard.resetMap();
-                SaveGame.Instance.Load();
-            }
-        }
-
+        #endregion
     }
 }

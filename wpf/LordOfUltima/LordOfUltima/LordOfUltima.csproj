@@ -75,12 +75,14 @@
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\FarmElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\FieldsElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\ForestElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\FoundryElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IronElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\IronMineElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\LakeElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\MillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\QuarryElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\SawmillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\StoneElementType.cs" />

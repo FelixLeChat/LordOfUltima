@@ -268,13 +268,14 @@ namespace LordOfUltima
 
         public void resetMap()
         {
-            Gameboard.getInstance().resetSelectionBorder();
+            resetSelectionBorder();
             foreach (var element in m_map)
             {
                 element.initialise();
             }
             // Default img for townhall
             m_map[9, 9].setElementType(new TownHallElementType());
+            m_map[9, 9].Level = 1;
         }
 
         public void checkNeignbourRessources(Element element)
@@ -351,6 +352,81 @@ namespace LordOfUltima
                     checkNeignbourRessources(m_map[i,j]);
                 }
             }
+        }
+
+        public void spawnFields(Element element)
+        {
+            if (element == null || !element.HasElement || element.GetElementType() == null)
+                return;
+            int x = element.PositionX;
+            int y = element.PositionY;
+
+            if (y > 0)
+            {
+                if (x > 0)
+                {
+                    if (!m_map[x - 1, y - 1].HasElement)
+                    { buildFields((x-1),(y-1));
+                    }
+                }
+                if (!m_map[x, y - 1].HasElement)
+                {
+                    buildFields(x, y - 1);
+                }
+
+                if (x < frame_count - 1)
+                {
+                    if (!m_map[x + 1, y - 1].HasElement)
+                    {
+                        buildFields(x + 1, y - 1);
+                    }
+                }
+
+            }
+            if (y < frame_count - 1)
+            {
+                if (x > 0)
+                {
+                    if (!m_map[x - 1, y + 1].HasElement)
+                    {
+                        buildFields(x - 1, y + 1);
+                    }
+                }
+
+                if (!m_map[x, y + 1].HasElement)
+                {
+                    buildFields(x, y + 1);
+                }
+
+                if (x < frame_count - 1)
+                {
+                    if (!m_map[x + 1, y + 1].HasElement)
+                    {
+                        buildFields(x + 1, y + 1);
+                    }
+                }
+            }
+
+            if (x > 0)
+            {
+                if (!m_map[x - 1, y].HasElement)
+                {
+                    buildFields(x - 1, y);
+                }
+            }
+            if (x < frame_count - 1)
+            {
+                if (!m_map[x + 1, y].HasElement)
+                {
+                    buildFields(x + 1, y);
+                }
+            }
+        }
+
+        private void buildFields(int x, int y)
+        {
+            m_map[x,y].setElementType(new FieldsElementType());
+            m_map[x, y].HasElement = false;
         }
     }
 }
