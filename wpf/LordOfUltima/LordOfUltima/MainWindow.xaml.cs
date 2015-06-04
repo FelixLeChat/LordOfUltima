@@ -500,20 +500,26 @@ namespace LordOfUltima
                         _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
                     if (elementProduction != null)
                     {
+                        building_production_label.Visibility = Visibility.Visible;
                         building_detail_production.Content = elementProduction.GetFirstNotNull();
                     }
                     else
                     {
                         // hide production label
+                        building_detail_production.Content = "";
+                        building_production_label.Visibility = Visibility.Hidden;
                     }
                     elementProduction = _elementMenuDetail.GetElementType().GetElementProduction(elementLevel+1);
                     if (elementProduction != null)
                     {
+                        production_dockpanel.Visibility = Visibility.Visible;
                         building_detail_production_next.Content = elementProduction.GetFirstNotNull();
                     }
                     else
                     {
                         // hide production label
+                        building_detail_production_next.Content = "";
+                        production_dockpanel.Visibility = Visibility.Collapsed;
                     }
                 }
                 else
