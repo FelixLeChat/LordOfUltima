@@ -7,6 +7,7 @@
             _woodProduction = wood;
             _stoneProduction = stone;
             _ironProduction = iron;
+            _foodProduction = food;
         }
 
         // Wood production of Element
@@ -39,6 +40,15 @@
         {
             get { return _foodProduction; }
             set { _foodProduction = value; }
+        }
+
+        public int GetFirstNotNull()
+        {
+            return (_woodProduction > 0)? _woodProduction: (
+                (_stoneProduction > 0)? _stoneProduction : ( 
+                (_ironProduction > 0)? _ironProduction : (
+                (_foodProduction > 0)? _foodProduction : 0
+                    )));
         }
     }
 }

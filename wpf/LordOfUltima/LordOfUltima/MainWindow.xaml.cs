@@ -495,6 +495,26 @@ namespace LordOfUltima
                     building_detail_wood_cost.Content = elementCost.Wood;
                     building_detail_stone_cost.Content = elementCost.Stone;
                     building_detail_iron_cost.Content = elementCost.Iron;
+
+                    ElementProduction elementProduction =
+                        _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
+                    if (elementProduction != null)
+                    {
+                        building_detail_production.Content = elementProduction.GetFirstNotNull();
+                    }
+                    else
+                    {
+                        // hide production label
+                    }
+                    elementProduction = _elementMenuDetail.GetElementType().GetElementProduction(elementLevel+1);
+                    if (elementProduction != null)
+                    {
+                        building_detail_production_next.Content = elementProduction.GetFirstNotNull();
+                    }
+                    else
+                    {
+                        // hide production label
+                    }
                 }
                 else
                 {
