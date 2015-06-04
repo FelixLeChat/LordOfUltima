@@ -44,6 +44,12 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.type GetElementType() { return _elementType; }
 
+        public ElementProduction GetElementProduction(int level)
+        {
+            // Town hall has the basic production to 300 Wood
+            return new ElementProduction(300,0,0,0);
+        }
+
         public ElementCost GetElementCost(int level)
         {
             if (level > 0 && level <= 10)

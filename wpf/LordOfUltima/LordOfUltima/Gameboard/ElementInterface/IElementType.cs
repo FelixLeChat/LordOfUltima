@@ -10,5 +10,6 @@
         bool IsRessources();
         ElementType.type GetElementType();
         ElementCost GetElementCost(int level);
+        ElementProduction GetElementProduction(int level);
     }
 }

@@ -33,5 +33,6 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.type GetElementType() { return _elementType;}
         public ElementCost GetElementCost(int level) { return null;} // Return null because there is no level with ressources
+        public ElementProduction GetElementProduction(int level) { return null; }
     }
 }

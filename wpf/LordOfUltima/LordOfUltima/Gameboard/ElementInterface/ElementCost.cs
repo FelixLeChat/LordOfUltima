@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LordOfUltima.MGameboard
+﻿namespace LordOfUltima.MGameboard
 {
     public class ElementCost
     {
@@ -15,7 +9,6 @@ namespace LordOfUltima.MGameboard
             Stone = stone;
             Iron = iron;
         }
-
 
         // Wood Value of construction
         private int _wood = -1;

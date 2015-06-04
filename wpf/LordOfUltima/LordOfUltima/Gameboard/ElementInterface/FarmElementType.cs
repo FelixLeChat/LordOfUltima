@@ -12,6 +12,7 @@ namespace LordOfUltima.MGameboard
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
         private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>(); 
+        private readonly Dictionary<int, ElementProduction> _elementProductionList = new Dictionary<int, ElementProduction>();
 
         public FarmElementType()
         {
@@ -34,6 +35,18 @@ namespace LordOfUltima.MGameboard
             _elementCostsList.Add(8, new ElementCost(16000, 8000, 0));
             _elementCostsList.Add(9, new ElementCost(25000, 13000, 0));
             _elementCostsList.Add(10, new ElementCost(38000, 20000, 0));
+
+            // Element production for each level
+            _elementProductionList.Add(1, new ElementProduction(0, 0, 0, 5));
+            _elementProductionList.Add(2, new ElementProduction(0, 0, 0, 8));
+            _elementProductionList.Add(3, new ElementProduction(0, 0, 0, 15));
+            _elementProductionList.Add(4, new ElementProduction(0, 0, 0, 20));
+            _elementProductionList.Add(5, new ElementProduction(0, 0, 0, 30));
+            _elementProductionList.Add(6, new ElementProduction(0, 0, 0, 45));
+            _elementProductionList.Add(7, new ElementProduction(0, 0, 0, 75));
+            _elementProductionList.Add(8, new ElementProduction(0, 0, 0, 120));
+            _elementProductionList.Add(9, new ElementProduction(0, 0, 0, 200));
+            _elementProductionList.Add(10, new ElementProduction(0, 0, 0, 300));
         }
 
         public string Name() { return _name; }
@@ -49,6 +62,15 @@ namespace LordOfUltima.MGameboard
             if (level > 0 && level <= 10)
             {
                 return _elementCostsList[level];
+            }
+            return null;
+        }
+
+        public ElementProduction GetElementProduction(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementProductionList[level];
             }
             return null;
         }
