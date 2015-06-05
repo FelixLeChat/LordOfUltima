@@ -564,6 +564,16 @@ namespace LordOfUltima
                         building_detail_bonus_next.Content = "";
                     } 
                     #endregion
+
+                    if (_elementMenuDetail.NbRessourcesAround > 0)
+                    {
+                        ressources_bonus_dockpanel.Visibility = Visibility.Visible;
+                        building_detail_ressource_bonus.Content = _elementMenuDetail.NbRessourcesAround;
+                    }
+                    else
+                    {
+                        ressources_bonus_dockpanel.Visibility = Visibility.Collapsed;
+                    }
                 }
                 else
                 {

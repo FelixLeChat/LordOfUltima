@@ -193,6 +193,10 @@
                                 <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
+                            <DockPanel Width="235" Margin="0,-10,0,0" Name="ressources_bonus_dockpanel">
+                                <Label Content="# Ressources near : " Width="117" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_ressource_bonus" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
                         </WrapPanel>
 
                     </WrapPanel>

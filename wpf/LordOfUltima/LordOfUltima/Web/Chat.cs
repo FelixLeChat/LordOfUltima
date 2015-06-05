@@ -65,7 +65,7 @@ namespace LordOfUltima.Web
                                 {
                                     m_insert_id = Convert.ToInt32(matchId.Groups[1].Value);
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
                                     m_insert_id = 0;
                                 }
@@ -123,7 +123,7 @@ namespace LordOfUltima.Web
                             {
                                 m_insert_id = Convert.ToInt32(responseString);
                             }
-                            catch(Exception e)
+                            catch(Exception)
                             {
                                 is_init = false;
                                 m_insert_id = 0;

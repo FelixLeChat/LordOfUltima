@@ -142,7 +142,7 @@ namespace LordOfUltima.XML
                 // set the neighbouring ressources count
                 _gameboard.cheakAllNeighbourRessources();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 // reset map if there was an exception
                 _gameboard.resetMap();

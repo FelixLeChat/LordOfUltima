@@ -37,14 +37,15 @@ namespace LordOfUltima.Events
                 elementToBuild.Level = 1;
                 // build the building
                 elementToBuild.setElementType(typeToBuild);
-                // check neighbours for ressources
-                m_gameboard.checkNeignbourRessources(elementToBuild);
 
                 // if we build a farm, spawn fields around it
                 if (typeToBuild.GetElementType() == ElementType.type.BUILDING_FARM)
                 {
                     m_gameboard.spawnFields(elementToBuild);
                 }
+
+                // Update all map for ressources
+                m_gameboard.cheakAllNeighbourRessources();
 
                 //if build sucessfull, show in side menu
                 MainWindow.m_ins.setElementMeduDetail(elementToBuild);
