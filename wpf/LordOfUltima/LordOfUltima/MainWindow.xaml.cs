@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -23,32 +22,54 @@ namespace LordOfUltima
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Gameboard m_gameboard;
-        private User.User m_user;
+        
+        
         public const int chatbox_max_items = 30;
         private RessourcesManager m_ressources_manager;
-        private IdleUiThread m_idle;
 
-        public static MainWindow m_ins = null;
+        // REFACTOR START
+        private IdleUiThread m_idle;
+        private UIImagesInit m_imageInit;
+        private User.User m_user;
+        private readonly Gameboard m_gameboard;
+        private GameboardInit _gameboardInit;
+        private LevelIndicatorVisibility _levelIndicatorVisibility;
+        // REFACTOR END
+
+        public static MainWindow m_ins;
         public MainWindow()
         {
             m_ins = this;
             InitializeComponent();
 
-            initImages();
+            //REFACTOR START
 
             // Set the user instance
             m_user = User.User.getInstance();
             label_player_name.Content = m_user.Name;
 
+            // Dispatcher pour programme Idle
+            m_idle = IdleUiThread.Instance;
+            ComponentDispatcher.ThreadIdle += m_idle.IdleThreadWork;
+
+            // Insert images in UI
+            m_imageInit = UIImagesInit.Instance;
+            m_imageInit.InitImages();
+
             // Set the gameboard Instance
             m_gameboard = Gameboard.getInstance();
+
             // Insertion des elements dans la carte
-            insertMap();
-            // Inserer les elements dans le menu
-            insertMenu();
-            // Cacher les niveaux a la base
-            m_gameboard.hideLevelIndicator();
+            _gameboardInit = GameboardInit.Instance;
+            _gameboardInit.InsertMap();
+
+            _levelIndicatorVisibility = LevelIndicatorVisibility.Instance;
+            _levelIndicatorVisibility.hideLevelIndicator();
+
+            //REFACTOR END
+
+
+
 
             // load game
             if (!SaveGame.Instance.Load())
@@ -58,12 +79,9 @@ namespace LordOfUltima
             }
 
             // hide building menu
-            setVisibleBuildingMenu(false);
+            BuildingMenuVisibility.Instance.hideBuildingMenu();
             setVisibleBuildingDetails(false);
 
-            // Dispatcher pour programme Idle
-            m_idle = IdleUiThread.Instance;
-            ComponentDispatcher.ThreadIdle += m_idle.IdleThreadWork;
 
             // Start Chat thread
             BackgroundWorker bw = new BackgroundWorker();
@@ -74,158 +92,13 @@ namespace LordOfUltima
             m_ressources_manager = RessourcesManager.Instance;
         }
 
-        // Idle loop
-        void ComponentDispatcher_ThreadIdle(object sender, EventArgs e)
-        {
-            // Update the chat 
-            
-        }
 
         public void InsertContentInStopWatch(string content)
         {
             stop_watch.Content = content;
         }
 
-        /*
-         * Insertion du tableau d'Elements dans le canvas (a l'initialisation de la fenetre)
-        */
-        private void insertMap()
-        {
-            foreach(Element element in m_gameboard.getMap())
-            {
-                // Add building to canvas
-                canvas1.Children.Add(element.getElement());
-                // Add building level to canvas
-                canvas1.Children.Add(element.getLevelElement());
-                // Add level label to canvas
-                canvas1.Children.Add(element.getLevelLabel());
-                // Add select rect to canvas
-                canvas1.Children.Add(element.getSelectElement());
-            }
-        }
 
-        #region Image Assignation
-        private void insertMenu()
-        {
-            // Image for Woodcutter
-            ImageBrush imageWoodcutter = new ImageBrush();
-            imageWoodcutter.ImageSource = new BitmapImage(new Uri(new WoodcutterElementType().getDetailImagePath(), UriKind.Relative));
-            building_woodcutter.Fill = imageWoodcutter;
-
-            // Image for Sawmill
-            ImageBrush imageSawmill = new ImageBrush();
-            imageSawmill.ImageSource = new BitmapImage(new Uri(new SawmillElementType().getDetailImagePath(), UriKind.Relative));
-            building_sawmill.Fill = imageSawmill;
-
-            // Image for Quarry
-            ImageBrush imageQuarry = new ImageBrush();
-            imageQuarry.ImageSource = new BitmapImage(new Uri(new QuarryElementType().getDetailImagePath(), UriKind.Relative));
-            building_quarry.Fill = imageQuarry;
-
-            // Image for StoneMason
-            ImageBrush imageStonemason = new ImageBrush();
-            imageStonemason.ImageSource = new BitmapImage(new Uri(new StoneMasonElementType().getDetailImagePath(), UriKind.Relative));
-            building_stonemason.Fill = imageStonemason;
-
-            // Image for Iron mine
-            ImageBrush imageIronmine = new ImageBrush();
-            imageIronmine.ImageSource = new BitmapImage(new Uri(new IronMineElementType().getDetailImagePath(), UriKind.Relative));
-            building_ironmine.Fill = imageIronmine;
-
-            // Image for Foundry
-            ImageBrush imageFoundry = new ImageBrush();
-            imageFoundry.ImageSource = new BitmapImage(new Uri(new FoundryElementType().getDetailImagePath(), UriKind.Relative));
-            building_foundry.Fill = imageFoundry;
-
-            // Image for Farm
-            ImageBrush imageFarm = new ImageBrush();
-            imageFarm.ImageSource = new BitmapImage(new Uri(new FarmElementType().getDetailImagePath(), UriKind.Relative));
-            building_farm.Fill = imageFarm;
-
-            // Image for Mill
-            ImageBrush imageMill = new ImageBrush();
-            imageMill.ImageSource = new BitmapImage(new Uri(new MillElementType().getDetailImagePath(), UriKind.Relative));
-            building_mill.Fill = imageMill;
-        }
-
-        private void initImages()
-        {
-
-            // Couleur du menu
-            ImageBrush imageMenuRepeat = new ImageBrush();
-            imageMenuRepeat.ImageSource = new BitmapImage(new Uri(@"Media/menu_repeat.png", UriKind.Relative));
-            menu1.Background = imageMenuRepeat;
-            top_menu.Background = imageMenuRepeat;
-
-            grid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
-
-            // Background pour canvas
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri(@"Media/main.png", UriKind.Relative));
-            canvas1.Background = imageBrush;
-
-            // Background pour le degrade (Fog)
-            LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
-            myLinearGradientBrush.StartPoint = new Point(0, 0);
-            myLinearGradientBrush.EndPoint = new Point(0, 1);
-            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.White, -0.03));
-            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 0.10));
-            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 0.90));
-            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.White, 1.03));
-            canvas_fog.Fill = myLinearGradientBrush;
-
-
-            // Background pour Scroll View
-            ImageBrush imageScroll = new ImageBrush();
-            imageScroll.ImageSource = new BitmapImage(new Uri(@"Media/menu.png", UriKind.Relative));
-            scrollview.Background = imageScroll;
-
-            // Side menu seperator
-            ImageBrush imageSeperator = new ImageBrush();
-            imageSeperator.ImageSource = new BitmapImage(new Uri(@"Media/menu_division.png", UriKind.Relative));
-            building_detail_seperator.Fill = imageSeperator;
-
-            // Image for bottom menu
-            ImageBrush bottomMenu = new ImageBrush();
-            bottomMenu.ImageSource = new BitmapImage(new Uri(@"Media/menu_bottom.png", UriKind.Relative));
-            bottom_menu_rect.Fill = bottomMenu;
-
-            // Image pour le menu des ressources
-            ImageBrush ressMenu = new ImageBrush();
-            ressMenu.ImageSource = new BitmapImage(new Uri(@"Media/ress_menu.png", UriKind.Relative));
-            ress_menu.Background = ressMenu;
-
-            // Image for wood 
-            ImageBrush imageRWood = new ImageBrush();
-            imageRWood.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_wood.png", UriKind.Relative));
-            ress_wood.Background = imageRWood;
-
-            // Image for stone
-            ImageBrush imageRStone = new ImageBrush();
-            imageRStone.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_stone.png", UriKind.Relative));
-            ress_stone.Background = imageRStone;
-
-            // Image for grain
-            ImageBrush imageRGrain = new ImageBrush();
-            imageRGrain.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_grain.png", UriKind.Relative));
-            ress_grain.Background = imageRGrain;
-
-            // Image for iron
-            ImageBrush imageRIron = new ImageBrush();
-            imageRIron.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_iron.png", UriKind.Relative));
-            ress_iron.Background = imageRIron;
-
-            // Image for gold
-            ImageBrush imageRGold = new ImageBrush();
-            imageRGold.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/Lou_resource_gold.png", UriKind.Relative));
-            ress_gold.Background = imageRGold;
-
-            // Image for researh
-            ImageBrush imageRResearch = new ImageBrush();
-            imageRResearch.ImageSource = new BitmapImage(new Uri(@"Media/ressource/icon/research.png", UriKind.Relative));
-            ress_research.Background = imageRResearch;
-        }
-        #endregion
 
         #region Map Mouvement
         const double ScaleRate = 1.05;
@@ -395,81 +268,8 @@ namespace LordOfUltima
         }
         #endregion
 
-        #region Menu element click
-        /*
-         * Trigger building level indicator on map
-        */
-        private void trigger_level_Click(object sender, RoutedEventArgs e)
-        {
-            if(trigger_level.IsChecked)
-            {
-                m_gameboard.showLevelIndicator();
-            }
-            else
-            {
-                m_gameboard.hideLevelIndicator();
-            }
-        }
-
-        private void reset_map_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                m_gameboard.resetMap();
-                // Init a new game
-                m_gameboard.initialiseNewGame();
-            }
-
-        }
-
-        private void logout_Click(object sender, RoutedEventArgs e)
-        {
-            foreach(Element element in m_gameboard.getMap())
-            {
-                canvas1.Children.Remove(element.getElement());
-                canvas1.Children.Remove(element.getLevelElement());
-                canvas1.Children.Remove(element.getLevelLabel());
-                canvas1.Children.Remove(element.getSelectElement());
-            }
-            m_gameboard.resetMap();
-            LoginWindow window = new LoginWindow();
-            window.Show();
-            this.Close();
-        }
-
-        private void game_save_Click(object sender, RoutedEventArgs e)
-        {
-            SaveGame.Instance.Save();
-        }
-
-        private void game_load_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                m_gameboard.resetMap();
-                SaveGame.Instance.Load();
-            }
-        }
-        #endregion
-
         #region Side Menu for buildings
-        public void setVisibleBuildingMenu(bool isVisible)
-        {
-            if (isVisible)
-            {
-                building_menu.Visibility = Visibility.Visible;
-                scrollview.ScrollToTop();
-                building_menu_englob.Height = 600;
-            }
-            else
-            {
-                building_menu.Visibility = Visibility.Collapsed;
-                scrollview.ScrollToTop();
-                building_menu_englob.Height = 400;
-            }
-        }
+
 
         public void setVisibleBuildingDetails(bool isVisible)
         {
@@ -619,71 +419,127 @@ namespace LordOfUltima
         }
         #endregion
 
+
+        #region Menu element click
+        /*
+         * Trigger building level indicator on map
+        */
+        private void trigger_level_Click(object sender, RoutedEventArgs e)
+        {
+            _levelIndicatorVisibility.handleLevelIndicatorVisibility();
+        }
+
+        /*
+         * Reset the current map
+        */
+        private void reset_map_Click(object sender, RoutedEventArgs e)
+        {
+            // Show messagebox for confirmation
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                m_gameboard.resetMap();
+                // Init a new game
+                m_gameboard.initialiseNewGame();
+            }
+        }
+
+        /*
+         * Logout of the game
+        */
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Element element in m_gameboard.getMap())
+            {
+                canvas1.Children.Remove(element.getElement());
+                canvas1.Children.Remove(element.getLevelElement());
+                canvas1.Children.Remove(element.getLevelLabel());
+                canvas1.Children.Remove(element.getSelectElement());
+            }
+            m_gameboard.resetMap();
+            LoginWindow window = new LoginWindow();
+            window.Show();
+            Close();
+        }
+
+        /*
+         * Save Game
+        */
+        private void game_save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveGame.Instance.Save();
+        }
+
+        /*
+         * Load the last saved game
+        */
+        private void game_load_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                m_gameboard.resetMap();
+                SaveGame.Instance.Load();
+            }
+        }
+        #endregion
+
         #region SideMenu building Click
         private BuildEvent m_buildEvent = BuildEvent.getInstance();
         private void building_woodcutter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new WoodcutterElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new WoodcutterElementType());
         }
 
         private void building_sawmill_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new SawmillElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new SawmillElementType());
         }
 
         private void building_quarry_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new QuarryElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new QuarryElementType());
         }
 
         private void building_stonemason_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new StoneMasonElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new StoneMasonElementType());
         }
 
         private void building_ironmine_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new IronMineElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new IronMineElementType());
         }
 
         private void building_foundry_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new FoundryElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new FoundryElementType());
         }
 
         private void building_farm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new FarmElementType());
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildElement(new FarmElementType());
         }
 
         private void building_mill_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_buildEvent.setTypeToBuild(new MillElementType());
+            BuildElement(new MillElementType());
+        }
+
+        private void BuildElement(IElementType element)
+        {
+            m_buildEvent.setTypeToBuild(element);
             m_buildEvent.buildElement();
             m_buildEvent.setElementToBuild(null);
-            setVisibleBuildingMenu(false);
+            BuildingMenuVisibility.Instance.hideBuildingMenu();
         }
         #endregion
+
+
+        // update instance on windows closing
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            m_ins = null;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Error;
+using LordOfUltima.Events;
 
 namespace LordOfUltima.XML
 {
@@ -32,7 +33,7 @@ namespace LordOfUltima.XML
         public void Save()
         {
             // visual reset
-            MainWindow.m_ins.setVisibleBuildingMenu(false);
+            BuildingMenuVisibility.Instance.hideBuildingMenu();
             MainWindow.m_ins.setVisibleBuildingDetails(false);
             _gameboard.resetSelectionBorder();
 
@@ -76,7 +77,7 @@ namespace LordOfUltima.XML
         public bool Load()
         {
             // visual reset
-            MainWindow.m_ins.setVisibleBuildingMenu(false);
+            BuildingMenuVisibility.Instance.hideBuildingMenu();
             MainWindow.m_ins.setVisibleBuildingDetails(false);
             _gameboard.resetSelectionBorder();
 
@@ -141,6 +142,11 @@ namespace LordOfUltima.XML
 	            }
                 // set the neighbouring ressources count
                 _gameboard.cheakAllNeighbourRessources();
+
+                // fix for leftover level indicator
+                LevelIndicatorVisibility.Instance.hideLevelIndicator();
+                LevelIndicatorVisibility.Instance.handleLevelIndicatorVisibility();
+
                 return true;
             }
             catch(Exception)

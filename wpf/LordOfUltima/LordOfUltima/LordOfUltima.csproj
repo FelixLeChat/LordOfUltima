@@ -72,7 +72,11 @@
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />
-    <Compile Include="Events\IdleUiThread.cs" />
+    <Compile Include="Events\BuildingMenuVisibility.cs" />
+    <Compile Include="Events\LevelIndicatorVisibility.cs" />
+    <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
+    <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />
+    <Compile Include="Events\MainWindowEvents\UIImagesInit.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProductionBonus.cs" />
@@ -114,7 +118,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Events\EventDispatcher.cs" />
     <Compile Include="Gameboard\Element.cs" />
     <Compile Include="Gameboard\Gameboard.cs" />
     <Compile Include="MainWindow.xaml.cs">

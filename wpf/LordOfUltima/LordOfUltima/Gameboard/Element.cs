@@ -133,12 +133,12 @@ namespace LordOfUltima
                 // Trigger menu
                 if (m_isValid && !HasElement)
                 {
-                    MainWindow.m_ins.setVisibleBuildingMenu(true);
+                    BuildingMenuVisibility.Instance.showBuildingMenu();
                     BuildEvent.getInstance().setElementToBuild(this);
                 }
                 else
                 {
-                    MainWindow.m_ins.setVisibleBuildingMenu(false);
+                    BuildingMenuVisibility.Instance.hideBuildingMenu();
                 }
 
 

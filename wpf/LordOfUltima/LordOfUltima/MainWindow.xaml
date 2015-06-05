@@ -7,7 +7,7 @@
         MinHeight="640"
         MinWidth="1175"
         MaxHeight="640"
-        MaxWidth="1175">
+        MaxWidth="1175" Closing="Window_Closing">
 
     <Grid Name="grid">
 

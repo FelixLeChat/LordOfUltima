@@ -138,7 +138,7 @@ namespace LordOfUltima
             m_map[9, 9].Level = 1;
         }
 
-        public void hideLevelIndicator()
+        /*public void hideLevelIndicator()
         {
             foreach( Element element in m_map)
             {
@@ -152,7 +152,7 @@ namespace LordOfUltima
             {
                 element.showLevelIndicator();
             }
-        }
+        }*/
 
         public void resetSelectionBorder()
         {
