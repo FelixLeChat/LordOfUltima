@@ -236,6 +236,7 @@ namespace LordOfUltima
 
         public void initialise()
         {
+            hideSelectBorder();
             HasElement = false;
             _elementType = null;
             m_imgbrush = new ImageBrush();
@@ -244,6 +245,7 @@ namespace LordOfUltima
 
             // Natural ressources near
             m_neighbour_ressources = 0;
+            m_fieldsCount = 0;
             // Bonus building near
             m_has_bonus_building = false;
         }
@@ -252,6 +254,19 @@ namespace LordOfUltima
         {
             get { return m_neighbour_ressources;}
             set { if (value < 9) m_neighbour_ressources = value; }
+        }
+
+        private int m_fieldsCount;
+        public int FieldsCount
+        {
+            get { return m_fieldsCount; }
+            set
+            {
+                if (value < 9 && value >= 0)
+                {
+                    m_fieldsCount = value;
+                }
+            }
         }
     }
 }

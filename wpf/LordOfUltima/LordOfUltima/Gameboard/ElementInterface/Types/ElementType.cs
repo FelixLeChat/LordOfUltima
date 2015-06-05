@@ -93,9 +93,9 @@
                 case type.RESSOURCE_WATER:
                     result = new LakeElementType();
                     break;
-                /*case type.RESSOURCE_FIELDS:
-                    name = "Field";
-                    break;*/
+                case type.RESSOURCE_FIELDS:
+                    result = new FieldsElementType();
+                    break;
                 default:
                     break;
             }

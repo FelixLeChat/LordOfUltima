@@ -193,9 +193,13 @@
                                 <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0" Name="ressources_bonus_dockpanel">
+                            <DockPanel Width="235" Margin="0,-10,0,0" Name="ressources_bonus_dockpanel" Visibility="Collapsed">
                                 <Label Content="# Ressources near : " Width="117" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_ressource_bonus" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
+                            <DockPanel Width="235" Margin="0,-10,0,0" Name="fields_count_dockpanel" Visibility="Collapsed">
+                                <Label Content="# Fields around : " Width="117" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_fields_count" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
                         </WrapPanel>
 

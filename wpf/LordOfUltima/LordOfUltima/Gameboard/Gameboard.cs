@@ -293,6 +293,7 @@ namespace LordOfUltima
                 return;
             }
 
+
             if (y > 0)
             {
                 if (x > 0)
@@ -350,6 +351,7 @@ namespace LordOfUltima
                 for(int j = 0; j < frame_count ; j ++)
                 {
                     checkNeignbourRessources(m_map[i,j]);
+                    checkFieldsCount(m_map[i, j]);
                 }
             }
         }
@@ -428,5 +430,83 @@ namespace LordOfUltima
             m_map[x,y].setElementType(new FieldsElementType());
             m_map[x, y].HasElement = false;
         }
+
+        public void checkFieldsCount(Element element)
+        {
+            if (element == null || !element.HasElement || element.GetElementType() == null)
+                return;
+
+            if (element.GetElementType().GetElementType() != ElementType.type.BUILDING_FARM)
+                return;
+            int x = element.PositionX;
+            int y = element.PositionY;
+            int fieldsCount = 0;
+
+            #region Fields count
+            if (y > 0)
+            {
+                if (x > 0)
+                {
+                    if (!m_map[x - 1, y - 1].HasElement)
+                    {
+                        fieldsCount++;
+                    }
+                }
+                if (!m_map[x, y - 1].HasElement)
+                {
+                    fieldsCount++;
+                }
+
+                if (x < frame_count - 1)
+                {
+                    if (!m_map[x + 1, y - 1].HasElement)
+                    {
+                        fieldsCount++;
+                    }
+                }
+
+            }
+            if (y < frame_count - 1)
+            {
+                if (x > 0)
+                {
+                    if (!m_map[x - 1, y + 1].HasElement)
+                    {
+                        fieldsCount++;
+                    }
+                }
+
+                if (!m_map[x, y + 1].HasElement)
+                {
+                    fieldsCount++;
+                }
+
+                if (x < frame_count - 1)
+                {
+                    if (!m_map[x + 1, y + 1].HasElement)
+                    {
+                        fieldsCount++;
+                    }
+                }
+            }
+
+            if (x > 0)
+            {
+                if (!m_map[x - 1, y].HasElement)
+                {
+                    fieldsCount++;
+                }
+            }
+            if (x < frame_count - 1)
+            {
+                if (!m_map[x + 1, y].HasElement)
+                {
+                    fieldsCount++;
+                }
+            }
+            #endregion
+
+            element.FieldsCount = fieldsCount;
+        } 
     }
 }

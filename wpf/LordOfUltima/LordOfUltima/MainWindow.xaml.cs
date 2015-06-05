@@ -496,6 +496,7 @@ namespace LordOfUltima
                     building_detail_stone_cost.Content = elementCost.Stone;
                     building_detail_iron_cost.Content = elementCost.Iron;
 
+                    // Show/Hide production label
                     #region Production Label handle
                     ElementProduction elementProduction =
                 _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
@@ -565,6 +566,8 @@ namespace LordOfUltima
                     } 
                     #endregion
 
+                    // Show/Hide # ressources around element
+                    #region Label for # ressources around
                     if (_elementMenuDetail.NbRessourcesAround > 0)
                     {
                         ressources_bonus_dockpanel.Visibility = Visibility.Visible;
@@ -573,6 +576,17 @@ namespace LordOfUltima
                     else
                     {
                         ressources_bonus_dockpanel.Visibility = Visibility.Collapsed;
+                    } 
+                    #endregion
+
+                    if (_elementMenuDetail.FieldsCount > 0)
+                    {
+                        fields_count_dockpanel.Visibility = Visibility.Visible;
+                        building_detail_fields_count.Content = _elementMenuDetail.FieldsCount;
+                    }
+                    else
+                    {
+                        fields_count_dockpanel.Visibility = Visibility.Collapsed;
                     }
                 }
                 else
