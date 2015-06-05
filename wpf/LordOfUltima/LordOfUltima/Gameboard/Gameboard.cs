@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Shapes;
-using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Controls;
 using LordOfUltima.MGameboard;
@@ -32,7 +28,6 @@ namespace LordOfUltima
         }
 
         private Element[,] m_map;
-
         /*
          * Constructeur prive pour empecher l'acces au constructeur par
          * une autre classe.

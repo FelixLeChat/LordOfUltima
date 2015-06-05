@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
+using LordOfUltima.RessourcesProduction;
 using LordOfUltima.Web;
 using LordOfUltima.XML;
 
@@ -23,9 +24,10 @@ namespace LordOfUltima
     public partial class MainWindow : Window
     {
         private readonly Gameboard m_gameboard;
-        private Stopwatch m_watch;
         private User.User m_user;
         public const int chatbox_max_items = 30;
+        private RessourcesManager m_ressources_manager;
+        private IdleUiThread m_idle;
 
         public static MainWindow m_ins = null;
         public MainWindow()
@@ -59,30 +61,29 @@ namespace LordOfUltima
             setVisibleBuildingMenu(false);
             setVisibleBuildingDetails(false);
 
-            // Start Stop watch
-            m_watch = new Stopwatch();
-            m_watch.Start();
-
             // Dispatcher pour programme Idle
-            ComponentDispatcher.ThreadIdle += new System.EventHandler(ComponentDispatcher_ThreadIdle);
+            m_idle = IdleUiThread.Instance;
+            ComponentDispatcher.ThreadIdle += m_idle.IdleThreadWork;
 
             // Start Chat thread
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += updateChat;
             bw.RunWorkerAsync();
+
+            // Start Ressource management
+            m_ressources_manager = RessourcesManager.Instance;
         }
 
         // Idle loop
         void ComponentDispatcher_ThreadIdle(object sender, EventArgs e)
         {
-            //do your idle stuff here
-            System.Threading.Thread.Sleep(10);
-            // Show stopwatch in menu :D
-            TimeSpan ts = m_watch.Elapsed;
-            stop_watch.Content = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-
             // Update the chat 
-            ui_thread_updateChat();
+            
+        }
+
+        public void InsertContentInStopWatch(string content)
+        {
+            stop_watch.Content = content;
         }
 
         /*
@@ -369,7 +370,7 @@ namespace LordOfUltima
         }
 
         private List<string> m_chat_text = new List<string>();
-        private void ui_thread_updateChat()
+        public void ui_thread_updateChat()
         {
             if (m_new_chat_lines != null && m_new_chat_lines.Count() != 0)
             {

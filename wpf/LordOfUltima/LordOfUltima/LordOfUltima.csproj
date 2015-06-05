@@ -72,6 +72,7 @@
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />
+    <Compile Include="Events\IdleUiThread.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProductionBonus.cs" />

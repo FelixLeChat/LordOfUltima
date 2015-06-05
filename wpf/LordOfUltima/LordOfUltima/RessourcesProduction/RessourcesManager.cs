@@ -1,4 +1,4 @@
-﻿using System.Windows.Documents;
+﻿using System.Threading;
 
 namespace LordOfUltima.RessourcesProduction
 {
@@ -18,9 +18,13 @@ namespace LordOfUltima.RessourcesProduction
         }
 
         private Gameboard m_gameboard;
+        private Timer m_ressources_update_timer;
         private RessourcesManager()
         {
             m_gameboard = Gameboard.getInstance();
+
+            // timer for ressources updates
+            m_ressources_update_timer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
         }
 
         public void CalculateRessources()
