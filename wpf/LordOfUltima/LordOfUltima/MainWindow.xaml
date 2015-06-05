@@ -154,7 +154,7 @@
                     <WrapPanel Height="262" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 
-                        <WrapPanel Name="building_detail_level_info">
+                        <WrapPanel Name="building_detail_level_info" Height="auto">
                             <DockPanel  Width="224" >
                                 <Label Height="30" Width="43" Content="Level : " Margin="10,0,0,0"/>
                                 <Label Name="building_detail_level" Height="30" Width="30" Content="0"/>
@@ -176,28 +176,31 @@
                             <DockPanel Width="235">
                                 <Label Content="Wood :" Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_wood_cost" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
-                            </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0">
+                            </DockPanel >
+                            <DockPanel Width="235" Margin="0,-15,0,0">
                                 <Label Content="Stone :" Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_stone_cost" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0">
+                            <DockPanel Width="235" Margin="0,-15,0,0">
                                 <Label Content="Iron    :" Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_iron_cost" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0" Name="production_dockpanel">
+                            <DockPanel Width="235" Margin="0,-15,0,0" Name="production_dockpanel">
                                 <Label Content="Production : " Width="80" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_production_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0" Name="bonus_dockpanel" Visibility="Collapsed">
+                            <DockPanel Width="235" Margin="0,-15,0,0" Name="bonus_dockpanel" >
                                 <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0" Name="ressources_bonus_dockpanel" Visibility="Collapsed">
+                            
+                            <Rectangle Width="248" Height="20" Name="building_detail_seperator" Margin="-4,-5,0,0"></Rectangle>
+                            
+                            <DockPanel Width="235" Margin="0,-20,0,0" Name="ressources_bonus_dockpanel">
                                 <Label Content="# Ressources near : " Width="117" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_ressource_bonus" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            <DockPanel Width="235" Margin="0,-10,0,0" Name="fields_count_dockpanel" Visibility="Collapsed">
+                            <DockPanel Width="235" Margin="0,-15,0,0" Name="fields_count_dockpanel" >
                                 <Label Content="# Fields around : " Width="117" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_fields_count" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>

@@ -73,7 +73,7 @@ namespace LordOfUltima.XML
             xmlWriter.Close();
         }
 
-        public void Load()
+        public bool Load()
         {
             // visual reset
             MainWindow.m_ins.setVisibleBuildingMenu(false);
@@ -81,7 +81,7 @@ namespace LordOfUltima.XML
             _gameboard.resetSelectionBorder();
 
             if(!File.Exists(_user.Name + ".xml"))
-                return;
+                return false;
 
             Element[,] elements = _gameboard.getMap();
 
@@ -141,12 +141,14 @@ namespace LordOfUltima.XML
 	            }
                 // set the neighbouring ressources count
                 _gameboard.cheakAllNeighbourRessources();
+                return true;
             }
             catch(Exception)
             {
                 // reset map if there was an exception
                 _gameboard.resetMap();
                 _gameboard.initialiseNewGame();
+                return false;
             }
 
         }

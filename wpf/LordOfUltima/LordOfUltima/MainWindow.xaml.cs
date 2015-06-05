@@ -48,11 +48,12 @@ namespace LordOfUltima
             // Cacher les niveaux a la base
             m_gameboard.hideLevelIndicator();
 
-            // Init a new game
-            //m_gameboard.initialiseNewGame();
-
             // load game
-            SaveGame.Instance.Load();
+            if (!SaveGame.Instance.Load())
+            {
+                // If no game is found, load a new one
+                m_gameboard.initialiseNewGame();
+            }
 
             // hide building menu
             setVisibleBuildingMenu(false);
@@ -177,6 +178,11 @@ namespace LordOfUltima
             ImageBrush imageScroll = new ImageBrush();
             imageScroll.ImageSource = new BitmapImage(new Uri(@"Media/menu.png", UriKind.Relative));
             scrollview.Background = imageScroll;
+
+            // Side menu seperator
+            ImageBrush imageSeperator = new ImageBrush();
+            imageSeperator.ImageSource = new BitmapImage(new Uri(@"Media/menu_division.png", UriKind.Relative));
+            building_detail_seperator.Fill = imageSeperator;
 
             // Image for bottom menu
             ImageBrush bottomMenu = new ImageBrush();
