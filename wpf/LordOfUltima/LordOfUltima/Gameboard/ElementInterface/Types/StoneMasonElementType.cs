@@ -2,7 +2,7 @@
 
 namespace LordOfUltima.MGameboard
 {
-    public class FoundryElementType : IElementType
+    public class StoneMasonElementType : IElementType
     {
         private readonly string _name;
         private readonly string _imagePath;
@@ -11,17 +11,18 @@ namespace LordOfUltima.MGameboard
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
-        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>(); 
+        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
+        private readonly Dictionary<int, ElementProductionBonus> _elementProductionBonusList = new Dictionary<int, ElementProductionBonus>(); 
 
-        public FoundryElementType()
+        public StoneMasonElementType()
         {
-            _elementType = ElementType.type.BUILDING_FOUNDRY;
+            _elementType = ElementType.type.BUILDING_STONEMASON;
             _name = ElementType.getTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_foundry.png";
-            _detailImagePath = "Media/menu/menu_foundry.png";
-            _elementInfo = "It increases the efficiency of bordering Ore Mines and iron storage capacity of bordering Storage.";
+            _imagePath = "Media/building/building_stonemason.png";
+            _detailImagePath = "Media/menu/menu_stonemason.png";
+            _elementInfo = "It increases the efficiency of bordering Quarries and stone storage capacity of any bordering Storage.";
 
             // Element cost for each level
             _elementCostsList.Add(1, new ElementCost(60, 60, 0));
@@ -34,6 +35,11 @@ namespace LordOfUltima.MGameboard
             _elementCostsList.Add(8, new ElementCost(13500, 13500, 0));
             _elementCostsList.Add(9, new ElementCost(21500, 21500, 0));
             _elementCostsList.Add(10, new ElementCost(33000, 33000, 0));
+
+            for (int i = 1; i <= 10; i++)
+            {
+                _elementProductionBonusList.Add(i, new ElementProductionBonus(0, 0, 30 + (i - 1) * 5, 0));
+            }
         }
 
         public string Name() { return _name; }
@@ -44,11 +50,21 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.type GetElementType() { return _elementType; }
         public ElementProduction GetElementProduction(int level) { return null; }
+
         public ElementCost GetElementCost(int level)
         {
             if (level > 0 && level <= 10)
             {
                 return _elementCostsList[level];
+            }
+            return null;
+        }
+
+        public ElementProductionBonus GetElementProductionBonus(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementProductionBonusList[level];
             }
             return null;
         }

@@ -159,7 +159,9 @@
                                 <Label Height="30" Width="43" Content="Level : " Margin="10,0,0,0"/>
                                 <Label Name="building_detail_level" Height="30" Width="30" Content="0"/>
                                 <Label Name="building_production_label" Content="Production :" Margin="5,0,0,0" Width="73"/>
+                                <Label Name="building_bonus_label" Content="Bonus : " Width="73" Margin="-73,0,0,0" Visibility="Hidden"/>
                                 <Label Content="0" Name="building_detail_production" Width="60"/>
+                                <Label Content="0" Name="building_detail_bonus" Width="60" Margin="-65,0,0,0"/>
                             </DockPanel >
 
                             <Button Content="Upgrade" Width="229" Height="30" Margin="5,0,10,0" Foreground="Black">
@@ -186,6 +188,10 @@
                             <DockPanel Width="235" Margin="0,-10,0,0" Name="production_dockpanel">
                                 <Label Content="Production : " Width="80" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_production_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
+                            <DockPanel Width="235" Margin="0,-10,0,0" Name="bonus_dockpanel" Visibility="Collapsed">
+                                <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
                         </WrapPanel>
 

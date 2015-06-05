@@ -4,10 +4,10 @@
     {
         public ElementProduction(int wood, int stone, int iron, int food)
         {
-            _woodProduction = wood;
-            _stoneProduction = stone;
-            _ironProduction = iron;
-            _foodProduction = food;
+            Wood = wood;
+            Stone = stone;
+            Iron = iron;
+            Food = food;
         }
 
         // Wood production of Element

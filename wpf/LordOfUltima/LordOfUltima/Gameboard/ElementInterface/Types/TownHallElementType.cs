@@ -43,6 +43,7 @@ namespace LordOfUltima.MGameboard
         public string getDetailImagePath() { return _detailImagePath; }
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.type GetElementType() { return _elementType; }
+        public ElementProductionBonus GetElementProductionBonus(int level) { return null; }
 
         public ElementProduction GetElementProduction(int level)
         {

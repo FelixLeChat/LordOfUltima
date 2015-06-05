@@ -2,7 +2,7 @@
 
 namespace LordOfUltima.MGameboard
 {
-    public class FarmElementType : IElementType
+    public class WoodcutterElementType : IElementType
     {
         private readonly string _name;
         private readonly string _imagePath;
@@ -11,24 +11,24 @@ namespace LordOfUltima.MGameboard
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
-        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>(); 
+        private readonly Dictionary<int,ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
         private readonly Dictionary<int, ElementProduction> _elementProductionList = new Dictionary<int, ElementProduction>();
 
-        public FarmElementType()
+        public WoodcutterElementType()
         {
-            _elementType = ElementType.type.BUILDING_FARM;
+            _elementType = ElementType.type.BUILDING_WOODCUTTER;
             _name = ElementType.getTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_farm_2.png";
-            _detailImagePath = "Media/menu/menu_farm.png";
-            _elementInfo = "It produces food. Any bordering grassland, lakes, Cottages and Mills will increase productivity.";
+            _imagePath = "Media/building/building_woodcutter.png";
+            _detailImagePath = "Media/menu/menu_woodcutter.png";
+            _elementInfo = "It produces wood. Any bordering woods, Cottages and a maximum of one Sawmill will increase productivity.";
 
             // Element cost for each level
-            _elementCostsList.Add(1, new ElementCost(50, 0, 0));
-            _elementCostsList.Add(2, new ElementCost(200, 0, 0));
-            _elementCostsList.Add(3, new ElementCost(400, 200, 0));
-            _elementCostsList.Add(4, new ElementCost(1400, 600, 0));
+            _elementCostsList.Add(1,new ElementCost(50,0,0));
+            _elementCostsList.Add(2, new ElementCost(200,0,0));
+            _elementCostsList.Add(3, new ElementCost(400,200,0));
+            _elementCostsList.Add(4,new ElementCost(1400,600,0));
             _elementCostsList.Add(5, new ElementCost(3500, 1500, 0));
             _elementCostsList.Add(6, new ElementCost(6000, 3000, 0));
             _elementCostsList.Add(7, new ElementCost(10000, 5000, 0));
@@ -37,16 +37,16 @@ namespace LordOfUltima.MGameboard
             _elementCostsList.Add(10, new ElementCost(38000, 20000, 0));
 
             // Element production for each level
-            _elementProductionList.Add(1, new ElementProduction(0, 0, 0, 5));
-            _elementProductionList.Add(2, new ElementProduction(0, 0, 0, 8));
-            _elementProductionList.Add(3, new ElementProduction(0, 0, 0, 15));
-            _elementProductionList.Add(4, new ElementProduction(0, 0, 0, 20));
-            _elementProductionList.Add(5, new ElementProduction(0, 0, 0, 30));
-            _elementProductionList.Add(6, new ElementProduction(0, 0, 0, 45));
-            _elementProductionList.Add(7, new ElementProduction(0, 0, 0, 75));
-            _elementProductionList.Add(8, new ElementProduction(0, 0, 0, 120));
-            _elementProductionList.Add(9, new ElementProduction(0, 0, 0, 200));
-            _elementProductionList.Add(10, new ElementProduction(0, 0, 0, 300));
+            _elementProductionList.Add(1, new ElementProduction(20, 0, 0, 0));
+            _elementProductionList.Add(2, new ElementProduction(40, 0, 0, 0));
+            _elementProductionList.Add(3, new ElementProduction(60, 0, 0, 0));
+            _elementProductionList.Add(4, new ElementProduction(85, 0, 0, 0));
+            _elementProductionList.Add(5, new ElementProduction(110, 0, 0, 0));
+            _elementProductionList.Add(6, new ElementProduction(140, 0, 0, 0));
+            _elementProductionList.Add(7, new ElementProduction(175, 0, 0, 0));
+            _elementProductionList.Add(8, new ElementProduction(210, 0, 0, 0));
+            _elementProductionList.Add(9, new ElementProduction(250, 0, 0, 0));
+            _elementProductionList.Add(10, new ElementProduction(300, 0, 0, 0));
         }
 
         public string Name() { return _name; }
@@ -56,6 +56,7 @@ namespace LordOfUltima.MGameboard
         public string getDetailImagePath() { return _detailImagePath; }
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.type GetElementType() { return _elementType; }
+        public ElementProductionBonus GetElementProductionBonus(int level) { return null; }
 
         public ElementCost GetElementCost(int level)
         {

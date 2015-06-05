@@ -2,9 +2,8 @@
 
 namespace LordOfUltima.MGameboard
 {
-    public class IronElementType : IElementType
+    public class StoneElementType : IElementType
     {
-        private static readonly Random Random = new Random(121);
         private readonly string _name;
         private readonly string _imagePath;
         private readonly string _detailImagePath;
@@ -12,17 +11,24 @@ namespace LordOfUltima.MGameboard
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
+        private readonly ElementProductionBonus _elementProductionBonus;
 
-        public IronElementType()
+
+        public StoneElementType()
         {
-            _elementType = ElementType.type.RESSOURCE_IRON;
+            _elementType = ElementType.type.RESSOURCE_STONE;
             _name = ElementType.getTypeName(_elementType);
             _isRessources = true;
             _hasLevelEnable = false;
-            var select = Random.Next(1, 5);
-            _imagePath = "Media/ressource/resource_iron_" + select.ToString() + ".png";
-            _detailImagePath = "Media/menu/menu_iron.png";
-            _elementInfo = "Each Iron Mine gains 50% for the first adjacent iron node, then 40% for each after that. The Iron Mine's production efficiency can then be increased up to 75% by an adjacent Foundry, and up to 30% by each adjacent Cottage.";
+            _imagePath = "Media/ressource/resource_stone.png";
+            _detailImagePath = "Media/menu/menu_stone.png";
+            _elementInfo = "Each Quarry gains 50% for the first adjacent stone node, then 40% for each after that. The Quarry's production efficiency can then be increased up to 75% by an adjacent Stonemason, and up to 30% by each adjacent Cottage.";
+
+            // Bonus linked to Stone
+            _elementProductionBonus = new ElementProductionBonus(0, 0, 0, 0);
+            _elementProductionBonus.IsRessourcesBonus = true;
+            _elementProductionBonus.FirstBonus = 50;
+            _elementProductionBonus.StoneBonus = 40;
         }
 
         public string Name() { return _name; }
@@ -34,5 +40,7 @@ namespace LordOfUltima.MGameboard
         public ElementType.type GetElementType() { return _elementType; }
         public ElementCost GetElementCost(int level) { return null; } // Return null because there is no level with ressources
         public ElementProduction GetElementProduction(int level) { return null; }
+        public ElementProductionBonus GetElementProductionBonus(int level) { return _elementProductionBonus; }
+
     }
 }

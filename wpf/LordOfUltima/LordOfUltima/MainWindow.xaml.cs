@@ -496,8 +496,9 @@ namespace LordOfUltima
                     building_detail_stone_cost.Content = elementCost.Stone;
                     building_detail_iron_cost.Content = elementCost.Iron;
 
+                    #region Production Label handle
                     ElementProduction elementProduction =
-                        _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
+                _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
                     if (elementProduction != null)
                     {
                         building_production_label.Visibility = Visibility.Visible;
@@ -509,7 +510,8 @@ namespace LordOfUltima
                         building_detail_production.Content = "";
                         building_production_label.Visibility = Visibility.Hidden;
                     }
-                    elementProduction = _elementMenuDetail.GetElementType().GetElementProduction(elementLevel+1);
+
+                    elementProduction = _elementMenuDetail.GetElementType().GetElementProduction(elementLevel + 1);
                     if (elementProduction != null)
                     {
                         production_dockpanel.Visibility = Visibility.Visible;
@@ -520,7 +522,48 @@ namespace LordOfUltima
                         // hide production label
                         building_detail_production_next.Content = "";
                         production_dockpanel.Visibility = Visibility.Collapsed;
+                    } 
+                    #endregion
+
+                    // Show/Hide Bonus label
+                    #region Bonus Label handle
+                    ElementProductionBonus elementProductionBonus =
+                _elementMenuDetail.GetElementType().GetElementProductionBonus(elementLevel);
+                    if (elementProductionBonus != null)
+                    {
+                        building_bonus_label.Visibility = Visibility.Visible;
+
+                        if (!elementProductionBonus.IsRessourcesBonus)
+                        {
+                            building_detail_bonus.Content = String.Format("{0}%",
+                                elementProductionBonus.GetFirstNotNull());
+                        }
                     }
+                    else
+                    {
+                        building_bonus_label.Visibility = Visibility.Hidden;
+                        building_detail_bonus.Content = "";
+                    }
+
+                    elementProductionBonus =
+                        _elementMenuDetail.GetElementType().GetElementProductionBonus(elementLevel + 1);
+                    if (elementProductionBonus != null)
+                    {
+
+                        bonus_dockpanel.Visibility = Visibility.Visible;
+
+                        if (!elementProductionBonus.IsRessourcesBonus)
+                        {
+                            building_detail_bonus_next.Content = String.Format("{0}%",
+                                elementProductionBonus.GetFirstNotNull());
+                        }
+                    }
+                    else
+                    {
+                        bonus_dockpanel.Visibility = Visibility.Collapsed;
+                        building_detail_bonus_next.Content = "";
+                    } 
+                    #endregion
                 }
                 else
                 {

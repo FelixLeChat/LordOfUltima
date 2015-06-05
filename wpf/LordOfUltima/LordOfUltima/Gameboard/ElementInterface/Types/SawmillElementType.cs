@@ -11,7 +11,8 @@ namespace LordOfUltima.MGameboard
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
         private readonly ElementType.type _elementType;
-        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>(); 
+        private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
+        private readonly Dictionary<int, ElementProductionBonus> _elementProductionBonusList = new Dictionary<int, ElementProductionBonus>(); 
 
         public SawmillElementType()
         {
@@ -34,6 +35,11 @@ namespace LordOfUltima.MGameboard
             _elementCostsList.Add(8, new ElementCost(13500, 13500, 0));
             _elementCostsList.Add(9, new ElementCost(21500, 21500, 0));
             _elementCostsList.Add(10, new ElementCost(33000, 33000, 0));
+
+            for (int i = 1; i <= 10; i++)
+            {
+                _elementProductionBonusList.Add(i, new ElementProductionBonus(0, 0, 30 + (i - 1) * 5, 0));
+            }
         }
 
         public string Name() { return _name; }
@@ -50,6 +56,15 @@ namespace LordOfUltima.MGameboard
             if (level > 0 && level <= 10)
             {
                 return _elementCostsList[level];
+            }
+            return null;
+        }
+
+        public ElementProductionBonus GetElementProductionBonus(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementProductionBonusList[level];
             }
             return null;
         }
