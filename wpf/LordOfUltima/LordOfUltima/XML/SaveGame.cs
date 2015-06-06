@@ -12,29 +12,22 @@ namespace LordOfUltima.XML
         private static SaveGame _instance;
         public static SaveGame Instance
         {
-            get
-            {
-                if(_instance == null)
-                {
-                    _instance = new SaveGame();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new SaveGame()); }
         }
 
-        private User.User _user;
-        private Gameboard _gameboard;
+        private readonly User.User _user;
+        private readonly Gameboard _gameboard;
         private SaveGame() 
         {
-            _user = User.User.getInstance();
+            _user = User.User.Instance;
             _gameboard = Gameboard.getInstance();
         }
 
         public void Save()
         {
             // visual reset
-            BuildingMenuVisibility.Instance.hideBuildingMenu();
-            BuildingDetailsVisibility.Instance.hideBuildingDetails();
+            BuildingMenuVisibility.Instance.HideBuildingMenu();
+            BuildingDetailsVisibility.Instance.HideBuildingDetails();
             _gameboard.resetSelectionBorder();
 
             // No username set
@@ -77,8 +70,8 @@ namespace LordOfUltima.XML
         public bool Load()
         {
             // visual reset
-            BuildingMenuVisibility.Instance.hideBuildingMenu();
-            BuildingDetailsVisibility.Instance.hideBuildingDetails();
+            BuildingMenuVisibility.Instance.HideBuildingMenu();
+            BuildingDetailsVisibility.Instance.HideBuildingDetails();
             _gameboard.resetSelectionBorder();
 
             if(!File.Exists(_user.Name + ".xml"))
@@ -116,12 +109,12 @@ namespace LordOfUltima.XML
 
                                             if(elementType != "null")
                                             {
-                                                IElementType type = ElementType.getElementFromType(elementType);
+                                                IElementType type = ElementType.GetElementFromType(elementType);
                                                 if(type != null)
                                                 {
                                                     element.setElementType(type);
 
-                                                    if (type.GetElementType() == ElementType.type.RESSOURCE_FIELDS)
+                                                    if (type.GetElementType() == ElementType.Type.RESSOURCE_FIELDS)
                                                     {
                                                         element.HasElement = false;
                                                     }
@@ -133,9 +126,6 @@ namespace LordOfUltima.XML
                                     }
                                     else { throw new LoadException("Invalid X and Y range. X = " + x + " Y = " + y); }
                                     break;
-
-                                default:
-                                    break;
                             }
 		                }
 	                }
@@ -144,8 +134,8 @@ namespace LordOfUltima.XML
                 _gameboard.cheakAllNeighbourRessources();
 
                 // fix for leftover level indicator
-                LevelIndicatorVisibility.Instance.hideLevelIndicator();
-                LevelIndicatorVisibility.Instance.handleLevelIndicatorVisibility();
+                LevelIndicatorVisibility.Instance.HideLevelIndicator();
+                LevelIndicatorVisibility.Instance.HandleLevelIndicatorVisibility();
 
                 return true;
             }

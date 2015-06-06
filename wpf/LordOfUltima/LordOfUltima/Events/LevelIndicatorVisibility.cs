@@ -5,41 +5,34 @@
         private static LevelIndicatorVisibility _instance;
         public static LevelIndicatorVisibility Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new LevelIndicatorVisibility();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new LevelIndicatorVisibility()); }
         }
 
-        private Gameboard _gameboard;
+        private readonly Gameboard _gameboard;
         private MainWindow _mainWindow;
         private LevelIndicatorVisibility()
         {
             _gameboard = Gameboard.getInstance();
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
         }
 
-        public void handleLevelIndicatorVisibility()
+        public void HandleLevelIndicatorVisibility()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 
             if (_mainWindow.trigger_level.IsChecked)
             {
-                showLevelIndicator();
+                ShowLevelIndicator();
             }
             else
             {
-                hideLevelIndicator();
+                HideLevelIndicator();
             }
         }
 
-        public void hideLevelIndicator()
+        public void HideLevelIndicator()
         {
             foreach (Element element in _gameboard.getMap())
             {
@@ -47,7 +40,7 @@
             }
         }
 
-        public void showLevelIndicator()
+        public void ShowLevelIndicator()
         {
             foreach (Element element in _gameboard.getMap())
             {

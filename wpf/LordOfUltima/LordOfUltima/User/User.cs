@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LordOfUltima.User
+﻿namespace LordOfUltima.User
 {
     class User
     {
-        private static User m_ins = null;
-
-        public static User getInstance()
+        private static User _user;
+        public static User Instance
         {
-            if(m_ins == null)
-            {
-                m_ins = new User();
-            }
-            return m_ins;
+            get { return _user ?? (_user = new User()); }
         }
 
         private string _name = "";

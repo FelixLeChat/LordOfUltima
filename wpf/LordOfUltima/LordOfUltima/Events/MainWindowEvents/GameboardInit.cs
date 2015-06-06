@@ -5,22 +5,15 @@
         private static GameboardInit _instance;
         public static GameboardInit Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new GameboardInit();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new GameboardInit()); }
         }
 
-        private Gameboard _gameboard;
+        private readonly Gameboard _gameboard;
         private MainWindow _mainWindow;
         private GameboardInit()
         {
             _gameboard = Gameboard.getInstance();
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
         }
 
         /*
@@ -28,7 +21,7 @@
         */
         public void InsertMap()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 

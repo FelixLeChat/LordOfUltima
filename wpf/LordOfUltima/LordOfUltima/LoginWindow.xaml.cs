@@ -1,43 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Text.RegularExpressions;
-
 using LordOfUltima.Web;
 using LordOfUltima.Error;
-using LordOfUltima.User;
 
 namespace LordOfUltima
 {
-    /// <summary>
-    /// Logique d'interaction pour LoginWindow.xaml
-    /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindow
     {
-        private User.User m_user;
+        private readonly User.User _user;
         public LoginWindow()
         {
             InitializeComponent();
 
-            m_user = User.User.getInstance();
+            _user = User.User.Instance;
 
             // Hide both panel
-            login_panel.Visibility = System.Windows.Visibility.Hidden;
-            signup_panel.Visibility = System.Windows.Visibility.Hidden;
+            login_panel.Visibility = Visibility.Hidden;
+            signup_panel.Visibility = Visibility.Hidden;
 
             // Background pour grid
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri(@"Media/login_background.jpg", UriKind.Relative));
+            ImageBrush imageBrush = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(@"Media/login_background.jpg", UriKind.Relative))
+            };
             grid.Background = imageBrush;
 
             // Test
@@ -50,33 +38,33 @@ namespace LordOfUltima
         private void good_login()
         {
             // get player name
-            m_user.Name = Utility.getInstance().getPlayerName(m_user.Email);
+            _user.Name = Utility.Instance.GetPlayerName(_user.Email);
 
             MainWindow window = new MainWindow();
             window.Show();
-            this.Close();
+            Close();
         }
 
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
             // Visibility for panels
-            login_panel.Visibility = System.Windows.Visibility.Visible;
-            signup_panel.Visibility = System.Windows.Visibility.Hidden;
+            login_panel.Visibility = Visibility.Visible;
+            signup_panel.Visibility = Visibility.Hidden;
 
             // Visibility for buttons
-            login_button.Visibility = System.Windows.Visibility.Hidden;
-            signup_button.Visibility = System.Windows.Visibility.Visible;
+            login_button.Visibility = Visibility.Hidden;
+            signup_button.Visibility = Visibility.Visible;
         }
 
         private void signup_button_Click(object sender, RoutedEventArgs e)
         {
             // Visibility for panels
-            login_panel.Visibility = System.Windows.Visibility.Hidden;
-            signup_panel.Visibility = System.Windows.Visibility.Visible;
+            login_panel.Visibility = Visibility.Hidden;
+            signup_panel.Visibility = Visibility.Visible;
 
             // Visibility for buttons
-            signup_button.Visibility = System.Windows.Visibility.Hidden;
-            login_button.Visibility = System.Windows.Visibility.Visible;
+            signup_button.Visibility = Visibility.Hidden;
+            login_button.Visibility = Visibility.Visible;
         }
 
         private void login_panel_button_Click(object sender, RoutedEventArgs e)
@@ -90,12 +78,12 @@ namespace LordOfUltima
 
             if(validateLogin(email,password))
             {
-                string loginRespond = Login.getInstance().login(login_email_textbox.Text, login_password_textbox.Password);
+                string loginRespond = Login.Instance.TryLogin(login_email_textbox.Text, login_password_textbox.Password);
 
                 if(checkLoginRespond(loginRespond))
                 {
                     // Set the email for the only time
-                    m_user.Email = email;
+                    _user.Email = email;
                     good_login();
                 }
                 else
@@ -114,22 +102,22 @@ namespace LordOfUltima
             string email = signup_email_textbox.Text;
             string username = signup_username_textbox.Text;
             string password = signup_password_textbox.Password;
-            string password_check = signup_password_confirm_textbox.Password;
+            string passwordCheck = signup_password_confirm_textbox.Password;
 
-            if (validateSignup(username,email,password,password_check))
+            if (validateSignup(username,email,password,passwordCheck))
             {
-                string signupRespond = Login.getInstance().register(email, username, password);
+                string signupRespond = Login.Instance.Register(email, username, password);
 
                 // check if the signup is a sucess
                 if(checkSignupRespond(signupRespond))
                 {
                     // Visibility for panels
-                    login_panel.Visibility = System.Windows.Visibility.Visible;
-                    signup_panel.Visibility = System.Windows.Visibility.Hidden;
+                    login_panel.Visibility = Visibility.Visible;
+                    signup_panel.Visibility = Visibility.Hidden;
 
                     // Visibility for buttons
-                    login_button.Visibility = System.Windows.Visibility.Hidden;
-                    signup_button.Visibility = System.Windows.Visibility.Visible;
+                    login_button.Visibility = Visibility.Hidden;
+                    signup_button.Visibility = Visibility.Visible;
 
                     resetSignupFields();
                 }
@@ -140,20 +128,20 @@ namespace LordOfUltima
         private bool checkValidEmail(string email)
         {
             // check if email is valid 
-            bool valid_email = false;
+            bool validEmail;
             try
             {
-                valid_email = Regex.IsMatch(email,
+                validEmail = Regex.IsMatch(email,
                       @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                       @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
                       RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)
             {
-                valid_email = false;
+                validEmail = false;
             }
 
-            return valid_email;
+            return validEmail;
         }
 
         private void setSignupUsernameError(string error)
@@ -211,39 +199,39 @@ namespace LordOfUltima
 
             if (!Regex.IsMatch(username, @"^[a-zA-Z0-9]*$"))
             {
-                setSignupUsernameError(LoginError.getErrorValue(LoginError.errors.USERNAME_INVALID_FORMAT));
+                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_INVALID_FORMAT));
                 isValid = false;
             }
             else if (username.Length < 5)
             {
-                setSignupUsernameError(LoginError.getErrorValue(LoginError.errors.USERNAME_TOO_SHORT));
+                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_SHORT));
                 isValid = false;
             }
             else if (username.Length > 30)
             {
-                setSignupUsernameError(LoginError.getErrorValue(LoginError.errors.USERNAME_TOO_LONG));
+                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_LONG));
                 isValid = false;
             }
 
             if(password.Length < 6)
             {
-                setSignupPasswordError(LoginError.getErrorValue(LoginError.errors.PASSWORD_TOO_SHORT));
+                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_TOO_SHORT));
                 isValid = false;
             }
             else if (password != confirmation)
             {
-                setSignupPasswordError(LoginError.getErrorValue(LoginError.errors.PASSWORD_DONT_MATCH));
+                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_DONT_MATCH));
                 isValid = false;
             }
             else if(!Regex.IsMatch(password, "[0-9]{1}") || !Regex.IsMatch(password, "[A-Z]{1}"))
             {
-                setSignupPasswordError(LoginError.getErrorValue(LoginError.errors.PASSWORD_INVALID_FORMAT));
+                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
                 isValid = false;
             }
                 
             if(!checkValidEmail(email))
             {
-                setSignupEmailError(LoginError.getErrorValue(LoginError.errors.EMAIL_INVALID_FORMAT));
+                setSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
                 isValid = false;
             }
 
@@ -256,12 +244,12 @@ namespace LordOfUltima
 
             if(!checkValidEmail(email))
             {
-                setLoginEmailError(LoginError.getErrorValue(LoginError.errors.EMAIL_INVALID_FORMAT));
+                setLoginEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
                 isValid = false;
             }
             else if (!Regex.IsMatch(password, "[0-9]{1}") || !Regex.IsMatch(password, "[A-Z]{1}"))
             {
-                setLoginPasswordError(LoginError.getErrorValue(LoginError.errors.PASSWORD_INVALID_FORMAT));
+                setLoginPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
                 isValid = false;
             }
 
@@ -273,18 +261,18 @@ namespace LordOfUltima
             bool isSucess;
             if (respond == "Email already exist")
             {
-                setSignupEmailError(LoginError.getErrorValue(LoginError.errors.EMAIL_ALREADY_EXIST));
+                setSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_ALREADY_EXIST));
                 isSucess = false;
             }
             else if (respond == "Username already exist")
             {
-                setSignupUsernameError(LoginError.getErrorValue(LoginError.errors.USERNAME_ALREADY_EXIST));
+                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_ALREADY_EXIST));
                 isSucess = false;
             }
             else if (respond == "Sucess")
             {
                 isSucess = true;
-                setSignupSuccess(LoginError.getErrorValue(LoginError.errors.SIGNUP_SUCCESSFUL));
+                setSignupSuccess(LoginError.GetErrorValue(LoginError.Errors.SIGNUP_SUCCESSFUL));
             }
             else
             {
@@ -304,7 +292,7 @@ namespace LordOfUltima
             }
             else
             {
-                setLoginFail(LoginError.getErrorValue(LoginError.errors.LOGIN_FAILED));
+                setLoginFail(LoginError.GetErrorValue(LoginError.Errors.LOGIN_FAILED));
                 isSucess = false;
             }
             return isSucess;

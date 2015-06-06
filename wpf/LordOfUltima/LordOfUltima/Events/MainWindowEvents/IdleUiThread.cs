@@ -9,41 +9,34 @@ namespace LordOfUltima.Events
         private static IdleUiThread _instance;
         public static IdleUiThread Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new IdleUiThread();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new IdleUiThread()); }
         }
 
-        private Stopwatch m_watch;
+        private readonly Stopwatch _stopwatch;
         private IdleUiThread()
         {
             // Start Stop watch
-            m_watch = new Stopwatch();
-            m_watch.Start();
+            _stopwatch = new Stopwatch();
+            _stopwatch.Start();
         }
 
         public void IdleThreadWork(object sender, EventArgs e)
         {
-            MainWindow _mainWindow = MainWindow.m_ins;
-            if (_mainWindow == null)
+            MainWindow mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
                 return;
 
             //do your idle stuff here
             Thread.Sleep(10);
             // Show stopwatch in menu :D
-            TimeSpan ts = m_watch.Elapsed;
+            TimeSpan ts = _stopwatch.Elapsed;
 
             // Update Stop Watch
             string time = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-            _mainWindow.stop_watch.Content = time;
+            mainWindow.stop_watch.Content = time;
 
             // Update Chat
-            _mainWindow.ui_thread_updateChat();
+            ChatEvents.Instance.ui_thread_updateChat();
         }
     }
 }

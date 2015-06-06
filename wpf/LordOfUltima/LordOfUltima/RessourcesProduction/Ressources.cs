@@ -2,47 +2,20 @@
 {
     class Ressources
     {
-        private static Ressources m_ins;
+        private static Ressources _ins;
         public static Ressources Instance
         {
-            get
-            {
-                if (m_ins == null)
-                {
-                    m_ins = new Ressources();
-                }
-                return m_ins;
-            }
+            get { return _ins ?? (_ins = new Ressources()); }
         }
 
         private Ressources() { }
 
-        private int _woodQty;
-        public int WoodQty
-        {
-            get { return _woodQty; }
-            set { _woodQty = value; }
-        }
+        public int WoodQty { get; set; }
 
-        private int _stoneQty;
-        public int StoneQty
-        {
-            get { return _stoneQty; }
-            set { _stoneQty = value; }
-        }
+        public int StoneQty { get; set; }
 
-        private int _ironQty;
-        public int IronQty
-        {
-            get { return _ironQty; }
-            set { _ironQty = value; }
-        }
+        public int IronQty { get; set; }
 
-        private int _foodQty;
-        public int FoodQty
-        {
-            get { return _foodQty; }
-            set { _foodQty = value; }
-        }
+        public int FoodQty { get; set; }
     }
 }

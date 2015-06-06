@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LordOfUltima.MGameboard
+﻿namespace LordOfUltima.MGameboard
 {
     public class FieldsElementType : IElementType
     {
@@ -10,13 +8,13 @@ namespace LordOfUltima.MGameboard
         private readonly string _elementInfo;
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
-        private readonly ElementType.type _elementType;
+        private readonly ElementType.Type _elementType;
         private readonly ElementProductionBonus _elementProductionBonus;
 
         public FieldsElementType()
         {
-            _elementType = ElementType.type.RESSOURCE_FIELDS;
-            _name = ElementType.getTypeName(_elementType);
+            _elementType = ElementType.Type.RESSOURCE_FIELDS;
+            _name = ElementType.GetTypeName(_elementType);
             _isRessources = true;
             _hasLevelEnable = false;
             _imagePath = "Media/ressource/resource_corn.png";
@@ -33,10 +31,10 @@ namespace LordOfUltima.MGameboard
         public string Name() { return _name; }
         public bool HasLevelEnable() { return _hasLevelEnable; }
         public bool IsRessources() { return _isRessources; }
-        public string getImagePath() { return _imagePath; }
-        public string getDetailImagePath() { return _detailImagePath; }
+        public string GetImagePath() { return _imagePath; }
+        public string GetDetailImagePath() { return _detailImagePath; }
         public string GetElementInfo() { return _elementInfo; }
-        public ElementType.type GetElementType() { return _elementType; }
+        public ElementType.Type GetElementType() { return _elementType; }
         public ElementCost GetElementCost(int level) { return null; } // Return null because there is no level with ressources
         public ElementProduction GetElementProduction(int level) { return null; }
         public ElementProductionBonus GetElementProductionBonus(int level) { return _elementProductionBonus; }

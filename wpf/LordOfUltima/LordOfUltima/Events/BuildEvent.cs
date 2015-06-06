@@ -4,52 +4,53 @@ namespace LordOfUltima.Events
 {
     class BuildEvent
     {
-        private static IElementType typeToBuild = null;
-        private static Element elementToBuild = null;
-        private static BuildEvent m_ins = null;
-        private static Gameboard m_gameboard = Gameboard.getInstance();
+        private static IElementType _typeToBuild;
+        private static Element _elementToBuild;
+        private static BuildEvent _buildEvent;
+        private static Gameboard _gameboard;
 
-        public static BuildEvent getInstance()
+        public static BuildEvent Instance
         {
-            if (m_ins == null)
-            {
-                m_ins = new BuildEvent();
-            }
-            return m_ins;
+            get { return _buildEvent ?? (_buildEvent = new BuildEvent()); }
         }
 
-        public void setTypeToBuild(IElementType elementType)
+        private BuildEvent()
         {
-            typeToBuild = elementType;
+            _gameboard = Gameboard.getInstance();
         }
 
-        public void setElementToBuild(Element element)
+        public void SetTypeToBuild(IElementType elementType)
         {
-            elementToBuild = element;
+            _typeToBuild = elementType;
+        }
+
+        public void SetElementToBuild(Element element)
+        {
+            _elementToBuild = element;
         }
 
         // Here is the place where we build the element for the first time(on map)
-        public void buildElement()
+        public void BuildElement()
         {
-            if (elementToBuild != null && typeToBuild != null)
+            if (_elementToBuild != null && _typeToBuild != null)
             {
                 // Increase Level of building
-                elementToBuild.Level = 1;
+                _elementToBuild.Level = 1;
                 // build the building
-                elementToBuild.setElementType(typeToBuild);
+                _elementToBuild.setElementType(_typeToBuild);
 
                 // if we build a farm, spawn fields around it
-                if (typeToBuild.GetElementType() == ElementType.type.BUILDING_FARM)
+                if (_typeToBuild.GetElementType() == ElementType.Type.BUILDING_FARM)
                 {
-                    m_gameboard.spawnFields(elementToBuild);
+                    _gameboard.spawnFields(_elementToBuild);
                 }
 
                 // Update all map for ressources
-                m_gameboard.cheakAllNeighbourRessources();
+                _gameboard.cheakAllNeighbourRessources();
 
                 // if build sucessfull, show in side menu
-                BuildingDetailsVisibility.Instance.setElementMeduDetail(elementToBuild);
-                BuildingDetailsVisibility.Instance.showBuildingDetails();
+                BuildingDetailsVisibility.Instance.SetElementMeduDetail(_elementToBuild);
+                BuildingDetailsVisibility.Instance.ShowBuildingDetails();
             }     
         }
 

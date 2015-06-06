@@ -11,24 +11,17 @@ namespace LordOfUltima.Events
        private static BuildingDetailsVisibility _instance;
         public static BuildingDetailsVisibility Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new BuildingDetailsVisibility();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new BuildingDetailsVisibility()); }
         }
 
         private MainWindow _mainWindow;
         private BuildingDetailsVisibility()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
         }
 
-        private Element _elementMenuDetail = null;
-        public void setElementMeduDetail(Element element)
+        private Element _elementMenuDetail;
+        public void SetElementMeduDetail(Element element)
         {
             if (element != null)
             {
@@ -36,18 +29,18 @@ namespace LordOfUltima.Events
             }
         }
 
-        public void hideBuildingDetails()
+        public void HideBuildingDetails()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 
             _mainWindow.building_details.Visibility = Visibility.Hidden;
         }
 
-        public void showBuildingDetails()
+        public void ShowBuildingDetails()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 
@@ -60,8 +53,10 @@ namespace LordOfUltima.Events
                 return;
 
             // Add visual elements
-            ImageBrush image = new ImageBrush();
-            image.ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().getDetailImagePath(), UriKind.Relative));
+            ImageBrush image = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().GetDetailImagePath(), UriKind.Relative))
+            };
             _mainWindow.building_details_img.Fill = image;
 
             // set the elementInfo

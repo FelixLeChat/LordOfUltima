@@ -4,21 +4,14 @@ namespace LordOfUltima.RessourcesProduction
 {
     class RessourcesManager
     {
-        private static RessourcesManager m_ins;
+        private static RessourcesManager _ins;
         public static RessourcesManager Instance
         {
-            get
-            {
-                if (m_ins == null)
-                {
-                    m_ins = new RessourcesManager();
-                }
-                return m_ins;
-            }
+            get { return _ins ?? (_ins = new RessourcesManager()); }
         }
 
-        private Gameboard _gameboard;
-        private Timer _ressources_update_timer;
+        private readonly Gameboard _gameboard;
+        private Timer _ressourcesUpdateTimer;
         private RessourcesManager()
         {
             _gameboard = Gameboard.getInstance();
@@ -27,7 +20,7 @@ namespace LordOfUltima.RessourcesProduction
         public void StartRessourcesManager()
         {
             // timer for ressources updates
-            _ressources_update_timer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
+            _ressourcesUpdateTimer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
         }
 
         public void CalculateRessources()

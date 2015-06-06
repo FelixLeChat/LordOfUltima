@@ -10,13 +10,13 @@ namespace LordOfUltima.MGameboard
         private readonly string _elementInfo;
         private readonly bool _hasLevelEnable;
         private readonly bool _isRessources;
-        private readonly ElementType.type _elementType;
+        private readonly ElementType.Type _elementType;
         private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
 
         public TownHallElementType()
         {
-            _elementType = ElementType.type.BUILDING_TOWNHALL;
-            _name = ElementType.getTypeName(_elementType);
+            _elementType = ElementType.Type.BUILDING_TOWNHALL;
+            _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
             _imagePath = "Media/building/building_townhall.png";
@@ -39,10 +39,10 @@ namespace LordOfUltima.MGameboard
         public string Name() { return _name; }
         public bool HasLevelEnable() { return _hasLevelEnable; }
         public bool IsRessources() { return _isRessources; }
-        public string getImagePath() { return _imagePath; }
-        public string getDetailImagePath() { return _detailImagePath; }
+        public string GetImagePath() { return _imagePath; }
+        public string GetDetailImagePath() { return _detailImagePath; }
         public string GetElementInfo() { return _elementInfo; }
-        public ElementType.type GetElementType() { return _elementType; }
+        public ElementType.Type GetElementType() { return _elementType; }
         public ElementProductionBonus GetElementProductionBonus(int level) { return null; }
 
         public ElementProduction GetElementProduction(int level)

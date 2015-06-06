@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
@@ -11,29 +8,23 @@ namespace LordOfUltima.Web
 {
     class Login
     {
-        private static string lastToken = "";
-        public string getToken()
+        private static string _lastToken = "";
+        public string GetToken()
         {
-            return lastToken;
+            return _lastToken;
         }
 
-        private static Login m_ins = null;
-        public static Login getInstance()
+        private static Login _ins;
+        public static Login Instance
         {
-            if(m_ins == null)
-            {
-                m_ins = new Login();
-            }
-            return m_ins;
+            get { return _ins ?? (_ins = new Login()); }
         }
 
-        public string register(string email, string username, string password)
+        public string Register(string email, string username, string password)
         {
-
-
             var request = (HttpWebRequest)WebRequest.Create("http://api.felixlrc.ca/lou/login/register.php");
             // hash password
-            string hashedPass = "";
+            string hashedPass;
             using (SHA1Managed sha1 = new SHA1Managed())
             {
                 var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -70,6 +61,9 @@ namespace LordOfUltima.Web
                     // Obtenir le stream de la reponse
                     using (var responseStream = response.GetResponseStream())
                     {
+                        if (responseStream == null)
+                            return null;
+
                         StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
                         String responseString = reader.ReadToEnd();
                         return responseString;
@@ -81,14 +75,7 @@ namespace LordOfUltima.Web
                 if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
                 {
                     var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Console.WriteLine("404 not found");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Other Web Error 1");
-                    }
+                    Console.WriteLine(resp.StatusCode == HttpStatusCode.NotFound ? "404 not found" : "Other Web Error 1");
                 }
                 else
                 {
@@ -99,12 +86,12 @@ namespace LordOfUltima.Web
         }
 
 
-        public string login (string email, string password)
+        public string TryLogin(string email, string password)
         {
             var request = (HttpWebRequest)WebRequest.Create("http://api.felixlrc.ca/lou/login/process_login.php");
 
             // hash password
-            string hashedPass = "";
+            string hashedPass;
             using (SHA1Managed sha1 = new SHA1Managed())
             {
                 var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -140,12 +127,15 @@ namespace LordOfUltima.Web
                     // Obtenir le stream de la reponse
                     using (var responseStream = response.GetResponseStream())
                     {
+                        if (responseStream == null)
+                            return null;
+
                         StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
                         String[] responseString = reader.ReadToEnd().Split('~');
 
                         if(responseString.Length > 1)
                         {
-                            lastToken = responseString[1];
+                            _lastToken = responseString[1];
                             return responseString[0];
                         }
                     }
@@ -156,14 +146,7 @@ namespace LordOfUltima.Web
                 if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
                 {
                     var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Console.WriteLine("404 not found");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Other Web Error 1");
-                    }
+                    Console.WriteLine(resp.StatusCode == HttpStatusCode.NotFound ? "404 not found" : "Other Web Error 1");
                 }
                 else
                 {

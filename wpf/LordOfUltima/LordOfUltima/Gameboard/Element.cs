@@ -120,7 +120,7 @@ namespace LordOfUltima
         }
         private void leftButtonUp(object sender, RoutedEventArgs e)
         {
-            if(m_isClicked && !MainWindow.getIsMouseMove())
+            if(m_isClicked && !MainWindow.GetIsMouseMove())
             {
                 // reset all select borders
                 m_isClicked = false;
@@ -133,23 +133,23 @@ namespace LordOfUltima
                 // Trigger menu
                 if (m_isValid && !HasElement)
                 {
-                    BuildingMenuVisibility.Instance.showBuildingMenu();
-                    BuildEvent.getInstance().setElementToBuild(this);
+                    BuildingMenuVisibility.Instance.ShowBuildingMenu();
+                    BuildEvent.Instance.SetElementToBuild(this);
                 }
                 else
                 {
-                    BuildingMenuVisibility.Instance.hideBuildingMenu();
+                    BuildingMenuVisibility.Instance.HideBuildingMenu();
                 }
 
 
                 if (m_isValid && HasElement)
                 {
-                    BuildingDetailsVisibility.Instance.setElementMeduDetail(this);
-                    BuildingDetailsVisibility.Instance.showBuildingDetails();
+                    BuildingDetailsVisibility.Instance.SetElementMeduDetail(this);
+                    BuildingDetailsVisibility.Instance.ShowBuildingDetails();
                 }
                 else
                 {
-                    BuildingDetailsVisibility.Instance.hideBuildingDetails();
+                    BuildingDetailsVisibility.Instance.HideBuildingDetails();
                 }
             }
         }
@@ -221,7 +221,7 @@ namespace LordOfUltima
             _elementType = type;
 
             // Set new image
-            setPath(type.getImagePath());
+            setPath(type.GetImagePath());
 
             if (_levelIndicatorVisibility)
             {

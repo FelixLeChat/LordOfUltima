@@ -138,21 +138,6 @@ namespace LordOfUltima
             m_map[9, 9].Level = 1;
         }
 
-        /*public void hideLevelIndicator()
-        {
-            foreach( Element element in m_map)
-            {
-                    element.hideLevelIndicator();
-            }
-        }
-
-        public void showLevelIndicator()
-        {
-            foreach (Element element in m_map)
-            {
-                element.showLevelIndicator();
-            }
-        }*/
 
         public void resetSelectionBorder()
         {
@@ -170,17 +155,17 @@ namespace LordOfUltima
                 // wood ressources
                 element = getRandomValid();
                 element.setElementType(new ForestElementType());
-                expandRessource(element, ElementType.type.RESSOURCE_FOREST);
+                expandRessource(element, ElementType.Type.RESSOURCE_FOREST);
 
                 // stone ressources
                 element = getRandomValid();
                 element.setElementType(new StoneElementType());
-                expandRessource(element, ElementType.type.RESSOURCE_STONE);
+                expandRessource(element, ElementType.Type.RESSOURCE_STONE);
 
                 // iron ressources
                 element = getRandomValid();
                 element.setElementType(new IronElementType());
-                expandRessource(element, ElementType.type.RESSOURCE_IRON);
+                expandRessource(element, ElementType.Type.RESSOURCE_IRON);
             }
             for (int i = 0; i < 4; i++)
             {
@@ -202,7 +187,7 @@ namespace LordOfUltima
             return m_map[x, y];
         }
 
-        private void expandRessource(Element element, ElementType.type elementType)
+        private void expandRessource(Element element, ElementType.Type elementType)
         {
             List<Element> firstLayer = new List<Element>();
 
@@ -215,7 +200,7 @@ namespace LordOfUltima
         }
 
         private static readonly Random Random = new Random(Guid.NewGuid().GetHashCode());
-        private List<Element> rotateElement(Element element, ElementType.type elementType, int chance)
+        private List<Element> rotateElement(Element element, ElementType.Type elementType, int chance)
         {
             List<Element> newElements = new List<Element>();
             List<Element> testList = new List<Element>();
@@ -254,7 +239,7 @@ namespace LordOfUltima
                 if (!elementCheck.HasElement)
                 {
                     newElements.Add(elementCheck);
-                    elementCheck.setElementType(ElementType.getTypeObject(elementType));
+                    elementCheck.setElementType(ElementType.GetTypeObject(elementType));
                 } 
             }
 
@@ -281,9 +266,9 @@ namespace LordOfUltima
             int y = element.PositionY;
             int ressourceCount = 0;
 
-            ElementType.type ressourceType = ElementType.getBonusRessource(element.GetElementType().GetElementType());
+            ElementType.Type ressourceType = ElementType.GetBonusRessource(element.GetElementType().GetElementType());
 
-            if (ressourceType == ElementType.type.DEFAULT)
+            if (ressourceType == ElementType.Type.DEFAULT)
             {
                 return;
             }
@@ -431,7 +416,7 @@ namespace LordOfUltima
             if (element == null || !element.HasElement || element.GetElementType() == null)
                 return;
 
-            if (element.GetElementType().GetElementType() != ElementType.type.BUILDING_FARM)
+            if (element.GetElementType().GetElementType() != ElementType.Type.BUILDING_FARM)
                 return;
             int x = element.PositionX;
             int y = element.PositionY;

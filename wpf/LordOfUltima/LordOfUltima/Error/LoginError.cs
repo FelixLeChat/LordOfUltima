@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LordOfUltima.Error
+﻿namespace LordOfUltima.Error
 {
     class LoginError
     {
-        public enum errors
+        public enum Errors
         {
             USERNAME_INVALID_FORMAT = 0,
             USERNAME_ALREADY_EXIST,
@@ -30,43 +24,43 @@ namespace LordOfUltima.Error
             SIGNUP_SUCCESSFUL
         };
 
-        public static string getErrorValue(errors error)
+        public static string GetErrorValue(Errors error)
         {
             string errorValue = "";
 
             switch(error)
             {
-                case errors.USERNAME_INVALID_FORMAT:
+                case Errors.USERNAME_INVALID_FORMAT:
                     errorValue = "Username has special chars";
                     break;
-                case errors.USERNAME_ALREADY_EXIST:
+                case Errors.USERNAME_ALREADY_EXIST:
                     errorValue = "Username already exist";
                     break;
-                case errors.USERNAME_TOO_SHORT:
+                case Errors.USERNAME_TOO_SHORT:
                     errorValue = "Must be longer than 5 chars";
                     break;
-                case errors.USERNAME_TOO_LONG:
+                case Errors.USERNAME_TOO_LONG:
                     errorValue = "Max 30 characters";
                     break;
-                case errors.PASSWORD_INVALID_FORMAT:
+                case Errors.PASSWORD_INVALID_FORMAT:
                     errorValue = "One Upper case & one letter";
                     break;
-                case errors.PASSWORD_TOO_SHORT:
+                case Errors.PASSWORD_TOO_SHORT:
                     errorValue = "Must be longer than 6 chars";
                     break;
-                case errors.PASSWORD_DONT_MATCH:
+                case Errors.PASSWORD_DONT_MATCH:
                     errorValue = "Passwords don't match";
                     break;
-                case errors.EMAIL_INVALID_FORMAT:
+                case Errors.EMAIL_INVALID_FORMAT:
                     errorValue = "Email is invalid";
                     break;
-                case errors.EMAIL_ALREADY_EXIST:
+                case Errors.EMAIL_ALREADY_EXIST:
                     errorValue = "Email is already being used";
                     break;
-                case errors.SIGNUP_SUCCESSFUL:
+                case Errors.SIGNUP_SUCCESSFUL:
                     errorValue = "Signup successful";
                     break;
-                case errors.LOGIN_FAILED:
+                case Errors.LOGIN_FAILED:
                     errorValue = "Login Failed";
                     break;
                 default:

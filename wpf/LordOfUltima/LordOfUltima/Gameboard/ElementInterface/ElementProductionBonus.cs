@@ -4,6 +4,7 @@
     {
         public ElementProductionBonus(int wood, int stone, int iron, int food)
         {
+            IsRessourcesBonus = false;
             WoodBonus = wood;
             StoneBonus = stone;
             IronBonus = iron;
@@ -82,12 +83,7 @@
 
 
         // Indicate if the ressources is from Ressources (no level)
-        private bool _isRessourcesBonus = false;
-        public bool IsRessourcesBonus
-        {
-            get { return _isRessourcesBonus; }
-            set { _isRessourcesBonus = value; }
-        }
+        public bool IsRessourcesBonus { get; set; }
 
         private int _firstBonus;
         public int FirstBonus

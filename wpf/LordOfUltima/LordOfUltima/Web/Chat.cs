@@ -1,38 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace LordOfUltima.Web
 {
     class Chat
     {
-        private static Chat m_ins = null;
+        private static Chat _ins;
 
         /*
          * Fonction pour le patron Singleton
         */
-        public static Chat getInstance()
+        public static Chat Instance
         {
-            if(m_ins == null)
-            {
-                m_ins = new Chat();
-            }
-            return m_ins;
+            get { return _ins ?? (_ins = new Chat()); }
         }
 
-        private int m_insert_id = 0;
-        public List<string> getLastChatString()
+        private int _insertId;
+        public List<string> GetLastChatString()
         {
-            if (!is_init)
+            if (!IsInit)
                 return null;
 
-            string url = "http://api.felixlrc.ca/lou/chat.php?action=getchat&lastupdate=" + m_insert_id;
+            string url = "http://api.felixlrc.ca/lou/chat.php?action=getchat&lastupdate=" + _insertId;
 
             try
             {
@@ -45,17 +39,16 @@ namespace LordOfUltima.Web
                     // Obtenir le stream de la reponse
                     using (var responseStream = response.GetResponseStream())
                     {
+                        if (responseStream == null)
+                            return null;
+
                         StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
                         String responseString = reader.ReadToEnd();
                         if (!string.IsNullOrEmpty(responseString))
                         {
-                            List<string> newLines = new List<string>();
                             string pattern = @"~PLAYERNAME~:([^~]*)~TEXT~:([^~]*)";
 
-                            foreach (Match match in Regex.Matches(responseString, pattern))
-                            {
-                                newLines.Add(match.Groups[2].Value);
-                            }
+                            List<string> newLines = (from Match match in Regex.Matches(responseString, pattern) select match.Groups[2].Value).ToList();
 
                             pattern = @"~LASTID~:([0-9]*)$";
                             Match matchId = Regex.Match(responseString, pattern);
@@ -63,11 +56,11 @@ namespace LordOfUltima.Web
                             {
                                 try
                                 {
-                                    m_insert_id = Convert.ToInt32(matchId.Groups[1].Value);
+                                    _insertId = Convert.ToInt32(matchId.Groups[1].Value);
                                 }
                                 catch (Exception)
                                 {
-                                    m_insert_id = 0;
+                                    _insertId = 0;
                                 }
                             }
                             return newLines;
@@ -81,14 +74,7 @@ namespace LordOfUltima.Web
                 if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
                 {
                     var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Console.WriteLine("404 not found");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Other Web Error 1");
-                    }
+                    Console.WriteLine(resp.StatusCode == HttpStatusCode.NotFound ? "404 not found" : "Other Web Error 1");
                 }
                 else
                 {
@@ -98,8 +84,8 @@ namespace LordOfUltima.Web
             return null;
         }
 
-        public bool is_init = false;
-        public void initChat()
+        public bool IsInit;
+        public void InitChat()
         {
             string url = "http://api.felixlrc.ca/lou/chat.php?action=init";
 
@@ -114,19 +100,22 @@ namespace LordOfUltima.Web
                     // Obtenir le stream de la reponse
                     using (var responseStream = response.GetResponseStream())
                     {
+                        if (responseStream == null)
+                            return;
+
                         StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
                         String responseString = reader.ReadToEnd();
                         if (!string.IsNullOrEmpty(responseString))
                         {
-                            is_init = true;
+                            IsInit = true;
                             try
                             {
-                                m_insert_id = Convert.ToInt32(responseString);
+                                _insertId = Convert.ToInt32(responseString);
                             }
                             catch(Exception)
                             {
-                                is_init = false;
-                                m_insert_id = 0;
+                                IsInit = false;
+                                _insertId = 0;
                             }
 
                         }
@@ -138,14 +127,7 @@ namespace LordOfUltima.Web
                 if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
                 {
                     var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Console.WriteLine("404 not found");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Other Web Error 1");
-                    }
+                    Console.WriteLine(resp.StatusCode == HttpStatusCode.NotFound ? "404 not found" : "Other Web Error 1");
                 }
                 else
                 {
@@ -154,20 +136,20 @@ namespace LordOfUltima.Web
             }
         }
 
-        private static Object m_lock_chat = new Object();
-        public void insertNewChatLine(object textobj)
+        private static readonly Object _lockChat = new Object();
+        public void InsertNewChatLine(object textobj)
         {
-            string text = User.User.getInstance().Name + " : " + (string)textobj;
+            string text = User.User.Instance.Name + " : " + (string)textobj;
             if (text.Length < 1)
                 return;
 
-            string url = "http://api.felixlrc.ca/lou/chat.php?action=chat_newline&text=" + System.Uri.EscapeDataString(text);
+            string url = "http://api.felixlrc.ca/lou/chat.php?action=chat_newline&text=" + Uri.EscapeDataString(text);
             try
             {
                 // Construction requete
                 var request = (HttpWebRequest)WebRequest.Create(url);
 
-                lock(m_lock_chat)
+                lock(_lockChat)
                 {
                     // Envoie de la requete et attente de la reponse
                     using (var response = request.GetResponse())
@@ -180,14 +162,7 @@ namespace LordOfUltima.Web
                 if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
                 {
                     var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Console.WriteLine("404 not found");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Other Web Error 1");
-                    }
+                    Console.WriteLine(resp.StatusCode == HttpStatusCode.NotFound ? "404 not found" : "Other Web Error 1");
                 }
                 else
                 {

@@ -2,7 +2,7 @@
 {
     public class ElementType
     {
-        public enum type
+        public enum Type
         {
             DEFAULT,
             RESSOURCE_FOREST,
@@ -10,7 +10,6 @@
             RESSOURCE_IRON,
             RESSOURCE_WATER,
             RESSOURCE_FIELDS,
-
             BUILDING_WOODCUTTER,
             BUILDING_SAWMILL,
             BUILDING_QUARRY,
@@ -19,114 +18,107 @@
             BUILDING_FOUNDRY,
             BUILDING_FARM,
             BUILDING_MILL,
-
             BUILDING_TOWNHALL
         }
 
-        public static string getTypeName(type resstype)
+        public static string GetTypeName(Type resstype)
         {
             string name = "";
             switch(resstype)
             {
-                case type.RESSOURCE_FOREST:
+                case Type.RESSOURCE_FOREST:
                     name = "Forest";
                     break;
-                case type.RESSOURCE_STONE:
+                case Type.RESSOURCE_STONE:
                     name = "Stone";
                     break;
-                case type.RESSOURCE_IRON:
+                case Type.RESSOURCE_IRON:
                     name = "Iron";
                     break;
-                case type.RESSOURCE_WATER:
+                case Type.RESSOURCE_WATER:
                     name = "Water";
                     break;
-                case type.RESSOURCE_FIELDS:
+                case Type.RESSOURCE_FIELDS:
                     name = "Field";
                     break;
-                case type.BUILDING_FARM:
+                case Type.BUILDING_FARM:
                     name = "Farm";
                     break;
-                case type.BUILDING_WOODCUTTER:
+                case Type.BUILDING_WOODCUTTER:
                     name = "Woodcutter's Hut";
                     break;
-                case type.BUILDING_SAWMILL:
+                case Type.BUILDING_SAWMILL:
                     name = "Sawmill";
                     break;
-                case type.BUILDING_QUARRY:
+                case Type.BUILDING_QUARRY:
                     name = "Quarry";
                     break;
-                case type.BUILDING_STONEMASON:
+                case Type.BUILDING_STONEMASON:
                     name = "Stone Mason";
                     break;
-                case type.BUILDING_IRONMINE:
+                case Type.BUILDING_IRONMINE:
                     name = "Iron Mine";
                     break;
-                case type.BUILDING_FOUNDRY:
+                case Type.BUILDING_FOUNDRY:
                     name = "Foundry";
                     break;
-                case type.BUILDING_TOWNHALL:
+                case Type.BUILDING_TOWNHALL:
                     name = "Town Hall";
                     break;
-                case type.BUILDING_MILL:
+                case Type.BUILDING_MILL:
                     name = "Mill";
-                    break;
-                default:
                     break;
             }
             return name;
         }
 
-        public static IElementType getTypeObject(type ressType)
+        public static IElementType GetTypeObject(Type ressType)
         {
             IElementType result = null;
             switch (ressType)
             {
-                case type.RESSOURCE_FOREST:
+                case Type.RESSOURCE_FOREST:
                     result = new ForestElementType();
                     break;
-                case type.RESSOURCE_STONE:
+                case Type.RESSOURCE_STONE:
                     result = new StoneElementType();
                     break;
-                case type.RESSOURCE_IRON:
+                case Type.RESSOURCE_IRON:
                     result = new IronElementType();
                     break;
-                case type.RESSOURCE_WATER:
+                case Type.RESSOURCE_WATER:
                     result = new LakeElementType();
                     break;
-                case type.RESSOURCE_FIELDS:
+                case Type.RESSOURCE_FIELDS:
                     result = new FieldsElementType();
-                    break;
-                default:
                     break;
             }
             return result;
         }
 
-        public static type getBonusRessource(type buildingType)
+        public static Type GetBonusRessource(Type buildingType)
         {
-            type result = type.DEFAULT;
+            Type result = Type.DEFAULT;
 
             switch (buildingType)
             {
-                case type.BUILDING_WOODCUTTER:
-                    result = type.RESSOURCE_FOREST;
+                case Type.BUILDING_WOODCUTTER:
+                    result = Type.RESSOURCE_FOREST;
                     break;
-                case type.BUILDING_QUARRY:
-                    result = type.RESSOURCE_STONE;
+                case Type.BUILDING_QUARRY:
+                    result = Type.RESSOURCE_STONE;
                     break;
-                case type.BUILDING_IRONMINE:
-                    result = type.RESSOURCE_IRON;
+                case Type.BUILDING_IRONMINE:
+                    result = Type.RESSOURCE_IRON;
                     break;
-                case type.BUILDING_FARM:
-                    result = type.RESSOURCE_WATER;
-                    break;
-                default:
+                case Type.BUILDING_FARM:
+                    result = Type.RESSOURCE_WATER;
                     break;
             }
             return result;
         }
 
-        public static IElementType getElementFromType(string elementType)
+        public static IElementType GetElementFromType(string elementType)
         {
             IElementType newElement = null;
             switch(elementType)
@@ -146,7 +138,6 @@
                 case "RESSOURCE_FIELDS":
                     newElement = new FieldsElementType();
                     break;
-
                 case "BUILDING_WOODCUTTER":
                     newElement = new WoodcutterElementType();
                     break;

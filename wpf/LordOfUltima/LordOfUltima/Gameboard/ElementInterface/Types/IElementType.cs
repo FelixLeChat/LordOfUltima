@@ -2,13 +2,13 @@
 {
     public interface IElementType
     {
-        string getImagePath();
-        string getDetailImagePath();
+        string GetImagePath();
+        string GetDetailImagePath();
         string GetElementInfo();
         string Name();
         bool HasLevelEnable();
         bool IsRessources();
-        ElementType.type GetElementType();
+        ElementType.Type GetElementType();
 
         // Cost of upgrading the element
         ElementCost GetElementCost(int level);

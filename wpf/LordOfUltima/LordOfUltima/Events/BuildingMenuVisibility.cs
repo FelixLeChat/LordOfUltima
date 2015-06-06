@@ -7,25 +7,18 @@ namespace LordOfUltima.Events
         private static BuildingMenuVisibility _instance;
         public static BuildingMenuVisibility Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new BuildingMenuVisibility();
-                }
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new BuildingMenuVisibility()); }
         }
 
         private MainWindow _mainWindow;
         private BuildingMenuVisibility()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
         }
 
-        public void hideBuildingMenu()
+        public void HideBuildingMenu()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 
@@ -34,9 +27,9 @@ namespace LordOfUltima.Events
             _mainWindow.building_menu_englob.Height = 400;
         }
 
-        public void showBuildingMenu()
+        public void ShowBuildingMenu()
         {
-            _mainWindow = MainWindow.m_ins;
+            _mainWindow = MainWindow.MIns;
             if (_mainWindow == null)
                 return;
 

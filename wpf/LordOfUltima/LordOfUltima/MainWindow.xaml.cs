@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 using LordOfUltima.RessourcesProduction;
-using LordOfUltima.Web;
 using LordOfUltima.XML;
 
 namespace LordOfUltima
@@ -20,63 +15,46 @@ namespace LordOfUltima
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        
-        
-        public const int chatbox_max_items = 30;
-        private RessourcesManager _ressourcesManager;
-
-        // REFACTOR START
-        private IdleUiThread _idleUiThread;
-        private UIImagesInit _imagesInit;
-        private User.User _user;
         private readonly Gameboard _gameboard;
-        private GameboardInit _gameboardInit;
-        private LevelIndicatorVisibility _levelIndicatorVisibility;
-        private BuildingMenuVisibility _buildingMenuVisibility;
-        private BuildingDetailsVisibility _buildingDetailsVisibility;
-        private ChatEvents _chatEvents;
-        // REFACTOR END
+        private readonly LevelIndicatorVisibility _levelIndicatorVisibility;
+        private readonly BuildingMenuVisibility _buildingMenuVisibility;
+        private readonly BuildingDetailsVisibility _buildingDetailsVisibility;
+        private readonly ChatEvents _chatEvents;
 
-        public static MainWindow m_ins;
+        public static MainWindow MIns;
         public MainWindow()
         {
-            m_ins = this;
+            MIns = this;
             InitializeComponent();
 
-            //REFACTOR START
-
             // Set the user instance
-            _user = User.User.getInstance();
-            label_player_name.Content = _user.Name;
+            label_player_name.Content = User.User.Instance.Name;
 
             // Dispatcher pour programme Idle
-            _idleUiThread = IdleUiThread.Instance;
-            ComponentDispatcher.ThreadIdle += _idleUiThread.IdleThreadWork;
+            ComponentDispatcher.ThreadIdle += IdleUiThread.Instance.IdleThreadWork;
 
             // Insert images in UI
-            _imagesInit = UIImagesInit.Instance;
-            _imagesInit.InitImages();
+            UIImagesInit.Instance.InitImages();
 
             // Set the gameboard Instance
             _gameboard = Gameboard.getInstance();
 
             // Insertion des elements dans la carte
-            _gameboardInit = GameboardInit.Instance;
-            _gameboardInit.InsertMap();
+            GameboardInit.Instance.InsertMap();
 
             // Hide level indicators
             _levelIndicatorVisibility = LevelIndicatorVisibility.Instance;
-            _levelIndicatorVisibility.hideLevelIndicator();
+            _levelIndicatorVisibility.HideLevelIndicator();
 
             // Hide building menu
             _buildingMenuVisibility = BuildingMenuVisibility.Instance;
-            _buildingMenuVisibility.hideBuildingMenu();
+            _buildingMenuVisibility.HideBuildingMenu();
 
             // Hide Building Details menu
             _buildingDetailsVisibility = BuildingDetailsVisibility.Instance;
-            _buildingDetailsVisibility.hideBuildingDetails();
+            _buildingDetailsVisibility.HideBuildingDetails();
             
             // load game
             if (!SaveGame.Instance.Load())
@@ -86,16 +64,13 @@ namespace LordOfUltima
             }
 
             // Start Ressource management
-            _ressourcesManager = RessourcesManager.Instance;
-            _ressourcesManager.StartRessourcesManager();
+            RessourcesManager.Instance.StartRessourcesManager();
 
             _chatEvents = ChatEvents.Instance;
 
-            //REFACTOR END
-
             // Start Chat thread
             BackgroundWorker bw = new BackgroundWorker();
-            bw.DoWork += updateChat;
+            bw.DoWork += _chatEvents.UpdateChat;
             bw.RunWorkerAsync();
         }
 
@@ -103,39 +78,39 @@ namespace LordOfUltima
         const double ScaleRate = 1.05;
         const double ScaleMin = 1.0;
         const double ScaleMax = 2.5;
-        private Point m_p = new Point(0, 0);
-        private double m_scale = 1;
-        private bool m_isset = false;
+        private Point _point = new Point(0, 0);
+        private double _scale = 1;
+        private bool _isset;
         /*
          * Gestion du scroll Wheel dans le canvas
         */
         private void canvas1_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (e.Delta > 0 && !m_isset)
+            if (e.Delta > 0 && !_isset)
             {
-                m_isset = true;
-                m_p = e.MouseDevice.GetPosition(canvas1);
+                _isset = true;
+                _point = e.MouseDevice.GetPosition(canvas1);
             }
 
             Matrix m = canvas1.RenderTransform.Value;
             if (e.Delta > 0)
             {
-                if(m_scale * ScaleRate > ScaleMax)
+                if(_scale * ScaleRate > ScaleMax)
                 {
                     return;
                 }
-                m.ScaleAtPrepend(ScaleRate, ScaleRate, m_p.X, m_p.Y);
-                m_scale *= ScaleRate;
+                m.ScaleAtPrepend(ScaleRate, ScaleRate, _point.X, _point.Y);
+                _scale *= ScaleRate;
             }
             else
             {
-                if (m_scale / ScaleRate < ScaleMin)
+                if (_scale / ScaleRate < ScaleMin)
                 {
-                    m_isset = false;
+                    _isset = false;
                     return;
                 }
-                m.ScaleAtPrepend(1 / ScaleRate, 1 / ScaleRate, m_p.X, m_p.Y);
-                m_scale /= ScaleRate;
+                m.ScaleAtPrepend(1 / ScaleRate, 1 / ScaleRate, _point.X, _point.Y);
+                _scale /= ScaleRate;
             }
             canvas1.RenderTransform = new MatrixTransform(m);
         }
@@ -143,132 +118,72 @@ namespace LordOfUltima
         /*
          * Gestion du drag
         */
-        private bool m_isMouseDown = false;
-        private static bool m_isMouseMove = false;
-        private Point m_start_mouse_pos;
-        private Point m_old_pos = new Point(0, 0);
+        private bool _isMouseDown;
+        private static bool _isMouseMove;
+        private Point _startMousePos;
+        private Point _oldPos = new Point(0, 0);
         private void canvas1_leftMouseDown(object sender, RoutedEventArgs e)
         {
-            m_isMouseDown = true;
+            _isMouseDown = true;
             // Reinitialiser le mouve a false au click down
-            m_isMouseMove = false;
-            m_totalMove = 0.0;
+            _isMouseMove = false;
+            _totalMove = 0.0;
 
-            m_start_mouse_pos = Mouse.GetPosition(canvas_mouse_pos);
+            _startMousePos = Mouse.GetPosition(canvas_mouse_pos);
             canvas1.CaptureMouse();
         }
 
         private void canvas1_leftMouseUp(object sender, RoutedEventArgs e)
         {
-            m_isMouseDown = false;
+            _isMouseDown = false;
             canvas1.ReleaseMouseCapture();
-            m_old_pos.X = Canvas.GetLeft(canvas1);
-            m_old_pos.Y = Canvas.GetTop(canvas1);
+            _oldPos.X = Canvas.GetLeft(canvas1);
+            _oldPos.Y = Canvas.GetTop(canvas1);
         }
 
-        public static bool getIsMouseMove()
+        public static bool GetIsMouseMove()
         {
-            return m_isMouseMove;
+            return _isMouseMove;
         }
         /*
          * Gestion du deplacement de la souris sur la carte
         */
-        private double m_totalMove = 0;
-        private void canvas1_mouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        private double _totalMove;
+        private void canvas1_mouseMove(object sender, MouseEventArgs e)
         {
-            if (!m_isMouseDown) return;
+            if (!_isMouseDown) return;
             
             // Si on se deplace de plus d'un certain nombre de pixel, on ignore le click up pour la selection d'un batiment
-            if(m_totalMove > 5)
+            if(_totalMove > 5)
             {
-                m_isMouseMove = true;
+                _isMouseMove = true;
             }
 
             Point currentMousePos = Mouse.GetPosition(canvas_mouse_pos);
 
-            double max_deplacement = 100 * Math.Pow(m_scale,3);
-            double dx = m_old_pos.X + (currentMousePos.X - m_start_mouse_pos.X);
-            double dy = m_old_pos.Y + (currentMousePos.Y - m_start_mouse_pos.Y);
+            double maxDeplacement = 100 * Math.Pow(_scale,3);
+            double dx = _oldPos.X + (currentMousePos.X - _startMousePos.X);
+            double dy = _oldPos.Y + (currentMousePos.Y - _startMousePos.Y);
 
             // Calcul du mouse move totale
-            m_totalMove += dx + dy;
+            _totalMove += dx + dy;
 
-            if (Math.Abs(dx) < max_deplacement )
+            if (Math.Abs(dx) < maxDeplacement )
                 Canvas.SetLeft(canvas1, dx);
 
-            if (Math.Abs(dy) < max_deplacement)
+            if (Math.Abs(dy) < maxDeplacement)
                 Canvas.SetTop(canvas1, dy);
         }
         #endregion
 
-        #region Chat
         /*
          * Gestion entrer clavier pour le chat text input
         */
         private void chat_text_KeyDown(object sender, KeyEventArgs e)
         {
-            //_chatEvents.ChatKeyDown(sender,e);
+            _chatEvents.ChatKeyDown(sender,e);
 
-            if(e.Key == Key.Enter)
-            {
-                Thread thread = new Thread(new ParameterizedThreadStart(m_chat_ins.insertNewChatLine));
-                thread.Start(chat_text.Text);
-                chat_text.Text = "";
-            }
         }
-
-        private bool m_stop_chat_update = false;
-        private Chat m_chat_ins = Chat.getInstance();
-        private List<string> m_new_chat_lines = new List<string>();
-        private Object m_lock_chat = new Object();
-
-        private void updateChat(object sender, DoWorkEventArgs e)
-        {
-            while (!m_stop_chat_update)
-            {
-                // update each 1 seconds
-                System.Threading.Thread.Sleep(1000);
-
-                if(!m_chat_ins.is_init)
-                {
-                    m_chat_ins.initChat();
-                }
-                else
-                {
-                    lock (m_lock_chat)
-                    {
-                        m_new_chat_lines = m_chat_ins.getLastChatString();
-                    }
-                }
-            }
-        }
-
-        private List<string> m_chat_text = new List<string>();
-        public void ui_thread_updateChat()
-        {
-            if (m_new_chat_lines != null && m_new_chat_lines.Count() != 0)
-            {
-                lock (m_lock_chat)
-                {
-                    m_new_chat_lines.ForEach(delegate(String chatText)
-                    {
-                        m_chat_text.Add(chatText);
-                    });
-                    m_new_chat_lines.Clear();
-                }
-                textbox_scroll_viewer.ScrollToBottom();
-
-                // limit the number in the chat box
-                if (m_chat_text.Count > chatbox_max_items)
-                {
-                    m_chat_text.RemoveAt(0);
-                }
-                string text = String.Join(Environment.NewLine, m_chat_text);
-                chat_textbox.Text = text;
-            }
-        }
-        #endregion
-
 
         #region Menu element click
         /*
@@ -276,7 +191,7 @@ namespace LordOfUltima
         */
         private void trigger_level_Click(object sender, RoutedEventArgs e)
         {
-            _levelIndicatorVisibility.handleLevelIndicatorVisibility();
+            _levelIndicatorVisibility.HandleLevelIndicatorVisibility();
         }
 
         /*
@@ -285,15 +200,15 @@ namespace LordOfUltima
         private void reset_map_Click(object sender, RoutedEventArgs e)
         {
             // Show messagebox for confirmation
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 _gameboard.resetMap();
                 // Init a new game
                 _gameboard.initialiseNewGame();
 
-                _buildingMenuVisibility.hideBuildingMenu();
-                _buildingDetailsVisibility.hideBuildingDetails();
+                _buildingMenuVisibility.HideBuildingMenu();
+                _buildingDetailsVisibility.HideBuildingDetails();
             }
         }
 
@@ -328,7 +243,7 @@ namespace LordOfUltima
         */
         private void game_load_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 _gameboard.resetMap();
@@ -338,7 +253,7 @@ namespace LordOfUltima
         #endregion
 
         #region SideMenu building Click
-        private BuildEvent m_buildEvent = BuildEvent.getInstance();
+        private readonly BuildEvent _buildEvent = BuildEvent.Instance;
         private void building_woodcutter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BuildElement(new WoodcutterElementType());
@@ -381,17 +296,17 @@ namespace LordOfUltima
 
         private void BuildElement(IElementType element)
         {
-            m_buildEvent.setTypeToBuild(element);
-            m_buildEvent.buildElement();
-            m_buildEvent.setElementToBuild(null);
-            BuildingMenuVisibility.Instance.hideBuildingMenu();
+            _buildEvent.SetTypeToBuild(element);
+            _buildEvent.BuildElement();
+            _buildEvent.SetElementToBuild(null);
+            BuildingMenuVisibility.Instance.HideBuildingMenu();
         }
         #endregion
 
         // update instance on windows closing
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            m_ins = null;
+            MIns = null;
         }
     }
 }
