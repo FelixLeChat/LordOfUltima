@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Xml;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Error;
 using LordOfUltima.Events;
+using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima.XML
 {
@@ -62,6 +65,28 @@ namespace LordOfUltima.XML
                     xmlWriter.WriteEndElement();
                 }
             }
+
+            // Save ressources
+            
+            Ressources ressources = Ressources.Instance;
+            double wood = Math.Round(ressources.WoodQty);
+            double stone = Math.Round(ressources.StoneQty);
+            double iron = Math.Round(ressources.IronQty);
+            double food = Math.Round(ressources.FoodQty);
+            xmlWriter.WriteStartElement("Ressources");
+            xmlWriter.WriteAttributeString("Wood", wood.ToString());
+            xmlWriter.WriteAttributeString("Stone", stone.ToString());
+            xmlWriter.WriteAttributeString("Iron", iron.ToString());
+            xmlWriter.WriteAttributeString("Food", food.ToString());
+
+            MD5 md5Hash = MD5.Create();
+            double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
+            string hash = GetMd5Hash(md5Hash, _user.Name + Math.Round(total));
+
+            xmlWriter.WriteStartElement("Token");
+            xmlWriter.WriteAttributeString("Value", hash);
+
+
             xmlWriter.WriteEndElement();
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
@@ -79,6 +104,7 @@ namespace LordOfUltima.XML
 
             Element[,] elements = _gameboard.GetMap();
 
+            int wood = 0, stone = 0, iron = 0, food = 0;
             try
             {
                 // Create an XML reader for this file.
@@ -126,6 +152,33 @@ namespace LordOfUltima.XML
                                     }
                                     else { throw new LoadException("Invalid X and Y range. X = " + x + " Y = " + y); }
                                     break;
+
+                                case "Ressources":
+                                    Ressources ressources = Ressources.Instance;
+
+                                    wood = Convert.ToInt32(reader["Wood"]);
+                                    ressources.WoodQty = wood;
+                                    stone = Convert.ToInt32(reader["Stone"]);
+                                    ressources.StoneQty = stone;
+                                    iron = Convert.ToInt32(reader["Iron"]);
+                                    ressources.IronQty = iron;
+                                    food = Convert.ToInt32(reader["Food"]);
+                                    ressources.FoodQty = food;
+
+                                    break;
+
+                                case "Token":
+                                    MD5 md5Hash = MD5.Create();
+                                    double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
+                                    string hash = GetMd5Hash(md5Hash, _user.Name + Math.Round(total));
+
+                                    string token = reader["Value"];
+
+                                    if (hash != token)
+                                    {
+                                        throw new LoadException("Wrong token mate");
+                                    }
+                                    break;
                             }
 		                }
 	                }
@@ -144,9 +197,33 @@ namespace LordOfUltima.XML
                 // reset map if there was an exception
                 ResetMapElements.Instance.ResetMap();
                 ResetMap.Instance.InitialiseNewGame();
+                Ressources.Instance.Initialise();
+
+                // TODO : Show error
                 return false;
             }
 
+        }
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data 
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
         }
     }
 }
