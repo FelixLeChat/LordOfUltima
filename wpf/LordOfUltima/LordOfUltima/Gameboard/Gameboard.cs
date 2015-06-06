@@ -5,12 +5,13 @@ using System.Windows.Shapes;
 using System.Windows;
 using System.Windows.Controls;
 using LordOfUltima.MGameboard;
+using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima
 {
     class Gameboard
     {
-        private static Gameboard m_ins = null;
+        private static Gameboard m_ins;
 
         // Dimentions pour la fenetre du jeu
         private double width = 830;
@@ -256,9 +257,12 @@ namespace LordOfUltima
             // Default img for townhall
             m_map[9, 9].setElementType(new TownHallElementType());
             m_map[9, 9].Level = 1;
+
+            // Init ressources production
+            RessourcesManager.Instance.CalculateRessources();
         }
 
-        public void checkNeignbourRessources(Element element)
+        private void checkNeignbourRessources(Element element)
         {
             if (element == null || !element.HasElement || element.GetElementType() == null)
                 return;
@@ -332,6 +336,9 @@ namespace LordOfUltima
                 {
                     checkNeignbourRessources(m_map[i,j]);
                     checkFieldsCount(m_map[i, j]);
+
+                    // Update ressource production
+                    RessourcesManager.Instance.CalculateRessources();
                 }
             }
         }

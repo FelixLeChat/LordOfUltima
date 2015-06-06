@@ -13,8 +13,8 @@ namespace LordOfUltima
 {
     public class Element
     {
-        private int m_neighbour_ressources = 0;
-        private bool m_has_bonus_building = false;
+        private int m_neighbour_ressources;
+        public Element BonusBuilding { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
         private IElementType _elementType = null;
@@ -246,8 +246,9 @@ namespace LordOfUltima
             // Natural ressources near
             m_neighbour_ressources = 0;
             m_fieldsCount = 0;
-            // Bonus building near
-            m_has_bonus_building = false;
+
+            // Initialise bonus building
+            BonusBuilding = null;
         }
 
         public int NbRessourcesAround 

@@ -170,5 +170,26 @@
             return newElement;
         }
 
+        public static IElementType GetBonusBuilding(Type buildingType)
+        {
+            IElementType elementType = null;
+
+            switch (buildingType)
+            {
+                case Type.BUILDING_WOODCUTTER:
+                    elementType = new SawmillElementType();
+                    break;
+                case Type.BUILDING_QUARRY:
+                    elementType = new StoneMasonElementType();
+                    break;
+                case Type.BUILDING_IRONMINE:
+                    elementType = new FoundryElementType();
+                    break;
+                case Type.BUILDING_FARM:
+                    elementType = new MillElementType();
+                    break;
+            }
+            return elementType;
+        }
     }
 }

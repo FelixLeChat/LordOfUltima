@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="RessourcesProduction\Ressources.cs" />
     <Compile Include="RessourcesProduction\RessourcesManager.cs" />
+    <Compile Include="RessourcesProduction\RessourcesProduction.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="Web\Chat.cs" />
     <Compile Include="Web\Login.cs" />
