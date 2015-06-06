@@ -1,5 +1,4 @@
-﻿using System;
-namespace LordOfUltima.RessourcesProduction
+﻿namespace LordOfUltima.RessourcesProduction
 {
     class RessourcesProduction
     {
@@ -19,12 +18,12 @@ namespace LordOfUltima.RessourcesProduction
             FoodQty = 0;
         }
 
-        public int WoodQty { get; set; }
+        public double WoodQty { get; set; }
 
-        public int StoneQty { get; set; }
+        public double StoneQty { get; set; }
 
-        public int IronQty { get; set; }
+        public double IronQty { get; set; }
 
-        public int FoodQty { get; set; }
+        public double FoodQty { get; set; }
     }
 }

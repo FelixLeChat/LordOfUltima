@@ -249,6 +249,7 @@ namespace LordOfUltima
 
             // Initialise bonus building
             BonusBuilding = null;
+            TotalBonus = 0;
         }
 
         public int NbRessourcesAround 
@@ -269,5 +270,7 @@ namespace LordOfUltima
                 }
             }
         }
+
+        public double TotalBonus { get; set; }
     }
 }

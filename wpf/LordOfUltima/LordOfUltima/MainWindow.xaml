@@ -204,6 +204,10 @@
                                 <Label Content="# Fields around : " Width="117" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_fields_count" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
+                            <DockPanel Width="235" Margin="0,-15,0,0" Name="total_bonus_dockpanel" >
+                                <Label Content="# Total Bonus : " Width="117" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_total_bonus" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
+                            </DockPanel>
                         </WrapPanel>
 
                     </WrapPanel>

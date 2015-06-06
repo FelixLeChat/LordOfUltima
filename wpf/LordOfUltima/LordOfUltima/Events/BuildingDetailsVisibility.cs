@@ -77,7 +77,6 @@ namespace LordOfUltima.Events
                 _mainWindow.building_detail_iron_cost.Content = elementCost.Iron;
 
                 // Show/Hide production label
-
                 #region Production Label handle
 
                 ElementProduction elementProduction =
@@ -111,7 +110,6 @@ namespace LordOfUltima.Events
                 #endregion
 
                 // Show/Hide Bonus label
-
                 #region Bonus Label handle
 
                 ElementProductionBonus elementProductionBonus =
@@ -154,7 +152,6 @@ namespace LordOfUltima.Events
                 #endregion
 
                 // Show/Hide # ressources around element
-
                 #region Label for # ressources around
 
                 if (_elementMenuDetail.NbRessourcesAround > 0)
@@ -170,6 +167,8 @@ namespace LordOfUltima.Events
 
                 #endregion
 
+                // Show/Hide # fields count
+                #region Fields Count
                 if (_elementMenuDetail.FieldsCount > 0)
                 {
                     _mainWindow.fields_count_dockpanel.Visibility = Visibility.Visible;
@@ -178,6 +177,17 @@ namespace LordOfUltima.Events
                 else
                 {
                     _mainWindow.fields_count_dockpanel.Visibility = Visibility.Collapsed;
+                }
+                #endregion
+
+                if (_elementMenuDetail.TotalBonus > 99)
+                {
+                    _mainWindow.total_bonus_dockpanel.Visibility = Visibility.Visible;
+                    _mainWindow.building_detail_total_bonus.Content = (_elementMenuDetail.TotalBonus-100) + "%";
+                }
+                else
+                {
+                    _mainWindow.total_bonus_dockpanel.Visibility = Visibility.Collapsed;
                 }
             }
             else

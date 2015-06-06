@@ -25,7 +25,7 @@
             _elementProductionBonus = new ElementProductionBonus(0, 0, 0, 0);
             _elementProductionBonus.IsRessourcesBonus = true;
             _elementProductionBonus.FirstBonus = 50;
-            _elementProductionBonus.StoneBonus = 50;
+            _elementProductionBonus.SecondBonus = 50;
         }
 
         public string Name() { return _name; }
