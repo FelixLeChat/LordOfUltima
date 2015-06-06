@@ -304,9 +304,11 @@ namespace LordOfUltima
         private void BuildElement(IElementType element)
         {
             _buildEvent.SetTypeToBuild(element);
-            _buildEvent.BuildElement();
-            _buildEvent.SetElementToBuild(null);
-            BuildingMenuVisibility.Instance.HideBuildingMenu();
+            if (_buildEvent.BuildElement())
+            {
+                _buildEvent.SetElementToBuild(null);
+                BuildingMenuVisibility.Instance.HideBuildingMenu();                
+            }
         }
         #endregion
 
@@ -314,6 +316,15 @@ namespace LordOfUltima
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             MIns = null;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Upgrade button click
+            if (UpgradeElement.Instance.Upgrade())
+            {
+                BuildingDetailsVisibility.Instance.ShowBuildingDetails();
+            }
         }
     }
 }

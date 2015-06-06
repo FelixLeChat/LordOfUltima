@@ -144,8 +144,9 @@ namespace LordOfUltima
 
                 if (m_isValid && HasElement)
                 {
-                    BuildingDetailsVisibility.Instance.SetElementMeduDetail(this);
+                    BuildingDetailsVisibility.Instance.SetElementMenuDetail(this);
                     BuildingDetailsVisibility.Instance.ShowBuildingDetails();
+                    UpgradeElement.Instance.ElementToUpgrade = this;
                 }
                 else
                 {

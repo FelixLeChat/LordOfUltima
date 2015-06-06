@@ -164,7 +164,7 @@
                                 <Label Content="0" Name="building_detail_bonus" Width="60" Margin="-65,0,0,0"/>
                             </DockPanel >
 
-                            <Button Content="Upgrade" Width="229" Height="30" Margin="5,0,10,0" Foreground="Black">
+                            <Button Content="Upgrade" Width="229" Height="30" Margin="5,0,10,0" Foreground="Black" Click="Button_Click">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                         <GradientStop Color="#FF3F5D17" Offset="0"/>

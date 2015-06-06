@@ -30,28 +30,38 @@ namespace LordOfUltima.Events
         }
 
         // Here is the place where we build the element for the first time(on map)
-        public void BuildElement()
+        public bool BuildElement()
         {
             if (_elementToBuild != null && _typeToBuild != null)
             {
-                // Increase Level of building
-                _elementToBuild.Level = 1;
-                // build the building
-                _elementToBuild.setElementType(_typeToBuild);
-
-                // if we build a farm, spawn fields around it
-                if (_typeToBuild.GetElementType() == ElementType.Type.BUILDING_FARM)
+                if (BuyElement.Instance.Buy(_typeToBuild, 1))
                 {
-                    RessourcesBuildingCheck.Instance.SpawnFields(_elementToBuild);
+                    // Increase Level of building
+                    _elementToBuild.Level = 1;
+                    // build the building
+                    _elementToBuild.setElementType(_typeToBuild);
+
+                    // if we build a farm, spawn fields around it
+                    if (_typeToBuild.GetElementType() == ElementType.Type.BUILDING_FARM)
+                    {
+                        RessourcesBuildingCheck.Instance.SpawnFields(_elementToBuild);
+                    }
+
+                    // Update all map for ressources
+                    RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
+
+                    // if build sucessfull, show in side menu
+                    BuildingDetailsVisibility.Instance.SetElementMenuDetail(_elementToBuild);
+                    BuildingDetailsVisibility.Instance.ShowBuildingDetails();
+                  
+                    return true;
                 }
-
-                // Update all map for ressources
-                RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
-
-                // if build sucessfull, show in side menu
-                BuildingDetailsVisibility.Instance.SetElementMeduDetail(_elementToBuild);
-                BuildingDetailsVisibility.Instance.ShowBuildingDetails();
-            }     
+                else
+                {
+                    // TODO : Show an error for missing ressources
+                }
+            }
+            return false;
         }
 
     }

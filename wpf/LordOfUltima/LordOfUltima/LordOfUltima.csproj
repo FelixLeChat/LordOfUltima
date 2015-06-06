@@ -74,6 +74,7 @@
     <Compile Include="Events\BuildEvent.cs" />
     <Compile Include="Events\BuildingDetailsVisibility.cs" />
     <Compile Include="Events\BuildingMenuVisibility.cs" />
+    <Compile Include="Events\BuyElement.cs" />
     <Compile Include="Events\ChatEvents.cs" />
     <Compile Include="Events\LevelIndicatorVisibility.cs" />
     <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Events\ResetMapElements.cs" />
     <Compile Include="Events\ResetMap.cs" />
     <Compile Include="Events\RessourcesBuildingCheck.cs" />
+    <Compile Include="Events\UpgradeElement.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProductionBonus.cs" />

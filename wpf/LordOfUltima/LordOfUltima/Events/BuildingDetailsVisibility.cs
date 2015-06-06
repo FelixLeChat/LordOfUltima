@@ -21,7 +21,7 @@ namespace LordOfUltima.Events
         }
 
         private Element _elementMenuDetail;
-        public void SetElementMeduDetail(Element element)
+        public void SetElementMenuDetail(Element element)
         {
             if (element != null)
             {

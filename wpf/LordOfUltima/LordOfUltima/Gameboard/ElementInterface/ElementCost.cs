@@ -3,11 +3,12 @@
     public class ElementCost
     {
         // Parameter constructor
-        public ElementCost(int wood, int stone, int iron)
+        public ElementCost(int wood, int stone, int iron, int food = 0)
         {
             Wood = wood;
             Stone = stone;
             Iron = iron;
+            Food = food;
         }
 
         // Wood Value of construction
@@ -48,6 +49,20 @@
                 if (_iron < 0)
                 {
                     _iron = value;
+                }
+            }
+        }
+
+        // Food value of construction
+        private int _food = -1;
+        public int Food
+        {
+            get { return _food; }
+            set
+            {
+                if (_food < 0)
+                {
+                    _food = value;
                 }
             }
         }
