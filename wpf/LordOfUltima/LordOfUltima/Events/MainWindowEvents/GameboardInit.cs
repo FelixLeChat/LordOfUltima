@@ -12,7 +12,7 @@
         private MainWindow _mainWindow;
         private GameboardInit()
         {
-            _gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.Instance;
             _mainWindow = MainWindow.MIns;
         }
 
@@ -25,7 +25,7 @@
             if (_mainWindow == null)
                 return;
 
-            foreach (Element element in _gameboard.getMap())
+            foreach (Element element in _gameboard.GetMap())
             {
                 // Add building to canvas
                 _mainWindow.canvas1.Children.Add(element.getElement());

@@ -16,7 +16,7 @@ namespace LordOfUltima.Events
 
         private BuildEvent()
         {
-            _gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.Instance;
         }
 
         public void SetTypeToBuild(IElementType elementType)
@@ -42,11 +42,11 @@ namespace LordOfUltima.Events
                 // if we build a farm, spawn fields around it
                 if (_typeToBuild.GetElementType() == ElementType.Type.BUILDING_FARM)
                 {
-                    _gameboard.spawnFields(_elementToBuild);
+                    RessourcesBuildingCheck.Instance.SpawnFields(_elementToBuild);
                 }
 
                 // Update all map for ressources
-                _gameboard.cheakAllNeighbourRessources();
+                RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
                 // if build sucessfull, show in side menu
                 BuildingDetailsVisibility.Instance.SetElementMeduDetail(_elementToBuild);

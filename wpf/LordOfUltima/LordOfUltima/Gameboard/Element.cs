@@ -124,7 +124,7 @@ namespace LordOfUltima
             {
                 // reset all select borders
                 m_isClicked = false;
-                Gameboard.getInstance().resetSelectionBorder();
+                ResetMapElementBorder.Instance.ResetSelectionBorder();
 
                 // add the select border
                 if(m_isValid)

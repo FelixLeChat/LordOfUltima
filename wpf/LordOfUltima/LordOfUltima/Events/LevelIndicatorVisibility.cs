@@ -12,7 +12,7 @@
         private MainWindow _mainWindow;
         private LevelIndicatorVisibility()
         {
-            _gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.Instance;
             _mainWindow = MainWindow.MIns;
         }
 
@@ -34,7 +34,7 @@
 
         public void HideLevelIndicator()
         {
-            foreach (Element element in _gameboard.getMap())
+            foreach (Element element in _gameboard.GetMap())
             {
                 element.hideLevelIndicator();
             }
@@ -42,7 +42,7 @@
 
         public void ShowLevelIndicator()
         {
-            foreach (Element element in _gameboard.getMap())
+            foreach (Element element in _gameboard.GetMap())
             {
                 element.showLevelIndicator();
             }

@@ -16,7 +16,7 @@ namespace LordOfUltima.RessourcesProduction
         private RessourcesProduction _ressourcesProduction;
         private RessourcesManager()
         {
-            _gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.Instance;
             _ressourcesProduction = RessourcesProduction.Instance;
             // Default time = 1 min
             _timeScale = 60;
@@ -46,7 +46,7 @@ namespace LordOfUltima.RessourcesProduction
         {
             // Reinitialise ressources production
             _ressourcesProduction.InitRessourcesProduction();
-            Element[,] elementList = _gameboard.getMap();
+            Element[,] elementList = _gameboard.GetMap();
 
             foreach (var element in elementList)
             {

@@ -29,6 +29,10 @@ namespace LordOfUltima
             MIns = this;
             InitializeComponent();
 
+            // Set the gameboard Instance
+            _gameboard = Gameboard.Instance;
+            ResetMap.Instance.VerifyMap();
+
             // Set the user instance
             label_player_name.Content = User.User.Instance.Name;
 
@@ -37,9 +41,6 @@ namespace LordOfUltima
 
             // Insert images in UI
             UIImagesInit.Instance.InitImages();
-
-            // Set the gameboard Instance
-            _gameboard = Gameboard.getInstance();
 
             // Insertion des elements dans la carte
             GameboardInit.Instance.InsertMap();
@@ -60,7 +61,7 @@ namespace LordOfUltima
             if (!SaveGame.Instance.Load())
             {
                 // If no game is found, load a new one
-                _gameboard.initialiseNewGame();
+                ResetMap.Instance.InitialiseNewGame();
             }
 
             // Start Ressource management
@@ -203,9 +204,9 @@ namespace LordOfUltima
             MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                _gameboard.resetMap();
+                ResetMapElements.Instance.ResetMap();
                 // Init a new game
-                _gameboard.initialiseNewGame();
+                ResetMap.Instance.InitialiseNewGame();
 
                 _buildingMenuVisibility.HideBuildingMenu();
                 _buildingDetailsVisibility.HideBuildingDetails();
@@ -217,14 +218,14 @@ namespace LordOfUltima
         */
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Element element in _gameboard.getMap())
+            foreach (Element element in _gameboard.GetMap())
             {
                 canvas1.Children.Remove(element.getElement());
                 canvas1.Children.Remove(element.getLevelElement());
                 canvas1.Children.Remove(element.getLevelLabel());
                 canvas1.Children.Remove(element.getSelectElement());
             }
-            _gameboard.resetMap();
+            ResetMapElements.Instance.ResetMap();
             LoginWindow window = new LoginWindow();
             window.Show();
             Close();
@@ -246,7 +247,7 @@ namespace LordOfUltima
             MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                _gameboard.resetMap();
+                ResetMapElements.Instance.ResetMap();
                 SaveGame.Instance.Load();
             }
         }

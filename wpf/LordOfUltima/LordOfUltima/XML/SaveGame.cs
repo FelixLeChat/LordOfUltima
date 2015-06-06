@@ -20,7 +20,7 @@ namespace LordOfUltima.XML
         private SaveGame() 
         {
             _user = User.User.Instance;
-            _gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.Instance;
         }
 
         public void Save()
@@ -28,21 +28,21 @@ namespace LordOfUltima.XML
             // visual reset
             BuildingMenuVisibility.Instance.HideBuildingMenu();
             BuildingDetailsVisibility.Instance.HideBuildingDetails();
-            _gameboard.resetSelectionBorder();
+            ResetMapElementBorder.Instance.ResetSelectionBorder();
 
             // No username set
             if (_user.Name == "")
                 return;
 
-            Element[,] elements = _gameboard.getMap();
+            Element[,] elements = _gameboard.GetMap();
             XmlWriter xmlWriter = XmlWriter.Create( _user.Name + ".xml");
 
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("save");
 
-            for (int i = 0; i < _gameboard.CountXY; i++ )
+            for (int i = 0; i < _gameboard.GetFrameCount; i++)
             {
-                for (int j = 0; j < _gameboard.CountXY; j++ )
+                for (int j = 0; j < _gameboard.GetFrameCount; j++)
                 {
                     Element currentElement = elements[i, j];
                     xmlWriter.WriteStartElement("Element");
@@ -72,12 +72,12 @@ namespace LordOfUltima.XML
             // visual reset
             BuildingMenuVisibility.Instance.HideBuildingMenu();
             BuildingDetailsVisibility.Instance.HideBuildingDetails();
-            _gameboard.resetSelectionBorder();
+            ResetMapElementBorder.Instance.ResetSelectionBorder();
 
             if(!File.Exists(_user.Name + ".xml"))
                 return false;
 
-            Element[,] elements = _gameboard.getMap();
+            Element[,] elements = _gameboard.GetMap();
 
             try
             {
@@ -96,7 +96,7 @@ namespace LordOfUltima.XML
                                 case "Element":
                                     int x = Convert.ToInt32(reader["X"]);
                                     int y = Convert.ToInt32(reader["Y"]);
-                                    if(x >= 0 && x < _gameboard.CountXY && y >= 0 && y < _gameboard.CountXY)
+                                    if (x >= 0 && x < _gameboard.GetFrameCount && y >= 0 && y < _gameboard.GetFrameCount)
                                     {
                                         Element element = elements[x, y];
                                         string elementType = reader["elementType"];
@@ -131,7 +131,7 @@ namespace LordOfUltima.XML
 	                }
 	            }
                 // set the neighbouring ressources count
-                _gameboard.cheakAllNeighbourRessources();
+                RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
                 // fix for leftover level indicator
                 LevelIndicatorVisibility.Instance.HideLevelIndicator();
@@ -142,8 +142,8 @@ namespace LordOfUltima.XML
             catch(Exception)
             {
                 // reset map if there was an exception
-                _gameboard.resetMap();
-                _gameboard.initialiseNewGame();
+                ResetMapElements.Instance.ResetMap();
+                ResetMap.Instance.InitialiseNewGame();
                 return false;
             }
 

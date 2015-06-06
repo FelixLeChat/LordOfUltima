@@ -170,23 +170,23 @@
             return newElement;
         }
 
-        public static IElementType GetBonusBuilding(Type buildingType)
+        public static Type GetBonusBuilding(Type buildingType)
         {
-            IElementType elementType = null;
+            Type elementType = Type.DEFAULT;
 
             switch (buildingType)
             {
                 case Type.BUILDING_WOODCUTTER:
-                    elementType = new SawmillElementType();
+                    elementType = Type.BUILDING_SAWMILL;
                     break;
                 case Type.BUILDING_QUARRY:
-                    elementType = new StoneMasonElementType();
+                    elementType = Type.BUILDING_STONEMASON;
                     break;
                 case Type.BUILDING_IRONMINE:
-                    elementType = new FoundryElementType();
+                    elementType = Type.BUILDING_FOUNDRY;
                     break;
                 case Type.BUILDING_FARM:
-                    elementType = new MillElementType();
+                    elementType = Type.BUILDING_MILL;
                     break;
             }
             return elementType;
