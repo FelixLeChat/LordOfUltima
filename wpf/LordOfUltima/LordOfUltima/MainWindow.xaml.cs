@@ -66,10 +66,11 @@ namespace LordOfUltima
 
             // Start Ressource management
             RessourcesManager.Instance.StartRessourcesManager();
-
-            _chatEvents = ChatEvents.Instance;
+            // First update of ressources
+            RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
             // Start Chat thread
+            _chatEvents = ChatEvents.Instance;
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += _chatEvents.UpdateChat;
             bw.RunWorkerAsync();

@@ -56,10 +56,10 @@
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">
             <Label Name="label_player_name" Content="Name" Width="75" Height="24" Foreground="#FCEB43"/>
             <Label Content="Title: " Width="39" Height="24" Canvas.Left="80" Foreground="#918544"/>
-            <Label Name="label_player_title" Content="Prince" Width="80" Height="24" Foreground="#FCEB43" Canvas.Left="110"/>
+            <Label Name="label_player_title" Content="" Width="80" Height="24" Foreground="#FCEB43" Canvas.Left="110"/>
             <Label Content="Score: " Width="45" Height="24" Canvas.Left="224" Foreground="#918544"/>
-            <Label Name="label_player_score" Content="1234556" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="260"/>
-            <Label Name="label_player_position" Content="(21.)" Width="51" Height="24" Foreground="#FCEB43" Canvas.Left="320"/>
+            <Label Name="label_player_score" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="260"/>
+            <Label Name="label_player_position" Content="(0.)" Width="51" Height="24" Foreground="#FCEB43" Canvas.Left="320"/>
 
             <Canvas Name="ress_gold" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23"  Canvas.Left="375"/>
             <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400"/>
