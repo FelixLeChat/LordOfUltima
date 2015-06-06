@@ -10,12 +10,20 @@
 
         private Ressources() { }
 
-        public int WoodQty { get; set; }
+        public double WoodQty { get; set; }
 
-        public int StoneQty { get; set; }
+        public double StoneQty { get; set; }
 
-        public int IronQty { get; set; }
+        public double IronQty { get; set; }
 
-        public int FoodQty { get; set; }
+        public double FoodQty { get; set; }
+
+        public void Initialise()
+        {
+            WoodQty = 0;
+            StoneQty = 0;
+            IronQty = 0;
+            FoodQty = 0;
+        }
     }
 }

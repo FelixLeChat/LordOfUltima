@@ -26,11 +26,11 @@ namespace LordOfUltima.RessourcesProduction
         public void StartRessourcesManager()
         {
             // timer for ressources updates
-            //_ressourcesUpdateTimer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
+            _ressourcesUpdateTimer = new Timer(obj => { updateRessourcesValues(); }, null, 0, 1000);
         }
 
         // time scale on wich we apply the points
-        private int _timeScale;
+        private int _timeScale = 60;
         public int TimeScale
         {
             get { return _timeScale; }
@@ -41,6 +41,19 @@ namespace LordOfUltima.RessourcesProduction
                     _timeScale = value;
                 }
             } 
+        }
+
+        private void updateRessourcesValues()
+        {
+            if (_timeScale <= 0)
+                return;
+
+            Ressources ressources = Ressources.Instance;
+
+            ressources.WoodQty += _ressourcesProduction.WoodQty/_timeScale;
+            ressources.StoneQty += _ressourcesProduction.StoneQty/_timeScale;
+            ressources.IronQty += _ressourcesProduction.IronQty/_timeScale;
+            ressources.FoodQty += _ressourcesProduction.FoodQty/_timeScale;
         }
 
         public void CalculateRessources()
@@ -58,7 +71,7 @@ namespace LordOfUltima.RessourcesProduction
             }
 
             // update UI
-            updateRessourceUI();
+            updateRessourceProductionUI();
         }
 
         private void assignRessources(Element element)
@@ -154,7 +167,7 @@ namespace LordOfUltima.RessourcesProduction
             element.TotalBonus = bonus;
         }
 
-        private void updateRessourceUI()
+        private void updateRessourceProductionUI()
         {
             MainWindow mainWindow = MainWindow.MIns;
             if (mainWindow == null)
@@ -164,6 +177,20 @@ namespace LordOfUltima.RessourcesProduction
             mainWindow.qty_stone_incr.Content = Math.Round(_ressourcesProduction.StoneQty);
             mainWindow.qty_iron_incr.Content = Math.Round(_ressourcesProduction.IronQty);
             mainWindow.qty_grain_incr.Content = Math.Round(_ressourcesProduction.FoodQty);
+        }
+
+        public void UpdateRessourceUi()
+        {
+            MainWindow mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                return;
+
+            Ressources ressources = Ressources.Instance;
+
+            mainWindow.qty_wood.Content = Math.Round(ressources.WoodQty);
+            mainWindow.qty_stone.Content = Math.Round(ressources.StoneQty);
+            mainWindow.qty_iron.Content = Math.Round(ressources.IronQty);
+            mainWindow.qty_grain.Content = Math.Round(ressources.FoodQty);
         }
     }
 }

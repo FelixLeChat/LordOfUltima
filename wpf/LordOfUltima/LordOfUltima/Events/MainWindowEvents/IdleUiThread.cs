@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima.Events
 {
@@ -37,6 +38,9 @@ namespace LordOfUltima.Events
 
             // Update Chat
             ChatEvents.Instance.ui_thread_updateChat();
+
+            // Update ressources
+            RessourcesManager.Instance.UpdateRessourceUi();
         }
     }
 }
