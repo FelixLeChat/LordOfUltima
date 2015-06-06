@@ -144,12 +144,12 @@ namespace LordOfUltima
 
                 if (m_isValid && HasElement)
                 {
-                    MainWindow.m_ins.setElementMeduDetail(this);
-                    MainWindow.m_ins.setVisibleBuildingDetails(true);
+                    BuildingDetailsVisibility.Instance.setElementMeduDetail(this);
+                    BuildingDetailsVisibility.Instance.showBuildingDetails();
                 }
                 else
                 {
-                    MainWindow.m_ins.setVisibleBuildingDetails(false);
+                    BuildingDetailsVisibility.Instance.hideBuildingDetails();
                 }
             }
         }

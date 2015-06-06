@@ -72,7 +72,9 @@
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />
+    <Compile Include="Events\BuildingDetailsVisibility.cs" />
     <Compile Include="Events\BuildingMenuVisibility.cs" />
+    <Compile Include="Events\ChatEvents.cs" />
     <Compile Include="Events\LevelIndicatorVisibility.cs" />
     <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
     <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />

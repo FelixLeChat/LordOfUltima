@@ -17,19 +17,22 @@ namespace LordOfUltima.RessourcesProduction
             }
         }
 
-        private Gameboard m_gameboard;
-        private Timer m_ressources_update_timer;
+        private Gameboard _gameboard;
+        private Timer _ressources_update_timer;
         private RessourcesManager()
         {
-            m_gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.getInstance();
+        }
 
+        public void StartRessourcesManager()
+        {
             // timer for ressources updates
-            m_ressources_update_timer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
+            _ressources_update_timer = new Timer(obj => { CalculateRessources(); }, null, 0, 1000);
         }
 
         public void CalculateRessources()
         {
-            Element[,] elementList = m_gameboard.getMap();
+            Element[,] elementList = _gameboard.getMap();
         }
     }
 }

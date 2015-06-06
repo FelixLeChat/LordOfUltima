@@ -25,15 +25,18 @@ namespace LordOfUltima
         
         
         public const int chatbox_max_items = 30;
-        private RessourcesManager m_ressources_manager;
+        private RessourcesManager _ressourcesManager;
 
         // REFACTOR START
-        private IdleUiThread m_idle;
-        private UIImagesInit m_imageInit;
-        private User.User m_user;
-        private readonly Gameboard m_gameboard;
+        private IdleUiThread _idleUiThread;
+        private UIImagesInit _imagesInit;
+        private User.User _user;
+        private readonly Gameboard _gameboard;
         private GameboardInit _gameboardInit;
         private LevelIndicatorVisibility _levelIndicatorVisibility;
+        private BuildingMenuVisibility _buildingMenuVisibility;
+        private BuildingDetailsVisibility _buildingDetailsVisibility;
+        private ChatEvents _chatEvents;
         // REFACTOR END
 
         public static MainWindow m_ins;
@@ -45,60 +48,56 @@ namespace LordOfUltima
             //REFACTOR START
 
             // Set the user instance
-            m_user = User.User.getInstance();
-            label_player_name.Content = m_user.Name;
+            _user = User.User.getInstance();
+            label_player_name.Content = _user.Name;
 
             // Dispatcher pour programme Idle
-            m_idle = IdleUiThread.Instance;
-            ComponentDispatcher.ThreadIdle += m_idle.IdleThreadWork;
+            _idleUiThread = IdleUiThread.Instance;
+            ComponentDispatcher.ThreadIdle += _idleUiThread.IdleThreadWork;
 
             // Insert images in UI
-            m_imageInit = UIImagesInit.Instance;
-            m_imageInit.InitImages();
+            _imagesInit = UIImagesInit.Instance;
+            _imagesInit.InitImages();
 
             // Set the gameboard Instance
-            m_gameboard = Gameboard.getInstance();
+            _gameboard = Gameboard.getInstance();
 
             // Insertion des elements dans la carte
             _gameboardInit = GameboardInit.Instance;
             _gameboardInit.InsertMap();
 
+            // Hide level indicators
             _levelIndicatorVisibility = LevelIndicatorVisibility.Instance;
             _levelIndicatorVisibility.hideLevelIndicator();
 
-            //REFACTOR END
+            // Hide building menu
+            _buildingMenuVisibility = BuildingMenuVisibility.Instance;
+            _buildingMenuVisibility.hideBuildingMenu();
 
-
-
-
+            // Hide Building Details menu
+            _buildingDetailsVisibility = BuildingDetailsVisibility.Instance;
+            _buildingDetailsVisibility.hideBuildingDetails();
+            
             // load game
             if (!SaveGame.Instance.Load())
             {
                 // If no game is found, load a new one
-                m_gameboard.initialiseNewGame();
+                _gameboard.initialiseNewGame();
             }
 
-            // hide building menu
-            BuildingMenuVisibility.Instance.hideBuildingMenu();
-            setVisibleBuildingDetails(false);
+            // Start Ressource management
+            _ressourcesManager = RessourcesManager.Instance;
+            _ressourcesManager.StartRessourcesManager();
 
+            _chatEvents = ChatEvents.Instance;
+
+            //REFACTOR END
 
             // Start Chat thread
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += updateChat;
             bw.RunWorkerAsync();
-
-            // Start Ressource management
-            m_ressources_manager = RessourcesManager.Instance;
         }
-
-
-        public void InsertContentInStopWatch(string content)
-        {
-            stop_watch.Content = content;
-        }
-
-
 
         #region Map Mouvement
         const double ScaleRate = 1.05;
@@ -206,8 +205,10 @@ namespace LordOfUltima
         /*
          * Gestion entrer clavier pour le chat text input
         */
-        private void chat_text_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void chat_text_KeyDown(object sender, KeyEventArgs e)
         {
+            //_chatEvents.ChatKeyDown(sender,e);
+
             if(e.Key == Key.Enter)
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(m_chat_ins.insertNewChatLine));
@@ -268,157 +269,6 @@ namespace LordOfUltima
         }
         #endregion
 
-        #region Side Menu for buildings
-
-
-        public void setVisibleBuildingDetails(bool isVisible)
-        {
-            if (isVisible)
-            {
-                building_menu_englob.Height = 400;
-                building_details.Visibility = Visibility.Visible;
-
-                if (_elementMenuDetail == null || _elementMenuDetail.GetElementType() == null)
-                    return;
-
-                // Add visual elements
-                ImageBrush image = new ImageBrush();
-                image.ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().getDetailImagePath(), UriKind.Relative));
-                building_details_img.Fill = image;
-
-                // set the elementInfo
-                building_detail_info.Text = _elementMenuDetail.GetElementType().GetElementInfo();
-
-                int elementLevel = _elementMenuDetail.Level;
-                if (elementLevel > 0 && elementLevel < 10)
-                {
-                    // it's a building, show level info
-                    building_detail_level_info.Visibility = Visibility.Visible;
-                    building_detail_level.Content = _elementMenuDetail.Level;
-
-                    ElementCost elementCost = _elementMenuDetail.GetElementType().GetElementCost(elementLevel+1);
-
-                    // Show cost for upgrade
-                    building_detail_wood_cost.Content = elementCost.Wood;
-                    building_detail_stone_cost.Content = elementCost.Stone;
-                    building_detail_iron_cost.Content = elementCost.Iron;
-
-                    // Show/Hide production label
-                    #region Production Label handle
-                    ElementProduction elementProduction =
-                _elementMenuDetail.GetElementType().GetElementProduction(elementLevel);
-                    if (elementProduction != null)
-                    {
-                        building_production_label.Visibility = Visibility.Visible;
-                        building_detail_production.Content = elementProduction.GetFirstNotNull();
-                    }
-                    else
-                    {
-                        // hide production label
-                        building_detail_production.Content = "";
-                        building_production_label.Visibility = Visibility.Hidden;
-                    }
-
-                    elementProduction = _elementMenuDetail.GetElementType().GetElementProduction(elementLevel + 1);
-                    if (elementProduction != null)
-                    {
-                        production_dockpanel.Visibility = Visibility.Visible;
-                        building_detail_production_next.Content = elementProduction.GetFirstNotNull();
-                    }
-                    else
-                    {
-                        // hide production label
-                        building_detail_production_next.Content = "";
-                        production_dockpanel.Visibility = Visibility.Collapsed;
-                    } 
-                    #endregion
-
-                    // Show/Hide Bonus label
-                    #region Bonus Label handle
-                    ElementProductionBonus elementProductionBonus =
-                _elementMenuDetail.GetElementType().GetElementProductionBonus(elementLevel);
-                    if (elementProductionBonus != null)
-                    {
-                        building_bonus_label.Visibility = Visibility.Visible;
-
-                        if (!elementProductionBonus.IsRessourcesBonus)
-                        {
-                            building_detail_bonus.Content = String.Format("{0}%",
-                                elementProductionBonus.GetFirstNotNull());
-                        }
-                    }
-                    else
-                    {
-                        building_bonus_label.Visibility = Visibility.Hidden;
-                        building_detail_bonus.Content = "";
-                    }
-
-                    elementProductionBonus =
-                        _elementMenuDetail.GetElementType().GetElementProductionBonus(elementLevel + 1);
-                    if (elementProductionBonus != null)
-                    {
-
-                        bonus_dockpanel.Visibility = Visibility.Visible;
-
-                        if (!elementProductionBonus.IsRessourcesBonus)
-                        {
-                            building_detail_bonus_next.Content = String.Format("{0}%",
-                                elementProductionBonus.GetFirstNotNull());
-                        }
-                    }
-                    else
-                    {
-                        bonus_dockpanel.Visibility = Visibility.Collapsed;
-                        building_detail_bonus_next.Content = "";
-                    } 
-                    #endregion
-
-                    // Show/Hide # ressources around element
-                    #region Label for # ressources around
-                    if (_elementMenuDetail.NbRessourcesAround > 0)
-                    {
-                        ressources_bonus_dockpanel.Visibility = Visibility.Visible;
-                        building_detail_ressource_bonus.Content = _elementMenuDetail.NbRessourcesAround;
-                    }
-                    else
-                    {
-                        ressources_bonus_dockpanel.Visibility = Visibility.Collapsed;
-                    } 
-                    #endregion
-
-                    if (_elementMenuDetail.FieldsCount > 0)
-                    {
-                        fields_count_dockpanel.Visibility = Visibility.Visible;
-                        building_detail_fields_count.Content = _elementMenuDetail.FieldsCount;
-                    }
-                    else
-                    {
-                        fields_count_dockpanel.Visibility = Visibility.Collapsed;
-                    }
-                }
-                else
-                {
-                    building_detail_level_info.Visibility = Visibility.Collapsed;
-                }
-
-
-            }
-            else
-            {
-                building_details.Visibility = Visibility.Hidden;
-            }
-        }
-
-        private Element _elementMenuDetail = null;
-        public void setElementMeduDetail(Element element)
-        {
-            if (element != null)
-            {
-                _elementMenuDetail = element;
-            }
-        }
-        #endregion
-
 
         #region Menu element click
         /*
@@ -438,9 +288,12 @@ namespace LordOfUltima
             MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                m_gameboard.resetMap();
+                _gameboard.resetMap();
                 // Init a new game
-                m_gameboard.initialiseNewGame();
+                _gameboard.initialiseNewGame();
+
+                _buildingMenuVisibility.hideBuildingMenu();
+                _buildingDetailsVisibility.hideBuildingDetails();
             }
         }
 
@@ -449,14 +302,14 @@ namespace LordOfUltima
         */
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Element element in m_gameboard.getMap())
+            foreach (Element element in _gameboard.getMap())
             {
                 canvas1.Children.Remove(element.getElement());
                 canvas1.Children.Remove(element.getLevelElement());
                 canvas1.Children.Remove(element.getLevelLabel());
                 canvas1.Children.Remove(element.getSelectElement());
             }
-            m_gameboard.resetMap();
+            _gameboard.resetMap();
             LoginWindow window = new LoginWindow();
             window.Show();
             Close();
@@ -478,7 +331,7 @@ namespace LordOfUltima
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                m_gameboard.resetMap();
+                _gameboard.resetMap();
                 SaveGame.Instance.Load();
             }
         }
@@ -534,7 +387,6 @@ namespace LordOfUltima
             BuildingMenuVisibility.Instance.hideBuildingMenu();
         }
         #endregion
-
 
         // update instance on windows closing
         private void Window_Closing(object sender, CancelEventArgs e)

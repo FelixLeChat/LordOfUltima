@@ -47,9 +47,9 @@ namespace LordOfUltima.Events
                 // Update all map for ressources
                 m_gameboard.cheakAllNeighbourRessources();
 
-                //if build sucessfull, show in side menu
-                MainWindow.m_ins.setElementMeduDetail(elementToBuild);
-                MainWindow.m_ins.setVisibleBuildingDetails(true);
+                // if build sucessfull, show in side menu
+                BuildingDetailsVisibility.Instance.setElementMeduDetail(elementToBuild);
+                BuildingDetailsVisibility.Instance.showBuildingDetails();
             }     
         }
 

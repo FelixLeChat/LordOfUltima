@@ -34,7 +34,7 @@ namespace LordOfUltima.XML
         {
             // visual reset
             BuildingMenuVisibility.Instance.hideBuildingMenu();
-            MainWindow.m_ins.setVisibleBuildingDetails(false);
+            BuildingDetailsVisibility.Instance.hideBuildingDetails();
             _gameboard.resetSelectionBorder();
 
             // No username set
@@ -78,7 +78,7 @@ namespace LordOfUltima.XML
         {
             // visual reset
             BuildingMenuVisibility.Instance.hideBuildingMenu();
-            MainWindow.m_ins.setVisibleBuildingDetails(false);
+            BuildingDetailsVisibility.Instance.hideBuildingDetails();
             _gameboard.resetSelectionBorder();
 
             if(!File.Exists(_user.Name + ".xml"))

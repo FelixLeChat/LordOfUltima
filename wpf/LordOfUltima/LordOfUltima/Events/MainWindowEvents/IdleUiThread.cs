@@ -29,21 +29,21 @@ namespace LordOfUltima.Events
 
         public void IdleThreadWork(object sender, EventArgs e)
         {
+            MainWindow _mainWindow = MainWindow.m_ins;
+            if (_mainWindow == null)
+                return;
+
             //do your idle stuff here
             Thread.Sleep(10);
             // Show stopwatch in menu :D
             TimeSpan ts = m_watch.Elapsed;
 
+            // Update Stop Watch
             string time = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            _mainWindow.stop_watch.Content = time;
 
-            if (MainWindow.m_ins != null)
-            {
-                // Update Stop Watch
-                MainWindow.m_ins.InsertContentInStopWatch(time);
-
-                // Update Chat
-                MainWindow.m_ins.ui_thread_updateChat();
-            }
+            // Update Chat
+            _mainWindow.ui_thread_updateChat();
         }
     }
 }
