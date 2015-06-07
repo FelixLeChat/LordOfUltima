@@ -1,4 +1,6 @@
-﻿namespace LordOfUltima.Events
+﻿using LordOfUltima.MGameboard;
+
+namespace LordOfUltima.Events
 {
     class DeleteElement
     {
@@ -16,23 +18,25 @@
 
         public void Delete()
         {
-            if (_elementToDelete != null)
-            {
-                _elementToDelete.Initialise();
+            if (_elementToDelete == null || _elementToDelete.GetElementType() == null ||
+                _elementToDelete.GetElementType().GetElementType() == ElementType.Type.BUILDING_TOWNHALL) 
+                return;
 
-                // set the neighbouring ressources count
-                RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
-                // change building count
-                BuildingCount.Instance.CountBuildings();
+            _elementToDelete.Initialise();
 
-                // hide menu
-                BuildingDetailsVisibility.Instance.HideBuildingDetails();
+            // set the neighbouring ressources count
+            RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
-                // handle level indicator
-                LevelIndicatorVisibility.Instance.HideLevelIndicator();
-                LevelIndicatorVisibility.Instance.HandleLevelIndicatorVisibility();
-            }
+            // change building count
+            BuildingCount.Instance.CountBuildings();
+
+            // hide menu
+            BuildingDetailsVisibility.Instance.HideBuildingDetails();
+
+            // handle level indicator
+            LevelIndicatorVisibility.Instance.HideLevelIndicator();
+            LevelIndicatorVisibility.Instance.HandleLevelIndicatorVisibility();
         }
     }
 }

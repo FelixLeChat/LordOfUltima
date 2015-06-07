@@ -110,6 +110,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Music\MusicPlayer.cs" />
     <Compile Include="Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>

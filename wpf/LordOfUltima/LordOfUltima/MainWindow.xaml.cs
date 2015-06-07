@@ -7,6 +7,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
+using LordOfUltima.Music;
 using LordOfUltima.RessourcesProduction;
 using LordOfUltima.XML;
 
@@ -22,12 +23,18 @@ namespace LordOfUltima
         private readonly BuildingMenuVisibility _buildingMenuVisibility;
         private readonly BuildingDetailsVisibility _buildingDetailsVisibility;
         private readonly ChatEvents _chatEvents;
+        private readonly MusicPlayer _musicPlayer;
 
         public static MainWindow MIns;
         public MainWindow()
         {
             MIns = this;
             InitializeComponent();
+
+            // Set the music to play
+            _musicPlayer = MusicPlayer.Instance;
+            if (_musicPlayer.Open("Media/audio/main_theme.mp3"))
+                _musicPlayer.Play();
 
             // Set the gameboard Instance
             _gameboard = Gameboard.Instance;
@@ -323,6 +330,8 @@ namespace LordOfUltima
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             MIns = null;
+            // Stop music player
+            _musicPlayer.Stop();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
