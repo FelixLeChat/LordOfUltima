@@ -205,7 +205,7 @@ namespace LordOfUltima.XML
 
         }
 
-        static string GetMd5Hash(MD5 md5Hash, string input)
+        static string GetMd5Hash(HashAlgorithm md5Hash, string input)
         {
 
             // Convert the input string to a byte array and compute the hash.
