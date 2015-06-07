@@ -209,6 +209,9 @@ namespace LordOfUltima
                 // Init a new game
                 ResetMap.Instance.InitialiseNewGame();
 
+                // set count
+                BuildingCount.Instance.CountBuildings();
+
                 _buildingMenuVisibility.HideBuildingMenu();
                 _buildingDetailsVisibility.HideBuildingDetails();
             }

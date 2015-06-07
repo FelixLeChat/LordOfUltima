@@ -186,6 +186,9 @@ namespace LordOfUltima.XML
                 // set the neighbouring ressources count
                 RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 
+                // change building count
+                BuildingCount.Instance.CountBuildings();
+
                 // fix for leftover level indicator
                 LevelIndicatorVisibility.Instance.HideLevelIndicator();
                 LevelIndicatorVisibility.Instance.HandleLevelIndicatorVisibility();

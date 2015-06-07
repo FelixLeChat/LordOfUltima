@@ -22,6 +22,9 @@
 
                 // Update all map for ressources
                 RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
+
+                // Update count (Town Hall)
+                BuildingCount.Instance.CountBuildings();
                 return true;
             }
             return false;

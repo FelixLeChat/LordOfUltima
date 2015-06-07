@@ -34,6 +34,11 @@ namespace LordOfUltima.Events
         {
             if (_elementToBuild != null && _typeToBuild != null)
             {
+                BuildingCount buildingCount = BuildingCount.Instance;
+                if (buildingCount.Count >= buildingCount.MaxCount)
+                    return false;
+                // TODO : lancer une exception ou un message d'erreur
+
                 if (BuyElement.Instance.Buy(_typeToBuild, 1))
                 {
                     // Increase Level of building
@@ -49,6 +54,9 @@ namespace LordOfUltima.Events
 
                     // Update all map for ressources
                     RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
+
+                    // change building count
+                    BuildingCount.Instance.CountBuildings();
 
                     // if build sucessfull, show in side menu
                     BuildingDetailsVisibility.Instance.SetElementMenuDetail(_elementToBuild);

@@ -73,6 +73,7 @@
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />
+    <Compile Include="Events\BuildingCount.cs" />
     <Compile Include="Events\BuildingDetailsVisibility.cs" />
     <Compile Include="Events\BuildingMenuVisibility.cs" />
     <Compile Include="Events\BuyElement.cs" />
