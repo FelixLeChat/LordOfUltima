@@ -7,16 +7,10 @@ namespace LordOfUltima.Events
         private static IElementType _typeToBuild;
         private static Element _elementToBuild;
         private static BuildEvent _buildEvent;
-        private static Gameboard _gameboard;
 
         public static BuildEvent Instance
         {
             get { return _buildEvent ?? (_buildEvent = new BuildEvent()); }
-        }
-
-        private BuildEvent()
-        {
-            _gameboard = Gameboard.Instance;
         }
 
         public void SetTypeToBuild(IElementType elementType)
@@ -64,6 +58,7 @@ namespace LordOfUltima.Events
 
                     // Set the element to upgrade for next level
                     UpgradeElement.Instance.ElementToUpgrade =_elementToBuild;
+                    DeleteElement.Instance.ElementToDelete = _elementToBuild;
                   
                     return true;
                 }

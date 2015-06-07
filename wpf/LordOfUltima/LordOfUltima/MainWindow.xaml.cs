@@ -333,5 +333,14 @@ namespace LordOfUltima
                 BuildingDetailsVisibility.Instance.ShowBuildingDetails();
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                DeleteElement.Instance.Delete();
+            }
+        }
     }
 }

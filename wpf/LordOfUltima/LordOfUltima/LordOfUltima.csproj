@@ -78,6 +78,7 @@
     <Compile Include="Events\BuildingMenuVisibility.cs" />
     <Compile Include="Events\BuyElement.cs" />
     <Compile Include="Events\ChatEvents.cs" />
+    <Compile Include="Events\DeleteElement.cs" />
     <Compile Include="Events\LevelIndicatorVisibility.cs" />
     <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
     <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />

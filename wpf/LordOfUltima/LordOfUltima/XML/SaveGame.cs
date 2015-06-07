@@ -195,7 +195,7 @@ namespace LordOfUltima.XML
 
                 return true;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
                 // reset map if there was an exception
                 ResetMapElements.Instance.ResetMap();

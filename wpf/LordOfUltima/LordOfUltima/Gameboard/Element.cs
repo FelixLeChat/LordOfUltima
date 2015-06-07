@@ -159,6 +159,7 @@ namespace LordOfUltima
                     BuildingDetailsVisibility.Instance.SetElementMenuDetail(this);
                     BuildingDetailsVisibility.Instance.ShowBuildingDetails();
                     UpgradeElement.Instance.ElementToUpgrade = this;
+                    DeleteElement.Instance.ElementToDelete = this;
                 }
                 else
                 {

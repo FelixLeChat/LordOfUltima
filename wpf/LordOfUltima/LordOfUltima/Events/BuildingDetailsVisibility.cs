@@ -69,7 +69,10 @@ namespace LordOfUltima.Events
                 _mainWindow.building_detail_level_info.Visibility = Visibility.Visible;
                 _mainWindow.building_detail_level.Content = _elementMenuDetail.Level;
 
-                ElementCost elementCost = _elementMenuDetail.GetElementType().GetElementCost(elementLevel + 1);
+                IElementType elementType = _elementMenuDetail.GetElementType();
+                if (elementType == null)
+                    return;
+                ElementCost elementCost = elementType.GetElementCost(elementLevel + 1);
 
                 // Show cost for upgrade
                 _mainWindow.building_detail_wood_cost.Content = elementCost.Wood;
@@ -180,15 +183,22 @@ namespace LordOfUltima.Events
                 }
                 #endregion
 
+                // Show/Hide total bonus on element
+                #region Total bonus
                 if (_elementMenuDetail.TotalBonus > 99)
                 {
                     _mainWindow.total_bonus_dockpanel.Visibility = Visibility.Visible;
-                    _mainWindow.building_detail_total_bonus.Content = (_elementMenuDetail.TotalBonus-100) + "%";
+                    _mainWindow.building_detail_total_bonus.Content = (_elementMenuDetail.TotalBonus - 100) + "%";
                 }
                 else
                 {
                     _mainWindow.total_bonus_dockpanel.Visibility = Visibility.Collapsed;
-                }
+                } 
+                #endregion
+
+                // Show/hide delete button
+                _mainWindow.delete_element_button.Visibility = (elementType.GetElementType() == ElementType.Type.BUILDING_TOWNHALL) 
+                    ? Visibility.Collapsed : Visibility.Visible;
             }
             else
             {

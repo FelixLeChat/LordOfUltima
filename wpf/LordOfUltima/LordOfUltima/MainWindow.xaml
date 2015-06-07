@@ -153,6 +153,15 @@
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
+                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" BorderBrush="#FF760000" Click="Button_Click_1" >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF700202" Offset="1"/>
+                                <GradientStop Color="Red"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Label Content="X" Margin="-2,-6,0,0" FontFamily="Vani" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Delete item" FontSize="15"/>
+                    </Button>
                     <WrapPanel Height="262" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 
@@ -195,9 +204,9 @@
                                 <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            
+
                             <Rectangle Width="248" Height="20" Name="building_detail_seperator" Margin="-4,-5,0,0"></Rectangle>
-                            
+
                             <DockPanel Width="235" Margin="0,-20,0,0" Name="ressources_bonus_dockpanel">
                                 <Label Content="# Ressources near : " Width="117" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_ressource_bonus" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
