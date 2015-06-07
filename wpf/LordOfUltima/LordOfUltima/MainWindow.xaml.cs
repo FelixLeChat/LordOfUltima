@@ -209,9 +209,6 @@ namespace LordOfUltima
                 // Init a new game
                 ResetMap.Instance.InitialiseNewGame();
 
-                // reset production
-                Ressources.Instance.Initialise();
-
                 _buildingMenuVisibility.HideBuildingMenu();
                 _buildingDetailsVisibility.HideBuildingDetails();
             }
@@ -230,8 +227,6 @@ namespace LordOfUltima
                 canvas1.Children.Remove(element.getSelectElement());
             }
             ResetMapElements.Instance.ResetMap();
-            // reset production
-            Ressources.Instance.Initialise();
 
             LoginWindow window = new LoginWindow();
             window.Show();

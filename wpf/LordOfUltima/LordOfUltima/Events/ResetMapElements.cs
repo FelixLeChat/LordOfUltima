@@ -21,12 +21,18 @@ namespace LordOfUltima.Events
             {
                 element.initialise();
             }
+
             // Default img for townhall
             elementMap[9, 9].setElementType(new TownHallElementType());
             elementMap[9, 9].Level = 1;
 
             // Init ressources production
             RessourcesManager.Instance.CalculateRessources();
+
+            // Init starting ressources
+            Ressources.Instance.Initialise();
+            Ressources.Instance.WoodQty += 3000;
+            Ressources.Instance.StoneQty += 1000;
         }
     }
 }

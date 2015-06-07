@@ -53,6 +53,9 @@ namespace LordOfUltima.Events
                     // if build sucessfull, show in side menu
                     BuildingDetailsVisibility.Instance.SetElementMenuDetail(_elementToBuild);
                     BuildingDetailsVisibility.Instance.ShowBuildingDetails();
+
+                    // Set the element to upgrade for next level
+                    UpgradeElement.Instance.ElementToUpgrade =_elementToBuild;
                   
                     return true;
                 }

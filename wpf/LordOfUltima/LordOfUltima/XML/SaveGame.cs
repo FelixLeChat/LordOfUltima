@@ -197,7 +197,6 @@ namespace LordOfUltima.XML
                 // reset map if there was an exception
                 ResetMapElements.Instance.ResetMap();
                 ResetMap.Instance.InitialiseNewGame();
-                Ressources.Instance.Initialise();
 
                 // TODO : Show error
                 return false;
