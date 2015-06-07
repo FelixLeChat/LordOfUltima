@@ -12,7 +12,7 @@
         {
             foreach (Element element in Gameboard.Instance.GetMap())
             {
-                element.hideSelectBorder();
+                element.HideSelectBorder();
             }
         }
     }

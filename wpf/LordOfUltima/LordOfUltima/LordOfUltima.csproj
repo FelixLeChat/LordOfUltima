@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Error\ErrorManager.cs" />
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
     <Compile Include="Events\BuildEvent.cs" />

@@ -221,10 +221,10 @@ namespace LordOfUltima
         {
             foreach (Element element in _gameboard.GetMap())
             {
-                canvas1.Children.Remove(element.getElement());
-                canvas1.Children.Remove(element.getLevelElement());
-                canvas1.Children.Remove(element.getLevelLabel());
-                canvas1.Children.Remove(element.getSelectElement());
+                canvas1.Children.Remove(element.GetElement());
+                canvas1.Children.Remove(element.GetLevelElement());
+                canvas1.Children.Remove(element.GetLevelLabel());
+                canvas1.Children.Remove(element.GetSelectElement());
             }
             ResetMapElements.Instance.ResetMap();
 
@@ -252,6 +252,14 @@ namespace LordOfUltima
                 ResetMapElements.Instance.ResetMap();
                 SaveGame.Instance.Load();
             }
+        }
+
+        /*
+         * Configuration box for ressources update time
+        */
+        private void ressource_update_time_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO : pop config box
         }
         #endregion
 

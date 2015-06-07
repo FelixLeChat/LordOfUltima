@@ -39,7 +39,7 @@ namespace LordOfUltima.Events
                     // Increase Level of building
                     _elementToBuild.Level = 1;
                     // build the building
-                    _elementToBuild.setElementType(_typeToBuild);
+                    _elementToBuild.SetElementType(_typeToBuild);
 
                     // if we build a farm, spawn fields around it
                     if (_typeToBuild.GetElementType() == ElementType.Type.BUILDING_FARM)

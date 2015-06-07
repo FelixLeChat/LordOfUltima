@@ -57,22 +57,22 @@ namespace LordOfUltima
                     };
 
                     //set x and Y
-                    Rectangle elementRect = _map[i, j].getElement();
+                    Rectangle elementRect = _map[i, j].GetElement();
 
                     // Position for building element
                     elementRect.Margin = new Thickness(i*_frameWidth + StartWidth, j*_frameHeight + (StartHeight-_frameHeight), 0, 0);
 
                     // Position for building level
-                    Rectangle levelRect = _map[i, j].getLevelElement();
+                    Rectangle levelRect = _map[i, j].GetLevelElement();
                     levelRect.Margin = new Thickness(elementRect.Margin.Left + _frameWidth / 3, elementRect.Margin.Top + _frameHeight, 0, 0);
 
                     // Position for label level
                     double left = levelRect.Margin.Left;
                     double top = levelRect.Margin.Top;
-                    _map[i, j].getLevelLabel().Margin = new Thickness(left-3.1, top-7, 0, 0);
+                    _map[i, j].GetLevelLabel().Margin = new Thickness(left-3.1, top-7, 0, 0);
 
                     // Position for select element
-                    Border selectRect = _map[i, j].getSelectElement();
+                    Border selectRect = _map[i, j].GetSelectElement();
                     selectRect.Margin = new Thickness(i * _frameWidth + StartWidth, j * _frameHeight + (StartHeight - _frameHeight)+5, 0, 0);
                 }
             }

@@ -28,13 +28,13 @@
             foreach (Element element in _gameboard.GetMap())
             {
                 // Add building to canvas
-                _mainWindow.canvas1.Children.Add(element.getElement());
+                _mainWindow.canvas1.Children.Add(element.GetElement());
                 // Add building level to canvas
-                _mainWindow.canvas1.Children.Add(element.getLevelElement());
+                _mainWindow.canvas1.Children.Add(element.GetLevelElement());
                 // Add level label to canvas
-                _mainWindow.canvas1.Children.Add(element.getLevelLabel());
+                _mainWindow.canvas1.Children.Add(element.GetLevelLabel());
                 // Add select rect to canvas
-                _mainWindow.canvas1.Children.Add(element.getSelectElement());
+                _mainWindow.canvas1.Children.Add(element.GetSelectElement());
             }
         }
     }

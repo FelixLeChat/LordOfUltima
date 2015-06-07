@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -13,125 +12,138 @@ namespace LordOfUltima
 {
     public class Element
     {
-        private int m_neighbour_ressources;
+        private int _neighbourRessources;
         public Element BonusBuilding { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        private IElementType _elementType = null;
+        private IElementType _elementType;
         public bool HasElement { get; set; }
         public Element()
         {
             // Caracteristiques pour le rectangle
-            m_rect = new Rectangle();
-            m_rect.Width = m_width;
-            m_rect.Height = m_height;
+            _rectangle = new Rectangle
+            {
+                Width = Width,
+                Height = Height
+            };
 
             // Images
-            m_imgbrush = new ImageBrush();
-            m_rect.Fill = m_imgbrush;
-            m_rect.IsEnabled = true;
-            m_rect.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(leftButtonDown);
-            m_rect.MouseLeftButtonUp += new MouseButtonEventHandler(leftButtonUp);
+            _imageBrush = new ImageBrush();
+            _rectangle.Fill = _imageBrush;
+            _rectangle.IsEnabled = true;
+            _rectangle.PreviewMouseLeftButtonDown += leftButtonDown;
+            _rectangle.MouseLeftButtonUp += leftButtonUp;
 
 
             // Level Rectangle
-            m_level_rect = new Rectangle();
-            m_level_rect.Width = 8;
-            m_level_rect.Height = 8;
-            ImageBrush imageLvl = new ImageBrush();
-            imageLvl.ImageSource = new BitmapImage(new Uri(@"Media/level_rect.png", UriKind.Relative));
-            m_level_rect.Fill = imageLvl;
-            m_level_rect.IsHitTestVisible = false;
+            _levelRectangle = new Rectangle
+            {
+                Width = 8,
+                Height = 8
+            };
+            ImageBrush imageLvl = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(@"Media/level_rect.png", UriKind.Relative))
+            };
+            _levelRectangle.Fill = imageLvl;
+            _levelRectangle.IsHitTestVisible = false;
 
             // Level Label
-            m_level_label = new Label();
-            m_level_label.Width = 20;
-            m_level_label.Height = 20;
-            m_level_label.FontSize = 8;
-            m_level_label.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xB3, 0x7B));
-            m_level_label.Content = m_level.ToString();
-            m_level_label.IsHitTestVisible = false;
+            _levelLabel = new Label
+            {
+                Width = 20,
+                Height = 20,
+                FontSize = 8,
+                Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xB3, 0x7B)),
+                Content = _level.ToString(),
+                IsHitTestVisible = false
+            };
 
             // Click rect
-            m_click_border = new Border();
-            m_click_border.Width = m_width;
-            m_click_border.Height = m_height-10;
+            _clickBorder = new Border
+            {
+                Width = Width,
+                Height = Height - 10
+            };
             int borderThickness = 2;
-            m_click_border.BorderThickness = new Thickness(borderThickness, borderThickness, borderThickness, borderThickness);
-            m_click_border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC9, 0xD6, 0x3A));
-            m_click_border.Visibility = Visibility.Hidden;
-            m_click_border.IsHitTestVisible = false;
+            _clickBorder.BorderThickness = new Thickness(borderThickness, borderThickness, borderThickness, borderThickness);
+            _clickBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC9, 0xD6, 0x3A));
+            _clickBorder.Visibility = Visibility.Hidden;
+            _clickBorder.IsHitTestVisible = false;
         }
 
         /*
          * Attribuer une nouvelle image pour l'element
         */
-        public void setPath(string path)
+        public void SetPath(string path)
         {
-            m_path = path;
+            _path = path;
 
             if (File.Exists(path))
             {
-                m_imgbrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.Relative));
+                _imageBrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.Relative));
                 HasElement = true;
             }
-            
         }
 
-        public Rectangle getElement()
+        public Rectangle GetElement()
         {
-            return m_rect;
+            return _rectangle;
         }
-        public Rectangle getLevelElement()
+        public Rectangle GetLevelElement()
         {
-            return m_level_rect;
+            return _levelRectangle;
         }
-        public Label getLevelLabel()
+        public Label GetLevelLabel()
         {
-            return m_level_label;
+            return _levelLabel;
         }
-        public Border getSelectElement()
+        public Border GetSelectElement()
         {
-            return m_click_border;
+            return _clickBorder;
         }
 
         /*
          * Met invalide l'element (ne sera pas affiche)
         */
-        public void setInvalid()
+        public bool IsValid
         {
-            m_isValid = false;
-            m_rect.Opacity = 0;
-            m_level_rect.Opacity = 0;
-            m_level_label.Opacity = 0;
+            get { return _isValid;}
+            set
+            {
+                if (value == false)
+                {
+                    _isValid = false;
+                    _rectangle.Opacity = 0;
+                    _levelRectangle.Opacity = 0;
+                    _levelLabel.Opacity = 0;                    
+                }
+            }
         }
-        public bool getInvalid()
-        {
-            return m_isValid;
-        }
+
 
         /*
          * Ajout d'un evenement sur le clic de l'item
         */
-        private bool m_isClicked = false;
+        private bool _isClicked;
         private void leftButtonDown(object sender, RoutedEventArgs e)
         {
-            m_isClicked = true;
+            _isClicked = true;
         }
         private void leftButtonUp(object sender, RoutedEventArgs e)
         {
-            if(m_isClicked && !MainWindow.GetIsMouseMove())
+            if(_isClicked && !MainWindow.GetIsMouseMove())
             {
                 // reset all select borders
-                m_isClicked = false;
+                _isClicked = false;
                 ResetMapElementBorder.Instance.ResetSelectionBorder();
 
                 // add the select border
-                if(m_isValid)
-                    showSelectBorder();
+                if(_isValid)
+                    ShowSelectBorder();
 
                 // Trigger menu
-                if (m_isValid && !HasElement)
+                if (_isValid && !HasElement)
                 {
                     BuildingMenuVisibility.Instance.ShowBuildingMenu();
                     BuildEvent.Instance.SetElementToBuild(this);
@@ -142,7 +154,7 @@ namespace LordOfUltima
                 }
 
 
-                if (m_isValid && HasElement)
+                if (_isValid && HasElement)
                 {
                     BuildingDetailsVisibility.Instance.SetElementMenuDetail(this);
                     BuildingDetailsVisibility.Instance.ShowBuildingDetails();
@@ -156,29 +168,27 @@ namespace LordOfUltima
         }
 
         // Elements graphiques lie au building
-        private Rectangle m_rect;
-        private Rectangle m_level_rect;
-        private Border m_click_border;
-        private Label m_level_label;
+        private readonly Rectangle _rectangle;
+        private readonly Rectangle _levelRectangle;
+        private readonly Border _clickBorder;
+        private readonly Label _levelLabel;
 
 
-        private ImageBrush m_imgbrush;
-        public ImageBrush GetImageBrush() { return m_imgbrush;}
-        private string m_path = "";
-        public int m_width = 40;
-        public int m_height = 40;
-        private bool m_isValid = true;
-        private int m_level = 0;
+        private ImageBrush _imageBrush;
+        public ImageBrush GetImageBrush() { return _imageBrush;}
+        private string _path = "";
+        public int Width = 40;
+        public int Height = 40;
+        private bool _isValid = true;
+        private int _level;
         public int Level
         {
-            get { return m_level; }
+            get { return _level; }
             set
             {
-                if (value >= 0 && value <= 10)
-                {
-                    m_level = value;
-                    m_level_label.Content = m_level;
-                }
+                if (value < 0 || value > 10) return;
+                _level = value;
+                _levelLabel.Content = _level;
             }
         }
 
@@ -186,47 +196,47 @@ namespace LordOfUltima
          * Methode pour la gestion de la presence de l'indicateur de niveau
         */
         private bool _levelIndicatorVisibility;
-        public void hideLevelIndicator()
+        public void HideLevelIndicator()
         {
-            m_level_rect.Opacity = 0;
-            m_level_label.Opacity = 0;
+            _levelRectangle.Opacity = 0;
+            _levelLabel.Opacity = 0;
             _levelIndicatorVisibility = false;
         }
-        public void showLevelIndicator()
+        public void ShowLevelIndicator()
         {
             // Verifier si l'objet est valide (dois etre afficher) avant de l'afficher
-            if(m_isValid && m_level > 0)
+            if(_isValid && _level > 0)
             {
-                m_level_rect.Opacity = 1;
-                m_level_label.Opacity = 1;
+                _levelRectangle.Opacity = 1;
+                _levelLabel.Opacity = 1;
             }
             _levelIndicatorVisibility = true;
         }
 
-        public bool m_hasSelectBorder = false;
-        public void hideSelectBorder()
+        public bool HasSelectBorder = false;
+        public void HideSelectBorder()
         {
-            m_click_border.Visibility = Visibility.Hidden;
+            _clickBorder.Visibility = Visibility.Hidden;
         }
-        public void showSelectBorder()
+        public void ShowSelectBorder()
         {
-            m_click_border.Visibility = Visibility.Visible;
+            _clickBorder.Visibility = Visibility.Visible;
         }
 
-        public void setElementType(IElementType type)
+        public void SetElementType(IElementType type)
         {
             if (type == null)
             {
-                throw new Exception("Element type is null");
+                return;
             }
             _elementType = type;
 
             // Set new image
-            setPath(type.GetImagePath());
+            SetPath(type.GetImagePath());
 
             if (_levelIndicatorVisibility)
             {
-                showLevelIndicator();
+                ShowLevelIndicator();
             }
         }
 
@@ -235,18 +245,18 @@ namespace LordOfUltima
             return _elementType;
         }
 
-        public void initialise()
+        public void Initialise()
         {
-            hideSelectBorder();
+            HideSelectBorder();
             HasElement = false;
             _elementType = null;
-            m_imgbrush = new ImageBrush();
-            m_rect.Fill = m_imgbrush;
-            m_level = 0;
+            _imageBrush = new ImageBrush();
+            _rectangle.Fill = _imageBrush;
+            _level = 0;
 
             // Natural ressources near
-            m_neighbour_ressources = 0;
-            m_fieldsCount = 0;
+            _neighbourRessources = 0;
+            _fieldsCount = 0;
 
             // Initialise bonus building
             BonusBuilding = null;
@@ -255,19 +265,19 @@ namespace LordOfUltima
 
         public int NbRessourcesAround 
         {
-            get { return m_neighbour_ressources;}
-            set { if (value < 9) m_neighbour_ressources = value; }
+            get { return _neighbourRessources;}
+            set { if (value < 9) _neighbourRessources = value; }
         }
 
-        private int m_fieldsCount;
+        private int _fieldsCount;
         public int FieldsCount
         {
-            get { return m_fieldsCount; }
+            get { return _fieldsCount; }
             set
             {
                 if (value < 9 && value >= 0)
                 {
-                    m_fieldsCount = value;
+                    _fieldsCount = value;
                 }
             }
         }

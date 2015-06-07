@@ -181,7 +181,7 @@ namespace LordOfUltima.Events
         private void buildFields(int x, int y)
         {
             Element[,] map = _gameboard.GetMap();
-            map[x, y].setElementType(new FieldsElementType());
+            map[x, y].SetElementType(new FieldsElementType());
             map[x, y].HasElement = false;
         }
 

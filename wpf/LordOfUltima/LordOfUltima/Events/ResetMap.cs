@@ -27,34 +27,34 @@ namespace LordOfUltima.Events
             Element[,] map = _gameboard.GetMap();
 
             // coin haut gauche
-            map[0, 0].setInvalid(); map[0, 1].setInvalid(); map[1, 0].setInvalid();
+            map[0, 0].IsValid = false; map[0, 1].IsValid = false; map[1, 0].IsValid = false;
             // coin bas gauche
-            map[0, 18].setInvalid(); map[0, 17].setInvalid(); map[1, 18].setInvalid();
+            map[0, 18].IsValid = false; map[0, 17].IsValid = false; map[1, 18].IsValid = false;
             // coin haut droit
-            map[18, 0].setInvalid(); map[17, 0].setInvalid(); map[18, 1].setInvalid();
+            map[18, 0].IsValid = false; map[17, 0].IsValid = false; map[18, 1].IsValid = false;
             // coin bas droit
-            map[18, 18].setInvalid(); map[18, 17].setInvalid(); map[17, 18].setInvalid();
+            map[18, 18].IsValid = false; map[18, 17].IsValid = false; map[17, 18].IsValid = false;
 
             for (int i = 0; i < 5; i++)
             {
-                map[i, 9].setInvalid(); map[18 - i, 9].setInvalid();
-                map[9, i].setInvalid(); map[9, 18 - i].setInvalid();
+                map[i, 9].IsValid = false; map[18 - i, 9].IsValid = false;
+                map[9, i].IsValid = false; map[9, 18 - i].IsValid = false;
             }
 
             for (int i = 0; i < 7; i++)
             {
-                map[6 + i, 4].setInvalid(); map[6 + i, 14].setInvalid();
-                map[4, 6 + i].setInvalid(); map[14, 6 + i].setInvalid();
+                map[6 + i, 4].IsValid = false; map[6 + i, 14].IsValid = false;
+                map[4, 6 + i].IsValid = false; map[14, 6 + i].IsValid = false;
             }
 
-            map[5, 5].setInvalid(); map[6, 5].setInvalid(); map[5, 6].setInvalid();
-            map[5, 13].setInvalid(); map[5, 12].setInvalid(); map[6, 13].setInvalid();
+            map[5, 5].IsValid = false; map[6, 5].IsValid = false; map[5, 6].IsValid = false;
+            map[5, 13].IsValid = false; map[5, 12].IsValid = false; map[6, 13].IsValid = false;
 
-            map[13, 5].setInvalid(); map[12, 5].setInvalid(); map[13, 6].setInvalid();
-            map[13, 13].setInvalid(); map[13, 12].setInvalid(); map[12, 13].setInvalid();
+            map[13, 5].IsValid = false; map[12, 5].IsValid = false; map[13, 6].IsValid = false;
+            map[13, 13].IsValid = false; map[13, 12].IsValid = false; map[12, 13].IsValid = false;
 
             // Default img for townhall
-            map[9, 9].setElementType(new TownHallElementType());
+            map[9, 9].SetElementType(new TownHallElementType());
             map[9, 9].Level = 1;
         }
 
@@ -65,24 +65,24 @@ namespace LordOfUltima.Events
             {
                 // wood ressources
                 element = getRandomValid();
-                element.setElementType(new ForestElementType());
+                element.SetElementType(new ForestElementType());
                 expandRessource(element, ElementType.Type.RESSOURCE_FOREST);
 
                 // stone ressources
                 element = getRandomValid();
-                element.setElementType(new StoneElementType());
+                element.SetElementType(new StoneElementType());
                 expandRessource(element, ElementType.Type.RESSOURCE_STONE);
 
                 // iron ressources
                 element = getRandomValid();
-                element.setElementType(new IronElementType());
+                element.SetElementType(new IronElementType());
                 expandRessource(element, ElementType.Type.RESSOURCE_IRON);
             }
             for (int i = 0; i < 4; i++)
             {
                 // Lake ressources
                 element = getRandomValid();
-                element.setElementType(new LakeElementType());
+                element.SetElementType(new LakeElementType());
             }
         }
 
@@ -95,7 +95,7 @@ namespace LordOfUltima.Events
             {
                 x = Random.Next(0, frameCount);
                 y = Random.Next(0, frameCount);
-            } while (!map[x, y].getInvalid() || map[x, y].HasElement);
+            } while (!map[x, y].IsValid || map[x, y].HasElement);
 
             return map[x, y];
         }
@@ -154,7 +154,7 @@ namespace LordOfUltima.Events
                 if (!elementCheck.HasElement)
                 {
                     newElements.Add(elementCheck);
-                    elementCheck.setElementType(ElementType.GetTypeObject(elementType));
+                    elementCheck.SetElementType(ElementType.GetTypeObject(elementType));
                 }
             }
 

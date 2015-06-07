@@ -36,7 +36,7 @@
         {
             foreach (Element element in _gameboard.GetMap())
             {
-                element.hideLevelIndicator();
+                element.HideLevelIndicator();
             }
         }
 
@@ -44,7 +44,7 @@
         {
             foreach (Element element in _gameboard.GetMap())
             {
-                element.showLevelIndicator();
+                element.ShowLevelIndicator();
             }
         }
     }

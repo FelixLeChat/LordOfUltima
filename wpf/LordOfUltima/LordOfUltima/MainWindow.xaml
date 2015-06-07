@@ -67,7 +67,9 @@
             <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1"/>
             <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486"/>
 
-            <Label Name="stop_watch" Content="0" Width="85" Height="24" Foreground="#FCEB43" Canvas.Left="733"/>
+            <Label Content="Building Count : " Foreground="#918544" Canvas.Left="550"/>
+            <Label Name="building_count" Foreground="#FCEB43" Canvas.Left="640" Content="0/0"/>
+            <Label Name="stop_watch" Content="0" Width="85" Height="24" Foreground="#FCEB43" Canvas.Left="800"/>
 
         </Canvas>
 
@@ -253,7 +255,8 @@
         <Menu IsMainMenu="True" Height="24" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="53" Margin="960,-1,0,0" >
             <!-- Option Menu -->
             <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
-                <MenuItem Header="Show buildinng level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+                <MenuItem Header="Show building level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+                <MenuItem Header="Ressources Update Time" Name="ressource_update_time" Foreground="Black" Click="ressource_update_time_Click" Margin="0,0,-22,0"/>
                 <MenuItem Header="Reset Map" Name="reset_map" Foreground="Black" Click="reset_map_Click"/>
                 <MenuItem Header="Save" Name="game_save" Foreground="Black" Click="game_save_Click" />
                 <MenuItem Header="Load" Name="game_load" Foreground="Black" Click="game_load_Click" />

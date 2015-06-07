@@ -19,11 +19,11 @@ namespace LordOfUltima.Events
 
             foreach (var element in elementMap)
             {
-                element.initialise();
+                element.Initialise();
             }
 
             // Default img for townhall
-            elementMap[9, 9].setElementType(new TownHallElementType());
+            elementMap[9, 9].SetElementType(new TownHallElementType());
             elementMap[9, 9].Level = 1;
 
             // Init ressources production

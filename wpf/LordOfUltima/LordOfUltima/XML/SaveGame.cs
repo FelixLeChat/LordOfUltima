@@ -138,7 +138,7 @@ namespace LordOfUltima.XML
                                                 IElementType type = ElementType.GetElementFromType(elementType);
                                                 if(type != null)
                                                 {
-                                                    element.setElementType(type);
+                                                    element.SetElementType(type);
 
                                                     if (type.GetElementType() == ElementType.Type.RESSOURCE_FIELDS)
                                                     {
