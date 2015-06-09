@@ -33,8 +33,7 @@ namespace LordOfUltima
 
             // Set the music to play
             _musicPlayer = MusicPlayer.Instance;
-            if (_musicPlayer.Open("Media/audio/main_theme.mp3"))
-                _musicPlayer.Play();
+            _musicPlayer.Play("Media/audio/main_theme.mp3");
 
             // Set the gameboard Instance
             _gameboard = Gameboard.Instance;
@@ -271,6 +270,19 @@ namespace LordOfUltima
         {
             // TODO : pop config box
         }
+
+        private void music_options_Click(object sender, RoutedEventArgs e)
+        {
+            if (MusicOption.Instance == null)
+            {
+                MusicOption musicOption = new MusicOption();
+                musicOption.Show();
+            }
+            else
+            {
+                MusicOption.Instance.Activate();
+            }
+        }
         #endregion
 
         #region SideMenu building Click
@@ -332,6 +344,12 @@ namespace LordOfUltima
             MIns = null;
             // Stop music player
             _musicPlayer.Stop();
+
+            // close music window
+            if (MusicOption.Instance != null)
+            {
+                MusicOption.Instance.Close();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -351,5 +369,22 @@ namespace LordOfUltima
                 DeleteElement.Instance.Delete();
             }
         }
+
+        /*
+         * Minimise chatbox
+         */
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            chat_box.Visibility = Visibility.Collapsed;
+            chat_box_open.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            chat_box.Visibility = Visibility.Visible;
+            chat_box_open.Visibility = Visibility.Collapsed;
+        }
+
+
     }
 }
