@@ -157,15 +157,7 @@
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
-                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" BorderBrush="#FF760000" Click="Button_Click_1" >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#FF700202" Offset="1"/>
-                                <GradientStop Color="Red"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                        <Label Content="X" Margin="-2,-6,0,0" FontFamily="Vani" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Delete item" FontSize="15"/>
-                    </Button>
+                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" Click="Button_Click_1" />
                     <WrapPanel Height="262" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 

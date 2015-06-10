@@ -83,6 +83,7 @@ namespace LordOfUltima.Events
 
             InitImageButton("Media/chat_button_up.png", _mainWindow.chat_button_open);
             InitImageButton("Media/chat_Button_down.png", _mainWindow.chat_button_down);
+            InitImageButton("Media/delete_button.png", _mainWindow.delete_element_button);
         }
 
         private void InitImageRectangle(string imgUrl, Rectangle rectangle)
