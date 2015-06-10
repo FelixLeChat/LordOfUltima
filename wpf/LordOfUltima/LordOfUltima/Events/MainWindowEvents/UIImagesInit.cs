@@ -80,6 +80,9 @@ namespace LordOfUltima.Events
             InitImageRectangle(new FoundryElementType().GetDetailImagePath(), _mainWindow.building_foundry);
             InitImageRectangle(new FarmElementType().GetDetailImagePath(), _mainWindow.building_farm);
             InitImageRectangle(new MillElementType().GetDetailImagePath(), _mainWindow.building_mill);
+
+            InitImageButton("Media/chat_button_up.png", _mainWindow.chat_button_open);
+            InitImageButton("Media/chat_Button_down.png", _mainWindow.chat_button_down);
         }
 
         private void InitImageRectangle(string imgUrl, Rectangle rectangle)
@@ -100,6 +103,11 @@ namespace LordOfUltima.Events
         private void InitImageCanvas(string imgUrl, Canvas canvas)
         {
             canvas.Background = getImageBrush(imgUrl);
+        }
+
+        private void InitImageButton(string imgUrl, Button button)
+        {
+            button.Background = getImageBrush(imgUrl);
         }
 
         private ImageBrush getImageBrush(string imgUrl)
