@@ -29,8 +29,6 @@ namespace LordOfUltima.Events
 
             _elementToDelete.Initialise();
 
-            
-
             // set the neighbouring ressources count
             RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
 

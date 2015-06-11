@@ -204,6 +204,12 @@ namespace LordOfUltima.Events
             {
                 // it's not a building (no level)
                 _mainWindow.building_detail_level_info.Visibility = Visibility.Collapsed;
+
+                if (_elementMenuDetail.GetElementType() != null &&
+                    _elementMenuDetail.GetElementType().GetElementType() != ElementType.Type.BUILDING_TOWNHALL)
+                {
+                    _mainWindow.delete_element_button.Visibility = Visibility.Visible;
+                }
             }
         }
 
