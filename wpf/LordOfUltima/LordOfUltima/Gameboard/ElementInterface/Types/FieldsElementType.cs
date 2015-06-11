@@ -17,8 +17,8 @@
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = true;
             _hasLevelEnable = false;
-            _imagePath = "Media/ressource/resource_corn.png";
-            _detailImagePath = "Media/menu/menu_field.png";
+            _imagePath = "pack://application:,,,/Resources/resource_corn.png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_field.png";
             _elementInfo = "Each Woodcutter's Hut gains 50% production efficiency from the first adjacent wood node, then 40% for each after that. The Woodcutter's Hut production efficiency can then be further increased up to 75% by an adjacent Sawmill, and up to 30% by each adjacent Cottage.";
         
             // Bonus linked to fields

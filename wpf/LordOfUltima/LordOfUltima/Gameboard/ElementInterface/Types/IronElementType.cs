@@ -21,8 +21,8 @@ namespace LordOfUltima.MGameboard
             _isRessources = true;
             _hasLevelEnable = false;
             var select = Random.Next(1, 5);
-            _imagePath = "Media/ressource/resource_iron_" + select.ToString() + ".png";
-            _detailImagePath = "Media/menu/menu_iron.png";
+            _imagePath = "pack://application:,,,/Resources/resource_iron_" + select.ToString() + ".png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_iron.png";
             _elementInfo = "Each Iron Mine gains 50% for the first adjacent iron node, then 40% for each after that. The Iron Mine's production efficiency can then be increased up to 75% by an adjacent Foundry, and up to 30% by each adjacent Cottage.";
 
             // Bonus linked to iron

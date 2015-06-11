@@ -168,7 +168,7 @@ namespace LordOfUltima.XML
                                     break;
 
                                 case "Token":
-                                    MD5 md5Hash = MD5.Create();
+                                    /*MD5 md5Hash = MD5.Create();
                                     double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
                                     string hash = GetMd5Hash(md5Hash, _user.Name + Math.Round(total));
 
@@ -177,7 +177,7 @@ namespace LordOfUltima.XML
                                     if (hash != token)
                                     {
                                         throw new LoadException("Wrong token mate");
-                                    }
+                                    }*/
                                     break;
                             }
 		                }

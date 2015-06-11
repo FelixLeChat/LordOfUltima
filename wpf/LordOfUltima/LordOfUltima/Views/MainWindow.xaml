@@ -14,14 +14,22 @@
 
         <!-- Canvas for game board -->
         <Canvas HorizontalAlignment="Left" Height="580" Margin="268,23,0,0" VerticalAlignment="Top" Width="891" Name="canvas_mouse_pos">
-            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Name="canvas1" PreviewMouseWheel="canvas1_MouseWheel" PreviewMouseLeftButtonDown="canvas1_leftMouseDown" PreviewMouseLeftButtonUp="canvas1_leftMouseUp" PreviewMouseMove="canvas1_mouseMove"/>
+            <Canvas HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Name="canvas1" PreviewMouseWheel="canvas1_MouseWheel" PreviewMouseLeftButtonDown="canvas1_leftMouseDown" PreviewMouseLeftButtonUp="canvas1_leftMouseUp" PreviewMouseMove="canvas1_mouseMove">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/main.png"/>
+                </Canvas.Background>
+            </Canvas>
         </Canvas>
 
         <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="268,23,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
 
         <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7">
             <StackPanel Height="135" Width="324">
-                <Button Name="chat_button_down" Width="20" Height="20" Margin="282,-5,0,-7" Click="Button_Click_2"/>
+                <Button Name="chat_button_down" Width="20" Height="20" Margin="282,-5,0,-7" Click="Button_Click_2">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/chat_Button_down.png"/>
+                    </Button.Background>
+                </Button>
                 <ScrollViewer Height="100" Width="300" Name="textbox_scroll_viewer" DockPanel.Dock="Top" RenderTransformOrigin="0.5,0.5" Foreground="Black">
                     <ScrollViewer.RenderTransform>
                         <TransformGroup>
@@ -54,10 +62,17 @@
         </Border>
 
         <Border Name="chat_box_open" BorderThickness="2" CornerRadius="4" Width="60" Height="25" Background="Black" BorderBrush="Black" Opacity="0.7" Margin="-563,570,0,0" Visibility="Collapsed">
-            <Button Name="chat_button_open" BorderThickness="1,1,0,1" FontWeight="Bold" FontSize="13" Click="Button_Click_3"/>
+            <Button Name="chat_button_open" BorderThickness="1,1,0,1" FontWeight="Bold" FontSize="13" Click="Button_Click_3">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/chat_Button_up.png"/>
+                </Button.Background>
+            </Button>
         </Border>
         <!-- Menu du haut avec informations sur le joueur -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Resources/menu_repeat.png"/>
+            </Canvas.Background>
             <Label Name="label_player_name" Content="Name" Width="75" Height="24" Foreground="#FCEB43"/>
             <Label Content="Title: " Width="39" Height="24" Canvas.Left="80" Foreground="#918544"/>
             <Label Name="label_player_title" Content="" Width="80" Height="24" Foreground="#FCEB43" Canvas.Left="110"/>
@@ -65,10 +80,18 @@
             <Label Name="label_player_score" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="260"/>
             <Label Name="label_player_position" Content="(0.)" Width="51" Height="24" Foreground="#FCEB43" Canvas.Left="320"/>
 
-            <Canvas Name="ress_gold" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23"  Canvas.Left="375"/>
+            <Canvas Name="ress_gold" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23"  Canvas.Left="375">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/Lou_resource_gold.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400"/>
 
-            <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1"/>
+            <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/research.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486"/>
 
             <Label Content="Building Count : " Foreground="#918544" Canvas.Left="550"/>
@@ -79,6 +102,9 @@
 
         <!-- Canvas and scroll Viewer for side menu -->
         <ScrollViewer Name="scrollview" HorizontalAlignment="Left" Height="578" Margin="0,24,0,0" VerticalAlignment="Top" Width="268">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="/Resources/side_menu.png"/>
+            </ScrollViewer.Background>
             <Canvas Name="building_menu_englob" Height="400" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,120,0,0">
 
                 <Canvas Name="building_menu" Height="600" Width="244" Visibility="Hidden">
@@ -157,7 +183,11 @@
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
-                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" Click="Button_Click_1" />
+                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" Click="Button_Click_1" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/delete_button.png"/>
+                        </Button.Background>
+                    </Button>
                     <WrapPanel Height="262" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 
@@ -201,7 +231,11 @@
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
 
-                            <Rectangle Width="248" Height="20" Name="building_detail_seperator" Margin="-4,-5,0,0"></Rectangle>
+                            <Rectangle Width="248" Height="20" Name="building_detail_seperator" Margin="-4,-5,0,0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/Resources/menu_division.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
 
                             <DockPanel Width="235" Margin="0,-20,0,0" Name="ressources_bonus_dockpanel">
                                 <Label Content="# Ressources near : " Width="117" Height="25" Margin="10,10,10,0"/>
@@ -224,11 +258,22 @@
 
         </ScrollViewer>
 
-        <Rectangle Name="bottom_menu_rect" Margin="0,587,911,0"/>
+        <Rectangle Name="bottom_menu_rect" Margin="0,587,911,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Resources/menu_bottom.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <!-- Top canvas for menu and ressources -->
         <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Resources/ressource_menu.png"/>
+            </Canvas.Background>
             <!-- Wood ressource Label + img -->
-            <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="8"/>
+            <Canvas Name="ress_wood" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="8">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/Lou_resource_wood.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Content="0" Name="qty_wood" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="8" Foreground="#247624" Width="83"/>
             <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="25" Foreground="#443025"/>
             <Label Content="0" Name="qty_wood_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="25" Foreground="#443025" Width="83"/>
@@ -236,7 +281,11 @@
             <!--<Line X1="10" Y1="31" X2="234" Y2="31" Stroke="#443025" StrokeThickness="1" />-->
 
             <!-- Stone ressource Label + img -->
-            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="8"/>
+            <Canvas Name="ress_stone" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="8">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/Lou_resource_stone.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Content="0" Name="qty_stone" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="8" Foreground="#247624" Width="83"/>
             <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="25" Foreground="#443025"/>
             <Label Content="0" Name="qty_stone_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="25" Foreground="#443025" Width="83"/>
@@ -244,13 +293,21 @@
             <!--<Line X1="10" Y1="54" X2="234" Y2="54" Stroke="#443025" StrokeThickness="1" />-->
 
             <!-- Grain ressource Label + img -->
-            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="65"/>
+            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="65">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/Lou_resource_grain.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="65" Foreground="#247624"/>
             <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="82" Foreground="#443025"/>
             <Label Content="0" Name="qty_grain_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="82" Foreground="#443025" Width="83"/>
 
             <!-- Iron ressource Label + img -->
-            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="65"/>
+            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="65">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/Resources/Lou_resource_iron.png"/>
+                </Canvas.Background>
+            </Canvas>
             <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="65" Foreground="#247624"/>
             <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="82" Foreground="#443025"/>
             <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="82" Foreground="#443025" Width="83"/>
@@ -258,6 +315,9 @@
 
         <!-- Menu -->
         <Menu IsMainMenu="True" Height="24" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="53" Margin="960,-1,0,0" >
+            <Menu.Background>
+                <ImageBrush ImageSource="/Resources/menu_repeat.png"/>
+            </Menu.Background>
             <!-- Option Menu -->
             <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
                 <MenuItem Header="Show building level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />

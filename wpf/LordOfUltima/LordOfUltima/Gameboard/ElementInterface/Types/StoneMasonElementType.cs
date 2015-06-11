@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_stonemason.png";
-            _detailImagePath = "Media/menu/menu_stonemason.png";
+            _imagePath = "pack://application:,,,/Resources/building_stonemason.png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_stonemason.png";
             _elementInfo = "It increases the efficiency of bordering Quarries and stone storage capacity of any bordering Storage.";
 
             // Element cost for each level

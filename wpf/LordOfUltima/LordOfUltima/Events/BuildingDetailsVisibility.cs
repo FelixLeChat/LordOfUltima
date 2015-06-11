@@ -55,7 +55,7 @@ namespace LordOfUltima.Events
             // Add visual elements
             ImageBrush image = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().GetDetailImagePath(), UriKind.Relative))
+                ImageSource = new BitmapImage(new Uri(_elementMenuDetail.GetElementType().GetDetailImagePath(), UriKind.RelativeOrAbsolute))
             };
             _mainWindow.building_details_img.Fill = image;
 

@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
+using LordOfUltima.Utilities;
 
 namespace LordOfUltima
 {
@@ -41,9 +42,10 @@ namespace LordOfUltima
                 Width = 8,
                 Height = 8
             };
+            var imageConverter = new WPFBitmapConverter();
             ImageBrush imageLvl = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(@"Media/level_rect.png", UriKind.Relative))
+                ImageSource = (ImageSource) imageConverter.Convert(Properties.Resources.level_rect,null,null,null)
             };
             _levelRectangle.Fill = imageLvl;
             _levelRectangle.IsHitTestVisible = false;
@@ -79,9 +81,9 @@ namespace LordOfUltima
         {
             _path = path;
 
-            if (File.Exists(path))
+            //if (File.Exists(path))
             {
-                _imageBrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.Relative));
+                _imageBrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.RelativeOrAbsolute));
                 HasElement = true;
             }
         }

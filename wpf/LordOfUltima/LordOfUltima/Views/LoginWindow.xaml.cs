@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Text.RegularExpressions;
 using LordOfUltima.Web;
 using LordOfUltima.Error;
@@ -20,13 +18,6 @@ namespace LordOfUltima
             // Hide both panel
             login_panel.Visibility = Visibility.Hidden;
             signup_panel.Visibility = Visibility.Hidden;
-
-            // Background pour grid
-            ImageBrush imageBrush = new ImageBrush
-            {
-                ImageSource = new BitmapImage(new Uri(@"Media/login_background.jpg", UriKind.Relative))
-            };
-            grid.Background = imageBrush;
 
             // Test
             login_password_textbox.Password = "1111AA";

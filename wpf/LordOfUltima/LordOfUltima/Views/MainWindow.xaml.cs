@@ -220,6 +220,9 @@ namespace LordOfUltima
 
                 _buildingMenuVisibility.HideBuildingMenu();
                 _buildingDetailsVisibility.HideBuildingDetails();
+
+                _levelIndicatorVisibility.HideLevelIndicator();
+                _levelIndicatorVisibility.HandleLevelIndicatorVisibility();
             }
         }
 

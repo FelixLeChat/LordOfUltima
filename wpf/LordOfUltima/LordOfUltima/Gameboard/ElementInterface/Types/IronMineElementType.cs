@@ -21,8 +21,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_iron_quary.png";
-            _detailImagePath = "Media/menu/menu_ironmine.png";
+            _imagePath = "pack://application:,,,/Resources/building_iron_quary.png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_ironmine.png";
             _elementInfo = "It produces iron. Any bordering ore deposits, Cottages and a maximum of one Foundry will increase productivity.";
 
             // Element cost for each level

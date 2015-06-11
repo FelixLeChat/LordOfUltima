@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_stone_quary.png";
-            _detailImagePath = "Media/menu/menu_quarry.png";
+            _imagePath = "pack://application:,,,/Resources/building_stone_quary.png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_quarry.png";
             _elementInfo = "It produces Stone. Productivity can be increased by bordering Rocks, Cottages and a maximum of one Stonemason.";
 
             // Element cost for each level

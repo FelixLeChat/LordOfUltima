@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "Media/building/building_woodcutter.png";
-            _detailImagePath = "Media/menu/menu_woodcutter.png";
+            _imagePath = "pack://application:,,,/Resources/building_woodcutter.png";
+            _detailImagePath = "pack://application:,,,/Resources/menu_woodcutter.png";
             _elementInfo = "It produces wood. Any bordering woods, Cottages and a maximum of one Sawmill will increase productivity.";
 
             // Element cost for each level
