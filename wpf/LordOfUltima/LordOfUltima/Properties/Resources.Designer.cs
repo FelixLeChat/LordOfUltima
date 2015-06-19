@@ -61,6 +61,16 @@ namespace LordOfUltima.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] barren_plains {
+            get {
+                object obj = ResourceManager.GetObject("barren_plains", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap building_farm_2 {
@@ -173,20 +183,20 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap city_background {
+        internal static System.Drawing.Bitmap delete_button {
             get {
-                object obj = ResourceManager.GetObject("city_background", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        ///   Recherche une ressource localisée de type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap delete_button {
+        internal static byte[] etheral {
             get {
-                object obj = ResourceManager.GetObject("delete_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("etheral", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -257,6 +267,26 @@ namespace LordOfUltima.Properties {
             get {
                 object obj = ResourceManager.GetObject("Lou_resource_wood", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main {
+            get {
+                object obj = ResourceManager.GetObject("main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] main_theme {
+            get {
+                object obj = ResourceManager.GetObject("main_theme", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -433,6 +463,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap options_menu {
+            get {
+                object obj = ResourceManager.GetObject("options_menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap research {
             get {
                 object obj = ResourceManager.GetObject("research", resourceCulture);
@@ -557,6 +597,16 @@ namespace LordOfUltima.Properties {
             get {
                 object obj = ResourceManager.GetObject("ressource_menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] rule_city {
+            get {
+                object obj = ResourceManager.GetObject("rule_city", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

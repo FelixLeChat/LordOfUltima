@@ -43,7 +43,7 @@
     </Window.Resources>
     <Grid Name="grid">
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/login_background.jpg"/>
+            <ImageBrush ImageSource="/Resources/Images/login_background.jpg"/>
         </Grid.Background>
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="414,232,0,0" VerticalAlignment="Top" Width="149">
             <Button Name="login_button" Content="Login" Margin="0,25,0,5" Click="login_button_Click" FontFamily="Vani" FontWeight="Bold" Height="20"/>

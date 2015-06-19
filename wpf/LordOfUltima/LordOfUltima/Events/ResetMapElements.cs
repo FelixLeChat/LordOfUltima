@@ -29,10 +29,12 @@ namespace LordOfUltima.Events
             // Init ressources production
             RessourcesManager.Instance.CalculateRessources();
 
+            // Init building count
+            BuildingCount.Instance.CountBuildings();
+
             // Init starting ressources
             Ressources.Instance.Initialise();
-            Ressources.Instance.WoodQty += 3000;
-            Ressources.Instance.StoneQty += 1000;
+            Ressources.Instance.SetDefault();
         }
     }
 }

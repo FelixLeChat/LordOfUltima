@@ -21,8 +21,8 @@ namespace LordOfUltima.MGameboard
             _isRessources = true;
             _hasLevelEnable = false;
             var select = Random.Next(1, 5);
-            _imagePath = "pack://application:,,,/Resources/resource_wood_" + select +".png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_forest.png";
+            _imagePath = "pack://application:,,,/Resources/Images/resource_wood_" + select + ".png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_forest.png";
             _elementInfo = "Each Woodcutter's Hut gains 50% production efficiency from the first adjacent wood node, then 40% for each after that. The Woodcutter's Hut production efficiency can then be further increased up to 75% by an adjacent Sawmill, and up to 30% by each adjacent Cottage.";
 
             // Bonus linked to Forest

@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "pack://application:,,,/Resources/building_farm_2.png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_farm.png";
+            _imagePath = "pack://application:,,,/Resources/Images/building_farm_2.png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_farm.png";
             _elementInfo = "It produces food. Any bordering grassland, lakes, Cottages and Mills will increase productivity.";
 
             // Element cost for each level

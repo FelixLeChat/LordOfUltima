@@ -25,5 +25,11 @@
             IronQty = 0;
             FoodQty = 0;
         }
+
+        public void SetDefault()
+        {
+            WoodQty = 3000;
+            StoneQty = 1000;
+        }
     }
 }

@@ -18,10 +18,9 @@ namespace LordOfUltima
             // Set instance
             Instance = this;
 
-            window_background.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(@"Media/options.png", UriKind.Relative)) };
-
             // load music from directory
-            string[] filePaths = Directory.GetFiles(@"Media/audio");
+
+            string[] filePaths = Directory.GetFiles(@"Resources/Audio");
             foreach (var file in filePaths)
             {
                 if (file.Contains(".mp3"))

@@ -17,8 +17,8 @@
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = true;
             _hasLevelEnable = false;
-            _imagePath = "pack://application:,,,/Resources/resource_lake.png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_lake.png";
+            _imagePath = "pack://application:,,,/Resources/Images/resource_lake.png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_lake.png";
             _elementInfo = "Increases the food production efficiency of adjacent Farms by 50%.";
 
             // Bonus linked to fields

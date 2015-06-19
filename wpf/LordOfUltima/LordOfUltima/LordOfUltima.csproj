@@ -108,6 +108,11 @@
     <Compile Include="Gameboard\ElementInterface\Types\StoneMasonElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\TownHallElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\WoodcutterElementType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -158,11 +163,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -182,7 +182,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\login_background.jpg" />
+    <Resource Include="Resources\Images\login_background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -202,199 +202,180 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu_repeat.png" />
+    <Resource Include="Resources\Images\menu_repeat.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_repeat.png" />
+    <Resource Include="Resources\Images\main.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\main.png" />
+    <Resource Include="Resources\Images\side_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\side_menu.png" />
+    <Resource Include="Resources\Images\menu_division.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_division.png" />
+    <Resource Include="Resources\Images\menu_bottom.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_bottom.png" />
+    <Resource Include="Resources\Images\ressource_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ressource_menu.png" />
+    <Resource Include="Resources\Images\Lou_resource_wood.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lou_resource_wood.png" />
+    <Resource Include="Resources\Images\research.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\research.png" />
+    <Resource Include="Resources\Images\Lou_resource_gold.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lou_resource_gold.png" />
+    <Resource Include="Resources\Images\Lou_resource_grain.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lou_resource_grain.png" />
+    <Resource Include="Resources\Images\Lou_resource_iron.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lou_resource_iron.png" />
+    <Resource Include="Resources\Images\Lou_resource_stone.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lou_resource_stone.png" />
+    <Resource Include="Resources\Images\delete_button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\delete_button.png" />
+    <Resource Include="Resources\Images\chat_Button_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\chat_Button_down.png" />
+    <Resource Include="Resources\Images\chat_Button_up.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\chat_Button_up.png" />
+    <Resource Include="Resources\Images\level_rect.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\level_rect.png" />
+    <Resource Include="Resources\Images\menu_foundry.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_sawmill.png" />
+    <Resource Include="Resources\Images\menu_iron.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_stone.png" />
+    <Resource Include="Resources\Images\menu_ironmine.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_stonemason.png" />
+    <Resource Include="Resources\Images\menu_lake.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_townhall.png" />
+    <Resource Include="Resources\Images\menu_mill.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_woodcutter.png" />
+    <Resource Include="Resources\Images\menu_quarry.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_farm.png" />
+    <Resource Include="Resources\Images\menu_sawmill.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_field.png" />
+    <Resource Include="Resources\Images\menu_stone.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_forest.png" />
+    <Resource Include="Resources\Images\menu_stonemason.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_foundry.png" />
+    <Resource Include="Resources\Images\menu_townhall.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_iron.png" />
+    <Resource Include="Resources\Images\menu_woodcutter.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_ironmine.png" />
+    <Resource Include="Resources\Images\menu_farm.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_lake.png" />
+    <Resource Include="Resources\Images\menu_field.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_mill.png" />
+    <Resource Include="Resources\Images\menu_forest.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Media\menu\menu_quarry.png" />
+    <Resource Include="Resources\Images\resource_corn.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_foundry.png" />
+    <Resource Include="Resources\Images\resource_iron_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_iron.png" />
+    <Resource Include="Resources\Images\resource_iron_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_ironmine.png" />
+    <Resource Include="Resources\Images\resource_iron_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_lake.png" />
+    <Resource Include="Resources\Images\resource_iron_4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_mill.png" />
+    <Resource Include="Resources\Images\resource_lake.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_quarry.png" />
+    <Resource Include="Resources\Images\resource_stone.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_sawmill.png" />
+    <Resource Include="Resources\Images\resource_wood_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_stone.png" />
+    <Resource Include="Resources\Images\resource_wood_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_stonemason.png" />
+    <Resource Include="Resources\Images\resource_wood_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_townhall.png" />
+    <Resource Include="Resources\Images\resource_wood_4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_woodcutter.png" />
+    <Resource Include="Resources\Images\building_farm_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_farm.png" />
+    <Resource Include="Resources\Images\building_foundry.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_field.png" />
+    <Resource Include="Resources\Images\building_iron_quary.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu_forest.png" />
+    <Resource Include="Resources\Images\building_mill.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_corn.png" />
+    <Resource Include="Resources\Images\building_sawmill.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_iron_1.png" />
+    <Resource Include="Resources\Images\building_stone_quary.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_iron_2.png" />
+    <Resource Include="Resources\Images\building_stonemason.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_iron_3.png" />
+    <Resource Include="Resources\Images\building_townhall.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_iron_4.png" />
+    <Resource Include="Resources\Images\building_woodcutter.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_lake.png" />
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_stone.png" />
+    <Resource Include="Resources\Images\options_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_wood_1.png" />
+    <None Include="Resources\Audio\barren_plains.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_wood_2.png" />
+    <None Include="Resources\Audio\etheral.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_wood_3.png" />
+    <None Include="Resources\Audio\main_theme.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\resource_wood_4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_farm_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_foundry.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_iron_quary.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_mill.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_sawmill.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_stone_quary.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_stonemason.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_townhall.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\building_woodcutter.png" />
+    <None Include="Resources\Audio\rule_city.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

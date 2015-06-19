@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "pack://application:,,,/Resources/building_sawmill.png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_sawmill.png";
+            _imagePath = "pack://application:,,,/Resources/Images/building_sawmill.png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_sawmill.png";
             _elementInfo = "It increases the efficiency of bordering Woodcutter's Huts and wood storage capacity of any bordering Storage.";
 
             // Element cost for each level

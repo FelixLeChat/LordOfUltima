@@ -20,8 +20,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "pack://application:,,,/Resources/building_foundry.png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_foundry.png";
+            _imagePath = "pack://application:,,,/Resources/Images/building_foundry.png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_foundry.png";
             _elementInfo = "It increases the efficiency of bordering Ore Mines and iron storage capacity of bordering Storage.";
 
             // Element cost for each level

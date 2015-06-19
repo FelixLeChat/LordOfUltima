@@ -19,8 +19,8 @@ namespace LordOfUltima.MGameboard
             _name = ElementType.GetTypeName(_elementType);
             _isRessources = false;
             _hasLevelEnable = true;
-            _imagePath = "pack://application:,,,/Resources/building_townhall.png";
-            _detailImagePath = "pack://application:,,,/Resources/menu_townhall.png";
+            _imagePath = "pack://application:,,,/Resources/Images/building_townhall.png";
+            _detailImagePath = "pack://application:,,,/Resources/Images/menu_townhall.png";
             _elementInfo = "It provides basic storage and wood production. Also determines the maximum number of buildings in a city. Only one can be built in each city. Cannot be totally demolished or destroyed.";
 
             // Element cost for each level

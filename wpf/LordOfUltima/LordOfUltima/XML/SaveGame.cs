@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -74,10 +75,10 @@ namespace LordOfUltima.XML
             double iron = Math.Round(ressources.IronQty);
             double food = Math.Round(ressources.FoodQty);
             xmlWriter.WriteStartElement("Ressources");
-            xmlWriter.WriteAttributeString("Wood", wood.ToString());
-            xmlWriter.WriteAttributeString("Stone", stone.ToString());
-            xmlWriter.WriteAttributeString("Iron", iron.ToString());
-            xmlWriter.WriteAttributeString("Food", food.ToString());
+            xmlWriter.WriteAttributeString("Wood", wood.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteAttributeString("Stone", stone.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteAttributeString("Iron", iron.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteAttributeString("Food", food.ToString(CultureInfo.InvariantCulture));
 
             MD5 md5Hash = MD5.Create();
             double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
@@ -94,17 +95,16 @@ namespace LordOfUltima.XML
 
         public bool Load()
         {
+            if(!File.Exists(_user.Name + ".xml"))
+                return false;
+
             // visual reset
             BuildingMenuVisibility.Instance.HideBuildingMenu();
             BuildingDetailsVisibility.Instance.HideBuildingDetails();
             ResetMapElementBorder.Instance.ResetSelectionBorder();
 
-            if(!File.Exists(_user.Name + ".xml"))
-                return false;
-
             Element[,] elements = _gameboard.GetMap();
 
-            int wood = 0, stone = 0, iron = 0, food = 0;
             try
             {
                 // Create an XML reader for this file.
@@ -156,13 +156,13 @@ namespace LordOfUltima.XML
                                 case "Ressources":
                                     Ressources ressources = Ressources.Instance;
 
-                                    wood = Convert.ToInt32(reader["Wood"]);
+                                    int wood = Convert.ToInt32(reader["Wood"]);
                                     ressources.WoodQty = wood;
-                                    stone = Convert.ToInt32(reader["Stone"]);
+                                    int stone = Convert.ToInt32(reader["Stone"]);
                                     ressources.StoneQty = stone;
-                                    iron = Convert.ToInt32(reader["Iron"]);
+                                    int iron = Convert.ToInt32(reader["Iron"]);
                                     ressources.IronQty = iron;
-                                    food = Convert.ToInt32(reader["Food"]);
+                                    int food = Convert.ToInt32(reader["Food"]);
                                     ressources.FoodQty = food;
 
                                     break;
@@ -195,7 +195,7 @@ namespace LordOfUltima.XML
 
                 return true;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 // reset map if there was an exception
                 ResetMapElements.Instance.ResetMap();
@@ -219,9 +219,9 @@ namespace LordOfUltima.XML
 
             // Loop through each byte of the hashed data 
             // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
+            foreach (byte t in data)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                sBuilder.Append(t.ToString("x2"));
             }
 
             // Return the hexadecimal string.

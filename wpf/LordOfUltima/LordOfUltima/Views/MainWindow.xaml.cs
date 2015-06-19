@@ -33,7 +33,7 @@ namespace LordOfUltima
 
             // Set the music to play
             _musicPlayer = MusicPlayer.Instance;
-            _musicPlayer.Play("Media/audio/main_theme.mp3");
+            _musicPlayer.Play("Resources/Audio/main_theme.mp3");
 
             // Set the gameboard Instance
             _gameboard = Gameboard.Instance;
@@ -68,12 +68,20 @@ namespace LordOfUltima
             {
                 // If no game is found, load a new one
                 ResetMap.Instance.InitialiseNewGame();
+
+                // Set default ressources
+                Ressources.Instance.Initialise();
+                Ressources.Instance.SetDefault();
             }
 
             // Start Ressource management
             RessourcesManager.Instance.StartRessourcesManager();
+
             // First update of ressources
             RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
+
+            // Check Building count with townhall
+            BuildingCount.Instance.CountBuildings();
 
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;
