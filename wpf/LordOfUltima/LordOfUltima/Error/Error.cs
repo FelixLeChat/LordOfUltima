@@ -25,7 +25,9 @@
             NOT_ENOUGH_RESSOURCES_BUILD,
             NOT_ENOUGH_RESSOURCES_UPGRADE,
             NOT_ENOUGH_BUILDING_SPACE,
-            SAVED_GAME_NOT_FOUND
+            SAVED_GAME_NOT_FOUND,
+
+            INVALID_TIME
         }
 
         public string GetDescriptionString()
@@ -44,6 +46,9 @@
                     break;
                 case Type.SAVED_GAME_NOT_FOUND:
                     result = "Saved Game not found";
+                    break;
+                case Type.INVALID_TIME:
+                    result = "Invalid time entered";
                     break;
             }
             return result;

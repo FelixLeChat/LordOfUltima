@@ -134,6 +134,9 @@
     <Compile Include="RessourcesProduction\RessourcesManager.cs" />
     <Compile Include="RessourcesProduction\RessourcesProduction.cs" />
     <Compile Include="User\User.cs" />
+    <Compile Include="Views\UpdateTimeOption.xaml.cs">
+      <DependentUpon>UpdateTimeOption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Web\Chat.cs" />
     <Compile Include="Web\Login.cs" />
     <Compile Include="Web\Utility.cs" />
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateTimeOption.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

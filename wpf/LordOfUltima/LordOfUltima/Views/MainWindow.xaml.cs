@@ -10,6 +10,7 @@ using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Music;
 using LordOfUltima.RessourcesProduction;
+using LordOfUltima.Views;
 using LordOfUltima.XML;
 
 namespace LordOfUltima
@@ -290,7 +291,15 @@ namespace LordOfUltima
         */
         private void ressource_update_time_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : pop config box
+            if (UpdateTimeOption.Instance == null)
+            {
+                UpdateTimeOption timeOption = new UpdateTimeOption();
+                timeOption.Show();
+            }
+            else
+            {
+                UpdateTimeOption.Instance.Activate();
+            }
         }
 
         private void music_options_Click(object sender, RoutedEventArgs e)

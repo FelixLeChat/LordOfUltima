@@ -29,6 +29,10 @@
             {
                 // Add building to canvas
                 _mainWindow.canvas1.Children.Add(element.GetElement());
+            }
+
+            foreach (Element element in _gameboard.GetMap())
+            {
                 // Add building level to canvas
                 _mainWindow.canvas1.Children.Add(element.GetLevelElement());
                 // Add level label to canvas
@@ -36,6 +40,7 @@
                 // Add select rect to canvas
                 _mainWindow.canvas1.Children.Add(element.GetSelectElement());
             }
+
         }
     }
 }

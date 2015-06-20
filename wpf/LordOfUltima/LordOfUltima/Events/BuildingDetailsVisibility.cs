@@ -63,8 +63,11 @@ namespace LordOfUltima.Events
             _mainWindow.building_detail_info.Text = _elementMenuDetail.GetElementType().GetElementInfo();
 
             int elementLevel = _elementMenuDetail.Level;
-            if (elementLevel > 0 && elementLevel < 10)
+            if (elementLevel > 0 && elementLevel <= 10)
             {
+                // hide second ressource delete button
+                _mainWindow.delete_ressource_button.Visibility = Visibility.Hidden;
+
                 // it's a building, show level info
                 _mainWindow.building_detail_level_info.Visibility = Visibility.Visible;
                 _mainWindow.building_detail_level.Content = _elementMenuDetail.Level;
@@ -72,12 +75,35 @@ namespace LordOfUltima.Events
                 IElementType elementType = _elementMenuDetail.GetElementType();
                 if (elementType == null)
                     return;
-                ElementCost elementCost = elementType.GetElementCost(elementLevel + 1);
 
-                // Show cost for upgrade
-                _mainWindow.building_detail_wood_cost.Content = elementCost.Wood;
-                _mainWindow.building_detail_stone_cost.Content = elementCost.Stone;
-                _mainWindow.building_detail_iron_cost.Content = elementCost.Iron;
+                if (elementLevel < 10)
+                {
+                    ElementCost elementCost = elementType.GetElementCost(elementLevel + 1);
+
+                    // Show upgrade button
+                    _mainWindow.upgrade_element_button.Visibility = Visibility.Visible;
+
+                    // Show infos
+                     _mainWindow.wood_dockpanel.Visibility = Visibility.Visible;
+                     _mainWindow.stone_dockpanel.Visibility = Visibility.Visible;
+                     _mainWindow.iron_dockpanel.Visibility = Visibility.Visible;
+
+                    // Show cost for upgrade
+                    _mainWindow.building_detail_wood_cost.Content = elementCost.Wood;
+                    _mainWindow.building_detail_stone_cost.Content = elementCost.Stone;
+                    _mainWindow.building_detail_iron_cost.Content = elementCost.Iron;            
+                }
+                else
+                {
+                    // hide upgrade button
+                    _mainWindow.upgrade_element_button.Visibility = Visibility.Hidden;
+
+                    // hide upgrade qty
+                    _mainWindow.wood_dockpanel.Visibility = Visibility.Hidden;
+                    _mainWindow.stone_dockpanel.Visibility = Visibility.Hidden;
+                    _mainWindow.iron_dockpanel.Visibility = Visibility.Hidden;
+                }
+
 
                 // Show/Hide production label
                 #region Production Label handle
@@ -185,7 +211,7 @@ namespace LordOfUltima.Events
 
                 // Show/Hide total bonus on element
                 #region Total bonus
-                if (_elementMenuDetail.TotalBonus > 99)
+                if (_elementMenuDetail.TotalBonus > 100)
                 {
                     _mainWindow.total_bonus_dockpanel.Visibility = Visibility.Visible;
                     _mainWindow.building_detail_total_bonus.Content = (_elementMenuDetail.TotalBonus - 100) + "%";
@@ -204,11 +230,12 @@ namespace LordOfUltima.Events
             {
                 // it's not a building (no level)
                 _mainWindow.building_detail_level_info.Visibility = Visibility.Collapsed;
+               
 
                 if (_elementMenuDetail.GetElementType() != null &&
                     _elementMenuDetail.GetElementType().GetElementType() != ElementType.Type.BUILDING_TOWNHALL)
                 {
-                    _mainWindow.delete_element_button.Visibility = Visibility.Visible;
+                    _mainWindow.delete_ressource_button.Visibility = Visibility.Visible;
                 }
             }
         }

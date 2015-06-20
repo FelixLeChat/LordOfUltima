@@ -192,6 +192,10 @@ namespace LordOfUltima
                 if (value < 0 || value > 10) return;
                 _level = value;
                 _levelLabel.Content = _level;
+
+                // Level indicator width depending on the level
+                _levelRectangle.Width = Level == 10 ? 13 : 8;
+                    
             }
         }
 
