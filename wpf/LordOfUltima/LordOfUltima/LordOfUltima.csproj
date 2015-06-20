@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Error\Error.cs" />
     <Compile Include="Error\ErrorManager.cs" />
     <Compile Include="Error\LoadException.cs" />
     <Compile Include="Error\LoginError.cs" />
@@ -116,6 +117,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Score\Score.cs" />
+    <Compile Include="Score\ScoreManager.cs" />
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>

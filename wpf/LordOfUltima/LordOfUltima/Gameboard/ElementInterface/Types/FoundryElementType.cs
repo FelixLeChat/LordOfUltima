@@ -12,7 +12,8 @@ namespace LordOfUltima.MGameboard
         private readonly bool _isRessources;
         private readonly ElementType.Type _elementType;
         private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
-        private readonly Dictionary<int, ElementProductionBonus> _elementProductionBonusList = new Dictionary<int, ElementProductionBonus>(); 
+        private readonly Dictionary<int, ElementProductionBonus> _elementProductionBonusList = new Dictionary<int, ElementProductionBonus>();
+        private readonly Dictionary<int, int> _elementScoreList = new Dictionary<int, int>(); 
 
         public FoundryElementType()
         {
@@ -40,6 +41,18 @@ namespace LordOfUltima.MGameboard
             {
                 _elementProductionBonusList.Add(i, new ElementProductionBonus(0,0,30 + (i-1)*5, 0));
             }
+
+            // Element Score for each level
+            _elementScoreList.Add(1, 1);
+            _elementScoreList.Add(2, 4);
+            _elementScoreList.Add(3, 7);
+            _elementScoreList.Add(4, 14);
+            _elementScoreList.Add(5, 24);
+            _elementScoreList.Add(6, 36);
+            _elementScoreList.Add(7, 50);
+            _elementScoreList.Add(8, 68);
+            _elementScoreList.Add(9, 90);
+            _elementScoreList.Add(10, 120);
         }
 
         public string Name() { return _name; }
@@ -50,6 +63,7 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.Type GetElementType() { return _elementType; }
         public ElementProduction GetElementProduction(int level) { return null; }
+
         public ElementCost GetElementCost(int level)
         {
             if (level > 0 && level <= 10)
@@ -66,6 +80,15 @@ namespace LordOfUltima.MGameboard
                 return _elementProductionBonusList[level];
             }
             return null;
+        }
+
+        public int GetScoreValue(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementScoreList[level];
+            }
+            return 0;
         }
     }
 }

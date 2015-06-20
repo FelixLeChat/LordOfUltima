@@ -1,4 +1,7 @@
-﻿namespace LordOfUltima.Events
+﻿using LordOfUltima.Error;
+using LordOfUltima.MGameboard;
+
+namespace LordOfUltima.Events
 {
     class UpgradeElement
     {
@@ -25,8 +28,15 @@
 
                 // Update count (Town Hall)
                 BuildingCount.Instance.CountBuildings();
+
+                // Update Score
+                int level = _elementToUpgrade.Level;
+                IElementType elementType = _elementToUpgrade.GetElementType();
+                Score.Score.Instance.ScoreValue += (elementType.GetScoreValue(level) -
+                                                    elementType.GetScoreValue(level - 1));
                 return true;
             }
+            ErrorManager.Instance.AddError(new Error.Error(){Description = Error.Error.Type.NOT_ENOUGH_RESSOURCES_UPGRADE});
             return false;
         }
     }

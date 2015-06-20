@@ -1,4 +1,5 @@
-﻿using LordOfUltima.MGameboard;
+﻿using LordOfUltima.Error;
+using LordOfUltima.MGameboard;
 
 namespace LordOfUltima.Events
 {
@@ -30,8 +31,10 @@ namespace LordOfUltima.Events
             {
                 BuildingCount buildingCount = BuildingCount.Instance;
                 if (buildingCount.Count >= buildingCount.MaxCount)
+                {
+                    ErrorManager.Instance.AddError(new Error.Error(){Description = Error.Error.Type.NOT_ENOUGH_BUILDING_SPACE});
                     return false;
-                // TODO : lancer une exception ou un message d'erreur
+                }
 
                 if (BuyElement.Instance.Buy(_typeToBuild, 1))
                 {
@@ -59,12 +62,15 @@ namespace LordOfUltima.Events
                     // Set the element to upgrade for next level
                     UpgradeElement.Instance.ElementToUpgrade =_elementToBuild;
                     DeleteElement.Instance.ElementToDelete = _elementToBuild;
+
+                    // Update score
+                    Score.Score.Instance.ScoreValue += _elementToBuild.GetElementType().GetScoreValue(1);
                   
                     return true;
                 }
                 else
                 {
-                    // TODO : Show an error for missing ressources
+                    ErrorManager.Instance.AddError(new Error.Error() { Description = Error.Error.Type.NOT_ENOUGH_RESSOURCES_BUILD });
                 }
             }
             return false;

@@ -1,4 +1,5 @@
-﻿using LordOfUltima.MGameboard;
+﻿using LordOfUltima.Error;
+using LordOfUltima.MGameboard;
 using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima.Events

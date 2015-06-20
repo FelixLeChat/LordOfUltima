@@ -13,6 +13,7 @@ namespace LordOfUltima.MGameboard
         private readonly ElementType.Type _elementType;
         private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
         private readonly Dictionary<int, ElementProductionBonus> _elementProductionBonusList = new Dictionary<int, ElementProductionBonus>();
+        private readonly Dictionary<int, int> _elementScoreList = new Dictionary<int, int>(); 
 
         public MarketplaceElementType()
         {
@@ -40,6 +41,18 @@ namespace LordOfUltima.MGameboard
             {
                 _elementProductionBonusList.Add(i, new ElementProductionBonus(0, 0, i*2, 0));
             }
+
+            // Element Score for each level
+            _elementScoreList.Add(1, 1);
+            _elementScoreList.Add(2, 2);
+            _elementScoreList.Add(3, 5);
+            _elementScoreList.Add(4, 10);
+            _elementScoreList.Add(5, 16);
+            _elementScoreList.Add(6, 24);
+            _elementScoreList.Add(7, 34);
+            _elementScoreList.Add(8, 46);
+            _elementScoreList.Add(9, 60);
+            _elementScoreList.Add(10, 80);
         }
 
         public string Name() { return _name; }
@@ -66,6 +79,15 @@ namespace LordOfUltima.MGameboard
                 return _elementProductionBonusList[level];
             }
             return null;
+        }
+
+        public int GetScoreValue(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementScoreList[level];
+            }
+            return 0;
         }
     }
 }

@@ -39,6 +39,6 @@
         public ElementCost GetElementCost(int level) { return null; } // Return null because there is no level with ressources
         public ElementProduction GetElementProduction(int level) { return null; }
         public ElementProductionBonus GetElementProductionBonus(int level) { return _elementProductionBonus; }
-
+        public int GetScoreValue(int level) { return 0; }
     }
 }

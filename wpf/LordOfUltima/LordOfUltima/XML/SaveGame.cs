@@ -68,7 +68,6 @@ namespace LordOfUltima.XML
             }
 
             // Save ressources
-            
             Ressources ressources = Ressources.Instance;
             double wood = Math.Round(ressources.WoodQty);
             double stone = Math.Round(ressources.StoneQty);
@@ -84,6 +83,7 @@ namespace LordOfUltima.XML
             xmlWriter.WriteAttributeString("Food", food.ToString(CultureInfo.InvariantCulture));
             xmlWriter.WriteAttributeString("Gold", gold.ToString(CultureInfo.InvariantCulture));
             xmlWriter.WriteAttributeString("Research", research.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteEndElement();
 
             MD5 md5Hash = MD5.Create();
             double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
@@ -91,7 +91,13 @@ namespace LordOfUltima.XML
 
             xmlWriter.WriteStartElement("Token");
             xmlWriter.WriteAttributeString("Value", hash);
+            xmlWriter.WriteEndElement();
 
+            // Save score
+            int score = Score.Score.Instance.ScoreValue;
+            xmlWriter.WriteStartElement("Score");
+            xmlWriter.WriteAttributeString("Value", score.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteEndElement();
 
             xmlWriter.WriteEndElement();
             xmlWriter.WriteEndDocument();
@@ -100,7 +106,7 @@ namespace LordOfUltima.XML
 
         public bool Load()
         {
-            if(!File.Exists(_user.Name + ".xml"))
+            if (!SaveExist())
                 return false;
 
             // visual reset
@@ -188,6 +194,11 @@ namespace LordOfUltima.XML
                                         throw new LoadException("Wrong token mate");
                                     }*/
                                     break;
+
+                                case "Score":
+                                    int score = Convert.ToInt32(reader["Value"]);
+                                    Score.Score.Instance.ScoreValue = score;
+                                    break;
                             }
 		                }
 	                }
@@ -235,6 +246,11 @@ namespace LordOfUltima.XML
 
             // Return the hexadecimal string.
             return sBuilder.ToString();
+        }
+
+        public bool SaveExist()
+        {
+            return File.Exists(_user.Name + ".xml");
         }
     }
 }

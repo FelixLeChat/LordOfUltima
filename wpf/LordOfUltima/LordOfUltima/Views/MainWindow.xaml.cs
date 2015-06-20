@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
+using LordOfUltima.Error;
 using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Music;
@@ -76,6 +77,9 @@ namespace LordOfUltima
 
             // Start Ressource management
             RessourcesManager.Instance.StartRessourcesManager();
+
+            // Start Error dispatching
+            ErrorManager.Instance.StartErrorDispatch();
 
             // First update of ressources
             RessourcesBuildingCheck.Instance.cheakAllNeighbourRessources();
@@ -269,8 +273,15 @@ namespace LordOfUltima
             MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                ResetMapElements.Instance.ResetMap();
-                SaveGame.Instance.Load();
+                if (SaveGame.Instance.SaveExist())
+                {
+                    ResetMapElements.Instance.ResetMap();
+                    SaveGame.Instance.Load();
+                }
+                else
+                {
+                    ErrorManager.Instance.AddError(new Error.Error(){Description = Error.Error.Type.SAVED_GAME_NOT_FOUND});
+                }
             }
         }
 
@@ -409,6 +420,12 @@ namespace LordOfUltima
         {
             chat_box.Visibility = Visibility.Visible;
             chat_box_open.Visibility = Visibility.Collapsed;
+        }
+
+        // Close element description window
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            _buildingDetailsVisibility.HideBuildingDetails();
         }
 
     }

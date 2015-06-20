@@ -68,6 +68,7 @@
                 </Button.Background>
             </Button>
         </Border>
+
         <!-- Menu du haut avec informations sur le joueur -->
         <Canvas Name="top_menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1167" RenderTransformOrigin="0.49,0.47" Margin="0,0,0,0">
             <Canvas.Background>
@@ -107,7 +108,7 @@
             </ScrollViewer.Background>
             <Canvas Name="building_menu_englob" Height="400" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,120,0,0">
 
-                <Canvas Name="building_menu" Height="670" Width="244" Visibility="Visible">
+                <Canvas Name="building_menu" Height="670" Width="244" Visibility="Hidden">
                     <!-- Woodcuter's Hut -->
                     <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -209,18 +210,18 @@
 
                 </Canvas>
 
-                <Canvas Name="building_details" Height="432" Width="244" Visibility="Hidden" Margin="0,-30,0,0">
-                    <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
-                    <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" Click="Button_Click_1" >
+                <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
+                    <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"/>
+                    <Button Width="30" Height="30" Margin="200,10,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_4">
                         <Button.Background>
                             <ImageBrush ImageSource="/Resources/Images/delete_button.png"/>
                         </Button.Background>
                     </Button>
-                    <WrapPanel Height="262" Width="244" Canvas.Top="160">
+                    <WrapPanel Height="280" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 
                         <WrapPanel Name="building_detail_level_info" Height="auto">
-                            <DockPanel  Width="224" >
+                            <DockPanel  Width="224" Margin="0,0,0,-5" >
                                 <Label Height="30" Width="43" Content="Level : " Margin="10,0,0,0"/>
                                 <Label Name="building_detail_level" Height="30" Width="30" Content="0"/>
                                 <Label Name="building_production_label" Content="Production :" Margin="5,0,0,0" Width="73"/>
@@ -234,6 +235,14 @@
                                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                         <GradientStop Color="#FF3F5D17" Offset="0"/>
                                         <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button Name="delete_element_button" Content="Delete" Width="229" Height="20" FontSize="13" Margin="5,2,0,-15" Click="Button_Click_1" Foreground="White">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFAC0000" Offset="1"/>
+                                        <GradientStop Color="#FF300D0D"/>
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
@@ -358,5 +367,12 @@
             </MenuItem>
         </Menu>
 
+        <!-- Error -->
+        <Border Height="30" Width="220" Margin="-400,-520,0,0" CornerRadius="10" Name="error_division" Visibility="Visible">
+            <Border.Background>
+                <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/options_menu.png"/>
+            </Border.Background>
+            <Label Name="error_description" Height="30" Width="200" FontFamily="Vani"/>
+        </Border>
     </Grid>
 </Window>

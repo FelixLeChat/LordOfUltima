@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using LordOfUltima.Error;
 using LordOfUltima.RessourcesProduction;
+using LordOfUltima.Score;
 
 namespace LordOfUltima.Events
 {
@@ -41,6 +43,12 @@ namespace LordOfUltima.Events
 
             // Update ressources
             RessourcesManager.Instance.UpdateRessourceUi();
+
+            // Update error
+            ErrorManager.Instance.DispatchErrors();
+
+            // Update Score
+            ScoreManager.Instance.UpdateVisual();
         }
     }
 }

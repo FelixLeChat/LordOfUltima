@@ -13,7 +13,7 @@ namespace LordOfUltima.MGameboard
         private readonly ElementType.Type _elementType;
         private readonly Dictionary<int, ElementCost> _elementCostsList = new Dictionary<int, ElementCost>();
         private readonly Dictionary<int, ElementProduction> _elementProductionList = new Dictionary<int, ElementProduction>();
-
+        private readonly Dictionary<int, int> _elementScoreList = new Dictionary<int, int>(); 
 
         public TownhouseElementType()
         {
@@ -48,6 +48,18 @@ namespace LordOfUltima.MGameboard
             _elementProductionList.Add(8, new ElementProduction(0, 0, 0, 0, 260));
             _elementProductionList.Add(9, new ElementProduction(0, 0, 0, 0, 320));
             _elementProductionList.Add(10, new ElementProduction(0, 0, 0, 0, 400));
+
+            // Element Score for each level
+            _elementScoreList.Add(1, 1);
+            _elementScoreList.Add(2, 3);
+            _elementScoreList.Add(3, 6);
+            _elementScoreList.Add(4, 12);
+            _elementScoreList.Add(5, 20);
+            _elementScoreList.Add(6, 30);
+            _elementScoreList.Add(7, 42);
+            _elementScoreList.Add(8, 57);
+            _elementScoreList.Add(9, 75);
+            _elementScoreList.Add(10, 100);
         }
 
         public string Name() { return _name; }
@@ -58,6 +70,15 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.Type GetElementType() { return _elementType; }
         public ElementProductionBonus GetElementProductionBonus(int level) { return null; }
+
+        public int GetScoreValue(int level)
+        {
+            if (level > 0 && level <= 10)
+            {
+                return _elementScoreList[level];
+            }
+            return 0;
+        }
 
         public ElementCost GetElementCost(int level)
         {

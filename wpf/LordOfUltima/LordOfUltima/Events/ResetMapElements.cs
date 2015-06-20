@@ -35,6 +35,9 @@ namespace LordOfUltima.Events
             // Init starting ressources
             Ressources.Instance.Initialise();
             Ressources.Instance.SetDefault();
+
+            // Init Score
+            Score.Score.Instance.ScoreValue = new TownHallElementType().GetScoreValue(1);
         }
     }
 }

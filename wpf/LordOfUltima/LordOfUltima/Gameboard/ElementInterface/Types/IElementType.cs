@@ -18,5 +18,8 @@
 
         // Bonus on ressources for the element
         ElementProductionBonus GetElementProductionBonus(int level);
+
+        // Score value for element
+        int GetScoreValue(int level);
     }
 }
