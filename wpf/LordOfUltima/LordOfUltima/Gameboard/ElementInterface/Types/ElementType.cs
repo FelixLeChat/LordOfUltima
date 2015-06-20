@@ -18,7 +18,9 @@
             BUILDING_FOUNDRY,
             BUILDING_FARM,
             BUILDING_MILL,
-            BUILDING_TOWNHALL
+            BUILDING_TOWNHALL,
+            BUILDING_TOWNHOUSE,
+            BUILDING_MARKETPLACE
         }
 
         public static string GetTypeName(Type resstype)
@@ -67,6 +69,12 @@
                     break;
                 case Type.BUILDING_MILL:
                     name = "Mill";
+                    break;
+                case Type.BUILDING_TOWNHOUSE:
+                    name = "Townhouse";
+                    break;
+                case Type.BUILDING_MARKETPLACE:
+                    name = "Marketplace";
                     break;
             }
             return name;
@@ -165,6 +173,12 @@
                 case "BUILDING_MILL":
                     newElement = new MillElementType();
                     break;
+                case "BUILDING_TOWNHOUSE":
+                    newElement = new TownhouseElementType();
+                    break;
+                case "BUILDING_MARKETPLACE":
+                    newElement = new MarketplaceElementType();
+                    break;
             }
 
             return newElement;
@@ -187,6 +201,9 @@
                     break;
                 case Type.BUILDING_FARM:
                     elementType = Type.BUILDING_MILL;
+                    break;
+                case Type.BUILDING_TOWNHOUSE:
+                    elementType = Type.BUILDING_MARKETPLACE;
                     break;
             }
             return elementType;

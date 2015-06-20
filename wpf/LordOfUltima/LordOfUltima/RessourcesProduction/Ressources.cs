@@ -18,12 +18,15 @@
 
         public double FoodQty { get; set; }
 
+        public double GoldQty { get; set; }
+
         public void Initialise()
         {
             WoodQty = 0;
             StoneQty = 0;
             IronQty = 0;
             FoodQty = 0;
+            GoldQty = 0;
         }
 
         public void SetDefault()

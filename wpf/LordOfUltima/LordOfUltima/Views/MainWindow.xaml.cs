@@ -338,6 +338,16 @@ namespace LordOfUltima
             BuildElement(new MillElementType());
         }
 
+        private void building_townhouse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new TownhouseElementType());
+        }
+
+        private void building_marketplace_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new MarketplaceElementType());
+        }
+
         private void BuildElement(IElementType element)
         {
             _buildEvent.SetTypeToBuild(element);
@@ -395,7 +405,6 @@ namespace LordOfUltima
             chat_box.Visibility = Visibility.Visible;
             chat_box_open.Visibility = Visibility.Collapsed;
         }
-
 
     }
 }

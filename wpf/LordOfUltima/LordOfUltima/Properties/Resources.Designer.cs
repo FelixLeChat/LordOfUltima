@@ -103,6 +103,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap building_marketplace {
+            get {
+                object obj = ResourceManager.GetObject("building_marketplace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building_mill {
             get {
                 object obj = ResourceManager.GetObject("building_mill", resourceCulture);
@@ -146,6 +156,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap building_townhall {
             get {
                 object obj = ResourceManager.GetObject("building_townhall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap building_townhouse {
+            get {
+                object obj = ResourceManager.GetObject("building_townhouse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,6 +403,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_marketplace {
+            get {
+                object obj = ResourceManager.GetObject("menu_marketplace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_mill {
             get {
                 object obj = ResourceManager.GetObject("menu_mill", resourceCulture);
@@ -446,6 +476,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap menu_townhall {
             get {
                 object obj = ResourceManager.GetObject("menu_townhall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_townhouse {
+            get {
+                object obj = ResourceManager.GetObject("menu_townhouse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

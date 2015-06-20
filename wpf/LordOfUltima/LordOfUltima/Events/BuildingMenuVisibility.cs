@@ -4,6 +4,8 @@ namespace LordOfUltima.Events
 {
     class BuildingMenuVisibility
     {
+        private const int EnglobMenuMin = 400;
+        private const int EnglobMenuMax = 670;
         private static BuildingMenuVisibility _instance;
         public static BuildingMenuVisibility Instance
         {
@@ -24,7 +26,7 @@ namespace LordOfUltima.Events
 
             _mainWindow.building_menu.Visibility = Visibility.Collapsed;
             _mainWindow.scrollview.ScrollToTop();
-            _mainWindow.building_menu_englob.Height = 400;
+            _mainWindow.building_menu_englob.Height = EnglobMenuMin;
         }
 
         public void ShowBuildingMenu()
@@ -35,7 +37,7 @@ namespace LordOfUltima.Events
 
             _mainWindow.building_menu.Visibility = Visibility.Visible;
             _mainWindow.scrollview.ScrollToTop();
-            _mainWindow.building_menu_englob.Height = 600;
+            _mainWindow.building_menu_englob.Height = EnglobMenuMax;
         }
     }
 }

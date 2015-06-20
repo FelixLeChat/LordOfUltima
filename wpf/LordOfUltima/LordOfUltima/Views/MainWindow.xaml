@@ -107,7 +107,7 @@
             </ScrollViewer.Background>
             <Canvas Name="building_menu_englob" Height="400" Width="244" RenderTransformOrigin="0.527,0.569" Margin="0,120,0,0">
 
-                <Canvas Name="building_menu" Height="600" Width="244" Visibility="Hidden">
+                <Canvas Name="building_menu" Height="670" Width="244" Visibility="Visible">
                     <!-- Woodcuter's Hut -->
                     <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
                         <Rectangle.ToolTip >
@@ -179,9 +179,27 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
+
+                    <!-- Townhouse -->
+                    <Rectangle Name="building_townhouse" Height="115" Width="100" Canvas.Left="10" Canvas.Top="530" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_townhouse_MouseLeftButtonDown">
+                        <Rectangle.ToolTip >
+                            <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="It enables taxation (gold). Income from tax can be increased by connecting Marketplaces and Harbors.&#x0a;&#x0a;Initial cost: &#x0a;100 stones" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+
+                    <!-- Marketplace -->
+                    <Rectangle Name="building_marketplace" Height="115" Width="100" Canvas.Left="125" Canvas.Top="530" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_marketplace_MouseLeftButtonDown">
+                        <Rectangle.ToolTip >
+                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text=" It allows transport of resources between cities and enables trade with other players by land. Also increases the tax income of connected buildings.&#x0a;&#x0a;Initial cost: &#x0a;40 woods &#x0a;20 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
                 </Canvas>
 
-                <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
+                <Canvas Name="building_details" Height="432" Width="244" Visibility="Hidden" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"></Rectangle>
                     <Button Name="delete_element_button" Width="22" Height="22" FontSize="20" Margin="200,10,0,0" Click="Button_Click_1" >
                         <Button.Background>

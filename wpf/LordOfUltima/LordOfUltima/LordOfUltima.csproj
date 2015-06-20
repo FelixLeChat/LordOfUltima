@@ -101,12 +101,14 @@
     <Compile Include="Gameboard\ElementInterface\Types\IronElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\IronMineElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\LakeElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\MarketplaceElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\MillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\QuarryElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\SawmillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneMasonElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\TownHallElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\TownhouseElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\WoodcutterElementType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -376,6 +378,18 @@
     <None Include="Resources\Audio\rule_city.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_marketplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_marketplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_townhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_townhouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

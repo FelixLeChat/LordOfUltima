@@ -61,17 +61,17 @@ namespace LordOfUltima
         private void login_panel_button_Click(object sender, RoutedEventArgs e)
         {
             // Reset error message
-            resetErrorMessage();
+            ResetErrorMessage();
 
             // try to login with the informations
             string email = login_email_textbox.Text;
             string password = login_password_textbox.Password;
 
-            if(validateLogin(email,password))
+            if(ValidateLogin(email,password))
             {
                 string loginRespond = Login.Instance.TryLogin(login_email_textbox.Text, login_password_textbox.Password);
 
-                if(checkLoginRespond(loginRespond))
+                if(CheckLoginRespond(loginRespond))
                 {
                     // Set the email for the only time
                     _user.Email = email;
@@ -82,25 +82,29 @@ namespace LordOfUltima
                     login_password_textbox.Password = "";
                 }
             }
+            else
+            {
+                login_password_textbox.Password = "";
+            }
                 
         }
 
         private void signup_panel_button_Click(object sender, RoutedEventArgs e)
         {
             // Reset error messages
-            resetErrorMessage();
+            ResetErrorMessage();
 
             string email = signup_email_textbox.Text;
             string username = signup_username_textbox.Text;
             string password = signup_password_textbox.Password;
             string passwordCheck = signup_password_confirm_textbox.Password;
 
-            if (validateSignup(username,email,password,passwordCheck))
+            if (ValidateSignup(username,email,password,passwordCheck))
             {
                 string signupRespond = Login.Instance.Register(email, username, password);
 
                 // check if the signup is a sucess
-                if(checkSignupRespond(signupRespond))
+                if(CheckSignupRespond(signupRespond))
                 {
                     // Visibility for panels
                     login_panel.Visibility = Visibility.Visible;
@@ -110,13 +114,13 @@ namespace LordOfUltima
                     login_button.Visibility = Visibility.Hidden;
                     signup_button.Visibility = Visibility.Visible;
 
-                    resetSignupFields();
+                    ResetSignupFields();
                 }
             }
 
         }
 
-        private bool checkValidEmail(string email)
+        private bool CheckValidEmail(string email)
         {
             // check if email is valid 
             bool validEmail;
@@ -135,35 +139,35 @@ namespace LordOfUltima
             return validEmail;
         }
 
-        private void setSignupUsernameError(string error)
+        private void SetSignupUsernameError(string error)
         {
             signup_username_error.Content = error;
         }
-        private void setSignupEmailError(string error)
+        private void SetSignupEmailError(string error)
         {
             signup_email_error.Content = error;
         }
-        private void setSignupPasswordError(string error)
+        private void SetSignupPasswordError(string error)
         {
             signup_password_error.Content = error;
         }
-        private void setSignupSuccess(string error)
+        private void SetSignupSuccess(string error)
         {
             signup_sucess.Content = error;
         }
-        private void setLoginEmailError(string error)
+        private void SetLoginEmailError(string error)
         {
             login_email_error.Content = error;
         }
-        private void setLoginPasswordError(string error)
+        private void SetLoginPasswordError(string error)
         {
             login_password_error.Content = error;
         }
-        private void setLoginFail(string error)
+        private void SetLoginFail(string error)
         {
             login_fail.Content = error;
         }
-        private void resetErrorMessage()
+        private void ResetErrorMessage()
         {
             // Signup page
             signup_username_error.Content = "";
@@ -176,7 +180,7 @@ namespace LordOfUltima
             login_fail.Content = "";
         }
 
-        private void resetSignupFields()
+        private void ResetSignupFields()
         {
             signup_email_textbox.Text = "";
             signup_username_textbox.Text = "";
@@ -184,96 +188,105 @@ namespace LordOfUltima
             signup_password_confirm_textbox.Password = "";
         }
 
-        private bool validateSignup(string username, string email, string password, string confirmation)
+        private void ResetPasswordFields()
+        {
+            signup_password_textbox.Password = "";
+            signup_password_confirm_textbox.Password = "";
+        }
+
+        private bool ValidateSignup(string username, string email, string password, string confirmation)
         {
             bool isValid = true;
 
             if (!Regex.IsMatch(username, @"^[a-zA-Z0-9]*$"))
             {
-                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_INVALID_FORMAT));
+                SetSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_INVALID_FORMAT));
                 isValid = false;
             }
             else if (username.Length < 5)
             {
-                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_SHORT));
+                SetSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_SHORT));
                 isValid = false;
             }
             else if (username.Length > 30)
             {
-                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_LONG));
+                SetSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_TOO_LONG));
                 isValid = false;
             }
 
             if(password.Length < 6)
             {
-                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_TOO_SHORT));
+                SetSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_TOO_SHORT));
+                ResetPasswordFields();
                 isValid = false;
             }
             else if (password != confirmation)
             {
-                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_DONT_MATCH));
+                SetSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_DONT_MATCH));
+                ResetPasswordFields();
                 isValid = false;
             }
             else if(!Regex.IsMatch(password, "[0-9]{1}") || !Regex.IsMatch(password, "[A-Z]{1}"))
             {
-                setSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
+                SetSignupPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
+                ResetPasswordFields();
                 isValid = false;
             }
                 
-            if(!checkValidEmail(email))
+            if(!CheckValidEmail(email))
             {
-                setSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
+                SetSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
                 isValid = false;
             }
 
             return isValid;
         }
 
-        private bool validateLogin(string email, string password)
+        private bool ValidateLogin(string email, string password)
         {
             bool isValid = true;
 
-            if(!checkValidEmail(email))
+            if(!CheckValidEmail(email))
             {
-                setLoginEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
+                SetLoginEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_INVALID_FORMAT));
                 isValid = false;
             }
             else if (!Regex.IsMatch(password, "[0-9]{1}") || !Regex.IsMatch(password, "[A-Z]{1}"))
             {
-                setLoginPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
+                SetLoginPasswordError(LoginError.GetErrorValue(LoginError.Errors.PASSWORD_INVALID_FORMAT));
                 isValid = false;
             }
 
             return isValid;
         }
 
-        private bool checkSignupRespond(string respond)
+        private bool CheckSignupRespond(string respond)
         {
             bool isSucess;
             if (respond == "Email already exist")
             {
-                setSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_ALREADY_EXIST));
+                SetSignupEmailError(LoginError.GetErrorValue(LoginError.Errors.EMAIL_ALREADY_EXIST));
                 isSucess = false;
             }
             else if (respond == "Username already exist")
             {
-                setSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_ALREADY_EXIST));
+                SetSignupUsernameError(LoginError.GetErrorValue(LoginError.Errors.USERNAME_ALREADY_EXIST));
                 isSucess = false;
             }
             else if (respond == "Sucess")
             {
                 isSucess = true;
-                setSignupSuccess(LoginError.GetErrorValue(LoginError.Errors.SIGNUP_SUCCESSFUL));
+                SetSignupSuccess(LoginError.GetErrorValue(LoginError.Errors.SIGNUP_SUCCESSFUL));
             }
             else
             {
                 isSucess = false;
-                setSignupUsernameError("Unknow error");
+                SetSignupUsernameError("Unknow error");
             }
             return isSucess;
         }
 
-        private bool checkLoginRespond(string respond)
+        private bool CheckLoginRespond(string respond)
         {
             bool isSucess;
 
@@ -283,7 +296,7 @@ namespace LordOfUltima
             }
             else
             {
-                setLoginFail(LoginError.GetErrorValue(LoginError.Errors.LOGIN_FAILED));
+                SetLoginFail(LoginError.GetErrorValue(LoginError.Errors.LOGIN_FAILED));
                 isSucess = false;
             }
             return isSucess;

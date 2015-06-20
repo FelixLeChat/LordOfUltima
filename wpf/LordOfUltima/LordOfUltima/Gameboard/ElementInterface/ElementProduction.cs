@@ -2,12 +2,13 @@
 {
     public class ElementProduction
     {
-        public ElementProduction(int wood, int stone, int iron, int food)
+        public ElementProduction(int wood, int stone, int iron, int food, int gold = 0)
         {
             Wood = wood;
             Stone = stone;
             Iron = iron;
             Food = food;
+            Gold = gold;
         }
 
         // Wood production of Element
@@ -42,13 +43,22 @@
             set { _foodProduction = value; }
         }
 
+        // Gold production of Element
+        private int _goldProduction;
+        public int Gold
+        {
+            get { return _goldProduction; }
+            set { _goldProduction = value; }
+        }
+
         public int GetFirstNotNull()
         {
             return (_woodProduction > 0)? _woodProduction: (
                 (_stoneProduction > 0)? _stoneProduction : ( 
                 (_ironProduction > 0)? _ironProduction : (
-                (_foodProduction > 0)? _foodProduction : 0
-                    )));
+                (_foodProduction > 0)? _foodProduction : (
+                (_goldProduction > 0)? _goldProduction : 0
+                ))));
         }
     }
 }
