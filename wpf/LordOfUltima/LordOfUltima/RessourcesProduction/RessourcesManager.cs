@@ -55,6 +55,7 @@ namespace LordOfUltima.RessourcesProduction
             ressources.IronQty += _ressourcesProduction.IronQty/_timeScale;
             ressources.FoodQty += _ressourcesProduction.FoodQty/_timeScale;
             ressources.GoldQty += _ressourcesProduction.GoldQty/_timeScale;
+            ressources.ResearchQty += _ressourcesProduction.ResearchQty/_timeScale;
         }
 
         public void CalculateRessources()
@@ -99,6 +100,7 @@ namespace LordOfUltima.RessourcesProduction
             _ressourcesProduction.IronQty += calculateRessource(elementProduction.Iron, element.TotalBonus);
             _ressourcesProduction.FoodQty += calculateRessource(elementProduction.Food, element.TotalBonus);
             _ressourcesProduction.GoldQty += calculateRessource(elementProduction.Gold, element.TotalBonus);
+            _ressourcesProduction.ResearchQty += calculateRessource(elementProduction.Research, element.TotalBonus);
         }
 
         private double calculateRessource(int baseProduction,double bonus = 0)
@@ -125,7 +127,7 @@ namespace LordOfUltima.RessourcesProduction
 
             int buildingBonus = 0;
             Element bonusElement = element.BonusBuilding;
-            if (bonusElement != null)
+            if (bonusElement != null && bonusElement.GetElementType() != null)
             {
                 ElementProductionBonus elementProductionBonus =
                     bonusElement.GetElementType().GetElementProductionBonus(bonusElement.Level);
@@ -193,6 +195,7 @@ namespace LordOfUltima.RessourcesProduction
             mainWindow.qty_iron.Content = Math.Round(ressources.IronQty);
             mainWindow.qty_grain.Content = Math.Round(ressources.FoodQty);
             mainWindow.qty_gold.Content = Math.Round(ressources.GoldQty);
+            mainWindow.qty_research.Content = Math.Round(ressources.ResearchQty);
         }
     }
 }

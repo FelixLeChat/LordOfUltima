@@ -123,6 +123,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap building_research_center {
+            get {
+                object obj = ResourceManager.GetObject("building_research_center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building_sawmill {
             get {
                 object obj = ResourceManager.GetObject("building_sawmill", resourceCulture);
@@ -436,6 +446,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap menu_repeat {
             get {
                 object obj = ResourceManager.GetObject("menu_repeat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_research_center {
+            get {
+                object obj = ResourceManager.GetObject("menu_research_center", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

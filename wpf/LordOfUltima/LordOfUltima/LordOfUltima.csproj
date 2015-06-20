@@ -104,6 +104,7 @@
     <Compile Include="Gameboard\ElementInterface\Types\MarketplaceElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\MillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\QuarryElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\ResearchCenterElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\SawmillElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneMasonElementType.cs" />
@@ -390,6 +391,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\menu_townhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_research_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_research_center.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

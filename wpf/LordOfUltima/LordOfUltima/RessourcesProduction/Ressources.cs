@@ -20,6 +20,8 @@
 
         public double GoldQty { get; set; }
 
+        public double ResearchQty { get; set; }
+
         public void Initialise()
         {
             WoodQty = 0;
@@ -27,6 +29,7 @@
             IronQty = 0;
             FoodQty = 0;
             GoldQty = 0;
+            ResearchQty = 0;
         }
 
         public void SetDefault()

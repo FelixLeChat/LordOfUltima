@@ -55,6 +55,7 @@ namespace LordOfUltima.Events
             InitImageRectangle(new MillElementType().GetDetailImagePath(), _mainWindow.building_mill);
             InitImageRectangle(new TownhouseElementType().GetDetailImagePath(), _mainWindow.building_townhouse);
             InitImageRectangle(new MarketplaceElementType().GetDetailImagePath(), _mainWindow.building_marketplace);
+            InitImageRectangle(new ResearchCenterElementType().GetDetailImagePath(), _mainWindow.building_research_center);
         }
 
         private void InitImageRectangle(string imgUrl, Rectangle rectangle)

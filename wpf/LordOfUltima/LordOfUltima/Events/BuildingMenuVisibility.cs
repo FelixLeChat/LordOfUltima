@@ -5,7 +5,7 @@ namespace LordOfUltima.Events
     class BuildingMenuVisibility
     {
         private const int EnglobMenuMin = 400;
-        private const int EnglobMenuMax = 670;
+        private const int EnglobMenuMax = 800;
         private static BuildingMenuVisibility _instance;
         public static BuildingMenuVisibility Instance
         {

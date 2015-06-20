@@ -197,6 +197,16 @@
                             </Border>
                         </Rectangle.ToolTip>
                     </Rectangle>
+
+                    <!-- Research Center -->
+                    <Rectangle Name="building_research_center" Height="115" Width="100" Canvas.Left="10" Canvas.Top="660" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_research_center_MouseLeftButtonDown">
+                        <Rectangle.ToolTip >
+                            <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Produces research.&#x0a;&#x0a;Initial cost: &#x0a;100 woods" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+
                 </Canvas>
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Hidden" Margin="0,-30,0,0">

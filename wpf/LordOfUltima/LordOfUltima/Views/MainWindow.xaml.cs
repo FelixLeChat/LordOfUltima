@@ -348,6 +348,11 @@ namespace LordOfUltima
             BuildElement(new MarketplaceElementType());
         }
 
+        private void building_research_center_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new ResearchCenterElementType());
+        }
+
         private void BuildElement(IElementType element)
         {
             _buildEvent.SetTypeToBuild(element);

@@ -17,6 +17,7 @@
             IronQty = 0;
             FoodQty = 0;
             GoldQty = 0;
+            ResearchQty = 0;
         }
 
         public double WoodQty { get; set; }
@@ -28,5 +29,7 @@
         public double FoodQty { get; set; }
 
         public double GoldQty { get; set; }
+
+        public double ResearchQty { get; set; }
     }
 }

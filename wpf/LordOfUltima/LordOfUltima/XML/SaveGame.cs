@@ -75,6 +75,7 @@ namespace LordOfUltima.XML
             double iron = Math.Round(ressources.IronQty);
             double food = Math.Round(ressources.FoodQty);
             double gold = Math.Round(ressources.GoldQty);
+            double research = Math.Round(ressources.ResearchQty);
 
             xmlWriter.WriteStartElement("Ressources");
             xmlWriter.WriteAttributeString("Wood", wood.ToString(CultureInfo.InvariantCulture));
@@ -82,6 +83,7 @@ namespace LordOfUltima.XML
             xmlWriter.WriteAttributeString("Iron", iron.ToString(CultureInfo.InvariantCulture));
             xmlWriter.WriteAttributeString("Food", food.ToString(CultureInfo.InvariantCulture));
             xmlWriter.WriteAttributeString("Gold", gold.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteAttributeString("Research", research.ToString(CultureInfo.InvariantCulture));
 
             MD5 md5Hash = MD5.Create();
             double total = (wood*3 + stone/2 + iron*21 + food + 32) * Math.PI;
@@ -169,6 +171,8 @@ namespace LordOfUltima.XML
                                     ressources.FoodQty = food;
                                     int gold = Convert.ToInt32(reader["Gold"]);
                                     ressources.GoldQty = gold;
+                                    int research = Convert.ToInt32(reader["Research"]);
+                                    ressources.ResearchQty = research;
 
                                     break;
 
