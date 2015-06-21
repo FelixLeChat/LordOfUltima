@@ -1,5 +1,6 @@
 ﻿using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
+using LordOfUltima.RessourcesStorage;
 
 namespace LordOfUltima.Events
 {
@@ -65,7 +66,10 @@ namespace LordOfUltima.Events
 
                     // Update score
                     Score.Score.Instance.ScoreValue += _elementToBuild.GetElementType().GetScoreValue(1);
-                  
+
+                    // Update Storage
+                    Storage.Instance.UpdateStorageCapacity();
+
                     return true;
                 }
                 else

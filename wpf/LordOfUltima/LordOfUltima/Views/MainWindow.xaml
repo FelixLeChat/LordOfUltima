@@ -76,7 +76,7 @@
             </Canvas.Background>
             <Label Name="label_player_name" Content="Name" Width="75" Height="24" Foreground="#FCEB43"/>
             <Label Content="Title: " Width="39" Height="24" Canvas.Left="80" Foreground="#918544"/>
-            <Label Name="label_player_title" Content="" Width="80" Height="24" Foreground="#FCEB43" Canvas.Left="110"/>
+            <Label Name="label_player_title" Content="" Width="80" Height="26" Foreground="#FCEB43" Canvas.Left="110"/>
             <Label Content="Score: " Width="45" Height="24" Canvas.Left="224" Foreground="#918544"/>
             <Label Name="label_player_score" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="260"/>
             <Label Name="label_player_position" Content="(0.)" Width="51" Height="24" Foreground="#FCEB43" Canvas.Left="320"/>

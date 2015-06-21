@@ -10,6 +10,7 @@ using LordOfUltima.Events;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Music;
 using LordOfUltima.RessourcesProduction;
+using LordOfUltima.RessourcesStorage;
 using LordOfUltima.Views;
 using LordOfUltima.XML;
 
@@ -76,9 +77,6 @@ namespace LordOfUltima
                 Ressources.Instance.SetDefault();
             }
 
-            // Start Ressource management
-            RessourcesManager.Instance.StartRessourcesManager();
-
             // Start Error dispatching
             ErrorManager.Instance.StartErrorDispatch();
 
@@ -87,6 +85,12 @@ namespace LordOfUltima
 
             // Check Building count with townhall
             BuildingCount.Instance.CountBuildings();
+
+            // Update Storage
+            Storage.Instance.UpdateStorageCapacity();
+
+            // Start Ressource management
+            RessourcesManager.Instance.StartRessourcesManager();
 
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;

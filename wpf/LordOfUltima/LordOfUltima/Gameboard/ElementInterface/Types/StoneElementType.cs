@@ -40,5 +40,6 @@
         public ElementProduction GetElementProduction(int level) { return null; }
         public ElementProductionBonus GetElementProductionBonus(int level) { return _elementProductionBonus; }
         public int GetScoreValue(int level) { return 0; }
+        public ElementStorage GetElementStorage(int level) { return null; }
     }
 }

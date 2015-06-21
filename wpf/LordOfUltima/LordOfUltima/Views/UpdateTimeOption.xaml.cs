@@ -19,6 +19,9 @@ namespace LordOfUltima.Views
 
             // Initialise singleton
             Instance = this;
+
+            // Initialise time
+            time_choice.Text = RessourcesManager.Instance.TimeScale.ToString();
         }
 
         private void apply_button_Click(object sender, RoutedEventArgs e)

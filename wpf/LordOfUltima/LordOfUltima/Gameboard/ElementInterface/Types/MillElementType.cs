@@ -90,5 +90,7 @@ namespace LordOfUltima.MGameboard
             }
             return 0;
         }
+
+        public ElementStorage GetElementStorage(int level) { return null; }
     }
 }

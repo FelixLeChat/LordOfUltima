@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -13,20 +14,28 @@ namespace LordOfUltima.Error
             get { return _instance ?? (_instance = new ErrorManager()); }
         }
 
+        private readonly Object _lockErrorList = new Object();
         private readonly List<Error> _errorList = new List<Error>();
         public void AddError(Error error)
         {
-            var errorInList = _errorList.FirstOrDefault(x => x.Description == error.Description);
+            lock (_lockErrorList)
+            {
+                var errorInList = _errorList.FirstOrDefault(x => x.Description == error.Description);
 
-            // if the error in not in the queue
-            if (errorInList == null)
-            {
-                _errorList.Add(error);
-            }
-            else
-            {
-                // respawn the error
-                errorInList.TimeRemaining = errorInList.TimeTotal;
+                // if the error in not in the queue
+                if (errorInList == null)
+                {
+                    _errorList.Add(error);
+                }
+                else
+                {
+                    if (errorInList.RespawnCount < 5)
+                    {
+                        // respawn the error
+                        errorInList.TimeRemaining = errorInList.TimeTotal;
+                        errorInList.RespawnCount++;
+                    }
+                }
             }
         }
 
@@ -38,10 +47,17 @@ namespace LordOfUltima.Error
 
         private void DecreaseErrorTime()
         {
-            Error error = _errorList.FirstOrDefault(x => x.TimeRemaining > 0);
-            if (error != null)
+            lock (_lockErrorList)
             {
-                error.TimeRemaining--;
+                 Error error = _errorList.FirstOrDefault(x => x.TimeRemaining > 0);
+                if (error != null)
+                {
+                    error.TimeRemaining--;
+                    if (error.TimeRemaining <= 0)
+                    {
+                        _errorList.Remove(error);
+                    }
+                }               
             }
         }
 
@@ -51,15 +67,18 @@ namespace LordOfUltima.Error
             if (mainWindow == null)
                 return;
 
-            Error error = _errorList.FirstOrDefault(x => x.TimeRemaining > 0);
-            if (error != null)
+            lock (_lockErrorList)
             {
-                mainWindow.error_division.Visibility = Visibility.Visible;
-                mainWindow.error_description.Content = error.GetDescriptionString();
-            }
-            else
-            {
-                mainWindow.error_division.Visibility = Visibility.Hidden;
+                 Error error = _errorList.FirstOrDefault(x => x.TimeRemaining > 0);
+                if (error != null)
+                {
+                    mainWindow.error_division.Visibility = Visibility.Visible;
+                    mainWindow.error_description.Content = error.GetDescriptionString();
+                }
+                else
+                {
+                    mainWindow.error_division.Visibility = Visibility.Hidden;
+                }               
             }
         }
 

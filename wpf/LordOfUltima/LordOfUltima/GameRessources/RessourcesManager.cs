@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Reflection.Emit;
 using System.Threading;
+using System.Windows.Media;
+using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
+using LordOfUltima.RessourcesStorage;
 
 namespace LordOfUltima.RessourcesProduction
 {
@@ -19,6 +23,7 @@ namespace LordOfUltima.RessourcesProduction
         {
             _gameboard = Gameboard.Instance;
             _ressourcesProduction = RessourcesProduction.Instance;
+
             // Default time = 1 min
             _timeScale = 60;
         }
@@ -30,7 +35,7 @@ namespace LordOfUltima.RessourcesProduction
         }
 
         // time scale on wich we apply the points
-        private int _timeScale = 60;
+        private int _timeScale;
         public int TimeScale
         {
             get { return _timeScale; }
@@ -56,6 +61,42 @@ namespace LordOfUltima.RessourcesProduction
             ressources.FoodQty += _ressourcesProduction.FoodQty/_timeScale;
             ressources.GoldQty += _ressourcesProduction.GoldQty/_timeScale;
             ressources.ResearchQty += _ressourcesProduction.ResearchQty/_timeScale;
+
+            checkStorage();
+        }
+        private void checkStorage()
+        {
+            var storage = Storage.Instance;
+            var ressources = Ressources.Instance;
+
+            // Check wood ressources
+            if (ressources.WoodQty > storage.WoodStorage)
+            {
+                ressources.WoodQty = storage.WoodStorage;
+                //ErrorManager.Instance.AddError(new Error.Error(){Description = Error.Error.Type.WOOD_STORAGE_FULL});
+            }
+
+            // Check stone ressources
+            if (ressources.StoneQty > storage.StoneStorage)
+            {
+                ressources.StoneQty = storage.StoneStorage;
+                //ErrorManager.Instance.AddError(new Error.Error() { Description = Error.Error.Type.STONE_STORAGE_FULL });
+            }
+
+            // Check iron ressources
+            if (ressources.IronQty > storage.IronStorage)
+            {
+                ressources.IronQty = storage.IronStorage;
+                //ErrorManager.Instance.AddError(new Error.Error() { Description = Error.Error.Type.IRON_STORAGE_FULL });
+            }
+
+            // check food ressources
+            if (ressources.FoodQty > storage.FoodStorage)
+            {
+                ressources.FoodQty = storage.FoodStorage;
+                //ErrorManager.Instance.AddError(new Error.Error() { Description = Error.Error.Type.FOOD_STORAGE_FULL });
+            }
+                
         }
 
         public void CalculateRessources()
@@ -189,13 +230,41 @@ namespace LordOfUltima.RessourcesProduction
                 return;
 
             Ressources ressources = Ressources.Instance;
+            Storage storage = Storage.Instance;
 
-            mainWindow.qty_wood.Content = Math.Round(ressources.WoodQty);
-            mainWindow.qty_stone.Content = Math.Round(ressources.StoneQty);
-            mainWindow.qty_iron.Content = Math.Round(ressources.IronQty);
-            mainWindow.qty_grain.Content = Math.Round(ressources.FoodQty);
+            int wood = (int)Math.Round(ressources.WoodQty);
+            int stone = (int)Math.Round(ressources.StoneQty);
+            int iron = (int)Math.Round(ressources.IronQty);
+            int food = (int)Math.Round(ressources.FoodQty);
+
+            mainWindow.qty_wood.Content = wood;
+            mainWindow.qty_stone.Content = stone;
+            mainWindow.qty_iron.Content = iron;
+            mainWindow.qty_grain.Content = food;
             mainWindow.qty_gold.Content = Math.Round(ressources.GoldQty);
             mainWindow.qty_research.Content = Math.Round(ressources.ResearchQty);
+
+            // update visual for storage qty
+            updateStorageUI(wood, (int)storage.WoodStorage, mainWindow.qty_wood);
+            updateStorageUI(stone, (int)storage.StoneStorage, mainWindow.qty_stone);
+            updateStorageUI(iron, (int)storage.IronStorage, mainWindow.qty_iron);
+            updateStorageUI(food, (int)storage.FoodStorage, mainWindow.qty_grain);
+        }
+
+        private void updateStorageUI(int currentQty, int max, System.Windows.Controls.Label label)
+        {
+            if (currentQty == max)
+            {
+                label.Foreground = new SolidColorBrush(Color.FromRgb(0xEE,0x10,0x10));
+            }
+            else if (currentQty > 0.75*max)
+            {
+                label.Foreground = new SolidColorBrush(Color.FromRgb(0xFF,0x66,0x00));
+            }
+            else
+            {
+                label.Foreground = new SolidColorBrush(Color.FromRgb(0x24, 0x76, 0x24));
+            }
         }
     }
 }

@@ -81,6 +81,8 @@ namespace LordOfUltima.MGameboard
             return 0;
         }
 
+        public ElementStorage GetElementStorage(int level){ return null; }
+
         public ElementCost GetElementCost(int level)
         {
             if (level > 0 && level <= 10)

@@ -21,5 +21,8 @@
 
         // Score value for element
         int GetScoreValue(int level);
+
+        // Storage capacity of element
+        ElementStorage GetElementStorage(int level);
     }
 }
