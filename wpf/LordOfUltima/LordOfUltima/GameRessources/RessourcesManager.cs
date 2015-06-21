@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection.Emit;
 using System.Threading;
+using System.Windows.Controls;
 using System.Windows.Media;
 using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
@@ -265,6 +266,8 @@ namespace LordOfUltima.RessourcesProduction
             {
                 label.Foreground = new SolidColorBrush(Color.FromRgb(0x24, 0x76, 0x24));
             }
+
+            label.ToolTip = new ToolTip() {Content = "Storage max : " + max};
         }
     }
 }

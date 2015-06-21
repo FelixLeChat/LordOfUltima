@@ -7,6 +7,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using LordOfUltima.Error;
 using LordOfUltima.Events;
+using LordOfUltima.Events.MainWindowEvents;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Music;
 using LordOfUltima.RessourcesProduction;
@@ -54,9 +55,8 @@ namespace LordOfUltima
             // Insertion des elements dans la carte
             GameboardInit.Instance.InsertMap();
 
-            // Hide level indicators
+            // Level indicators
             _levelIndicatorVisibility = LevelIndicatorVisibility.Instance;
-            _levelIndicatorVisibility.HideLevelIndicator();
 
             // Hide building menu
             _buildingMenuVisibility = BuildingMenuVisibility.Instance;
@@ -91,6 +91,9 @@ namespace LordOfUltima
 
             // Start Ressource management
             RessourcesManager.Instance.StartRessourcesManager();
+
+            // Settings initialisation
+            SetSettings.Instance.Set();
 
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;
@@ -217,6 +220,13 @@ namespace LordOfUltima
         private void trigger_level_Click(object sender, RoutedEventArgs e)
         {
             _levelIndicatorVisibility.HandleLevelIndicatorVisibility();
+            Properties.Settings.Default.IsBuildingLevelVisible = trigger_level.IsChecked;
+        }
+
+
+        private void trigger_dark_Click(object sender, RoutedEventArgs e)
+        {
+            UIImagesInit.Instance.TriggerDarkTheme();
         }
 
         /*
@@ -400,6 +410,9 @@ namespace LordOfUltima
             {
                 MusicOption.Instance.Close();
             }
+
+            // Save settings
+            Properties.Settings.Default.Save();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

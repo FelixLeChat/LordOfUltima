@@ -30,7 +30,8 @@ namespace LordOfUltima.Events
             }
 
             // Couleur de fond de toute la fenetre
-            _mainWindow.grid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
+            _mainWindow.grid.Background = Properties.Settings.Default.IsDarkSkin ? new SolidColorBrush(Color.FromRgb(0x2B, 0x2E, 0x25)) : new SolidColorBrush(Color.FromArgb(0xFF, 0xE9, 0xD3, 0xAE));
+            
 
             // Background pour le degrade (Fog)
             LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush
@@ -78,5 +79,20 @@ namespace LordOfUltima.Events
             };
             return imageBrush;
         }*/
+
+        
+        public void TriggerDarkTheme()
+        {
+            MainWindow mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                return;
+
+            _mainWindow.grid.Background =
+                new SolidColorBrush((_mainWindow.trigger_dark.IsChecked)
+                    ? Color.FromRgb(0x2B, 0x2E, 0x25)
+                    : Color.FromRgb(0xE9, 0xD3, 0xAE));
+
+            Properties.Settings.Default.IsDarkSkin = _mainWindow.trigger_dark.IsChecked;
+        }
     }
 }

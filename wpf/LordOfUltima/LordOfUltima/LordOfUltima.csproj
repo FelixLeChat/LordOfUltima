@@ -84,6 +84,7 @@
     <Compile Include="Events\LevelIndicatorVisibility.cs" />
     <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
     <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />
+    <Compile Include="Events\MainWindowEvents\SetSettings.cs" />
     <Compile Include="Events\MainWindowEvents\UIImagesInit.cs" />
     <Compile Include="Events\ResetMapElementBorder.cs" />
     <Compile Include="Events\ResetMapElements.cs" />

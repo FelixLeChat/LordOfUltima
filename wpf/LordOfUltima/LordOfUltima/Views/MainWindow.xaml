@@ -368,6 +368,7 @@
             <!-- Option Menu -->
             <MenuItem Header="_Options " Foreground="#FCEB43" Margin="0,5,0,0" Name="option_menu">
                 <MenuItem Header="Show building level" IsCheckable="True" x:Name="trigger_level" Foreground="Black" Click="trigger_level_Click" />
+                <MenuItem Header="Dark theme" IsCheckable="True" x:Name="trigger_dark" Foreground="Black" Click="trigger_dark_Click" />
                 <MenuItem Header="Ressources Update Time" Name="ressource_update_time" Foreground="Black" Click="ressource_update_time_Click" Margin="0,0,-22,0"/>
                 <MenuItem Header="Music options" Name="music_options" Foreground="Black" Click="music_options_Click" Margin="0,0,-22,0"/>
                 <MenuItem Header="Reset Map" Name="reset_map" Foreground="Black" Click="reset_map_Click"/>
