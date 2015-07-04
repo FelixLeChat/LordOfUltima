@@ -374,9 +374,9 @@
     <Resource Include="Resources\Images\options_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Audio\barren_plains.mp3">
+    <Resource Include="Resources\Audio\barren_plains.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Audio\etheral.mp3">

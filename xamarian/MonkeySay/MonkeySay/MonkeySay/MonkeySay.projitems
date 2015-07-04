@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TextHandler\RandomWordGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TextHandler\Text.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TextHandler\TextManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BonusReorganisePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MonkeyPage.cs" />
   </ItemGroup>
   <ItemGroup>

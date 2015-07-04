@@ -8,7 +8,8 @@ namespace MonkeySay
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new MonkeyPage();
+			//MainPage = new MonkeyPage();
+            MainPage = new BonusReorganisePage();
 		}
 
 		protected override void OnStart ()

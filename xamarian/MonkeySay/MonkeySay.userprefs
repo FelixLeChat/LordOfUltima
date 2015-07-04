@@ -1,6 +1,10 @@
-﻿<Properties StartupItem="MonkeySay\MonkeySay.WinPhone\MonkeySay.WinPhone.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupItem="MonkeySay\MonkeySay.Droid\MonkeySay.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.008100f2504e4fd3" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MonkeySay\MonkeySay\Views\BonusReorganisePage.cs">
+    <Files>
+      <File FileName="MonkeySay\MonkeySay\Views\BonusReorganisePage.cs" Line="26" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -194,8 +194,7 @@ namespace LordOfUltima
                 _levelLabel.Content = _level;
 
                 // Level indicator width depending on the level
-                _levelRectangle.Width = Level == 10 ? 13 : 8;
-                    
+                _levelRectangle.Width = Level == 10 ? 13 : 8; 
             }
         }
 
@@ -211,6 +210,8 @@ namespace LordOfUltima
         }
         public void ShowLevelIndicator()
         {
+            _levelRectangle.Opacity = 0;
+            _levelLabel.Opacity = 0;
             // Verifier si l'objet est valide (dois etre afficher) avant de l'afficher
             if(_isValid && _level > 0)
             {

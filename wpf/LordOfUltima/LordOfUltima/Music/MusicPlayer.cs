@@ -78,7 +78,7 @@ namespace LordOfUltima.Music
             // music played handler
             if (filename == SongName) return;
             Stop();
-            Play("Media/audio/" + filename);
+            Play("Resources/audio/" + filename);
             SongName = filename;
         }
     }
