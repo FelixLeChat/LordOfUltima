@@ -21,7 +21,8 @@
             BUILDING_TOWNHALL,
             BUILDING_TOWNHOUSE,
             BUILDING_MARKETPLACE,
-            BUILDING_RESEARCH_CENTER
+            BUILDING_RESEARCH_CENTER,
+            BUILDING_WAREHOUSE
         }
 
         public static string GetTypeName(Type resstype)
@@ -79,6 +80,9 @@
                     break;
                 case Type.BUILDING_RESEARCH_CENTER:
                     name = "Research Center";
+                    break;
+                case Type.BUILDING_WAREHOUSE:
+                    name = "Warehouse";
                     break;
             }
             return name;
@@ -185,6 +189,9 @@
                     break;
                 case "BUILDING_RESEARCH_CENTER":
                     newElement = new ResearchCenterElementType();
+                    break;
+                case "BUILDING_WAREHOUSE":
+                    newElement = new WarehouseElementType();
                     break;
             }
 

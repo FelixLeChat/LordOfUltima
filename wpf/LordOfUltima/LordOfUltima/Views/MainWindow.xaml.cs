@@ -10,6 +10,7 @@ using LordOfUltima.Events;
 using LordOfUltima.Events.MainWindowEvents;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Music;
+using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
 using LordOfUltima.RessourcesStorage;
 using LordOfUltima.Views;
@@ -65,6 +66,9 @@ namespace LordOfUltima
             // Hide Building Details menu
             _buildingDetailsVisibility = BuildingDetailsVisibility.Instance;
             _buildingDetailsVisibility.HideBuildingDetails();
+
+            // Initialise Research
+            ResearchHandler.Instance.Initialise();
             
             // load game
             if (!SaveGame.Instance.Load())
@@ -94,6 +98,9 @@ namespace LordOfUltima
 
             // Settings initialisation
             SetSettings.Instance.Set();
+
+            // Hide research
+            ResearchPageVisibility.HideResearchPage();
 
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;
@@ -387,6 +394,11 @@ namespace LordOfUltima
             BuildElement(new ResearchCenterElementType());
         }
 
+        private void building_storage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new WarehouseElementType());
+        }
+
         private void BuildElement(IElementType element)
         {
             _buildEvent.SetTypeToBuild(element);
@@ -452,7 +464,20 @@ namespace LordOfUltima
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             _buildingDetailsVisibility.HideBuildingDetails();
+            ResetMapElementBorder.Instance.ResetSelectionBorder();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ResearchPageVisibility.InvertResearchPageVisibility();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            ResearchPageVisibility.HideResearchPage();
+        }
+
+
 
     }
 }

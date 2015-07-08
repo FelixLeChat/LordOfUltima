@@ -304,4 +304,40 @@
   <data name="menu_research_center" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\menu_research_center.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="building_storage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_storage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_storage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_storage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Research_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="research_menu_div" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\research_menu_div.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

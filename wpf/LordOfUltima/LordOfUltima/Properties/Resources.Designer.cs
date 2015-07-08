@@ -163,6 +163,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap building_storage {
+            get {
+                object obj = ResourceManager.GetObject("building_storage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building_townhall {
             get {
                 object obj = ResourceManager.GetObject("building_townhall", resourceCulture);
@@ -246,6 +256,86 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap login_background {
             get {
                 object obj = ResourceManager.GetObject("login_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_bronze_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_bronze_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_copper_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_copper_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_gold_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_gold_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_platinum_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_platinum_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_silver_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_silver_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_steel_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_steel_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_valorite_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_valorite_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_verite_axe {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_verite_axe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,6 +583,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_storage {
+            get {
+                object obj = ResourceManager.GetObject("menu_storage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_townhall {
             get {
                 object obj = ResourceManager.GetObject("menu_townhall", resourceCulture);
@@ -536,6 +636,26 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap research {
             get {
                 object obj = ResourceManager.GetObject("research", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Research_menu {
+            get {
+                object obj = ResourceManager.GetObject("Research_menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap research_menu_div {
+            get {
+                object obj = ResourceManager.GetObject("research_menu_div", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

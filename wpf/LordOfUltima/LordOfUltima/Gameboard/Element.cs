@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Shapes;
 using System.Windows.Media;
@@ -32,8 +31,8 @@ namespace LordOfUltima
             _imageBrush = new ImageBrush();
             _rectangle.Fill = _imageBrush;
             _rectangle.IsEnabled = true;
-            _rectangle.PreviewMouseLeftButtonDown += leftButtonDown;
-            _rectangle.MouseLeftButtonUp += leftButtonUp;
+            _rectangle.PreviewMouseLeftButtonDown += LeftButtonDown;
+            _rectangle.MouseLeftButtonUp += LeftButtonUp;
 
 
             // Level Rectangle
@@ -79,8 +78,7 @@ namespace LordOfUltima
         */
         public void SetPath(string path)
         {
-            _path = path;
-
+            // Removed due to images being sent to ressources
             //if (File.Exists(path))
             {
                 _imageBrush.ImageSource = new BitmapImage(new Uri(@path, UriKind.RelativeOrAbsolute));
@@ -113,13 +111,11 @@ namespace LordOfUltima
             get { return _isValid;}
             set
             {
-                if (value == false)
-                {
-                    _isValid = false;
-                    _rectangle.Opacity = 0;
-                    _levelRectangle.Opacity = 0;
-                    _levelLabel.Opacity = 0;                    
-                }
+                if (value) return;
+                _isValid = false;
+                _rectangle.Opacity = 0;
+                _levelRectangle.Opacity = 0;
+                _levelLabel.Opacity = 0;
             }
         }
 
@@ -128,11 +124,11 @@ namespace LordOfUltima
          * Ajout d'un evenement sur le clic de l'item
         */
         private bool _isClicked;
-        private void leftButtonDown(object sender, RoutedEventArgs e)
+        private void LeftButtonDown(object sender, RoutedEventArgs e)
         {
             _isClicked = true;
         }
-        private void leftButtonUp(object sender, RoutedEventArgs e)
+        private void LeftButtonUp(object sender, RoutedEventArgs e)
         {
             if(_isClicked && !MainWindow.GetIsMouseMove())
             {
@@ -179,7 +175,7 @@ namespace LordOfUltima
 
         private ImageBrush _imageBrush;
         public ImageBrush GetImageBrush() { return _imageBrush;}
-        private string _path = "";
+
         public int Width = 40;
         public int Height = 40;
         private bool _isValid = true;

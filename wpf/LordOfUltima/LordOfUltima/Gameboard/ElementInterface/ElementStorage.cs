@@ -16,11 +16,15 @@
             StoneStorage = value;
             IronStorage = value;
             FoodStorage = value;
+
+            // Base storage
+            BaseStorage = value;
         }
 
         public double WoodStorage { get; set; }
         public double StoneStorage { get; set; }
         public double IronStorage { get; set; }
         public double FoodStorage { get; set; }
+        public double BaseStorage { get; set; }
     }
 }

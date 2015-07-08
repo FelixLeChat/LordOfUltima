@@ -208,6 +208,15 @@
                         </Rectangle.ToolTip>
                     </Rectangle>
 
+                    <!-- Marketplace -->
+                    <Rectangle Name="building_storage" Height="115" Width="100" Canvas.Left="125" Canvas.Top="660" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_storage_MouseLeftButtonDown">
+                        <Rectangle.ToolTip >
+                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="It increases the storage capacity for all resources. Enhanced by any bordering Sawmill, Stonemason, Mill or Foundry..&#x0a;&#x0a;Initial cost: &#x0a;60 woods" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                            </Border>
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+
                 </Canvas>
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
@@ -226,8 +235,10 @@
                                 <Label Name="building_detail_level" Height="30" Width="30" Content="0"/>
                                 <Label Name="building_production_label" Content="Production :" Margin="5,0,0,0" Width="73"/>
                                 <Label Name="building_bonus_label" Content="Bonus : " Width="73" Margin="-73,0,0,0" Visibility="Hidden"/>
+                                <Label Name="building_storage_label" Content="Storage : " Width="73" Margin="-73,0,0,0" Visibility="Hidden"/>
                                 <Label Content="0" Name="building_detail_production" Width="60"/>
-                                <Label Content="0" Name="building_detail_bonus" Width="60" Margin="-65,0,0,0"/>
+                                <Label Content="0" Name="building_detail_bonus" Width="60" Margin="-63,0,0,0"/>
+                                <Label Content="0" Name="building_detail_storage" Width="60" Margin="-63,0,0,0"/>
                             </DockPanel >
 
                             <Button Name="upgrade_element_button" Content="Upgrade" Width="229" Height="30" Margin="5,0,10,0" Foreground="Black" Click="Button_Click">
@@ -268,8 +279,12 @@
                                 <Label Content="Bonus : " Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_bonus_next" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
                             </DockPanel>
-                            
-                            
+                            <DockPanel Width="235" Margin="0,-15,0,0" Name="storage_dockpanel" >
+                                <Label Content="Storage : " Width="60" Height="25" Margin="10,10,10,0"/>
+                                <Label Name="building_detail_storage_next" Content="0" Width="auto" Height="25" Margin="-10,10,10,0"/>
+                            </DockPanel>
+
+
                             <Rectangle Width="248" Height="20" Name="building_detail_seperator" Margin="-4,-5,0,0">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="/Resources/Images/menu_division.png"/>
@@ -311,7 +326,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <!-- Top canvas for menu and ressources -->
-        <Canvas HorizontalAlignment="Left" Height="130" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
+        <Canvas HorizontalAlignment="Left" Height="140" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
             <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/Images/ressource_menu.png"/>
             </Canvas.Background>
@@ -340,24 +355,35 @@
             <!--<Line X1="10" Y1="54" X2="234" Y2="54" Stroke="#443025" StrokeThickness="1" />-->
 
             <!-- Grain ressource Label + img -->
-            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="65">
+            <Canvas Name="ress_grain" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="8" Canvas.Top="50">
                 <Canvas.Background>
                     <ImageBrush ImageSource="/Resources/Images/Lou_resource_grain.png"/>
                 </Canvas.Background>
             </Canvas>
-            <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="65" Foreground="#247624"/>
-            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="82" Foreground="#443025"/>
-            <Label Content="0" Name="qty_grain_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="82" Foreground="#443025" Width="83"/>
+            <Label Content="0" Name="qty_grain" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="50" Foreground="#247624"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="22" Canvas.Top="67" Foreground="#443025"/>
+            <Label Content="0" Name="qty_grain_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="30" Canvas.Top="67" Foreground="#443025" Width="83"/>
 
             <!-- Iron ressource Label + img -->
-            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="65">
+            <Canvas Name="ress_iron" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.478,0.522" Canvas.Left="118" Canvas.Top="50">
                 <Canvas.Background>
                     <ImageBrush ImageSource="/Resources/Images/Lou_resource_iron.png"/>
                 </Canvas.Background>
             </Canvas>
-            <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="65" Foreground="#247624"/>
-            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="82" Foreground="#443025"/>
-            <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="82" Foreground="#443025" Width="83"/>
+            <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="50" Foreground="#247624"/>
+            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="67" Foreground="#443025"/>
+            <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="67" Foreground="#443025" Width="83"/>
+        
+            <Button Width="60" Height="20" Margin="10,95,0,0" Content="Research" Click="Button_Click_5">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+                    
+        
         </Canvas>
 
         <!-- Menu -->
@@ -385,5 +411,68 @@
             </Border.Background>
             <Label Name="error_description" Height="30" Width="200" FontFamily="Vani"/>
         </Border>
+
+        <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Visible">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Research_menu.png"/>
+            </Canvas.Background>
+
+            <Button Width="30" Height="30" Margin="670,0,0,0" Opacity="0.01" Click="Button_Click_6" Cursor="Hand"/>
+            <ScrollViewer Width="697" Height="346" Margin="0,28,0,0">
+                <Canvas>
+
+                    <Label Content="Research" Margin="20,10,0,0" FontWeight="Bold" FontFamily="Vani" Foreground="#443025"></Label>
+                    
+                    <!-- Wood Research -->
+                    <Rectangle Name="research_wood_image" Width="100" Height="100" Margin="20,40,0,0" Fill="Black"/>
+                    <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,35,0,0" FontWeight="Bold"/>
+                    <Label Content="For each level you advance, your wood production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,50,0,0"/>
+                    <Label Content="Current Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,70,0,0" FontWeight="Bold"/>
+                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,85,0,0"/>
+                    <Label Content="Next Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,105,0,0" FontWeight="Bold"/>
+                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,120,0,0"/>
+                    <Button Content="Research" Margin="550,125,0,0" Width="60">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF3F5D17" Offset="0"/>
+                                <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <Rectangle Width="600" Height="10" Margin="40,150,0,0">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+            
+                    <!-- Stone Research -->
+                    <Rectangle Name="research_stone_image" Width="100" Height="100" Margin="20,170,0,0" Fill="Black"/>
+                    <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,165,0,0" FontWeight="Bold"/>
+                    <Label Content="For each level you advance, your stone production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,180,0,0"/>
+                    <Label Content="Current Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,200,0,0" FontWeight="Bold"/>
+                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,215,0,0"/>
+                    <Label Content="Next Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,235,0,0" FontWeight="Bold"/>
+                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,250,0,0"/>
+                    <Button Content="Research" Margin="550,255,0,0" Width="60">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF3F5D17" Offset="0"/>
+                                <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    
+                    <Rectangle Width="600" Height="10" Margin="40,280,0,0">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                </Canvas>                
+            </ScrollViewer>
+
+
+        </Canvas>
     </Grid>
 </Window>

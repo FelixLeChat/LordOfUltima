@@ -104,6 +104,30 @@ namespace LordOfUltima.Events
                     _mainWindow.iron_dockpanel.Visibility = Visibility.Hidden;
                 }
 
+                #region Storage Label handle
+                ElementStorage elementStorage = elementType.GetElementStorage(elementLevel + 1);
+                if (elementStorage != null)
+                {
+                    _mainWindow.storage_dockpanel.Visibility = Visibility.Visible;
+                    _mainWindow.building_detail_storage_next.Content = elementStorage.BaseStorage;
+                }
+                else
+                {
+                    _mainWindow.storage_dockpanel.Visibility = Visibility.Hidden;
+                }
+
+                elementStorage = elementType.GetElementStorage(elementLevel);
+                if (elementStorage != null && elementType.GetElementType() != ElementType.Type.BUILDING_TOWNHALL)
+                {
+                    _mainWindow.building_storage_label.Visibility = Visibility.Visible;
+                    _mainWindow.building_detail_storage.Content = elementStorage.BaseStorage;
+                }
+                else
+                {
+                    _mainWindow.building_detail_storage.Content = "";
+                    _mainWindow.building_storage_label.Visibility = Visibility.Hidden;
+                }
+                #endregion
 
                 // Show/Hide production label
                 #region Production Label handle
