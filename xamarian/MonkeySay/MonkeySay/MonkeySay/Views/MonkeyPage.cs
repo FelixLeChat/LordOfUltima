@@ -1,10 +1,12 @@
-﻿using MonkeySay.TextHandler;
+﻿using System;
+using MonkeySay.TextHandler;
 using Xamarin.Forms;
 
 namespace MonkeySay.Views
 {
 	public class MonkeyPage : ContentPage
 	{
+	    private Button _bonusButton;
         public MonkeyPage()
 		{
             // New Layout
@@ -38,13 +40,14 @@ namespace MonkeySay.Views
                 Constraint.RelativeToParent(parent => parent.Width),
                 Constraint.RelativeToParent(parent => parent.Height));
             // set text label
-            TextHandler.Text.Instance.LabelText = label;
+            Text.Instance.LabelText = label;
 
             // Button for new text
             var button = new Button()
             {
                 Text = "New Text"
             };
+            button.Clicked += enableBonus;
             button.Clicked += TextManager.Instance.GenerateNewText;
             layout.Children.Add(button,
                 Constraint.RelativeToParent(parent => parent.Width / 4),
@@ -52,7 +55,33 @@ namespace MonkeySay.Views
                 Constraint.RelativeToParent(parent => parent.Width / 2),
                 Constraint.RelativeToParent(parent => parent.Height / 10));
 
+            var bonusButton = new Button()
+            {
+                Text = "Change Letter Order",
+                IsVisible = false
+            };
+            _bonusButton = bonusButton;
+            bonusButton.Clicked += setBonusPage;
+            layout.Children.Add(bonusButton,
+                Constraint.RelativeToParent(parent => parent.Width / 4),
+                Constraint.RelativeToParent(parent => parent.Height / (1.4)),
+                Constraint.RelativeToParent(parent => parent.Width / 2),
+                Constraint.RelativeToParent(parent => parent.Height / 10));
+
             Content = layout;
 		}
+
+	    private void setBonusPage(object sender, EventArgs e)
+	    {
+	        if (!string.IsNullOrEmpty(Text.Instance.StringText))
+	        {
+	            App.Instance.ChangePageToBonus();
+	        }
+	    }
+
+	    private void enableBonus(object sender, EventArgs e)
+	    {
+	        _bonusButton.IsVisible = true;
+	    }
 	}
 }
