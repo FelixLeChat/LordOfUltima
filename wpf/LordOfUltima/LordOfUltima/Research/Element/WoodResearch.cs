@@ -80,6 +80,7 @@ namespace LordOfUltima.Research.Element
         public int SetLevel(int level)
         {
             _level = level;
+            return level;
         }
     }
 }
