@@ -4,6 +4,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LordOfUltima.Research.Element;
+using LordOfUltima.RessourcesProduction;
 using Label = System.Windows.Controls.Label;
 
 namespace LordOfUltima.Research
@@ -14,9 +15,16 @@ namespace LordOfUltima.Research
         public static ResearchHandler Instance => _instanceHandler ?? (_instanceHandler = new ResearchHandler());
 
         public readonly IResearchType WoodResearchType;
+        public readonly IResearchType StoneResearchType;
+        public readonly IResearchType IronResearchType;
+        public readonly IResearchType FoodResearchType;
+
         public ResearchHandler()
         {
             WoodResearchType = new WoodResearch();
+            StoneResearchType = new StoneResearch();
+            IronResearchType = new IronResearch();
+            FoodResearchType = new FoodResearch();
         }
 
         public void Initialise()
@@ -27,6 +35,15 @@ namespace LordOfUltima.Research
 
             // Set Wood research informations
             updateResearchInformations(WoodResearchType);
+
+            // Set Stone research informations
+            updateResearchInformations(StoneResearchType);
+
+            // Set Iron research informations
+            updateResearchInformations(IronResearchType);
+
+            // Set Food research informations
+            updateResearchInformations(FoodResearchType);
         }
 
         public void UpdateResearch(IResearchType researchType)
@@ -38,7 +55,10 @@ namespace LordOfUltima.Research
             if (mainWindow == null)
                 return;
 
-            updateResearchInformations(WoodResearchType);
+            updateResearchInformations(researchType);
+
+            // update ressource production with new research
+            RessourcesManager.Instance.CalculateRessources();
         }
 
         private void updateResearchInformations(IResearchType researchType)
@@ -46,11 +66,14 @@ namespace LordOfUltima.Research
             setPath(researchType.GetImageRectangle(), researchType, researchType.GetLevel() + 1);
             setBonus(researchType.GetCurrentBonusLabel(), researchType, researchType.GetLevel());
             setNextBonus(researchType.GetNextBonusLabel(), researchType, researchType.GetLevel());
+            setResearchCost(researchType);
 
-            if(researchType.GetLevel() == researchType.GetMaxLevel())
+            if (researchType.GetLevel() == researchType.GetMaxLevel())
+            {
                 researchType.GetResearchButton().Visibility = Visibility.Hidden;
+                researchType.GetCostCanvas().Visibility = Visibility.Hidden;
+            }    
         }
-
 
         private void setPath(Rectangle rectangle, IResearchType researchType, int level)
         {
@@ -78,6 +101,19 @@ namespace LordOfUltima.Research
             else
             {
                 label.Content = "No research bonus next";
+            }
+        }
+
+        private void setResearchCost(IResearchType researchType)
+        {
+            var level = researchType.GetLevel();
+
+            if (level >= 0 && level < researchType.GetMaxLevel())
+            {
+                var researchCost = researchType.GetResearchCost(level + 1);
+                researchType.GetResearchCostLabel().Content = researchCost.Research;
+                researchType.GetGoldCostLabel().Content = researchCost.Gold;
+                researchType.GetRessourceCostLabel().Content = researchCost.GetFirstCost();
             }
         }
 

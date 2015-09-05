@@ -7,7 +7,7 @@ using System.Windows.Shapes;
 
 namespace LordOfUltima.Research.Element
 {
-    class WoodResearch : IResearchType
+    class FoodResearch : IResearchType
     {
         private readonly Dictionary<int, string> _imagePathDictionary = new Dictionary<int, string>();
         private readonly Dictionary<int, ResearchCost> _researchCosts = new Dictionary<int, ResearchCost>();
@@ -15,7 +15,7 @@ namespace LordOfUltima.Research.Element
 
         private int _level;
 
-        public WoodResearch()
+        public FoodResearch()
         {
             // Image Path
             _imagePathDictionary.Add(1, "pack://application:,,,/Resources/Images/Research/Lou_artifact_copper_axe.png");
@@ -28,24 +28,24 @@ namespace LordOfUltima.Research.Element
             _imagePathDictionary.Add(8, "pack://application:,,,/Resources/Images/Research/Lou_artifact_valorite_axe.png");
 
             // Research Cost
-            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(1000, 0, 0, 0)));
-            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(3000,0,0,0)));
-            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(5000,0,0,0)));
-            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(10000,0,0,0)));
-            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(20000,0,0,0)));
-            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(35000,0,0,0)));
-            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(50000,0,0,0)));
-            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(65000,0,0,0)));
+            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(0, 0, 0, 1000)));
+            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(0, 0, 0, 3000)));
+            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(0, 0, 0, 5000)));
+            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(0, 0, 0, 10000)));
+            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(0, 0, 0, 20000)));
+            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(0, 0, 0, 35000)));
+            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(0, 0, 0, 50000)));
+            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(0, 0, 0, 65000)));
 
             // Research bonus
-            _researchBonuses.Add(1, new ResearchBonus(10, 0, 0, 0));
-            _researchBonuses.Add(2, new ResearchBonus(20, 0, 0, 0));
-            _researchBonuses.Add(3, new ResearchBonus(35, 0, 0, 0));
-            _researchBonuses.Add(4, new ResearchBonus(50, 0, 0, 0));
-            _researchBonuses.Add(5, new ResearchBonus(70, 0, 0, 0));
-            _researchBonuses.Add(6, new ResearchBonus(90, 0, 0, 0));
-            _researchBonuses.Add(7, new ResearchBonus(120, 0, 0, 0));
-            _researchBonuses.Add(8, new ResearchBonus(150, 0, 0, 0));
+            _researchBonuses.Add(1, new ResearchBonus(0, 0, 0, 10));
+            _researchBonuses.Add(2, new ResearchBonus(0, 0, 0, 20));
+            _researchBonuses.Add(3, new ResearchBonus(0, 0, 0, 35));
+            _researchBonuses.Add(4, new ResearchBonus(0, 0, 0, 50));
+            _researchBonuses.Add(5, new ResearchBonus(0, 0, 0, 70));
+            _researchBonuses.Add(6, new ResearchBonus(0, 0, 0, 90));
+            _researchBonuses.Add(7, new ResearchBonus(0, 0, 0, 120));
+            _researchBonuses.Add(8, new ResearchBonus(0, 0, 0, 150));
         }
 
         public string GetElementPath(int level)
@@ -100,7 +100,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_current_bonus;
+            return mainWindow.research_food_current_bonus;
         }
 
         public Label GetNextBonusLabel()
@@ -109,7 +109,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_next_bonus;
+            return mainWindow.research_food_next_bonus;
         }
 
         public Rectangle GetImageRectangle()
@@ -118,7 +118,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_image;
+            return mainWindow.research_food_image;
         }
 
         public Button GetResearchButton()
@@ -127,7 +127,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_button;
+            return mainWindow.research_food_button;
         }
 
         public Canvas GetCostCanvas()
@@ -136,7 +136,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_cost;
+            return mainWindow.research_food_cost;
         }
 
         public Label GetResearchCostLabel()
@@ -145,7 +145,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_research_cost;
+            return mainWindow.research_food_research_cost;
         }
 
         public Label GetGoldCostLabel()
@@ -154,7 +154,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_gold_cost;
+            return mainWindow.research_food_gold_cost;
         }
 
         public Label GetRessourceCostLabel()
@@ -163,7 +163,7 @@ namespace LordOfUltima.Research.Element
             if (mainWindow == null)
                 throw new Exception("Invalid Main Window");
 
-            return mainWindow.research_wood_wood_cost;
+            return mainWindow.research_food_food_cost;
         }
     }
 }

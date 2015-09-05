@@ -118,6 +118,15 @@ namespace LordOfUltima.Research
                 }
             }
         }
-        
+
+        public int GetFirstCost()
+        {
+            return (_wood > 0) ? _wood : (
+                (_stone > 0) ? _stone : (
+                (_iron > 0) ? _iron : (
+                (_food > 0) ? _food : 0)))
+            ;
+        }
+
     }
 }

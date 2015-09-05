@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace LordOfUltima.Error
 {
-    class ErrorManager
+    class ErrorManager : IDisposable
     {
         private static ErrorManager _instance;
         public static ErrorManager Instance
@@ -82,5 +82,9 @@ namespace LordOfUltima.Error
             }
         }
 
+        public void Dispose()
+        {
+            _ressourcesUpdateTimer.Dispose();
+        }
     }
 }

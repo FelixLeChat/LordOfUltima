@@ -480,9 +480,24 @@ namespace LordOfUltima
         }
 
         #region Research upgrade buttons
-        private void Button_Click_7(object sender, RoutedEventArgs e)
+        private void research_wood_button_Click(object sender, RoutedEventArgs e)
         {
             _researchHandler.UpdateResearch(_researchHandler.WoodResearchType);
+        }
+
+        private void research_stone_button_Click(object sender, RoutedEventArgs e)
+        {
+            _researchHandler.UpdateResearch(_researchHandler.StoneResearchType);
+        }
+
+        private void research_iron_button_Click(object sender, RoutedEventArgs e)
+        {
+            _researchHandler.UpdateResearch(_researchHandler.IronResearchType);
+        }
+
+        private void research_food_button_Click(object sender, RoutedEventArgs e)
+        {
+            _researchHandler.UpdateResearch(_researchHandler.FoodResearchType);
         }
         #endregion
     }

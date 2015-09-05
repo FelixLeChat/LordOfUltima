@@ -20,5 +20,10 @@ namespace LordOfUltima.Research
         Label GetNextBonusLabel();
         Rectangle GetImageRectangle();
         Button GetResearchButton();
+
+        Canvas GetCostCanvas();
+        Label GetResearchCostLabel();
+        Label GetGoldCostLabel();
+        Label GetRessourceCostLabel();
     }
 }

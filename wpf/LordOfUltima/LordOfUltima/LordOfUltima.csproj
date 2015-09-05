@@ -122,6 +122,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="GameRessources\Storage.cs" />
+    <Compile Include="Research\Element\FoodResearch.cs" />
+    <Compile Include="Research\Element\IronResearch.cs" />
+    <Compile Include="Research\Element\StoneResearch.cs" />
     <Compile Include="Research\Element\WoodResearch.cs" />
     <Compile Include="Research\IResearchType.cs" />
     <Compile Include="Research\ResearchBonus.cs" />

@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
+using LordOfUltima.Research;
 using LordOfUltima.RessourcesStorage;
 
 namespace LordOfUltima.RessourcesProduction
@@ -18,12 +19,15 @@ namespace LordOfUltima.RessourcesProduction
         }
 
         private readonly Gameboard _gameboard;
+        private readonly ResearchHandler _researchHandler;
+
         private Timer _ressourcesUpdateTimer;
         private readonly RessourcesProduction _ressourcesProduction;
         private RessourcesManager()
         {
             _gameboard = Gameboard.Instance;
             _ressourcesProduction = RessourcesProduction.Instance;
+            _researchHandler = ResearchHandler.Instance;
 
             // Default time = 1 min
             _timeScale = 60;
@@ -65,6 +69,7 @@ namespace LordOfUltima.RessourcesProduction
 
             checkStorage();
         }
+
         private void checkStorage()
         {
             var storage = Storage.Instance;
@@ -137,18 +142,31 @@ namespace LordOfUltima.RessourcesProduction
 
             updateElementTotalBonus(element);
 
-            _ressourcesProduction.WoodQty += calculateRessource(elementProduction.Wood, element.TotalBonus);
-            _ressourcesProduction.StoneQty += calculateRessource(elementProduction.Stone, element.TotalBonus);
+            // Get Wood bonus
+            var woodResearch = _researchHandler.WoodResearchType;
+            var woodBonus = 0;
+
+            if(woodResearch .GetLevel() > 0)
+                woodBonus = woodResearch.GetResearchBonus(woodResearch.GetLevel()).WoodBonus;
+
+            // Get Stone bonus
+            var stoneResearch = _researchHandler.StoneResearchType;
+            var stoneBonus = 0;
+            if (stoneResearch.GetLevel() > 0)
+                stoneBonus = stoneResearch.GetResearchBonus(stoneResearch.GetLevel()).StoneBonus;
+
+            _ressourcesProduction.WoodQty += calculateRessource(elementProduction.Wood, element.TotalBonus, woodBonus);
+            _ressourcesProduction.StoneQty += calculateRessource(elementProduction.Stone, element.TotalBonus, stoneBonus);
             _ressourcesProduction.IronQty += calculateRessource(elementProduction.Iron, element.TotalBonus);
             _ressourcesProduction.FoodQty += calculateRessource(elementProduction.Food, element.TotalBonus);
             _ressourcesProduction.GoldQty += calculateRessource(elementProduction.Gold, element.TotalBonus);
             _ressourcesProduction.ResearchQty += calculateRessource(elementProduction.Research, element.TotalBonus);
         }
 
-        private double calculateRessource(int baseProduction,double bonus = 0)
+        private double calculateRessource(int baseProduction, double bonus = 0, int researchBonus = 0)
         {
             double production = baseProduction;
-            return production*(bonus/100);
+            return production*((bonus + researchBonus)/100);
         }
 
         private void updateElementTotalBonus(Element element)
