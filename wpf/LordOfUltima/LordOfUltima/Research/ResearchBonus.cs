@@ -16,6 +16,17 @@
             Research = research;
         }
 
+        public int GetFirstBonus()
+        {
+            return (WoodBonus > 0) ? WoodBonus : (
+                (StoneBonus > 0) ? StoneBonus : (
+                (IronBonus > 0) ? IronBonus : (
+                (FoodBonus > 0) ? FoodBonus : (
+                (GoldBonus > 0) ? GoldBonus : (
+                (Research > 0) ? Research : 0 )))))
+            ;
+        }
+
         public int WoodBonus;
         public int StoneBonus;
         public int IronBonus;

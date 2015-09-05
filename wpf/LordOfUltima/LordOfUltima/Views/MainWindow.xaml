@@ -221,12 +221,16 @@
 
                 <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"/>
-                    <Button Width="30" Height="30" Margin="200,10,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_4">
-                        <Button.Background>
+
+                    
+                    <Rectangle Width="30" Height="30" Margin="200,10,0,0">
+                        <Rectangle.Fill>
                             <ImageBrush ImageSource="/Resources/Images/delete_button.png"/>
-                        </Button.Background>
-                    </Button>
-                    <WrapPanel Height="280" Width="244" Canvas.Top="160">
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Button Width="30" Height="30" Margin="200,10,0,0" Click="Button_Click_4" Opacity="0.01" Cursor="Hand"/>
+                    
+                        <WrapPanel Height="280" Width="244" Canvas.Top="160">
                         <TextBlock TextWrapping="Wrap" Name="building_detail_info" Height="auto" Margin="10,10,15,0" Width="220" TextAlignment="Justify"/>
 
                         <WrapPanel Name="building_detail_level_info" Height="auto">
@@ -258,7 +262,7 @@
                                 </Button.Background>
                             </Button>
 
-                            
+
                             <DockPanel Width="235" Name="wood_dockpanel">
                                 <Label Content="Wood :" Width="50" Height="25" Margin="10,10,10,0"/>
                                 <Label Name="building_detail_wood_cost" Content="0" Width="auto" Height="25" Margin="0,10,10,0"/>
@@ -373,7 +377,7 @@
             <Label Content="0" Name="qty_iron" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="50" Foreground="#247624"/>
             <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="132" Canvas.Top="67" Foreground="#443025"/>
             <Label Content="0" Name="qty_iron_incr" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.538" Canvas.Left="140" Canvas.Top="67" Foreground="#443025" Width="83"/>
-        
+
             <Button Width="60" Height="20" Margin="10,95,0,0" Content="Research" Click="Button_Click_5">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -382,8 +386,8 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-                    
-        
+
+
         </Canvas>
 
         <!-- Menu -->
@@ -422,16 +426,16 @@
                 <Canvas>
 
                     <Label Content="Research" Margin="20,10,0,0" FontWeight="Bold" FontFamily="Vani" Foreground="#443025"></Label>
-                    
+
                     <!-- Wood Research -->
-                    <Rectangle Name="research_wood_image" Width="100" Height="100" Margin="20,40,0,0" Fill="Black"/>
+                    <Rectangle Name="research_wood_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="59"/>
                     <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,35,0,0" FontWeight="Bold"/>
                     <Label Content="For each level you advance, your wood production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,50,0,0"/>
                     <Label Content="Current Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,70,0,0" FontWeight="Bold"/>
-                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,85,0,0"/>
+                    <Label Content="Not researched yet" Name="research_wood_current_bonus" FontFamily="Vani" Foreground="#443025" Margin="130,85,0,0"/>
                     <Label Content="Next Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,105,0,0" FontWeight="Bold"/>
-                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,120,0,0"/>
-                    <Button Content="Research" Margin="550,125,0,0" Width="60">
+                    <Label Content="Not researched yet" Name="research_wood_next_bonus" FontFamily="Vani" Foreground="#443025" Margin="130,120,0,0"/>
+                    <Button Content="Research" Name="research_wood_button" Margin="550,125,0,0" Width="60" Click="Button_Click_7">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FF3F5D17" Offset="0"/>
@@ -445,16 +449,16 @@
                             <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
                         </Rectangle.Fill>
                     </Rectangle>
-            
+
                     <!-- Stone Research -->
-                    <Rectangle Name="research_stone_image" Width="100" Height="100" Margin="20,170,0,0" Fill="Black"/>
+                    <Rectangle Name="research_stone_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="187"/>
                     <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,165,0,0" FontWeight="Bold"/>
                     <Label Content="For each level you advance, your stone production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,180,0,0"/>
                     <Label Content="Current Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,200,0,0" FontWeight="Bold"/>
-                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,215,0,0"/>
+                    <Label Content="Not researched yet" Name="research_stone_current_bonus" FontFamily="Vani" Foreground="#443025" Margin="130,215,0,0"/>
                     <Label Content="Next Bonus :" FontFamily="Vani" Foreground="#443025" Margin="130,235,0,0" FontWeight="Bold"/>
-                    <Label Content="Not researched yet" FontFamily="Vani" Foreground="#443025" Margin="130,250,0,0"/>
-                    <Button Content="Research" Margin="550,255,0,0" Width="60">
+                    <Label Content="Not researched yet" Name="research_stone_next_bonus" FontFamily="Vani" Foreground="#443025" Margin="130,250,0,0"/>
+                    <Button Content="Research" Name="research_stone_button" Margin="550,255,0,0" Width="60">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FF3F5D17" Offset="0"/>
@@ -462,14 +466,14 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    
+
                     <Rectangle Width="600" Height="10" Margin="40,280,0,0">
                         <Rectangle.Fill>
                             <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
                         </Rectangle.Fill>
                     </Rectangle>
 
-                </Canvas>                
+                </Canvas>
             </ScrollViewer>
 
 

@@ -1,4 +1,8 @@
-﻿namespace LordOfUltima.Research
+﻿using System.Windows.Controls;
+using Label = System.Windows.Controls.Label;
+using System.Windows.Shapes;
+
+namespace LordOfUltima.Research
 {
     interface IResearchType
     {
@@ -10,5 +14,11 @@
 
         int GetLevel();
         int SetLevel(int level);
+        int GetMaxLevel();
+
+        Label GetCurrentBonusLabel();
+        Label GetNextBonusLabel();
+        Rectangle GetImageRectangle();
+        Button GetResearchButton();
     }
 }

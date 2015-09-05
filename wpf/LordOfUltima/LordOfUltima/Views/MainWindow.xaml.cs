@@ -29,6 +29,7 @@ namespace LordOfUltima
         private readonly BuildingDetailsVisibility _buildingDetailsVisibility;
         private readonly ChatEvents _chatEvents;
         private readonly MusicPlayer _musicPlayer;
+        private readonly ResearchHandler _researchHandler;
 
         public static MainWindow MIns;
         public MainWindow()
@@ -68,7 +69,8 @@ namespace LordOfUltima
             _buildingDetailsVisibility.HideBuildingDetails();
 
             // Initialise Research
-            ResearchHandler.Instance.Initialise();
+            _researchHandler = ResearchHandler.Instance;
+            _researchHandler.Initialise();
             
             // load game
             if (!SaveGame.Instance.Load())
@@ -477,7 +479,11 @@ namespace LordOfUltima
             ResearchPageVisibility.HideResearchPage();
         }
 
-
-
+        #region Research upgrade buttons
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            _researchHandler.UpdateResearch(_researchHandler.WoodResearchType);
+        }
+        #endregion
     }
 }

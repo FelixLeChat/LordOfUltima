@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using LordOfUltima.MGameboard;
+using Label = System.Windows.Controls.Label;
+using System.Windows.Shapes;
 
 namespace LordOfUltima.Research.Element
 {
@@ -15,8 +18,8 @@ namespace LordOfUltima.Research.Element
         public WoodResearch()
         {
             // Image Path
-            _imagePathDictionary.Add(1, "pack://application:,,,/Resources/Images/Research/Lou_artifact_bronze_axe.png");
-            _imagePathDictionary.Add(2, "pack://application:,,,/Resources/Images/Research/Lou_artifact_copper_axe.png");
+            _imagePathDictionary.Add(1, "pack://application:,,,/Resources/Images/Research/Lou_artifact_copper_axe.png");
+            _imagePathDictionary.Add(2, "pack://application:,,,/Resources/Images/Research/Lou_artifact_bronze_axe.png");
             _imagePathDictionary.Add(3, "pack://application:,,,/Resources/Images/Research/Lou_artifact_steel_axe.png");
             _imagePathDictionary.Add(4, "pack://application:,,,/Resources/Images/Research/Lou_artifact_silver_axe.png");
             _imagePathDictionary.Add(5, "pack://application:,,,/Resources/Images/Research/Lou_artifact_gold_axe.png");
@@ -79,8 +82,52 @@ namespace LordOfUltima.Research.Element
 
         public int SetLevel(int level)
         {
-            _level = level;
-            return level;
+            if (level > 0 && level <= GetMaxLevel())
+            {
+                _level = level;
+            }
+            return _level;
+        }
+
+        public int GetMaxLevel()
+        {
+            return _researchBonuses.Count;
+        }
+
+        public Label GetCurrentBonusLabel()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                throw new Exception("Invalid Main Window");
+
+            return mainWindow.research_wood_current_bonus;
+        }
+
+        public Label GetNextBonusLabel()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                throw new Exception("Invalid Main Window");
+
+            return mainWindow.research_wood_next_bonus;
+        }
+
+        public Rectangle GetImageRectangle()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                throw new Exception("Invalid Main Window");
+
+            return mainWindow.research_wood_image;
+        }
+
+        public Button GetResearchButton()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                throw new Exception("Invalid Main Window");
+
+            return mainWindow.research_wood_button;
         }
     }
 }
