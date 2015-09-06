@@ -27,6 +27,7 @@
             // Ressources
             NOT_ENOUGH_RESSOURCES_BUILD,
             NOT_ENOUGH_RESSOURCES_UPGRADE,
+            NOT_ENOUGH_RESSOURCES_RESEARCH,
             NOT_ENOUGH_BUILDING_SPACE,
             WOOD_STORAGE_FULL,
             STONE_STORAGE_FULL,
@@ -50,6 +51,9 @@
                     break;
                 case Type.NOT_ENOUGH_RESSOURCES_UPGRADE:
                     result = "Not enough ressources to upgrade";
+                    break;
+                case Type.NOT_ENOUGH_RESSOURCES_RESEARCH:
+                    result = "Not enough ressources to research";
                     break;
                 case Type.NOT_ENOUGH_BUILDING_SPACE:
                     result = "Missing building space";

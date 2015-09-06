@@ -79,6 +79,7 @@
     <Compile Include="Events\BuildingDetailsVisibility.cs" />
     <Compile Include="Events\BuildingMenuVisibility.cs" />
     <Compile Include="Events\BuyElement.cs" />
+    <Compile Include="Events\BuyResearch.cs" />
     <Compile Include="Events\ChatEvents.cs" />
     <Compile Include="Events\DeleteElement.cs" />
     <Compile Include="Events\LevelIndicatorVisibility.cs" />

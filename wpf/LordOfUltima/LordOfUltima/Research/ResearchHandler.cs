@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LordOfUltima.Error;
+using LordOfUltima.Events;
 using LordOfUltima.Research.Element;
 using LordOfUltima.RessourcesProduction;
 using Label = System.Windows.Controls.Label;
@@ -54,6 +56,13 @@ namespace LordOfUltima.Research
         public void UpdateResearch(IResearchType researchType)
         {
             // If you have enough ressources
+            if (!BuyResearch.Instance.Buy(researchType))
+            {
+                ErrorManager.Instance.AddError(new Error.Error() { Description = Error.Error.Type.NOT_ENOUGH_RESSOURCES_RESEARCH });
+                return;
+            } 
+
+            // Buy sucessfull
             researchType.SetLevel(researchType.GetLevel() + 1);
 
             var mainWindow = MainWindow.MIns;
