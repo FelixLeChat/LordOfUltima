@@ -7,6 +7,7 @@ using System.Xml;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Error;
 using LordOfUltima.Events;
+using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima.XML
@@ -97,6 +98,16 @@ namespace LordOfUltima.XML
             int score = Score.Score.Instance.ScoreValue;
             xmlWriter.WriteStartElement("Score");
             xmlWriter.WriteAttributeString("Value", score.ToString(CultureInfo.InvariantCulture));
+            xmlWriter.WriteEndElement();
+
+            // Save research progression
+            var researchHandler = ResearchHandler.Instance;
+            xmlWriter.WriteStartElement("Research");
+            xmlWriter.WriteAttributeString("Wood", researchHandler.WoodResearchType.GetLevel().ToString());
+            xmlWriter.WriteAttributeString("Stone", researchHandler.StoneResearchType.GetLevel().ToString());
+            xmlWriter.WriteAttributeString("Iron", researchHandler.IronResearchType.GetLevel().ToString());
+            xmlWriter.WriteAttributeString("Food", researchHandler.FoodResearchType.GetLevel().ToString());
+            xmlWriter.WriteAttributeString("Gold", researchHandler.GoldResearchType.GetLevel().ToString());
             xmlWriter.WriteEndElement();
 
             xmlWriter.WriteEndElement();
@@ -198,6 +209,23 @@ namespace LordOfUltima.XML
                                 case "Score":
                                     int score = Convert.ToInt32(reader["Value"]);
                                     Score.Score.Instance.ScoreValue = score;
+                                    break;
+
+                                case "Research":
+                                    var researchHandler = ResearchHandler.Instance;
+
+                                    int woodResearch = Convert.ToInt32(reader["Wood"]);
+                                    researchHandler.WoodResearchType.SetLevel(woodResearch);
+                                    int stoneResearch = Convert.ToInt32(reader["Stone"]);
+                                    researchHandler.StoneResearchType.SetLevel(stoneResearch);
+                                    int ironResearch = Convert.ToInt32(reader["Iron"]);
+                                    researchHandler.IronResearchType.SetLevel(ironResearch);
+                                    int foodResearch = Convert.ToInt32(reader["Food"]);
+                                    researchHandler.FoodResearchType.SetLevel(foodResearch);
+                                    int goldResearch = Convert.ToInt32(reader["Gold"]);
+                                    researchHandler.GoldResearchType.SetLevel(goldResearch);
+
+                                    researchHandler.Initialise();
                                     break;
                             }
 		                }
