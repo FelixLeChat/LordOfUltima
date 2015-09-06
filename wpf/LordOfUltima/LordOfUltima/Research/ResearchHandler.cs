@@ -18,6 +18,7 @@ namespace LordOfUltima.Research
         public readonly IResearchType StoneResearchType;
         public readonly IResearchType IronResearchType;
         public readonly IResearchType FoodResearchType;
+        public readonly IResearchType GoldResearchType;
 
         public ResearchHandler()
         {
@@ -25,6 +26,7 @@ namespace LordOfUltima.Research
             StoneResearchType = new StoneResearch();
             IronResearchType = new IronResearch();
             FoodResearchType = new FoodResearch();
+            GoldResearchType = new GoldResearch();
         }
 
         public void Initialise()
@@ -44,6 +46,9 @@ namespace LordOfUltima.Research
 
             // Set Food research informations
             updateResearchInformations(FoodResearchType);
+
+            // Set Gold research informations
+            updateResearchInformations(GoldResearchType);
         }
 
         public void UpdateResearch(IResearchType researchType)

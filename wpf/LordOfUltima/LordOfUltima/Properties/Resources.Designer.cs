@@ -273,6 +273,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_bronze_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_bronze_chest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lou_artifact_bronze_hammer {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_bronze_hammer", resourceCulture);
@@ -306,6 +316,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap Lou_artifact_copper_axe {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_copper_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_copper_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_copper_chest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,6 +373,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_gold_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_gold_chest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lou_artifact_gold_hammer {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_gold_hammer", resourceCulture);
@@ -386,6 +416,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap Lou_artifact_platinum_axe {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_platinum_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_platinum_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_platinum_chest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +473,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_silver_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_silver_chest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lou_artifact_silver_hammer {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_silver_hammer", resourceCulture);
@@ -466,6 +516,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap Lou_artifact_steel_axe {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_steel_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_steel_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_steel_chest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +573,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_valorite_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_valorite_chest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lou_artifact_valorite_hammer {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_valorite_hammer", resourceCulture);
@@ -546,6 +616,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap Lou_artifact_verite_axe {
             get {
                 object obj = ResourceManager.GetObject("Lou_artifact_verite_axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lou_artifact_verite_chest {
+            get {
+                object obj = ResourceManager.GetObject("Lou_artifact_verite_chest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

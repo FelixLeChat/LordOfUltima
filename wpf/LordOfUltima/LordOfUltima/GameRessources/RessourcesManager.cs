@@ -167,11 +167,18 @@ namespace LordOfUltima.RessourcesProduction
             if (foodResearch.GetLevel() > 0)
                 foodBonus = foodResearch.GetResearchBonus(foodResearch.GetLevel()).FoodBonus;
 
+            // Get Gold bonus
+            var goldResearch = _researchHandler.GoldResearchType;
+            var goldBonus = 0;
+            if (goldResearch.GetLevel() > 0)
+                goldBonus = goldResearch.GetResearchBonus(goldResearch.GetLevel()).GoldBonus;
+
+
             _ressourcesProduction.WoodQty += calculateRessource(elementProduction.Wood, element.TotalBonus, woodBonus);
             _ressourcesProduction.StoneQty += calculateRessource(elementProduction.Stone, element.TotalBonus, stoneBonus);
             _ressourcesProduction.IronQty += calculateRessource(elementProduction.Iron, element.TotalBonus, ironBonus);
             _ressourcesProduction.FoodQty += calculateRessource(elementProduction.Food, element.TotalBonus, foodBonus);
-            _ressourcesProduction.GoldQty += calculateRessource(elementProduction.Gold, element.TotalBonus);
+            _ressourcesProduction.GoldQty += calculateRessource(elementProduction.Gold, element.TotalBonus, goldBonus);
             _ressourcesProduction.ResearchQty += calculateRessource(elementProduction.Research, element.TotalBonus);
         }
 

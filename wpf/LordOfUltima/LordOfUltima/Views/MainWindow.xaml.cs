@@ -499,6 +499,11 @@ namespace LordOfUltima
         {
             _researchHandler.UpdateResearch(_researchHandler.FoodResearchType);
         }
+
+        private void research_gold_button_Click(object sender, RoutedEventArgs e)
+        {
+            _researchHandler.UpdateResearch(_researchHandler.GoldResearchType);
+        }
         #endregion
     }
 }

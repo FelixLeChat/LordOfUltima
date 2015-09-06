@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="GameRessources\Storage.cs" />
     <Compile Include="Research\Element\FoodResearch.cs" />
+    <Compile Include="Research\Element\GoldResearch.cs" />
     <Compile Include="Research\Element\IronResearch.cs" />
     <Compile Include="Research\Element\StoneResearch.cs" />
     <Compile Include="Research\Element\WoodResearch.cs" />
@@ -528,6 +529,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Research\Lou_artifact_gold_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_chest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
