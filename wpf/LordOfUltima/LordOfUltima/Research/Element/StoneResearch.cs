@@ -18,24 +18,24 @@ namespace LordOfUltima.Research.Element
         public StoneResearch()
         {
             // Image Path
-            _imagePathDictionary.Add(1, "pack://application:,,,/Resources/Images/Research/Lou_artifact_copper_axe.png");
-            _imagePathDictionary.Add(2, "pack://application:,,,/Resources/Images/Research/Lou_artifact_bronze_axe.png");
-            _imagePathDictionary.Add(3, "pack://application:,,,/Resources/Images/Research/Lou_artifact_steel_axe.png");
-            _imagePathDictionary.Add(4, "pack://application:,,,/Resources/Images/Research/Lou_artifact_silver_axe.png");
-            _imagePathDictionary.Add(5, "pack://application:,,,/Resources/Images/Research/Lou_artifact_gold_axe.png");
-            _imagePathDictionary.Add(6, "pack://application:,,,/Resources/Images/Research/Lou_artifact_platinum_axe.png");
-            _imagePathDictionary.Add(7, "pack://application:,,,/Resources/Images/Research/Lou_artifact_verite_axe.png");
-            _imagePathDictionary.Add(8, "pack://application:,,,/Resources/Images/Research/Lou_artifact_valorite_axe.png");
+            _imagePathDictionary.Add(1, "pack://application:,,,/Resources/Images/Research/Lou_artifact_copper_pick.png");
+            _imagePathDictionary.Add(2, "pack://application:,,,/Resources/Images/Research/Lou_artifact_bronze_pick.png");
+            _imagePathDictionary.Add(3, "pack://application:,,,/Resources/Images/Research/Lou_artifact_steel_pick.png");
+            _imagePathDictionary.Add(4, "pack://application:,,,/Resources/Images/Research/Lou_artifact_silver_pick.png");
+            _imagePathDictionary.Add(5, "pack://application:,,,/Resources/Images/Research/Lou_artifact_gold_pick.png");
+            _imagePathDictionary.Add(6, "pack://application:,,,/Resources/Images/Research/Lou_artifact_platinum_pick.png");
+            _imagePathDictionary.Add(7, "pack://application:,,,/Resources/Images/Research/Lou_artifact_verite_pick.png");
+            _imagePathDictionary.Add(8, "pack://application:,,,/Resources/Images/Research/Lou_artifact_valorite_pick.png");
 
             // Research Cost
-            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(0, 1000, 0, 0)));
-            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(0, 3000, 0, 0)));
-            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(0, 5000, 0, 0)));
-            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(0, 10000, 0, 0)));
-            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(0, 20000, 0, 0)));
-            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(0, 35000, 0, 0)));
-            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(0, 50000, 0, 0)));
-            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(0, 65000, 0, 0)));
+            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(0, 1000, 0)));
+            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(0, 3000, 0)));
+            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(0, 5000, 0)));
+            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(0, 10000, 0)));
+            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(0, 20000, 0)));
+            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(0, 35000, 0)));
+            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(0, 50000, 0)));
+            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(0, 65000, 0)));
 
             // Research bonus
             _researchBonuses.Add(1, new ResearchBonus(0, 10, 0, 0));

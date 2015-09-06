@@ -457,6 +457,78 @@
   <ItemGroup>
     <Resource Include="Resources\Images\Research\Lou_artifact_silver_axe.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_hammer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

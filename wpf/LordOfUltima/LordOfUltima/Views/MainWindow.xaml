@@ -429,6 +429,7 @@
 
                     <!-- Wood Research -->
                     <Canvas>
+                        <Label Content="Wood Axe" FontFamily="Vani" Foreground="#443025" Margin="40,35,0,0" FontWeight="Bold"/>
                         <Rectangle Name="research_wood_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="59"/>
                         <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,35,0,0" FontWeight="Bold"/>
                         <Label Content="For each level you advance, your wood production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,50,0,0"/>
@@ -460,7 +461,7 @@
                             </Canvas>
                             <Label Content="0" Name="research_wood_wood_cost" FontFamily="Vani" Foreground="#443025" Canvas.Left="390" Canvas.Top="109"/>
                         </Canvas>
-                    
+
                         <Button Content="Research" Name="research_wood_button" Margin="550,125,0,0" Width="60" Click="research_wood_button_Click">
                             <Button.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -476,9 +477,10 @@
                             </Rectangle.Fill>
                         </Rectangle>
                     </Canvas>
-                    
+
                     <!-- Stone Research -->
                     <Canvas>
+                        <Label Content="Stone Hammer" FontFamily="Vani" Foreground="#443025" Margin="25,165,0,0" FontWeight="Bold"/>
                         <Rectangle Name="research_stone_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="187"/>
                         <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,165,0,0" FontWeight="Bold"/>
                         <Label Content="For each level you advance, your stone production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,180,0,0"/>
@@ -510,7 +512,7 @@
                             </Canvas>
                             <Label Content="0" Name="research_stone_stone_cost" FontFamily="Vani" Foreground="#443025" Canvas.Left="390" Canvas.Top="109"/>
                         </Canvas>
-                    
+
                         <Button Content="Research" Name="research_stone_button" Margin="550,255,0,0" Width="60" Click="research_stone_button_Click">
                             <Button.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -529,6 +531,7 @@
 
                     <!-- Iron Research -->
                     <Canvas Margin="0,128,0,0">
+                        <Label Content="Iron Pick" FontFamily="Vani" Foreground="#443025" Margin="0" FontWeight="Bold" Canvas.Left="40" Canvas.Top="166"/>
                         <Rectangle Name="research_iron_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="187"/>
                         <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,165,0,0" FontWeight="Bold"/>
                         <Label Content="For each level you advance, your iron production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,180,0,0"/>
@@ -579,6 +582,7 @@
 
                     <!-- Food Research -->
                     <Canvas Margin="0,256,0,0">
+                        <Label Content="Grain Sickle" FontFamily="Vani" Foreground="#443025" Margin="35,165,0,0" FontWeight="Bold"/>
                         <Rectangle Name="research_food_image" Width="70" Height="70" Fill="Black" Canvas.Left="40" Canvas.Top="187"/>
                         <Label Content="Description :" FontFamily="Vani" Foreground="#443025" Margin="130,165,0,0" FontWeight="Bold"/>
                         <Label Content="For each level you advance, your food production will increase." FontFamily="Vani" Foreground="#443025" Margin="130,180,0,0"/>
@@ -626,7 +630,7 @@
                             </Rectangle.Fill>
                         </Rectangle>
                     </Canvas>
-                    
+
                 </Canvas>
             </ScrollViewer>
 

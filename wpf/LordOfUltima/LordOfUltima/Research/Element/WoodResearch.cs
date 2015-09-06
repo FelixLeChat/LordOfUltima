@@ -28,14 +28,14 @@ namespace LordOfUltima.Research.Element
             _imagePathDictionary.Add(8, "pack://application:,,,/Resources/Images/Research/Lou_artifact_valorite_axe.png");
 
             // Research Cost
-            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(1000, 0, 0, 0)));
-            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(3000,0,0,0)));
-            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(5000,0,0,0)));
-            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(10000,0,0,0)));
-            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(20000,0,0,0)));
-            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(35000,0,0,0)));
-            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(50000,0,0,0)));
-            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(65000,0,0,0)));
+            _researchCosts.Add(1, new ResearchCost(100, 100, new ElementCost(1000, 0, 0)));
+            _researchCosts.Add(2, new ResearchCost(500, 200, new ElementCost(3000, 0, 0)));
+            _researchCosts.Add(3, new ResearchCost(2000, 500, new ElementCost(5000, 0, 0)));
+            _researchCosts.Add(4, new ResearchCost(5000, 1000, new ElementCost(10000, 0, 0)));
+            _researchCosts.Add(5, new ResearchCost(10000, 2000, new ElementCost(20000, 0, 0)));
+            _researchCosts.Add(6, new ResearchCost(20000, 5000, new ElementCost(35000, 0, 0)));
+            _researchCosts.Add(7, new ResearchCost(35000, 10000, new ElementCost(50000, 0, 0)));
+            _researchCosts.Add(8, new ResearchCost(50000, 15000, new ElementCost(65000, 0, 0)));
 
             // Research bonus
             _researchBonuses.Add(1, new ResearchBonus(10, 0, 0, 0));
