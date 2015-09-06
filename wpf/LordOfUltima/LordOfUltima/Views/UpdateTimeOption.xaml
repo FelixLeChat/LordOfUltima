@@ -20,7 +20,7 @@
         <Button Name="one_minute" Content="Minute" Height="25" Width="60" Margin="-80,-20,0,0" Click="one_minute_Click"/>
         <Button Name="one_hour" Content="Hour" Height="25" Width="60" Margin="50,-20,0,0" Click="one_hour_Click"/>
         
-        <Button Name="apply_button" Content="Apply" Margin="180,95,0,0" Height="25" Width="60" IsEnabled="False" Click="apply_button_Click"/>
+        <Button Name="apply_button" Content="Ok" Margin="180,95,0,0" Height="25" Width="60" IsEnabled="False" Click="apply_button_Click"/>
         <Button Name="cancel_button" Content="Cancel" Margin="40,95,0,0" Height="25" Width="60" Click="cancel_button_Click" />
     </Grid>
 </Window>

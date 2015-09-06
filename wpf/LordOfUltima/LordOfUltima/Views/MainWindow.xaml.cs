@@ -97,6 +97,7 @@ namespace LordOfUltima
 
             // Start Ressource management
             RessourcesManager.Instance.StartRessourcesManager();
+            RessourcesManager.Instance.TimeScale = LordOfUltima.Properties.Settings.Default.UpdateTime;
 
             // Settings initialisation
             SetSettings.Instance.Set();

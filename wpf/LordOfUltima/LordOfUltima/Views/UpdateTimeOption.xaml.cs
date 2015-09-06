@@ -30,7 +30,9 @@ namespace LordOfUltima.Views
             {
                 int value = Convert.ToInt32(time_choice.Text.Trim());
                 RessourcesManager.Instance.TimeScale = value;
+                LordOfUltima.Properties.Settings.Default.UpdateTime = value;
                 apply_button.IsEnabled = false;
+                Close();
             }
             catch (Exception)
             {
