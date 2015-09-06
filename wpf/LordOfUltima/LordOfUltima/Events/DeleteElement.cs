@@ -1,4 +1,5 @@
 ﻿using LordOfUltima.MGameboard;
+using LordOfUltima.RessourcesStorage;
 
 namespace LordOfUltima.Events
 {
@@ -26,6 +27,12 @@ namespace LordOfUltima.Events
             {
                 resetElementNear(_elementToDelete);
             }
+            else if (_elementToDelete.GetElementType().GetElementType() == ElementType.Type.BUILDING_WAREHOUSE)
+            {
+                _elementToDelete.Initialise();
+                Storage.Instance.UpdateStorageCapacity();
+            }
+
 
             _elementToDelete.Initialise();
 
