@@ -80,8 +80,10 @@
     <Compile Include="Events\BuildingMenuVisibility.cs" />
     <Compile Include="Events\BuyElement.cs" />
     <Compile Include="Events\BuyResearch.cs" />
+    <Compile Include="Events\ChatboxVisibility.cs" />
     <Compile Include="Events\ChatEvents.cs" />
     <Compile Include="Events\DeleteElement.cs" />
+    <Compile Include="Events\DungeonVisibility.cs" />
     <Compile Include="Events\LevelIndicatorVisibility.cs" />
     <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
     <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />
@@ -554,6 +556,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Research\Lou_artifact_silver_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\dungeon_map.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

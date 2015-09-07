@@ -21,6 +21,12 @@
             </Canvas>
         </Canvas>
 
+        <Canvas Name="dungeon_map" HorizontalAlignment="Left" Margin="268,23,0,0" Height="580" Width="891" Visibility="Hidden">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Resources/Images/dungeon_map.jpg"/>
+            </Canvas.Background>
+        </Canvas>
+
         <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="268,23,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
 
         <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7">
@@ -329,6 +335,7 @@
                 <ImageBrush ImageSource="/Resources/Images/menu_bottom.png"/>
             </Rectangle.Fill>
         </Rectangle>
+
         <!-- Top canvas for menu and ressources -->
         <Canvas HorizontalAlignment="Left" Height="140" Margin="0,23,0,0" VerticalAlignment="Top" Width="248" Name="ress_menu">
             <Canvas.Background>
@@ -630,7 +637,7 @@
                             </Rectangle.Fill>
                         </Rectangle>
                     </Canvas>
-                    
+
                     <!-- Gold Research -->
                     <Canvas Margin="0,384,0,0">
                         <Label Content="Gold Chest" FontFamily="Vani" Foreground="#443025" Margin="35,165,0,0" FontWeight="Bold"/>
@@ -685,6 +692,25 @@
             </ScrollViewer>
 
 
+        </Canvas>
+
+        <Canvas Margin="980,40,0,0" Width="155" Height="30" VerticalAlignment="Top">
+            <Button Content="Dungeons" Width="70" Height="23" Click="Button_Click_7">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="City" Margin="80,0,0,0" Width="70" Height="23" Click="Button_Click_8">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Canvas>
     </Grid>
 </Window>

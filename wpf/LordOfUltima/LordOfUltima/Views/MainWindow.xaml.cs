@@ -105,6 +105,9 @@ namespace LordOfUltima
             // Hide research
             ResearchPageVisibility.HideResearchPage();
 
+            // Chatbox state
+            ChatboxVisibility.Instance.HandleChatboxVisibility();
+
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;
             BackgroundWorker bw = new BackgroundWorker();
@@ -453,14 +456,12 @@ namespace LordOfUltima
          */
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            chat_box.Visibility = Visibility.Collapsed;
-            chat_box_open.Visibility = Visibility.Visible;
+            ChatboxVisibility.Instance.MinimizeChatbox();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            chat_box.Visibility = Visibility.Visible;
-            chat_box_open.Visibility = Visibility.Collapsed;
+            ChatboxVisibility.Instance.OpenChatbox();
         }
 
         // Close element description window
@@ -504,6 +505,18 @@ namespace LordOfUltima
         private void research_gold_button_Click(object sender, RoutedEventArgs e)
         {
             _researchHandler.UpdateResearch(_researchHandler.GoldResearchType);
+        }
+        #endregion
+
+        #region Dungeon Visibility
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            DungeonVisibility.Instance.ShowDungeon();
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            DungeonVisibility.Instance.HideDungeon();
         }
         #endregion
     }

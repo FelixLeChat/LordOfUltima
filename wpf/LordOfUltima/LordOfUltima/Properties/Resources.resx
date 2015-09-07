@@ -436,4 +436,7 @@
   <data name="Lou_artifact_verite_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Research\Lou_artifact_verite_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dungeon_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\dungeon_map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

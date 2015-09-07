@@ -58,5 +58,17 @@ namespace LordOfUltima.Properties {
                 this["UpdateTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChatMinimized {
+            get {
+                return ((bool)(this["ChatMinimized"]));
+            }
+            set {
+                this["ChatMinimized"] = value;
+            }
+        }
     }
 }
