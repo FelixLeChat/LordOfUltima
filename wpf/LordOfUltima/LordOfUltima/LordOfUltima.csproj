@@ -111,11 +111,14 @@
     <Compile Include="Gameboard\ElementInterface\Types\LakeElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\MarketplaceElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\MillElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\MoonglowTowerBuilding.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\QuarryElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\ResearchCenterElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\SawmillElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\StableBuilding.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\StoneMasonElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\TrainingGroundBuilding.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\WarehouseElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\TownHallElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\TownhouseElementType.cs" />
@@ -575,6 +578,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Military\building_cityguard_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_training_ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_training_ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_stable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_stable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_moonglow_tower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_moonglow_tower.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

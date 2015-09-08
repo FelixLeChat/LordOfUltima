@@ -539,11 +539,26 @@ namespace LordOfUltima
         {
             BuildElement(new BarrackBuilding());
         }
+
         private void building_cityguard_house_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BuildElement(new CityguardBuilding());
         }
-        #endregion
 
+        private void building_training_ground_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new TrainingGroundBuilding());
+        }
+
+        private void building_stable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new StableBuilding());
+        }
+
+        private void building_moonglow_tower_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new MoonglowTowerBuilding());
+        }
+        #endregion
     }
 }

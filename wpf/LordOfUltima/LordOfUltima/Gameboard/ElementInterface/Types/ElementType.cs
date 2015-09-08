@@ -24,7 +24,10 @@
             BUILDING_RESEARCH_CENTER,
             BUILDING_WAREHOUSE,
             BUILDING_BARRACK,
-            BUILDING_CITYGUARD_HOUSE
+            BUILDING_CITYGUARD_HOUSE,
+            BUILDING_TRAINING_GROUND,
+            BUILDING_STABLE,
+            BUILDING_MOONGLOW_TOWER
         }
 
         public static string GetTypeName(Type resstype)
@@ -91,6 +94,15 @@
                     break;
                 case Type.BUILDING_CITYGUARD_HOUSE:
                     name = "Cityguard House";
+                    break;
+                case Type.BUILDING_TRAINING_GROUND:
+                    name = "Training Ground";
+                    break;
+                case Type.BUILDING_STABLE:
+                    name = "Stable";
+                    break;
+                case Type.BUILDING_MOONGLOW_TOWER:
+                    name = "Moonglow Tower";
                     break;
             }
             return name;
@@ -206,6 +218,15 @@
                     break;
                 case "BUILDING_CITYGUARD_HOUSE":
                     newElement = new CityguardBuilding();
+                    break;
+                case "BUILDING_TRAINING_GROUND":
+                    newElement = new TrainingGroundBuilding();
+                    break;
+                case "BUILDING_STABLE":
+                    newElement = new StableBuilding();
+                    break;
+                case "BUILDING_MOONGLOW_TOWER":
+                    newElement = new MoonglowTowerBuilding();
                     break;
             }
 

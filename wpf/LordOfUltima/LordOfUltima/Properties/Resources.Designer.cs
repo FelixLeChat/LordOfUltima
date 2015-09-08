@@ -143,6 +143,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap building_moonglow_tower {
+            get {
+                object obj = ResourceManager.GetObject("building_moonglow_tower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building_research_center {
             get {
                 object obj = ResourceManager.GetObject("building_research_center", resourceCulture);
@@ -156,6 +166,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap building_sawmill {
             get {
                 object obj = ResourceManager.GetObject("building_sawmill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap building_stable {
+            get {
+                object obj = ResourceManager.GetObject("building_stable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +226,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap building_townhouse {
             get {
                 object obj = ResourceManager.GetObject("building_townhouse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap building_training_ground {
+            get {
+                object obj = ResourceManager.GetObject("building_training_ground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -893,6 +923,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_moonglow_tower {
+            get {
+                object obj = ResourceManager.GetObject("menu_moonglow_tower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_quarry {
             get {
                 object obj = ResourceManager.GetObject("menu_quarry", resourceCulture);
@@ -926,6 +966,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap menu_sawmill {
             get {
                 object obj = ResourceManager.GetObject("menu_sawmill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_stable {
+            get {
+                object obj = ResourceManager.GetObject("menu_stable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -976,6 +1026,16 @@ namespace LordOfUltima.Properties {
         internal static System.Drawing.Bitmap menu_townhouse {
             get {
                 object obj = ResourceManager.GetObject("menu_townhouse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_training_ground {
+            get {
+                object obj = ResourceManager.GetObject("menu_training_ground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

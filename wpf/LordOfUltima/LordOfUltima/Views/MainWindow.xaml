@@ -95,7 +95,7 @@
             <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400">
                 <Label.ToolTip>
                     <Border Height="20" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                        <TextBlock Name="qty_gold_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0" Height="20" FontFamily="Vani" FontSize="15"/>
+                        <TextBlock Name="qty_gold_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0 " Height="20" FontFamily="Vani" FontSize="15"/>
                     </Border>
                 </Label.ToolTip>
             </Label>
@@ -108,7 +108,7 @@
             <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486">
                 <Label.ToolTip>
                     <Border Height="20" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                        <TextBlock Name="qty_research_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0" Height="20" FontFamily="Vani" FontSize="15"/>
+                        <TextBlock Name="qty_research_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0 " Height="20" FontFamily="Vani" FontSize="15"/>
                     </Border>
                 </Label.ToolTip>
             </Label>
@@ -165,6 +165,34 @@
                                 </Border>
                             </Rectangle.ToolTip>
                         </Rectangle>
+
+                        <!-- Training Groupd -->
+                        <Rectangle Name="building_training_ground" Height="115" Width="100" Canvas.Left="10" Canvas.Top="140"  ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_training_ground_MouseLeftButtonDown">
+                            <Rectangle.ToolTip >
+                                <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                    <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Allows recruitment of infantry units and, if upgraded, increases their stats.&#x0a;&#x0a;&#x0a;&#x0a;Initial cost: &#x0a;20 woods &#x0a;40 stoness" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                                </Border>
+                            </Rectangle.ToolTip>
+                        </Rectangle>
+
+                        <!-- Stable -->
+                        <Rectangle Name="building_stable" Height="115" Width="100" Canvas.Left="125" Canvas.Top="140" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_stable_MouseLeftButtonDown">
+                            <Rectangle.ToolTip >
+                                <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                    <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Allows recruitment of cavalry units and, if upgraded, increases their stats.&#x0a;&#x0a;Initial cost: &#x0a;25 woods &#x0a;50 stones" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                                </Border>
+                            </Rectangle.ToolTip>
+                        </Rectangle>
+
+                        <!-- Moonglow Tower -->
+                        <Rectangle Name="building_moonglow_tower" Height="115" Width="100" Canvas.Left="10" Canvas.Top="270" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_moonglow_tower_MouseLeftButtonDown">
+                            <Rectangle.ToolTip >
+                                <Border Height="95" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                    <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="Allows recruitment of caster units and, if upgraded, increases their stats.&#x0a;&#x0a;Initial cost: &#x0a;30 woods &#x0a;60 stones" Width="140" Height="90" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                                </Border>
+                            </Rectangle.ToolTip>
+                        </Rectangle>
+
 
                     </Canvas>
                     
@@ -279,7 +307,7 @@
                     </Canvas>
                 </Canvas>
 
-                <Canvas Name="building_details" Height="432" Width="244" Visibility="Visible" Margin="0,-30,0,0">
+                <Canvas Name="building_details" Height="432" Width="244" Visibility="Hidden" Margin="0,-30,0,0">
                     <Rectangle Name="building_details_img" Width="126" Height="145" Canvas.Left="57" Canvas.Top="10"/>
 
 

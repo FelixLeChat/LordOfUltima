@@ -62,6 +62,9 @@ namespace LordOfUltima.Events
             // Military Building init
             InitImageRectangle(new BarrackBuilding().GetDetailImagePath(), _mainWindow.building_barrack);
             InitImageRectangle(new CityguardBuilding().GetDetailImagePath(), _mainWindow.building_cityguard_house);
+            InitImageRectangle(new TrainingGroundBuilding().GetDetailImagePath(), _mainWindow.building_training_ground);
+            InitImageRectangle(new StableBuilding().GetDetailImagePath(), _mainWindow.building_stable);
+            InitImageRectangle(new MoonglowTowerBuilding().GetDetailImagePath(), _mainWindow.building_moonglow_tower);
         }
 
         private void InitImageRectangle(string imgUrl, Rectangle rectangle)
