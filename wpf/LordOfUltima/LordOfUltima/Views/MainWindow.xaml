@@ -92,14 +92,26 @@
                     <ImageBrush ImageSource="/Resources/Images/Lou_resource_gold.png"/>
                 </Canvas.Background>
             </Canvas>
-            <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400"/>
+            <Label Name="qty_gold" Content="0" Width="70" Height="24" Foreground="#FCEB43" Canvas.Left="400">
+                <Label.ToolTip>
+                    <Border Height="20" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                        <TextBlock Name="qty_gold_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0" Height="20" FontFamily="Vani" FontSize="15"/>
+                    </Border>
+                </Label.ToolTip>
+            </Label>
 
             <Canvas Name="ress_research" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="16"  Canvas.Left="470" Canvas.Top="1">
                 <Canvas.Background>
                     <ImageBrush ImageSource="/Resources/Images/research.png"/>
                 </Canvas.Background>
             </Canvas>
-            <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486"/>
+            <Label Name="qty_research" Content="0" Width="60" Height="24" Foreground="#FCEB43" Canvas.Left="486">
+                <Label.ToolTip>
+                    <Border Height="20" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                        <TextBlock Name="qty_research_incr" Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="+0" Height="20" FontFamily="Vani" FontSize="15"/>
+                    </Border>
+                </Label.ToolTip>
+            </Label>
 
             <Label Content="Building Count : " Foreground="#918544" Canvas.Left="550"/>
             <Label Name="building_count" Foreground="#FCEB43" Canvas.Left="640" Content="0/0"/>

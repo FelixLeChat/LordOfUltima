@@ -259,6 +259,8 @@ namespace LordOfUltima.RessourcesProduction
             mainWindow.qty_stone_incr.Content = Math.Round(_ressourcesProduction.StoneQty);
             mainWindow.qty_iron_incr.Content = Math.Round(_ressourcesProduction.IronQty);
             mainWindow.qty_grain_incr.Content = Math.Round(_ressourcesProduction.FoodQty);
+            mainWindow.qty_gold_incr.Text = "+ " + Math.Round(_ressourcesProduction.GoldQty) + " ";
+            mainWindow.qty_research_incr.Text = "+ " + Math.Round(_ressourcesProduction.ResearchQty) + " ";
         }
 
         public void UpdateRessourceUi()
