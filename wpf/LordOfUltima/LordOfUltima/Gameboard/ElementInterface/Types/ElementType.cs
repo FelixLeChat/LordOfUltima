@@ -22,7 +22,9 @@
             BUILDING_TOWNHOUSE,
             BUILDING_MARKETPLACE,
             BUILDING_RESEARCH_CENTER,
-            BUILDING_WAREHOUSE
+            BUILDING_WAREHOUSE,
+            BUILDING_BARRACK,
+            BUILDING_CITYGUARD_HOUSE
         }
 
         public static string GetTypeName(Type resstype)
@@ -83,6 +85,12 @@
                     break;
                 case Type.BUILDING_WAREHOUSE:
                     name = "Warehouse";
+                    break;
+                case Type.BUILDING_BARRACK:
+                    name = "Barrack";
+                    break;
+                case Type.BUILDING_CITYGUARD_HOUSE:
+                    name = "Cityguard House";
                     break;
             }
             return name;
@@ -192,6 +200,12 @@
                     break;
                 case "BUILDING_WAREHOUSE":
                     newElement = new WarehouseElementType();
+                    break;
+                case "BUILDING_BARRACK":
+                    newElement = new BarrackBuilding();
+                    break;
+                case "BUILDING_CITYGUARD_HOUSE":
+                    newElement = new CityguardBuilding();
                     break;
             }
 

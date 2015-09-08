@@ -471,6 +471,7 @@ namespace LordOfUltima
             ResetMapElementBorder.Instance.ResetSelectionBorder();
         }
 
+        #region Research page visibility
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             ResearchPageVisibility.InvertResearchPageVisibility();
@@ -480,6 +481,7 @@ namespace LordOfUltima
         {
             ResearchPageVisibility.HideResearchPage();
         }
+        #endregion
 
         #region Research upgrade buttons
         private void research_wood_button_Click(object sender, RoutedEventArgs e)
@@ -519,5 +521,29 @@ namespace LordOfUltima
             DungeonVisibility.Instance.HideDungeon();
         }
         #endregion
+
+        #region Units/Ressources building visibility
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            BuildingMenuVisibility.Instance.ShowBuildingRessourcesMenu();
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            BuildingMenuVisibility.Instance.ShowBuildingUnitsMenu();
+        }
+        #endregion
+
+        #region Military Building click
+        private void building_barrack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new BarrackBuilding());
+        }
+        private void building_cityguard_house_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BuildElement(new CityguardBuilding());
+        }
+        #endregion
+
     }
 }

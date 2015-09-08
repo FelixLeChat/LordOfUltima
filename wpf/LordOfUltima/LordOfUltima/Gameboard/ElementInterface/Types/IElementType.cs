@@ -8,6 +8,7 @@
         string Name();
         bool HasLevelEnable();
         bool IsRessources();
+        bool IsMilitary();
         ElementType.Type GetElementType();
 
         // Cost of upgrading the element

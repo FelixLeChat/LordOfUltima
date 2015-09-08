@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using LordOfUltima.MGameboard;
+using LordOfUltima.Research;
 
 namespace LordOfUltima.Events
 {
@@ -165,6 +166,9 @@ namespace LordOfUltima.Events
                 // Show/Hide Bonus label
                 #region Bonus Label handle
 
+                _mainWindow.building_units_label.Visibility = Visibility.Hidden;
+                _mainWindow.building_detail_units.Content = "";
+
                 ElementProductionBonus elementProductionBonus =
                     _elementMenuDetail.GetElementType().GetElementProductionBonus(elementLevel);
                 if (elementProductionBonus != null)
@@ -175,6 +179,25 @@ namespace LordOfUltima.Events
                     {
                         _mainWindow.building_detail_bonus.Content = String.Format("{0}%",
                             elementProductionBonus.GetFirstNotNull());
+                    }
+                }
+                else if (_elementMenuDetail.GetElementType().IsMilitary())
+                {
+                    var militaryElement = (IUnitBuilding) _elementMenuDetail.GetElementType();
+
+                    if (!militaryElement.IsBarrack())
+                    {
+                        _mainWindow.building_bonus_label.Visibility = Visibility.Visible;
+                        _mainWindow.building_detail_bonus.Content = String.Format("{0}%",
+                            militaryElement.GetUnitBonus(_elementMenuDetail.Level));
+                    }
+                    else
+                    {
+                        _mainWindow.building_units_label.Visibility = Visibility.Visible;
+                        _mainWindow.building_detail_units.Content = militaryElement.GetArmySize(_elementMenuDetail.Level);
+
+                        _mainWindow.building_bonus_label.Visibility = Visibility.Hidden;
+                        _mainWindow.building_detail_bonus.Content = "";
                     }
                 }
                 else

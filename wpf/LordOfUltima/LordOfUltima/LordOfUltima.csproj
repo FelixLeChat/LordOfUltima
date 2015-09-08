@@ -99,6 +99,7 @@
     <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProductionBonus.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementStorage.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\CityguardBuilding.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\ElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\FarmElementType.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\FieldsElementType.cs" />
@@ -136,6 +137,8 @@
     <Compile Include="Research\ResearchHandler.cs" />
     <Compile Include="Score\Score.cs" />
     <Compile Include="Score\ScoreManager.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\BarrackBuilding.cs" />
+    <Compile Include="Units\IUnitBuilding.cs" />
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -383,6 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+    <Folder Include="Units\Buildings\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\options_menu.png" />
@@ -559,6 +563,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\dungeon_map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_barrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_barrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_cityguard_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_cityguard_house.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

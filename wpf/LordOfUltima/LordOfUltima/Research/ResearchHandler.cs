@@ -91,6 +91,10 @@ namespace LordOfUltima.Research
 
         private void setPath(Rectangle rectangle, IResearchType researchType, int level)
         {
+            // max level
+            if (level == researchType.GetMaxLevel() + 1)
+                level--;
+
             if (level <= 0 || level > researchType.GetMaxLevel())
                 return;
 

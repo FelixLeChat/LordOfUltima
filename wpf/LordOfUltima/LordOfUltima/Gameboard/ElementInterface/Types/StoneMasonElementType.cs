@@ -63,6 +63,7 @@ namespace LordOfUltima.MGameboard
         public string GetElementInfo() { return _elementInfo; }
         public ElementType.Type GetElementType() { return _elementType; }
         public ElementProduction GetElementProduction(int level) { return null; }
+        public bool IsMilitary() { return false; }
 
         public ElementCost GetElementCost(int level)
         {

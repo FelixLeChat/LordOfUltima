@@ -58,6 +58,10 @@ namespace LordOfUltima.Events
             InitImageRectangle(new MarketplaceElementType().GetDetailImagePath(), _mainWindow.building_marketplace);
             InitImageRectangle(new ResearchCenterElementType().GetDetailImagePath(), _mainWindow.building_research_center);
             InitImageRectangle(new WarehouseElementType().GetDetailImagePath(), _mainWindow.building_storage);
+
+            // Military Building init
+            InitImageRectangle(new BarrackBuilding().GetDetailImagePath(), _mainWindow.building_barrack);
+            InitImageRectangle(new CityguardBuilding().GetDetailImagePath(), _mainWindow.building_cityguard_house);
         }
 
         private void InitImageRectangle(string imgUrl, Rectangle rectangle)
@@ -70,17 +74,6 @@ namespace LordOfUltima.Events
             ImageBrush imageBrush = new ImageBrush {ImageSource = new BitmapImage(new Uri(@imgUrl, UriKind.RelativeOrAbsolute))};
             return imageBrush;
         }
-
-        /*private ImageBrush getImageBrushResource(object value)
-        {
-            var resourceConverter = new WPFBitmapConverter();
-            ImageBrush imageBrush = new ImageBrush()
-            {
-                ImageSource = (ImageSource) resourceConverter.Convert(value, null, null, null)
-            };
-            return imageBrush;
-        }*/
-
         
         public void TriggerDarkTheme()
         {

@@ -73,6 +73,26 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap building_barrack {
+            get {
+                object obj = ResourceManager.GetObject("building_barrack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap building_cityguard_house {
+            get {
+                object obj = ResourceManager.GetObject("building_cityguard_house", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building_farm_2 {
             get {
                 object obj = ResourceManager.GetObject("building_farm_2", resourceCulture);
@@ -743,9 +763,29 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_barrack {
+            get {
+                object obj = ResourceManager.GetObject("menu_barrack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_bottom {
             get {
                 object obj = ResourceManager.GetObject("menu_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_cityguard_house {
+            get {
+                object obj = ResourceManager.GetObject("menu_cityguard_house", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

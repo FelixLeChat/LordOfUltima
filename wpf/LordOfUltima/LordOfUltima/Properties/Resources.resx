@@ -439,4 +439,16 @@
   <data name="dungeon_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\dungeon_map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="building_barrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_barrack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_cityguard_house" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_cityguard_house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_barrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_barrack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_cityguard_house" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_cityguard_house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
