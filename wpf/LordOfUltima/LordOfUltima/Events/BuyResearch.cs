@@ -1,6 +1,4 @@
-﻿using LordOfUltima.Error;
-using LordOfUltima.MGameboard;
-using LordOfUltima.Research;
+﻿using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
 
 namespace LordOfUltima.Events
@@ -8,7 +6,8 @@ namespace LordOfUltima.Events
     class BuyResearch
     {
         private static BuyResearch _buyResearch;
-        public static BuyResearch Instance => _buyResearch ?? (_buyResearch = new BuyResearch());
+        public static BuyResearch Instance
+        { get{return _buyResearch ?? (_buyResearch = new BuyResearch()); } }
 
         public bool Buy(IResearchType research)
         {

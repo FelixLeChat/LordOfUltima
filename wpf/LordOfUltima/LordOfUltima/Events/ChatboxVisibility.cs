@@ -5,7 +5,9 @@ namespace LordOfUltima.Events
     class ChatboxVisibility
     {
         private static ChatboxVisibility _instance;
-        public static ChatboxVisibility Instance => _instance ?? (_instance = new ChatboxVisibility());
+
+        public static ChatboxVisibility Instance
+        { get{return _instance ?? (_instance = new ChatboxVisibility()); } }
 
         public void MinimizeChatbox()
         {

@@ -14,7 +14,8 @@ namespace LordOfUltima.Research
     class ResearchHandler
     {
         private static ResearchHandler _instanceHandler;
-        public static ResearchHandler Instance => _instanceHandler ?? (_instanceHandler = new ResearchHandler());
+        public static ResearchHandler Instance
+        { get{return _instanceHandler ?? (_instanceHandler = new ResearchHandler()); } }
 
         public readonly IResearchType WoodResearchType;
         public readonly IResearchType StoneResearchType;
