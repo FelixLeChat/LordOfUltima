@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F4C58AF-D80A-43E2-9B26-16D35F713FEA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LordOfUltima</RootNamespace>
+    <AssemblyName>LordOfUltima</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publier\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Error\Error.cs" />
+    <Compile Include="Error\ErrorManager.cs" />
+    <Compile Include="Error\LoadException.cs" />
+    <Compile Include="Error\LoginError.cs" />
+    <Compile Include="Events\BuildEvent.cs" />
+    <Compile Include="Events\BuildingCount.cs" />
+    <Compile Include="Events\BuildingDetailsVisibility.cs" />
+    <Compile Include="Events\BuildingMenuVisibility.cs" />
+    <Compile Include="Events\BuyElement.cs" />
+    <Compile Include="Events\BuyResearch.cs" />
+    <Compile Include="Events\ChatboxVisibility.cs" />
+    <Compile Include="Events\ChatEvents.cs" />
+    <Compile Include="Events\DeleteElement.cs" />
+    <Compile Include="Events\DungeonVisibility.cs" />
+    <Compile Include="Events\LevelIndicatorVisibility.cs" />
+    <Compile Include="Events\MainWindowEvents\GameboardInit.cs" />
+    <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />
+    <Compile Include="Events\MainWindowEvents\SetSettings.cs" />
+    <Compile Include="Events\MainWindowEvents\UIImagesInit.cs" />
+    <Compile Include="Events\ResearchPageVisibility.cs" />
+    <Compile Include="Events\ResetMapElementBorder.cs" />
+    <Compile Include="Events\ResetMapElements.cs" />
+    <Compile Include="Events\ResetMap.cs" />
+    <Compile Include="Events\RessourcesBuildingCheck.cs" />
+    <Compile Include="Events\UpgradeElement.cs" />
+    <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
+    <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />
+    <Compile Include="Gameboard\ElementInterface\ElementProductionBonus.cs" />
+    <Compile Include="Gameboard\ElementInterface\ElementStorage.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\CityguardBuilding.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\ElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\FarmElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\FieldsElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\ForestElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\FoundryElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\IElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\IronElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\IronMineElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\LakeElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\MarketplaceElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\MillElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\MoonglowTowerBuilding.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\QuarryElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\ResearchCenterElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\SawmillElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\StableBuilding.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\StoneElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\StoneMasonElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\TrainingGroundBuilding.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\WarehouseElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\TownHallElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\TownhouseElementType.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\WoodcutterElementType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GameRessources\Storage.cs" />
+    <Compile Include="Research\Element\FoodResearch.cs" />
+    <Compile Include="Research\Element\GoldResearch.cs" />
+    <Compile Include="Research\Element\IronResearch.cs" />
+    <Compile Include="Research\Element\StoneResearch.cs" />
+    <Compile Include="Research\Element\WoodResearch.cs" />
+    <Compile Include="Research\IResearchType.cs" />
+    <Compile Include="Research\ResearchBonus.cs" />
+    <Compile Include="Research\ResearchCost.cs" />
+    <Compile Include="Research\ResearchHandler.cs" />
+    <Compile Include="Score\Score.cs" />
+    <Compile Include="Score\ScoreManager.cs" />
+    <Compile Include="Gameboard\ElementInterface\Types\BarrackBuilding.cs" />
+    <Compile Include="Units\IUnitBuilding.cs" />
+    <Compile Include="Utilities\WPFBitmapConverter.cs" />
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MusicOption.xaml.cs">
+      <DependentUpon>MusicOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\MusicPlayer.cs" />
+    <Compile Include="Views\Notification.xaml.cs">
+      <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameRessources\Ressources.cs" />
+    <Compile Include="GameRessources\RessourcesManager.cs" />
+    <Compile Include="GameRessources\RessourcesProduction.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="Views\UpdateTimeOption.xaml.cs">
+      <DependentUpon>UpdateTimeOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Chat.cs" />
+    <Compile Include="Web\Login.cs" />
+    <Compile Include="Web\Utility.cs" />
+    <Compile Include="XML\SaveGame.cs" />
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gameboard\Element.cs" />
+    <Compile Include="Gameboard\Gameboard.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\MusicOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateTimeOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\login_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\side_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_division.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ressource_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Lou_resource_wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\research.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Lou_resource_gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Lou_resource_grain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Lou_resource_iron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Lou_resource_stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\delete_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\chat_Button_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\chat_Button_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\level_rect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_foundry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_iron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_ironmine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_lake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_mill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_quarry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_sawmill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_stonemason.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_townhall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_woodcutter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_farm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_forest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_corn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_iron_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_iron_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_iron_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_iron_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_lake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_wood_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_wood_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_wood_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\resource_wood_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_farm_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_foundry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_iron_quary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_mill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_sawmill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_stone_quary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_stonemason.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_townhall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_woodcutter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="Units\Buildings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\options_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Audio\barren_plains.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audio\etheral.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audio\main_theme.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audio\rule_city.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_marketplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_marketplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_townhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_townhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_research_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_research_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu_storage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\building_storage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\research_menu_div.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_sickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_steel_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_bronze_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_copper_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_valorite_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_verite_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_platinum_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_gold_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Research\Lou_artifact_silver_chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\dungeon_map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_barrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_barrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_cityguard_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_cityguard_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_training_ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_training_ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_stable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_stable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\menu_moonglow_tower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Military\building_moonglow_tower.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

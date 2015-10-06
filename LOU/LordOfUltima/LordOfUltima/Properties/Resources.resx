@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="barren_plains" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Audio\barren_plains.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="building_farm_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_farm_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_foundry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_foundry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_iron_quary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_iron_quary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_mill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_mill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_sawmill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_sawmill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_stonemason" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_stonemason.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_stone_quary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_stone_quary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_townhall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_townhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_woodcutter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_woodcutter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chat_Button_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\chat_Button_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chat_Button_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\chat_Button_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\delete_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="etheral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Audio\etheral.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="level_rect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\level_rect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\login_background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_resource_gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Lou_resource_gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_resource_grain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Lou_resource_grain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_resource_iron" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Lou_resource_iron.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_resource_stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Lou_resource_stone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_resource_wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Lou_resource_wood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Audio\main_theme.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menu_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_division" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_division.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_farm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_farm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_field" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_field.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_forest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_forest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_foundry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_foundry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_iron" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_iron.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_ironmine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_ironmine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_lake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_lake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_mill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_mill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_quarry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_quarry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_repeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_repeat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_sawmill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_sawmill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_stone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_stonemason" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_stonemason.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_townhall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_townhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_woodcutter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_woodcutter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="options_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\options_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="research" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\research.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_corn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_corn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_iron_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_iron_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_iron_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_iron_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_iron_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_iron_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_iron_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_iron_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_lake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_lake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_stone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_wood_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_wood_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_wood_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_wood_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_wood_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_wood_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resource_wood_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\resource_wood_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ressource_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\ressource_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rule_city" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Audio\rule_city.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="side_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\side_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_marketplace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_marketplace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_townhouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_townhouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_marketplace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_marketplace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_townhouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_townhouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_research_center" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_research_center.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_research_center" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_research_center.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_storage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\building_storage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_storage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\menu_storage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Research_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="research_menu_div" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\research_menu_div.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_pick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_sickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_sickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_bronze_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_bronze_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_copper_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_copper_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_gold_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_gold_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_platinum_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_platinum_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_silver_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_silver_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_steel_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_steel_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_valorite_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_valorite_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lou_artifact_verite_chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Research\Lou_artifact_verite_chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dungeon_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\dungeon_map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_barrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_barrack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_cityguard_house" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_cityguard_house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_barrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_barrack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_cityguard_house" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_cityguard_house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_training_ground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_training_ground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_training_ground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_training_ground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_moonglow_tower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_moonglow_tower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="building_stable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\building_stable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_moonglow_tower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_moonglow_tower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_stable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Military\menu_stable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

@@ -1,9 +1,0 @@
-lib,user time,system time,elapsed time,page-faults,context-switches,L1-dcache-load-misses
-serial,/usr/bin/time: cannot run ./banque: Permission denied
-0.00,0.00,0:00.00,Workload failed: Permission non accordée
-fork,/usr/bin/time: cannot run ./banque: Permission denied
-0.00,0.00,0:00.00,Workload failed: Permission non accordée
-pthread,/usr/bin/time: cannot run ./banque: Permission denied
-0.00,0.00,0:00.00,Workload failed: Permission non accordée
-pth,/usr/bin/time: cannot run ./banque: Permission denied
-0.00,0.00,0:00.00,Workload failed: Permission non accordée
