@@ -18,10 +18,6 @@ namespace LordOfUltima
             // Hide both panel
             login_panel.Visibility = Visibility.Hidden;
             signup_panel.Visibility = Visibility.Hidden;
-
-            // Test
-            login_password_textbox.Password = "1111AA";
-            login_email_textbox.Text = "felix@felix.ca";
         }
 
 
@@ -300,6 +296,13 @@ namespace LordOfUltima
                 isSucess = false;
             }
             return isSucess;
+        }
+
+        private void offline_Click(object sender, RoutedEventArgs e)
+        {
+            User.User.Instance.Email = "offline@offline.com";
+            User.User.Instance.Name = "Offline";
+            good_login();
         }
     }
 }

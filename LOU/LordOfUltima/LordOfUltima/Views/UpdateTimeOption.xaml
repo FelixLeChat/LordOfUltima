@@ -1,12 +1,12 @@
 ﻿<Window x:Class="LordOfUltima.Views.UpdateTimeOption"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Time Option" 
+        Title="Lord Of Ultima - Update" 
         Height="200"
         MaxHeight="200"
         Width="300" 
         MaxWidth="300"
-        Closed="Window_Closed">
+        Closed="Window_Closed" Icon="/LordOfUltima;component/Resources/Images/icon/icon.bmp">
     
     <Grid Name="window_background">
         <Grid.Background>
