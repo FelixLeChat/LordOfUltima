@@ -113,6 +113,8 @@ namespace LordOfUltima.XML
             xmlWriter.WriteEndElement();
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
+
+            Error.ErrorManager.Instance.AddError(new Error.Error() {Description = Error.Error.Type.SAVE_SUCESSFULL});
         }
 
         public bool Load()

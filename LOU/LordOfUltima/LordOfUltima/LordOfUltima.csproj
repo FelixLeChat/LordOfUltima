@@ -142,6 +142,16 @@
     <Compile Include="Score\ScoreManager.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\BarrackBuilding.cs" />
     <Compile Include="Units\IUnitBuilding.cs" />
+    <Compile Include="Units\Units\BerserkerUnit.cs" />
+    <Compile Include="Units\Units\CityguardUnit.cs" />
+    <Compile Include="Units\Units\CrossbowUnit.cs" />
+    <Compile Include="Units\Units\GuardianUnit.cs" />
+    <Compile Include="Units\Units\IUnit.cs" />
+    <Compile Include="Units\Units\KnightUnit.cs" />
+    <Compile Include="Units\Units\MangeUnit.cs" />
+    <Compile Include="Units\Units\PaladinUnit.cs" />
+    <Compile Include="Units\Units\RangerUnit.cs" />
+    <Compile Include="Units\Units\UnitStats.cs" />
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -389,7 +399,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
-    <Folder Include="Units\Buildings\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\options_menu.png" />
@@ -599,6 +608,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\icon\icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Units\units_berserker.png" />
+    <Resource Include="Resources\Images\Units\units_cityguard.png" />
+    <Resource Include="Resources\Images\Units\units_crossbow.png" />
+    <Resource Include="Resources\Images\Units\units_guardian.png" />
+    <Resource Include="Resources\Images\Units\units_knight.png" />
+    <Resource Include="Resources\Images\Units\units_mage.png" />
+    <Resource Include="Resources\Images\Units\units_paladin.png" />
+    <Resource Include="Resources\Images\Units\units_ranger.png" />
+    <Resource Include="Resources\Images\Units\units_scout.png" />
+    <Resource Include="Resources\Images\Units\units_templar.png" />
+    <Resource Include="Resources\Images\Units\units_warlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

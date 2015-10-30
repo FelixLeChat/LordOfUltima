@@ -36,6 +36,7 @@
 
             // Save
             SAVED_GAME_NOT_FOUND,
+            SAVE_SUCESSFULL,
 
             // Time option
             INVALID_TIME,
@@ -75,6 +76,9 @@
                     break;
                 case Type.FOOD_STORAGE_FULL:
                     result = "Food Storage is full";
+                    break;
+                case Type.SAVE_SUCESSFULL:
+                    result = "Save Sucessfull";
                     break;
             }
             return result;

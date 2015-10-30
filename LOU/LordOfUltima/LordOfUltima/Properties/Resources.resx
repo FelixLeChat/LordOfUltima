@@ -472,4 +472,37 @@
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\icon\icon.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="units_berserker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_berserker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_cityguard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_cityguard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_crossbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_crossbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_guardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_guardian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_knight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_knight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_mage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_mage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_paladin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_ranger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_ranger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_scout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_scout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_templar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_templar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="units_warlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\units\units_warlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
