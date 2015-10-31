@@ -130,7 +130,7 @@
                 <Canvas Name="building_menu" Height="670" Width="244" Visibility="Visible">
 
 
-                    <Button Width="60" Height="20" Margin="6,15,0,0" Content="Ressources" Click="Button_Click_9">
+                    <Button Width="65" Height="20" Content="Ressources" Click="Button_Click_9" Canvas.Left="6" Canvas.Top="15">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FF3F5D17" Offset="0"/>
@@ -139,7 +139,7 @@
                         </Button.Background>
                     </Button>
 
-                    <Button Width="60" Height="20" Margin="76,15,0,0" Content="Units" Click="Button_Click_10">
+                    <Button Width="60" Height="20" Margin="76,15,0,0" Content="Military" Click="Button_Click_10">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FF3F5D17" Offset="0"/>
@@ -196,7 +196,7 @@
 
 
                     </Canvas>
-                    
+
                     <Canvas Margin="0,40,0,0" Name="building_menu_ressources">
                         <!-- Woodcuter's Hut -->
                         <Rectangle Name="building_woodcutter" Height="115" Width="100" Canvas.Left="10" Canvas.Top="10" MouseLeftButtonDown="building_woodcutter_MouseLeftButtonDown" ToolTipService.ShowDuration="12000">
@@ -299,12 +299,12 @@
 
                         <!-- Marketplace -->
                         <Rectangle Name="building_storage" Height="115" Width="100" Canvas.Left="125" Canvas.Top="660" ToolTipService.ShowDuration="12000" MouseLeftButtonDown="building_storage_MouseLeftButtonDown">
-                        <Rectangle.ToolTip >
-                            <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
-                                <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="It increases the storage capacity for all resources. Enhanced by any bordering Sawmill, Stonemason, Mill or Foundry..&#x0a;&#x0a;Initial cost: &#x0a;60 woods" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
-                            </Border>
-                        </Rectangle.ToolTip>
-                    </Rectangle>
+                            <Rectangle.ToolTip >
+                                <Border Height="105" Width="145" BorderBrush="#FFEBD4AA" Background="#FF4A4B46" Margin="-6,-4,-6,-4">
+                                    <TextBlock Foreground="#FFEBD4AA" TextWrapping="Wrap" Text="It increases the storage capacity for all resources. Enhanced by any bordering Sawmill, Stonemason, Mill or Foundry..&#x0a;&#x0a;Initial cost: &#x0a;60 woods" Width="140" Height="100" FontFamily="Vani" FontSize="10" LineStackingStrategy="BlockLineHeight" LineHeight="13"/>
+                                </Border>
+                            </Rectangle.ToolTip>
+                        </Rectangle>
                     </Canvas>
                 </Canvas>
 
@@ -479,6 +479,15 @@
                 </Button.Background>
             </Button>
 
+            <Button Width="75" Height="20" Content="Recruitment" Canvas.Left="75" Canvas.Top="95" RenderTransformOrigin="0.6,0.6" Click="Button_Click_11">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
 
         </Canvas>
 
@@ -508,7 +517,15 @@
             <Label Name="error_description" Height="30" Width="200" FontFamily="Vani"/>
         </Border>
 
-        <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Visible">
+        <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="recruitment_page" Visibility="Visible">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_menu.png"/>
+            </Canvas.Background>
+            <Button Width="30" Height="30" Margin="670,0,0,0" Opacity="0.01" Cursor="Hand" Click="Button_Click_12"/>
+
+        </Canvas>
+
+        <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Hidden">
             <Canvas.Background>
                 <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Research_menu.png"/>
             </Canvas.Background>

@@ -105,6 +105,9 @@ namespace LordOfUltima
             // Hide research
             ResearchPageVisibility.HideResearchPage();
 
+            // Hide recruitment
+            RecruitmentPageVisibility.HideRecruitmentPage();
+
             // Chatbox state
             ChatboxVisibility.Instance.HandleChatboxVisibility();
 
@@ -474,12 +477,26 @@ namespace LordOfUltima
         #region Research page visibility
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
+            RecruitmentPageVisibility.HideRecruitmentPage();
             ResearchPageVisibility.InvertResearchPageVisibility();
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
             ResearchPageVisibility.HideResearchPage();
+        }
+        #endregion
+
+        #region Unit Recruitment page visibility
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            ResearchPageVisibility.HideResearchPage();
+            RecruitmentPageVisibility.InvertRecruitmentPageVisibility();
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            RecruitmentPageVisibility.HideRecruitmentPage();
         }
         #endregion
 

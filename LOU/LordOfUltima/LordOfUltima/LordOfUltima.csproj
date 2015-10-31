@@ -89,6 +89,7 @@
     <Compile Include="Events\MainWindowEvents\IdleUiThread.cs" />
     <Compile Include="Events\MainWindowEvents\SetSettings.cs" />
     <Compile Include="Events\MainWindowEvents\UIImagesInit.cs" />
+    <Compile Include="Events\RecruitmentPageVisibility.cs" />
     <Compile Include="Events\ResearchPageVisibility.cs" />
     <Compile Include="Events\ResetMapElementBorder.cs" />
     <Compile Include="Events\ResetMapElements.cs" />
@@ -151,7 +152,10 @@
     <Compile Include="Units\Units\MangeUnit.cs" />
     <Compile Include="Units\Units\PaladinUnit.cs" />
     <Compile Include="Units\Units\RangerUnit.cs" />
+    <Compile Include="Units\Units\ScoutUnit.cs" />
+    <Compile Include="Units\Units\TemplarUnit.cs" />
     <Compile Include="Units\Units\UnitStats.cs" />
+    <Compile Include="Units\Units\WarlockUnit.cs" />
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -621,6 +625,9 @@
     <Resource Include="Resources\Images\Units\units_scout.png" />
     <Resource Include="Resources\Images\Units\units_templar.png" />
     <Resource Include="Resources\Images\Units\units_warlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UI\Recruitment_menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

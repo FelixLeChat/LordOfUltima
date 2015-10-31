@@ -1073,6 +1073,16 @@ namespace LordOfUltima.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Recruitment_menu {
+            get {
+                object obj = ResourceManager.GetObject("Recruitment_menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap research {
             get {
                 object obj = ResourceManager.GetObject("research", resourceCulture);
