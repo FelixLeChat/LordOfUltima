@@ -517,12 +517,165 @@
             <Label Name="error_description" Height="30" Width="200" FontFamily="Vani"/>
         </Border>
 
-        <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="recruitment_page" Visibility="Visible">
+        <Canvas Height="380" Margin="274,60,291,169" Name="recruitment_page" Visibility="Visible">
             <Canvas.Background>
                 <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_menu.png"/>
             </Canvas.Background>
-            <Button Width="30" Height="30" Margin="670,0,0,0" Opacity="0.01" Cursor="Hand" Click="Button_Click_12"/>
+            <Button Width="23" Height="21" Opacity="0.01" Cursor="Hand" Click="Button_Click_12" Canvas.Left="578" Canvas.Top="6"/>
 
+            <!-- Cityguard Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="14" Canvas.Top="40">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_cityguard.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="cityguard_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="cityguard_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="cityguard_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Berserker Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="160" Canvas.Top="40">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_berserker.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="berserker_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="berserker_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="berserker_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Crossbow Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="306" Canvas.Top="40">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_crossbow.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="crossbow_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="crossbow_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="crossbow_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Guardian Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="452" Canvas.Top="40">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_guardian.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="guardian_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="guardian_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="guardian_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Knight Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="14" Canvas.Top="136">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_knight.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="knight_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="knight_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="knight_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Paladin Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="160" Canvas.Top="136">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_paladin.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="paladin_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="paladin_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="paladin_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Templar Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="306" Canvas.Top="136">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_templar.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="templar_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="templar_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="templar_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Ranger Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="452" Canvas.Top="136">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_ranger.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="ranger_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="ranger_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="ranger_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Scout Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="14" Canvas.Top="232">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_scout.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="scout_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="scout_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="scout_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Mage Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="160" Canvas.Top="232">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_mage.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="mage_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="mage_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="mage_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
+
+            <!-- Warlock Recruitment -->
+            <Canvas Width="141" Height="91" Canvas.Left="306" Canvas.Top="232">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_warlock.png"/>
+                </Canvas.Background>
+
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52"/>
+
+                <Label Name="warlock_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="warlock_recruitment_count" Content="0" Canvas.Left="67" Canvas.Top="39"/>
+                <Label Name="warlock_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
+            </Canvas>
         </Canvas>
 
         <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Hidden">
