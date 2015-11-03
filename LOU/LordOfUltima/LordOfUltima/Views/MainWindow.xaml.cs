@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using LordOfUltima.Music;
 using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
 using LordOfUltima.RessourcesStorage;
+using LordOfUltima.Units.Units;
 using LordOfUltima.Views;
 using LordOfUltima.XML;
 
@@ -30,6 +32,7 @@ namespace LordOfUltima
         private readonly ChatEvents _chatEvents;
         private readonly MusicPlayer _musicPlayer;
         private readonly ResearchHandler _researchHandler;
+        private readonly RecruitmentManager _recruitmentManager;
 
         public static MainWindow MIns;
         public MainWindow()
@@ -110,6 +113,9 @@ namespace LordOfUltima
 
             // Chatbox state
             ChatboxVisibility.Instance.HandleChatboxVisibility();
+
+            // Start Recruitment Manager
+            _recruitmentManager = RecruitmentManager.Instance;
 
             // Start Chat thread
             _chatEvents = ChatEvents.Instance;
@@ -577,5 +583,74 @@ namespace LordOfUltima
             BuildElement(new MoonglowTowerBuilding());
         }
         #endregion
+
+        #region Recruitment Window
+        #endregion
+
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        private static bool IsTextAllowed(string text)
+        {
+            Regex regex = new Regex("[^0-9]+"); //regex that matches disallowed text
+            return !regex.IsMatch(text);
+        }
+
+        // Incr recruitment cityguard
+        private void Button_Click_13(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(cityguard_recruitment_count.Text);
+            _recruitmentManager.IncrCount(cityguard_recruitment_count, UnitEntity.Cityguard, count);
+        }
+
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(cityguard_recruitment_count.Text);
+            _recruitmentManager.DecrCount(cityguard_recruitment_count, UnitEntity.Cityguard, count);
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(berserker_recruitment_count.Text);
+            _recruitmentManager.IncrCount(berserker_recruitment_count, UnitEntity.Berserker, count);
+        }
+
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(berserker_recruitment_count.Text);
+            _recruitmentManager.DecrCount(berserker_recruitment_count, UnitEntity.Berserker, count);
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(crossbow_recruitment_count.Text);
+            _recruitmentManager.IncrCount(crossbow_recruitment_count, UnitEntity.Crossbow, count);
+        }
+
+        private void Button_Click_18(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(crossbow_recruitment_count.Text);
+            _recruitmentManager.DecrCount(crossbow_recruitment_count, UnitEntity.Crossbow, count);
+        }
+
+        private void Button_Click_19(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(guardian_recruitment_count.Text);
+            _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+        }
+
+        private void Button_Click_20(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(guardian_recruitment_count.Text);
+            _recruitmentManager.DecrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+        }
+
+        private void Button_Click_21(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(guardian_recruitment_count.Text);
+            _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+        }
     }
 }

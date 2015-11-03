@@ -49,7 +49,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -143,18 +152,22 @@
     <Compile Include="Score\ScoreManager.cs" />
     <Compile Include="Gameboard\ElementInterface\Types\BarrackBuilding.cs" />
     <Compile Include="Units\IUnitBuilding.cs" />
+    <Compile Include="Units\UnitManager.cs" />
     <Compile Include="Units\Units\BerserkerUnit.cs" />
     <Compile Include="Units\Units\CityguardUnit.cs" />
     <Compile Include="Units\Units\CrossbowUnit.cs" />
     <Compile Include="Units\Units\GuardianUnit.cs" />
-    <Compile Include="Units\Units\IUnit.cs" />
+    <Compile Include="Units\Units\RecruitmentInfo.cs" />
+    <Compile Include="Units\Units\Unit.cs" />
     <Compile Include="Units\Units\KnightUnit.cs" />
-    <Compile Include="Units\Units\MangeUnit.cs" />
+    <Compile Include="Units\Units\MageUnit.cs" />
     <Compile Include="Units\Units\PaladinUnit.cs" />
     <Compile Include="Units\Units\RangerUnit.cs" />
+    <Compile Include="Units\Units\RecruitmentManager.cs" />
     <Compile Include="Units\Units\ScoutUnit.cs" />
     <Compile Include="Units\Units\TemplarUnit.cs" />
     <Compile Include="Units\Units\UnitStats.cs" />
+    <Compile Include="Units\Units\UnitType.cs" />
     <Compile Include="Units\Units\WarlockUnit.cs" />
     <Compile Include="Utilities\WPFBitmapConverter.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
@@ -222,6 +235,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

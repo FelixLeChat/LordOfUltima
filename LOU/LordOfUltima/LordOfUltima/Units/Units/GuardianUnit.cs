@@ -1,15 +1,10 @@
 ﻿namespace LordOfUltima.Units.Units
 {
-    class GuardianUnit : IUnit
+    class GuardianUnit : Unit
     {
-        private readonly UnitStats _unitStats;
-        private readonly string _imagePath;
-        private bool _available;
-        private readonly string _name;
-
-        GuardianUnit()
+        public GuardianUnit()
         {
-            _unitStats = new UnitStats()
+            UnitStats = new UnitStats()
             {
                 Attack = 10,
                 InfanteryDefence = 30,
@@ -21,32 +16,10 @@
                 Speed = 20,
                 AttackStructure = 10
             };
-            _imagePath = "pack://application:,,,/Resources/Images/Units/units_guardian.png";
-            _name = "Guardian";
-        }
-        public UnitStats GetUnitStats()
-        {
-            return _unitStats;
-        }
-
-        public string GetImagePath()
-        {
-            return _imagePath;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public bool GetAvailable()
-        {
-            return _available;
-        }
-
-        public void SetAvailability(bool availability)
-        {
-            _available = availability;
+            ImagePath = "pack://application:,,,/Resources/Images/Units/units_guardian.png";
+            Name = "Guardian";
+            UnitType = UnitType.Infantery;
+            UnitEntity = UnitEntity.Guardian;
         }
     }
 }

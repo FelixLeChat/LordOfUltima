@@ -1,15 +1,10 @@
 ﻿namespace LordOfUltima.Units.Units
 {
-    class CityguardUnit : IUnit
+    class CityguardUnit : Unit
     {
-        private readonly UnitStats _unitStats;
-        private readonly string _imagePath;
-        private bool _available;
-        private readonly string _name;
-
-        CityguardUnit()
+        public CityguardUnit()
         {
-            _unitStats = new UnitStats()
+            UnitStats = new UnitStats()
             {
                 Attack = 10,
                 InfanteryDefence = 10,
@@ -21,32 +16,10 @@
                 Speed = 0,
                 AttackStructure = 0
             };
-            _imagePath = "pack://application:,,,/Resources/Images/Units/units_cityguard.png";
-            _name = "Cityguard";
-        }
-        public UnitStats GetUnitStats()
-        {
-            return _unitStats;
-        }
-
-        public string GetImagePath()
-        {
-            return _imagePath;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public bool GetAvailable()
-        {
-            return _available;
-        }
-
-        public void SetAvailability(bool availability)
-        {
-            _available = availability;
+            ImagePath = "pack://application:,,,/Resources/Images/Units/units_cityguard.png";
+            Name = "Cityguard";
+            UnitType = UnitType.Infantery;
+            UnitEntity = UnitEntity.Cityguard;
         }
     }
 }

@@ -1,15 +1,10 @@
 ﻿namespace LordOfUltima.Units.Units
 {
-    class ScoutUnit : IUnit
+    class ScoutUnit : Unit
     {
-        private readonly UnitStats _unitStats;
-        private readonly string _imagePath;
-        private bool _available;
-        private readonly string _name;
-
-        ScoutUnit()
+        public ScoutUnit()
         {
-            _unitStats = new UnitStats()
+            UnitStats = new UnitStats()
             {
                 Attack = 10,
                 InfanteryDefence = 10,
@@ -21,32 +16,10 @@
                 Speed = 8,
                 AttackStructure = 10
             };
-            _imagePath = "pack://application:,,,/Resources/Images/Units/units_scout.png";
-            _name = "Scout";
-        }
-        public UnitStats GetUnitStats()
-        {
-            return _unitStats;
-        }
-
-        public string GetImagePath()
-        {
-            return _imagePath;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public bool GetAvailable()
-        {
-            return _available;
-        }
-
-        public void SetAvailability(bool availability)
-        {
-            _available = availability;
+            ImagePath = "pack://application:,,,/Resources/Images/Units/units_scout.png";
+            Name = "Scout";
+            UnitType = UnitType.Cavalery;
+            UnitEntity = UnitEntity.Scout;
         }
     }
 }

@@ -1,15 +1,10 @@
 ﻿namespace LordOfUltima.Units.Units
 {
-    class RangerUnit : IUnit
+    class RangerUnit : Unit
     {
-        private readonly UnitStats _unitStats;
-        private readonly string _imagePath;
-        private bool _available;
-        private readonly string _name;
-
-        RangerUnit()
+        public RangerUnit()
         {
-            _unitStats = new UnitStats()
+            UnitStats = new UnitStats()
             {
                 Attack = 20,
                 InfanteryDefence = 40,
@@ -21,32 +16,10 @@
                 Speed = 20,
                 AttackStructure = 20
             };
-            _imagePath = "pack://application:,,,/Resources/Images/Units/units_ranger.png";
-            _name = "Ranger";
-        }
-        public UnitStats GetUnitStats()
-        {
-            return _unitStats;
-        }
-
-        public string GetImagePath()
-        {
-            return _imagePath;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public bool GetAvailable()
-        {
-            return _available;
-        }
-
-        public void SetAvailability(bool availability)
-        {
-            _available = availability;
+            ImagePath = "pack://application:,,,/Resources/Images/Units/units_ranger.png";
+            Name = "Ranger";
+            UnitType = UnitType.Infantery;
+            UnitEntity = UnitEntity.Ranger;
         }
     }
 }

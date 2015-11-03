@@ -1,15 +1,10 @@
 ﻿namespace LordOfUltima.Units.Units
 {
-    class BerserkerUnit : IUnit
+    class BerserkerUnit : Unit
     {
-        private readonly UnitStats _unitStats;
-        private readonly string _imagePath;
-        private bool _available;
-        private readonly string _name;
-
-        BerserkerUnit()
+        public BerserkerUnit()
         {
-            _unitStats = new UnitStats()
+            UnitStats = new UnitStats()
             {
                 Attack = 50,
                 InfanteryDefence = 15,
@@ -21,32 +16,11 @@
                 Speed = 20,
                 AttackStructure = 15
             };
-            _imagePath = "pack://application:,,,/Resources/Images/Units/units_berserker.png";
-            _name = "Berserker";
-        }
-        public UnitStats GetUnitStats()
-        {
-            return _unitStats;
+            ImagePath = "pack://application:,,,/Resources/Images/Units/units_berserker.png";
+            Name = "Berserker";
+            UnitType = UnitType.Infantery;
+            UnitEntity = UnitEntity.Berserker;
         }
 
-        public string GetImagePath()
-        {
-            return _imagePath;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public bool GetAvailable()
-        {
-            return _available;
-        }
-
-        public void SetAvailability(bool availability)
-        {
-            _available = availability;
-        }
     }
 }
