@@ -35,11 +35,11 @@ namespace LordOfUltima.Events
             TimeSpan ts = _stopwatch.Elapsed;
 
             // Update Stop Watch
-            string time = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            string time = $"{ts.Hours:00}:{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds/10:00}";
             mainWindow.stop_watch.Content = time;
 
             // Update Chat
-            ChatEvents.Instance.ui_thread_updateChat();
+            //ChatEvents.Instance.ui_thread_updateChat();
 
             // Update ressources
             RessourcesManager.Instance.UpdateRessourceUi();

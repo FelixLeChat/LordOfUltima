@@ -104,6 +104,7 @@
     <Compile Include="Events\ResetMapElements.cs" />
     <Compile Include="Events\ResetMap.cs" />
     <Compile Include="Events\RessourcesBuildingCheck.cs" />
+    <Compile Include="Events\UnitRecruitmentVisibility.cs" />
     <Compile Include="Events\UpgradeElement.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementCost.cs" />
     <Compile Include="Gameboard\ElementInterface\ElementProduction.cs" />

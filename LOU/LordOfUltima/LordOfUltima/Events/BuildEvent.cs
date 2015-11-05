@@ -70,6 +70,9 @@ namespace LordOfUltima.Events
                     // Update Storage
                     Storage.Instance.UpdateStorageCapacity();
 
+                    // Update Unit visibility
+                    UnitRecruitmentVisibility.Instance.UpdateVisibility(_elementToBuild);
+
                     return true;
                 }
                 else

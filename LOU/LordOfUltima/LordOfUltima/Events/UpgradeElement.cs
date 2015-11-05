@@ -38,6 +38,7 @@ namespace LordOfUltima.Events
 
                 // Update Storage
                 Storage.Instance.UpdateStorageCapacity();
+
                 return true;
             }
             ErrorManager.Instance.AddError(new Error.Error(){Description = Error.Error.Type.NOT_ENOUGH_RESSOURCES_UPGRADE});

@@ -74,6 +74,9 @@ namespace LordOfUltima
             // Initialise Research
             _researchHandler = ResearchHandler.Instance;
             _researchHandler.Initialise();
+
+            // Disable Unit recruitment
+            UnitRecruitmentVisibility.Instance.DisableAllUnits();
             
             // load game
             if (!SaveGame.Instance.Load())
@@ -117,11 +120,14 @@ namespace LordOfUltima
             // Start Recruitment Manager
             _recruitmentManager = RecruitmentManager.Instance;
 
+            // Update recruitment window visibility
+            UnitRecruitmentVisibility.Instance.UpdateVisibility();
+
             // Start Chat thread
-            _chatEvents = ChatEvents.Instance;
+            /*_chatEvents = ChatEvents.Instance;
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += _chatEvents.UpdateChat;
-            bw.RunWorkerAsync();
+            bw.RunWorkerAsync();*/
         }
 
         #region Map Mouvement
@@ -585,8 +591,6 @@ namespace LordOfUltima
         #endregion
 
         #region Recruitment Window
-        #endregion
-
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed(e.Text);
@@ -652,5 +656,84 @@ namespace LordOfUltima
             var count = Int32.Parse(guardian_recruitment_count.Text);
             _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
         }
+
+        private void Button_Click_22(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(guardian_recruitment_count.Text);
+            _recruitmentManager.DecrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+        }
+
+        private void Button_Click_23(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(paladin_recruitment_count.Text);
+            _recruitmentManager.IncrCount(paladin_recruitment_count, UnitEntity.Paladin, count);
+        }
+
+        private void Button_Click_24(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(paladin_recruitment_count.Text);
+            _recruitmentManager.DecrCount(paladin_recruitment_count, UnitEntity.Paladin, count);
+        }
+
+        private void Button_Click_25(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(templar_recruitment_count.Text);
+            _recruitmentManager.IncrCount(templar_recruitment_count, UnitEntity.Templar, count);
+        }
+
+        private void Button_Click_26(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(templar_recruitment_count.Text);
+            _recruitmentManager.DecrCount(templar_recruitment_count, UnitEntity.Templar, count);
+        }
+
+        private void Button_Click_27(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(ranger_recruitment_count.Text);
+            _recruitmentManager.IncrCount(ranger_recruitment_count, UnitEntity.Ranger, count);
+        }
+
+        private void Button_Click_28(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(ranger_recruitment_count.Text);
+            _recruitmentManager.DecrCount(ranger_recruitment_count, UnitEntity.Ranger, count);
+        }
+
+        private void Button_Click_29(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(scout_recruitment_count.Text);
+            _recruitmentManager.IncrCount(scout_recruitment_count, UnitEntity.Scout, count);
+        }
+
+        private void Button_Click_30(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(scout_recruitment_count.Text);
+            _recruitmentManager.DecrCount(scout_recruitment_count, UnitEntity.Scout, count);
+        }
+
+        private void Button_Click_31(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(mage_recruitment_count.Text);
+            _recruitmentManager.IncrCount(mage_recruitment_count, UnitEntity.Mage, count);
+        }
+
+        private void Button_Click_32(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(mage_recruitment_count.Text);
+            _recruitmentManager.DecrCount(mage_recruitment_count, UnitEntity.Mage, count);
+        }
+
+        private void Button_Click_33(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(warlock_recruitment_count.Text);
+            _recruitmentManager.IncrCount(warlock_recruitment_count, UnitEntity.Warlock, count);
+        }
+
+        private void Button_Click_34(object sender, RoutedEventArgs e)
+        {
+            var count = Int32.Parse(warlock_recruitment_count.Text);
+            _recruitmentManager.DecrCount(warlock_recruitment_count, UnitEntity.Warlock, count);
+        }
+        #endregion
     }
 }
