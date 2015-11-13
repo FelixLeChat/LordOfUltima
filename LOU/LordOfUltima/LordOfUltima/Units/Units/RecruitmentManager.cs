@@ -10,8 +10,9 @@ namespace LordOfUltima.Units.Units
     class RecruitmentManager
     {
         private static RecruitmentManager _ins;
-        private readonly Dictionary<UnitEntity, int> _recruitmentCount = new Dictionary<UnitEntity, int>();
+        private Dictionary<UnitEntity, int> _recruitmentCount = new Dictionary<UnitEntity, int>();
         private UnitCost totalUnitCost = new UnitCost();
+        private bool _canRecruit = true;
 
         public static RecruitmentManager Instance
         {
@@ -29,6 +30,12 @@ namespace LordOfUltima.Units.Units
             }
         }
 
+        /// <summary>
+        /// Increase count of selected units to recruit and update visual to recruit
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="entity"></param>
+        /// <param name="count"></param>
         public void IncrCount(TextBox textbox, UnitEntity entity, int count)
         {
             var unit = UnitManager.Instance.Units[entity];
@@ -43,6 +50,12 @@ namespace LordOfUltima.Units.Units
             UpdateTotalTroupsCost();
         }
 
+        /// <summary>
+        /// Decrease count for selected units to recruit and update visual to recruit
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="entity"></param>
+        /// <param name="count"></param>
         public void DecrCount(TextBox textbox, UnitEntity entity, int count)
         {
             if (count <= 0)
@@ -54,60 +67,89 @@ namespace LordOfUltima.Units.Units
             UpdateTotalTroupsCost();
         }
 
+        /// <summary>
+        /// Update Unit recruited
+        /// </summary>
         public void UpdateCurrentUnitCount()
         {
-            var remaining = UnitManager.Instance.TotalUnits;
-            var unitCounts = UnitManager.Instance.UnitsAvailables;
-
-            // Get remaining units to recruit
-            remaining = unitCounts.Aggregate(remaining, (current, unitCount) => current - unitCount.Value);
-
             var mainWindow = MainWindow.MIns;
             if (mainWindow == null)
                 return;
 
+            var unitCounts = UnitManager.Instance.UnitsAvailables;
+
             // CityGuard
-            UpdateTroop(mainWindow.cityguard_recruitment_limit, UnitEntity.Cityguard, unitCounts[UnitEntity.Cityguard], remaining);
+            UpdateTroop(mainWindow.cityguard_recruitment_limit, unitCounts[UnitEntity.Cityguard]);
 
             // Berserker
-            UpdateTroop(mainWindow.berserker_recruitment_limit, UnitEntity.Berserker, unitCounts[UnitEntity.Berserker], remaining);
+            UpdateTroop(mainWindow.berserker_recruitment_limit, unitCounts[UnitEntity.Berserker]);
 
             // Crossbow
-            UpdateTroop(mainWindow.crossbow_recruitment_limit, UnitEntity.Crossbow, unitCounts[UnitEntity.Crossbow], remaining);
+            UpdateTroop(mainWindow.crossbow_recruitment_limit, unitCounts[UnitEntity.Crossbow]);
 
             // Guardian
-            UpdateTroop(mainWindow.guardian_recruitment_limit, UnitEntity.Guardian, unitCounts[UnitEntity.Guardian], remaining);
+            UpdateTroop(mainWindow.guardian_recruitment_limit, unitCounts[UnitEntity.Guardian]);
 
             // knight
-            UpdateTroop(mainWindow.knight_recruitment_limit, UnitEntity.Knight, unitCounts[UnitEntity.Knight], remaining);
+            UpdateTroop(mainWindow.knight_recruitment_limit, unitCounts[UnitEntity.Knight]);
 
             // Mage
-            UpdateTroop(mainWindow.mage_recruitment_limit, UnitEntity.Mage, unitCounts[UnitEntity.Mage], remaining);
+            UpdateTroop(mainWindow.mage_recruitment_limit, unitCounts[UnitEntity.Mage]);
 
             // Paladin
-            UpdateTroop(mainWindow.paladin_recruitment_limit, UnitEntity.Paladin, unitCounts[UnitEntity.Paladin], remaining);
+            UpdateTroop(mainWindow.paladin_recruitment_limit, unitCounts[UnitEntity.Paladin]);
 
             // Ranger
-            UpdateTroop(mainWindow.ranger_recruitment_limit, UnitEntity.Ranger, unitCounts[UnitEntity.Ranger], remaining);
+            UpdateTroop(mainWindow.ranger_recruitment_limit, unitCounts[UnitEntity.Ranger]);
 
             // Scout
-            UpdateTroop(mainWindow.scout_recruitment_limit, UnitEntity.Scout, unitCounts[UnitEntity.Scout], remaining);
+            UpdateTroop(mainWindow.scout_recruitment_limit, unitCounts[UnitEntity.Scout]);
 
             // Templar
-            UpdateTroop(mainWindow.templar_recruitment_limit, UnitEntity.Templar, unitCounts[UnitEntity.Templar], remaining);
+            UpdateTroop(mainWindow.templar_recruitment_limit, unitCounts[UnitEntity.Templar]);
 
             // Warlock
-            UpdateTroop(mainWindow.warlock_recruitment_limit, UnitEntity.Warlock, unitCounts[UnitEntity.Warlock], remaining);
+            UpdateTroop(mainWindow.warlock_recruitment_limit, unitCounts[UnitEntity.Warlock]);
+        }
+        private void UpdateTroop(Label label, int count)
+        {
+            label.Content = count;
         }
 
+        /// <summary>
+        /// Recruit selected units if they don't exceed ressources
+        /// </summary>
         public void Recruit()
         {
+            if (!_canRecruit)
+            {
+                ErrorManager.Instance.AddError(new Error.Error()
+                {
+                    Description = Error.Error.Type.RECRUITMENT_RESSOURCES_CAP
+                });
+                return;
+            }
             foreach (var recruitmentInfo in _recruitmentCount)
             {
                 Buy(recruitmentInfo.Key, recruitmentInfo.Value);
             }
+
+            // reset field
+            foreach (var i in _recruitmentCount.Keys.ToList())
+            {
+                _recruitmentCount[i] = 0;
+            }
+            ResetAllFields();
+            UpdateTotalTroupsCost();
+
+            UpdateCurrentUnitCount();
         }
 
+        /// <summary>
+        /// Buy selected units (increment count and decrement ressources)
+        /// </summary>
+        /// <param name="unitEntity"></param>
+        /// <param name="count"></param>
         private void Buy(UnitEntity unitEntity, int count)
         {
             var cost = UnitManager.Instance.Units[unitEntity].GetUnitCost();
@@ -147,14 +189,9 @@ namespace LordOfUltima.Units.Units
             return false;
         }
 
-        private void UpdateTroop(Label label, UnitEntity unitEntity, int count, int remaining)
-        {
-            var unit = UnitManager.Instance.Units[unitEntity];
-            var space = unit.GetUnitStats().Space;
-
-            label.Content = count + "/" + (remaining/space);
-        }
-
+        /// <summary>
+        /// Check fields when a value was entered to see if they are more than the maximum allowed
+        /// </summary>
         public void CheckAllFields()
         {
             var mainWindow = MainWindow.MIns;
@@ -175,7 +212,6 @@ namespace LordOfUltima.Units.Units
 
             UpdateTotalTroupsCost();
         }
-
         private void CheckField(UnitEntity unitEntity, TextBox textBox)
         {
             var unit = UnitManager.Instance.Units[unitEntity];
@@ -194,17 +230,54 @@ namespace LordOfUltima.Units.Units
             textBox.Text = _recruitmentCount[unitEntity].ToString();
         }
 
+        /// <summary>
+        /// Set all fields for recruitment at 0
+        /// </summary>
+        private void ResetAllFields()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                return;
+
+            mainWindow.cityguard_recruitment_count.Text = "0";
+            mainWindow.berserker_recruitment_count.Text = "0";
+            mainWindow.crossbow_recruitment_count.Text = "0";
+            mainWindow.guardian_recruitment_count.Text = "0";
+            mainWindow.knight_recruitment_count.Text = "0";
+            mainWindow.mage_recruitment_count.Text = "0";
+            mainWindow.paladin_recruitment_count.Text = "0";
+            mainWindow.ranger_recruitment_count.Text = "0";
+            mainWindow.scout_recruitment_count.Text = "0";
+            mainWindow.templar_recruitment_count.Text = "0";
+            mainWindow.warlock_recruitment_count.Text = "0";
+        }
+
+        /// <summary>
+        /// Update visual for cost of recruiting current selected units
+        /// </summary>
         private void UpdateTotalTroupsCost()
         {
             totalUnitCost = new UnitCost();
+            var totalSpaceNeeded = 0;
+            _canRecruit = true;
+
+            var remaining = UnitManager.Instance.TotalUnits;
+            var unitCounts = UnitManager.Instance.UnitsAvailables;
+
+            // Get remaining units to recruit
+            remaining = unitCounts.Aggregate(remaining, (current, unitCount) => current - unitCount.Value);
+
             foreach (var recruitment in _recruitmentCount)
             {
-                var unitCost = UnitManager.Instance.Units[recruitment.Key].GetUnitCost();
+                var unit = UnitManager.Instance.Units[recruitment.Key];
+                var unitCost = unit.GetUnitCost();
                 var count = recruitment.Value;
 
                 totalUnitCost.Gold += unitCost.Gold*count;
                 totalUnitCost.Iron += unitCost.Iron*count;
                 totalUnitCost.Wood += unitCost.Wood*count;
+
+                totalSpaceNeeded += unit.GetUnitStats().Space*count;
             }
 
             var mainWindow = MainWindow.MIns;
@@ -218,17 +291,34 @@ namespace LordOfUltima.Units.Units
             mainWindow.total_wood_recruitment.Content = totalUnitCost.Wood;
             mainWindow.total_wood_recruitment.Foreground = defaultBrush;
             if (totalUnitCost.Wood > totalRessources.WoodQty)
+            {
+                _canRecruit = false;
                 mainWindow.total_wood_recruitment.Foreground = redbrush;
+            }      
 
             mainWindow.total_iron_recruitment.Content = totalUnitCost.Iron;
             mainWindow.total_iron_recruitment.Foreground = defaultBrush;
             if (totalUnitCost.Iron > totalRessources.IronQty)
+            {
+                _canRecruit = false;
                 mainWindow.total_iron_recruitment.Foreground = redbrush;
+            } 
 
             mainWindow.total_gold_recruitment.Content = totalUnitCost.Gold;
             mainWindow.total_gold_recruitment.Foreground = defaultBrush;
             if (totalUnitCost.Gold > totalRessources.GoldQty)
+            {
+                _canRecruit = false;
                 mainWindow.total_gold_recruitment.Foreground = redbrush;
+            }  
+
+            mainWindow.total_space_recruitment.Content = totalSpaceNeeded + "/" + remaining;
+            mainWindow.total_space_recruitment.Foreground = defaultBrush;
+            if (totalSpaceNeeded > remaining)
+            {
+                _canRecruit = false;
+                mainWindow.total_space_recruitment.Foreground = redbrush;
+            }
         }
     }
 }

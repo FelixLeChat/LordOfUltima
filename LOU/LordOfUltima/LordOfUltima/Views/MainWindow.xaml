@@ -534,7 +534,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_13"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_14"/>
 
-                <Label Name="cityguard_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="cityguard_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="cityguard_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="cityguard_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -548,7 +548,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_15"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_16"/>
 
-                <Label Name="berserker_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="berserker_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="berserker_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="berserker_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -562,7 +562,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_17"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_18"/>
 
-                <Label Name="crossbow_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="crossbow_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="crossbow_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="crossbow_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -576,7 +576,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_19"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_20"/>
 
-                <Label Name="guardian_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="guardian_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="guardian_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="guardian_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -590,7 +590,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_21"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_22"/>
 
-                <Label Name="knight_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="knight_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="knight_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="knight_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -604,7 +604,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="116" Canvas.Top="39" Click="Button_Click_23"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_24"/>
 
-                <Label Name="paladin_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="paladin_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="paladin_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="paladin_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -618,7 +618,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_25"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_26"/>
 
-                <Label Name="templar_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="templar_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="templar_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="templar_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -632,7 +632,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_27"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_28"/>
 
-                <Label Name="ranger_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="ranger_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="ranger_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="ranger_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -646,7 +646,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_29"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_30"/>
 
-                <Label Name="scout_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="scout_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="scout_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="scout_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -660,7 +660,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_31"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_32"/>
 
-                <Label Name="mage_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="mage_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="mage_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="mage_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -674,7 +674,7 @@
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="39" Click="Button_Click_33"/>
                 <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="117" Canvas.Top="52" Click="Button_Click_34"/>
 
-                <Label Name="warlock_recruitment_limit" Content="0/0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
+                <Label Name="warlock_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="warlock_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="warlock_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
@@ -688,6 +688,17 @@
             <Label Content="Total Gold:" Canvas.Left="453" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
             <Label x:Name="total_gold_recruitment" Content="0" Canvas.Left="519" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
 
+            <Label Content="Total Space:" Canvas.Left="453" Canvas.Top="289" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_space_recruitment" Content="0/0" Canvas.Left="519" Canvas.Top="289" Foreground="#443025" FontSize="10.667"/>
+
+            <Button Width="60" Height="20" Content="Recruit" Canvas.Left="475" Canvas.Top="318" Click="Button_Click_35">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3F5D17" Offset="0"/>
+                        <GradientStop Color="#FFC0EE5F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Canvas>
 
         <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Hidden">

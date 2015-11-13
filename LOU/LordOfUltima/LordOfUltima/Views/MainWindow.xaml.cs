@@ -745,5 +745,10 @@ namespace LordOfUltima
             _recruitmentManager.DecrCount(warlock_recruitment_count, UnitEntity.Warlock, count);
         }
         #endregion
+
+        private void Button_Click_35(object sender, RoutedEventArgs e)
+        {
+            RecruitmentManager.Instance.Recruit();
+        }
     }
 }
