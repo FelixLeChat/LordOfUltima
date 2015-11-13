@@ -4,6 +4,3 @@
 
 * The first project is LOU : Lord of ultima
     * Strategy game where you have to manage ressources to build a town
-
-* The second project is Monkey Say
-    * Learning game where the users are telling the machine what words are real and which ones are not 
