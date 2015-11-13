@@ -16,6 +16,11 @@
                 Speed = 20,
                 AttackStructure = 25
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 90,
+                Gold = 100
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_templar.png";
             Name = "Templar";
             UnitType = UnitType.Infantery;

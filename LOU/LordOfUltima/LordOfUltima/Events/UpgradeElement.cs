@@ -1,6 +1,7 @@
 ﻿using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
 using LordOfUltima.RessourcesStorage;
+using LordOfUltima.Units;
 
 namespace LordOfUltima.Events
 {
@@ -38,6 +39,10 @@ namespace LordOfUltima.Events
 
                 // Update Storage
                 Storage.Instance.UpdateStorageCapacity();
+
+                // Update Unit max count
+                if(_elementToUpgrade.GetElementType() is BarrackBuilding)
+                    UnitManager.Instance.UpdateUnitCount();
 
                 return true;
             }

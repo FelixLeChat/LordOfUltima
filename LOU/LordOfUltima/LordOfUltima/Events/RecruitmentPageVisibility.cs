@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using LordOfUltima.Units.Units;
 
 namespace LordOfUltima.Events
 {
@@ -29,6 +30,7 @@ namespace LordOfUltima.Events
                 return;
 
             mainWindow.recruitment_page.Visibility = Visibility.Visible;
+            RecruitmentManager.Instance.UpdateCurrentUnitCount();
             _isVisible = true;
         }
 
@@ -46,6 +48,7 @@ namespace LordOfUltima.Events
             else
             {
                 mainWindow.recruitment_page.Visibility = Visibility.Visible;
+                RecruitmentManager.Instance.UpdateCurrentUnitCount();
                 _isVisible = true;
             }
 

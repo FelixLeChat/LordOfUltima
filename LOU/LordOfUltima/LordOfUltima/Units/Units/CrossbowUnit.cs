@@ -16,6 +16,11 @@
                 Speed = 10,
                 AttackStructure = 40
             };
+            UnitCost = new UnitCost()
+            {
+                Wood = 150,
+                Gold = 200
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_crossbow.png";
             Name = "Crossbowman";
             UnitType = UnitType.Cavalery;

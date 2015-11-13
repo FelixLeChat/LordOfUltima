@@ -9,6 +9,7 @@ using LordOfUltima.Error;
 using LordOfUltima.Events;
 using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
+using LordOfUltima.Units;
 
 namespace LordOfUltima.XML
 {
@@ -238,6 +239,9 @@ namespace LordOfUltima.XML
 
                 // change building count
                 BuildingCount.Instance.CountBuildings();
+
+                // Unit count
+                UnitManager.Instance.UpdateUnitCount();
 
                 // fix for leftover level indicator
                 LevelIndicatorVisibility.Instance.HideLevelIndicator();

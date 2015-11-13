@@ -16,6 +16,11 @@
                 Speed = 10,
                 AttackStructure = 60
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 200,
+                Gold = 160
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_paladin.png";
             Name = "Paladin";
             UnitType = UnitType.Cavalery;

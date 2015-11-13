@@ -16,6 +16,11 @@
                 Speed = 8,
                 AttackStructure = 10
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 40,
+                Gold = 120
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_scout.png";
             Name = "Scout";
             UnitType = UnitType.Cavalery;

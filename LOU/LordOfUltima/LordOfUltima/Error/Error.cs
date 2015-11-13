@@ -40,6 +40,9 @@
 
             // Time option
             INVALID_TIME,
+
+            // No more ressources for recruitment
+            RECRUITMENT_RESSOURCES_CAP
         }
 
         public string GetDescriptionString()
@@ -79,6 +82,9 @@
                     break;
                 case Type.SAVE_SUCESSFULL:
                     result = "Save Sucessfull";
+                    break;
+                case Type.RECRUITMENT_RESSOURCES_CAP:
+                    result = "Not enough ressources for recruitment";
                     break;
             }
             return result;

@@ -16,6 +16,11 @@
                 Speed = 20,
                 AttackStructure = 75
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 50,
+                Gold = 150
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_mage.png";
             Name = "Mage";
             UnitType = UnitType.Magic;

@@ -16,6 +16,10 @@
                 Speed = 20,
                 AttackStructure = 15
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 150
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_berserker.png";
             Name = "Berserker";
             UnitType = UnitType.Infantery;

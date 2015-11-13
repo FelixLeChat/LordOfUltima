@@ -16,6 +16,10 @@
                 Speed = 20,
                 AttackStructure = 20
             };
+            UnitCost = new UnitCost()
+            {
+                Wood = 160
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_ranger.png";
             Name = "Ranger";
             UnitType = UnitType.Infantery;

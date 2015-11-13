@@ -16,6 +16,11 @@
                 Speed = 10,
                 AttackStructure = 120
             };
+            UnitCost = new UnitCost()
+            {
+                Iron = 100,
+                Gold = 350
+            };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_warlock.png";
             Name = "Warlock";
             UnitType = UnitType.Magic;

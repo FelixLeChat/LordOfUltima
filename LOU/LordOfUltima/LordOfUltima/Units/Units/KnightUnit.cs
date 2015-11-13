@@ -1,4 +1,6 @@
-﻿namespace LordOfUltima.Units.Units
+﻿using LordOfUltima.MGameboard;
+
+namespace LordOfUltima.Units.Units
 {
     class KnightUnit : Unit
     {
@@ -15,6 +17,11 @@
                 FoodUsage = 25,
                 Speed = 10,
                 AttackStructure = 90
+            };
+            UnitCost = new UnitCost()
+            {
+                Iron = 250,
+                Gold = 100
             };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_knight.png";
             Name = "Knight";

@@ -1,4 +1,6 @@
-﻿namespace LordOfUltima.Units.Units
+﻿using LordOfUltima.MGameboard;
+
+namespace LordOfUltima.Units.Units
 {
     class GuardianUnit : Unit
     {
@@ -15,6 +17,11 @@
                 FoodUsage = 3,
                 Speed = 20,
                 AttackStructure = 10
+            };
+            UnitCost = new UnitCost()
+            {
+                Iron = 140,
+                Gold = 40
             };
             ImagePath = "pack://application:,,,/Resources/Images/Units/units_guardian.png";
             Name = "Guardian";

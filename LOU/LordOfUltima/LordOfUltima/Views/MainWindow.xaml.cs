@@ -14,6 +14,7 @@ using LordOfUltima.Music;
 using LordOfUltima.Research;
 using LordOfUltima.RessourcesProduction;
 using LordOfUltima.RessourcesStorage;
+using LordOfUltima.Units;
 using LordOfUltima.Units.Units;
 using LordOfUltima.Views;
 using LordOfUltima.XML;
@@ -87,6 +88,9 @@ namespace LordOfUltima
                 // Set default ressources
                 Ressources.Instance.Initialise();
                 Ressources.Instance.SetDefault();
+
+                // Count Units
+                UnitManager.Instance.UpdateUnitCount();
             }
 
             // Start Error dispatching
@@ -596,10 +600,16 @@ namespace LordOfUltima
             e.Handled = !IsTextAllowed(e.Text);
         }
 
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RecruitmentManager.Instance.CheckAllFields();
+        }
+
         private static bool IsTextAllowed(string text)
         {
             Regex regex = new Regex("[^0-9]+"); //regex that matches disallowed text
-            return !regex.IsMatch(text);
+            var match = !regex.IsMatch(text);
+            return match;
         }
 
         // Incr recruitment cityguard

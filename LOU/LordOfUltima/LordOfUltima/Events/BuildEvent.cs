@@ -1,6 +1,7 @@
 ﻿using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
 using LordOfUltima.RessourcesStorage;
+using LordOfUltima.Units;
 
 namespace LordOfUltima.Events
 {
@@ -37,6 +38,7 @@ namespace LordOfUltima.Events
                     return false;
                 }
 
+                // Build for the first time (no update)
                 if (BuyElement.Instance.Buy(_typeToBuild, 1))
                 {
                     // Increase Level of building
@@ -72,6 +74,10 @@ namespace LordOfUltima.Events
 
                     // Update Unit visibility
                     UnitRecruitmentVisibility.Instance.UpdateVisibility(_elementToBuild);
+
+                    // Update Unit count
+                    if(_elementToBuild.GetElementType() is BarrackBuilding)
+                        UnitManager.Instance.UpdateUnitCount();
 
                     return true;
                 }

@@ -1,4 +1,6 @@
-﻿namespace LordOfUltima.Units.Units
+﻿using LordOfUltima.MGameboard;
+
+namespace LordOfUltima.Units.Units
 {
     abstract class Unit
     {
@@ -8,6 +10,7 @@
         protected string Name;
         protected UnitType UnitType;
         protected UnitEntity UnitEntity;
+        protected UnitCost UnitCost;
 
         public UnitStats GetUnitStats()
         {
@@ -42,6 +45,11 @@
         public UnitEntity GetUnitEntity()
         {
             return UnitEntity;
+        }
+
+        public UnitCost GetUnitCost()
+        {
+            return UnitCost;
         }
     }
 }

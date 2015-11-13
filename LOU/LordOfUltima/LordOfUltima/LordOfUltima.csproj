@@ -167,6 +167,7 @@
     <Compile Include="Units\Units\RecruitmentManager.cs" />
     <Compile Include="Units\Units\ScoutUnit.cs" />
     <Compile Include="Units\Units\TemplarUnit.cs" />
+    <Compile Include="Units\Units\UnitCost.cs" />
     <Compile Include="Units\Units\UnitStats.cs" />
     <Compile Include="Units\Units\UnitType.cs" />
     <Compile Include="Units\Units\WarlockUnit.cs" />
