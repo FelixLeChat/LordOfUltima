@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using LordOfUltima.Error;
@@ -171,12 +172,15 @@ namespace LordOfUltima.Units.Units
             var space = unit.GetUnitStats().Space;
             var max = UnitManager.Instance.TotalUnits / space;
 
-            if (int.Parse(textBox.Text) > max)
+            int value = int.Parse(textBox.Text);
+
+            if (value > max)
             {
                 textBox.Text = max.ToString();
+                return;
             }
-            textBox.Text = textBox.Text.TrimStart('0');
 
+            textBox.Text = value.ToString();
         }
     }
 }
