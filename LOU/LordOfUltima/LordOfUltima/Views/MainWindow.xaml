@@ -679,9 +679,14 @@
                 <Label Name="warlock_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
-            <Label x:Name="total_wood_recruitment" Content="Total Wood :" Canvas.Left="452" Canvas.Top="232" Foreground="#443025" FontSize="10.667"/>
-            <Label x:Name="total_iron_recruitment" Content="Total Iron :" Canvas.Left="453" Canvas.Top="251" Foreground="#443025" FontSize="10.667"/>
-            <Label x:Name="total_gold_recruitment" Content="Total Gold :" Canvas.Left="453" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
+            <Label Content="Total Wood:" Canvas.Left="452" Canvas.Top="232" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_wood_recruitment" Content="0" Canvas.Left="519" Canvas.Top="232" Foreground="#443025" FontSize="10.667"/>
+
+            <Label Content="Total Iron:" Canvas.Left="453" Canvas.Top="251" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_iron_recruitment" Content="0" Canvas.Left="519" Canvas.Top="251" Foreground="#443025" FontSize="10.667"/>
+
+            <Label Content="Total Gold:" Canvas.Left="453" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_gold_recruitment" Content="0" Canvas.Left="519" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
 
         </Canvas>
 

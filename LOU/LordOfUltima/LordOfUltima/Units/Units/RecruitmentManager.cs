@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Media;
 using LordOfUltima.Error;
 using LordOfUltima.RessourcesProduction;
 
@@ -39,6 +40,7 @@ namespace LordOfUltima.Units.Units
                 _recruitmentCount[entity] = max;
 
             textbox.Text = _recruitmentCount[entity].ToString();
+            UpdateTotalTroupsCost();
         }
 
         public void DecrCount(TextBox textbox, UnitEntity entity, int count)
@@ -48,6 +50,8 @@ namespace LordOfUltima.Units.Units
 
             _recruitmentCount[entity]--;
             textbox.Text = _recruitmentCount[entity].ToString();
+
+            UpdateTotalTroupsCost();
         }
 
         public void UpdateCurrentUnitCount()
@@ -168,6 +172,8 @@ namespace LordOfUltima.Units.Units
             CheckField(UnitEntity.Scout, mainWindow.scout_recruitment_count);
             CheckField(UnitEntity.Templar, mainWindow.templar_recruitment_count);
             CheckField(UnitEntity.Warlock, mainWindow.warlock_recruitment_count);
+
+            UpdateTotalTroupsCost();
         }
 
         private void CheckField(UnitEntity unitEntity, TextBox textBox)
@@ -190,7 +196,39 @@ namespace LordOfUltima.Units.Units
 
         private void UpdateTotalTroupsCost()
         {
-            
+            totalUnitCost = new UnitCost();
+            foreach (var recruitment in _recruitmentCount)
+            {
+                var unitCost = UnitManager.Instance.Units[recruitment.Key].GetUnitCost();
+                var count = recruitment.Value;
+
+                totalUnitCost.Gold += unitCost.Gold*count;
+                totalUnitCost.Iron += unitCost.Iron*count;
+                totalUnitCost.Wood += unitCost.Wood*count;
+            }
+
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                return;
+
+            var totalRessources = Ressources.Instance;
+            var redbrush = new SolidColorBrush(Colors.Red);
+            var defaultBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#443025"));
+
+            mainWindow.total_wood_recruitment.Content = totalUnitCost.Wood;
+            mainWindow.total_wood_recruitment.Foreground = defaultBrush;
+            if (totalUnitCost.Wood > totalRessources.WoodQty)
+                mainWindow.total_wood_recruitment.Foreground = redbrush;
+
+            mainWindow.total_iron_recruitment.Content = totalUnitCost.Iron;
+            mainWindow.total_iron_recruitment.Foreground = defaultBrush;
+            if (totalUnitCost.Iron > totalRessources.IronQty)
+                mainWindow.total_iron_recruitment.Foreground = redbrush;
+
+            mainWindow.total_gold_recruitment.Content = totalUnitCost.Gold;
+            mainWindow.total_gold_recruitment.Foreground = defaultBrush;
+            if (totalUnitCost.Gold > totalRessources.GoldQty)
+                mainWindow.total_gold_recruitment.Foreground = redbrush;
         }
     }
 }
