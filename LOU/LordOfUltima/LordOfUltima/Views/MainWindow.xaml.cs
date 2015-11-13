@@ -127,8 +127,6 @@ namespace LordOfUltima
             // Update recruitment window visibility
             UnitRecruitmentVisibility.Instance.UpdateVisibility();
 
-            cityguard_recruitment_count.Text = "0";
-
             // Start Chat thread
             /*_chatEvents = ChatEvents.Instance;
             BackgroundWorker bw = new BackgroundWorker();
@@ -604,7 +602,7 @@ namespace LordOfUltima
 
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            RecruitmentManager.Instance.CheckAllFields();
+            _recruitmentManager?.CheckAllFields();
         }
 
         private static bool IsTextAllowed(string text)

@@ -2,7 +2,7 @@
 {
     public struct RecruitmentInfo
     {
-        public int SelectedCount;
-        public int MaxSelected;
+        public int SelectedCount { get; set; }
+        public int MaxSelected { get; set; }
     }
 }

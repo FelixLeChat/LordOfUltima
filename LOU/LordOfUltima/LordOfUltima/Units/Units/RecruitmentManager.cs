@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using LordOfUltima.Error;
@@ -10,7 +9,8 @@ namespace LordOfUltima.Units.Units
     class RecruitmentManager
     {
         private static RecruitmentManager _ins;
-        private readonly Dictionary<UnitEntity, RecruitmentInfo> _recruitmentCount = new Dictionary<UnitEntity, RecruitmentInfo>();
+        private readonly Dictionary<UnitEntity, int> _recruitmentCount = new Dictionary<UnitEntity, int>();
+        private UnitCost totalUnitCost = new UnitCost();
 
         public static RecruitmentManager Instance
         {
@@ -24,36 +24,30 @@ namespace LordOfUltima.Units.Units
 
             foreach (var unit in units)
             {
-                _recruitmentCount.Add(unit.Key, new RecruitmentInfo());
+                _recruitmentCount.Add(unit.Key, 0);
             }
         }
 
         public void IncrCount(TextBox textbox, UnitEntity entity, int count)
         {
-            var info = _recruitmentCount[entity];
             var unit = UnitManager.Instance.Units[entity];
             var space = unit.GetUnitStats().Space;
             var max = UnitManager.Instance.TotalUnits/space;
 
-            info.SelectedCount = count + 1;
-            if (info.SelectedCount > max)
-                info.SelectedCount = max;
+            _recruitmentCount[entity]++;
+            if (_recruitmentCount[entity] > max)
+                _recruitmentCount[entity] = max;
 
-            _recruitmentCount[entity] = info;
-
-            textbox.Text = info.SelectedCount.ToString();
+            textbox.Text = _recruitmentCount[entity].ToString();
         }
 
         public void DecrCount(TextBox textbox, UnitEntity entity, int count)
         {
             if (count <= 0)
-                count = 1;
+                return;
 
-            var info = _recruitmentCount[entity];
-            info.SelectedCount = count - 1;
-            _recruitmentCount[entity] = info;
-
-            textbox.Text = info.SelectedCount.ToString();
+            _recruitmentCount[entity]--;
+            textbox.Text = _recruitmentCount[entity].ToString();
         }
 
         public void UpdateCurrentUnitCount()
@@ -106,7 +100,7 @@ namespace LordOfUltima.Units.Units
         {
             foreach (var recruitmentInfo in _recruitmentCount)
             {
-                Buy(recruitmentInfo.Key, recruitmentInfo.Value.SelectedCount);
+                Buy(recruitmentInfo.Key, recruitmentInfo.Value);
             }
         }
 
@@ -164,6 +158,16 @@ namespace LordOfUltima.Units.Units
                 return;
 
             CheckField(UnitEntity.Cityguard, mainWindow.cityguard_recruitment_count);
+            CheckField(UnitEntity.Berserker, mainWindow.berserker_recruitment_count);
+            CheckField(UnitEntity.Crossbow, mainWindow.crossbow_recruitment_count);
+            CheckField(UnitEntity.Guardian, mainWindow.guardian_recruitment_count);
+            CheckField(UnitEntity.Knight, mainWindow.knight_recruitment_count);
+            CheckField(UnitEntity.Mage, mainWindow.mage_recruitment_count);
+            CheckField(UnitEntity.Paladin, mainWindow.paladin_recruitment_count);
+            CheckField(UnitEntity.Ranger, mainWindow.ranger_recruitment_count);
+            CheckField(UnitEntity.Scout, mainWindow.scout_recruitment_count);
+            CheckField(UnitEntity.Templar, mainWindow.templar_recruitment_count);
+            CheckField(UnitEntity.Warlock, mainWindow.warlock_recruitment_count);
         }
 
         private void CheckField(UnitEntity unitEntity, TextBox textBox)
@@ -174,13 +178,19 @@ namespace LordOfUltima.Units.Units
 
             int value = int.Parse(textBox.Text);
 
+            _recruitmentCount[unitEntity] = value;
+
             if (value > max)
             {
-                textBox.Text = max.ToString();
-                return;
+                _recruitmentCount[unitEntity] = max;
             }
 
-            textBox.Text = value.ToString();
+            textBox.Text = _recruitmentCount[unitEntity].ToString();
+        }
+
+        private void UpdateTotalTroupsCost()
+        {
+            
         }
     }
 }

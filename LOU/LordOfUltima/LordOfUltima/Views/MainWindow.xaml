@@ -678,6 +678,11 @@
                 <TextBox Name="warlock_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
                 <Label Name="warlock_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
+
+            <Label x:Name="total_wood_recruitment" Content="Total Wood :" Canvas.Left="452" Canvas.Top="232" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_iron_recruitment" Content="Total Iron :" Canvas.Left="453" Canvas.Top="251" Foreground="#443025" FontSize="10.667"/>
+            <Label x:Name="total_gold_recruitment" Content="Total Gold :" Canvas.Left="453" Canvas.Top="270" Foreground="#443025" FontSize="10.667"/>
+
         </Canvas>
 
         <Canvas Width="700" Height="380" Margin="80,-110,0,0" Name="research_page" Visibility="Hidden">
