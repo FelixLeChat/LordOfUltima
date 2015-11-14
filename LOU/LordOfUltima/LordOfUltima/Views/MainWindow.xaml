@@ -47,9 +47,105 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="501" Canvas.Top="197" FontSize="16"/>
 
+            <Rectangle Name="dungeon_wood_2" Width="89" Height="92" Canvas.Left="653" Canvas.Top="86">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="695" Canvas.Top="153" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="695" Canvas.Top="147" FontSize="16"/>
+
+            <Rectangle Name="dungeon_wood_3" Width="89" Height="92" Canvas.Left="356" Canvas.Top="26">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="399" Canvas.Top="97" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="400" Canvas.Top="90" FontSize="16"/>
+
+            <Rectangle Name="dungeon_mountain_1" Width="89" Height="92" Canvas.Left="155" Canvas.Top="132">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="189" Canvas.Top="219" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="189" Canvas.Top="213" FontSize="16"/>
+
+            <Rectangle Name="dungeon_mountain_2" Width="89" Height="92" Canvas.Left="155" Canvas.Top="308">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="189" Canvas.Top="397" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="189" Canvas.Top="390" FontSize="16"/>
+
+            <Rectangle Name="dungeon_mountain_3" Width="89" Height="92" Canvas.Left="665" Canvas.Top="325">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="699" Canvas.Top="415" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="700" Canvas.Top="409" FontSize="16"/>
+
+            <Rectangle Name="dungeon_hill_1" Width="89" Height="92" Canvas.Left="561" Canvas.Top="298">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="597" Canvas.Top="380" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="598" Canvas.Top="374" FontSize="16"/>
+
+            <Rectangle Name="dungeon_hill_2" Width="89" Height="92" Canvas.Left="359" Canvas.Top="452">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="399" Canvas.Top="537" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="399" Canvas.Top="531" FontSize="16"/>
+
+            <Rectangle Name="dungeon_hill_3" Width="89" Height="92" Canvas.Left="59" Canvas.Top="26">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="93" Canvas.Top="108" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="93" Canvas.Top="102" FontSize="16"/>
+
         </Canvas>
 
-        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="261,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
+        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="267,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
 
         <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7">
             <StackPanel Height="135" Width="324">

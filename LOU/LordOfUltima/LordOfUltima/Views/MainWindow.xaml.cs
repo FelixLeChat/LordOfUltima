@@ -127,6 +127,9 @@ namespace LordOfUltima
             // Update recruitment window visibility
             UnitRecruitmentVisibility.Instance.UpdateVisibility();
 
+            // Hide Dungeon
+            DungeonVisibility.Instance.HideDungeon();
+
             // Start Chat thread
             /*_chatEvents = ChatEvents.Instance;
             BackgroundWorker bw = new BackgroundWorker();
