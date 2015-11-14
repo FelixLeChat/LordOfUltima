@@ -35,19 +35,19 @@
             </Rectangle>
 
 
-            <Rectangle Name="dungeon_wood_1" Width="89" Height="92" Canvas.Left="460" Canvas.Top="143">
+            <Rectangle Name="dungeon_wood_1" Width="89" Height="92" Canvas.Left="460" Canvas.Top="143" MouseLeftButtonUp="dungeon_wood_1_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle Width="20" Height="20" Canvas.Left="501" Canvas.Top="204" IsHitTestVisible="false">
+            <Rectangle Width="20" Height="20" Canvas.Left="501" Canvas.Top="213" IsHitTestVisible="false">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="501" Canvas.Top="197" FontSize="16"/>
+            <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="501" Canvas.Top="206" FontSize="16"/>
 
-            <Rectangle Name="dungeon_wood_2" Width="89" Height="92" Canvas.Left="653" Canvas.Top="86">
+            <Rectangle Name="dungeon_wood_2" Width="89" Height="92" Canvas.Left="653" Canvas.Top="86" MouseLeftButtonUp="dungeon_wood_2_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
@@ -59,7 +59,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="695" Canvas.Top="147" FontSize="16"/>
 
-            <Rectangle Name="dungeon_wood_3" Width="89" Height="92" Canvas.Left="356" Canvas.Top="26">
+            <Rectangle Name="dungeon_wood_3" Width="89" Height="92" Canvas.Left="356" Canvas.Top="26" MouseLeftButtonUp="dungeon_wood_3_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
@@ -71,7 +71,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="400" Canvas.Top="90" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_1" Width="89" Height="92" Canvas.Left="155" Canvas.Top="132">
+            <Rectangle Name="dungeon_mountain_1" Width="89" Height="92" Canvas.Left="155" Canvas.Top="132" MouseLeftButtonUp="dungeon_mountain_1_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -83,7 +83,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="189" Canvas.Top="213" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_2" Width="89" Height="92" Canvas.Left="155" Canvas.Top="308">
+            <Rectangle Name="dungeon_mountain_2" Width="89" Height="92" Canvas.Left="155" Canvas.Top="308" MouseLeftButtonUp="dungeon_mountain_2_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -95,7 +95,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="189" Canvas.Top="390" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_3" Width="89" Height="92" Canvas.Left="665" Canvas.Top="325">
+            <Rectangle Name="dungeon_mountain_3" Width="89" Height="92" Canvas.Left="665" Canvas.Top="325" MouseLeftButtonUp="dungeon_mountain_3_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -107,7 +107,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="700" Canvas.Top="409" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_1" Width="89" Height="92" Canvas.Left="561" Canvas.Top="298">
+            <Rectangle Name="dungeon_hill_1" Width="89" Height="92" Canvas.Left="561" Canvas.Top="298" MouseLeftButtonUp="dungeon_hill_1_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
@@ -119,7 +119,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="598" Canvas.Top="374" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_2" Width="89" Height="92" Canvas.Left="359" Canvas.Top="452">
+            <Rectangle Name="dungeon_hill_2" Width="89" Height="92" Canvas.Left="359" Canvas.Top="452" MouseLeftButtonUp="dungeon_hill_2_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
@@ -131,7 +131,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="399" Canvas.Top="531" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_3" Width="89" Height="92" Canvas.Left="59" Canvas.Top="26">
+            <Rectangle Name="dungeon_hill_3" Width="89" Height="92" Canvas.Left="59" Canvas.Top="26" MouseLeftButtonUp="dungeon_hill_3_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
