@@ -16,6 +16,7 @@
 
             mainWindow.label_player_score.Content = Score.Instance.ScoreValue;
             mainWindow.label_player_title.Content = Score.Instance.GetTitle();
+            mainWindow.current_city.Fill = Score.Instance.GetCity();
         }
     }
 }

@@ -649,6 +649,25 @@
     <Resource Include="Resources\Images\UI\Recruitment_templar.png" />
     <Resource Include="Resources\Images\UI\Recruitment_warlock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Town\town_1.png" />
+    <Resource Include="Resources\Images\Town\town_2.png" />
+    <Resource Include="Resources\Images\Town\town_3.png" />
+    <Resource Include="Resources\Images\Town\town_4.png" />
+    <Resource Include="Resources\Images\Town\town_5.png" />
+    <Resource Include="Resources\Images\Town\town_6.png" />
+    <Resource Include="Resources\Images\Town\town_7.png" />
+    <Resource Include="Resources\Images\Town\town_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Dungeons\Npccamp_hill_active.png" />
+    <Resource Include="Resources\Images\Dungeons\Npccamp_hill_inactive.png" />
+    <Resource Include="Resources\Images\Dungeons\Npccamp_mountains_active.png" />
+    <Resource Include="Resources\Images\Dungeons\Npccamp_mountains_inactive.png" />
+    <Resource Include="Resources\Images\Dungeons\Npccamp_woods_active.png" />
+    <Resource Include="Resources\Images\Dungeons\Npccamp_woods_inactive.png" />
+    <Resource Include="Resources\Images\Dungeons\pirate_stronghold.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

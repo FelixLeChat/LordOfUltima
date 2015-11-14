@@ -541,4 +541,49 @@
   <data name="Recruitment_warlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\ui\recruitment_warlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="town_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="town_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\town\town_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_hill_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_hill_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_hill_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_hill_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_mountains_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_mountains_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_mountains_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_mountains_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_woods_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_woods_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Npccamp_woods_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\npccamp_woods_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pirate_stronghold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\dungeons\pirate_stronghold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

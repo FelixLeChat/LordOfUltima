@@ -22,13 +22,34 @@
             </Canvas>
         </Canvas>
 
-        <Canvas Name="dungeon_map" HorizontalAlignment="Left" Margin="268,23,0,0" Height="580" Width="891" Visibility="Hidden">
+        <Canvas Name="dungeon_map" HorizontalAlignment="Left" Margin="268,23,0,0" Height="580" Width="891" Visibility="Visible">
             <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/Images/dungeon_map.jpg"/>
             </Canvas.Background>
+
+            <!-- Player City -->
+            <Rectangle Name="current_city" Width="101" Height="106" Canvas.Left="359" Canvas.Top="177">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Town/town_1.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+
+            <Rectangle Name="dungeon_wood_1" Width="89" Height="92" Canvas.Left="460" Canvas.Top="143">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="20" Height="20" Canvas.Left="501" Canvas.Top="204" IsHitTestVisible="false">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/level_rect.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="501" Canvas.Top="197" FontSize="16"/>
+
         </Canvas>
 
-        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="261,23,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
+        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="261,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
 
         <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7">
             <StackPanel Height="135" Width="324">
@@ -519,7 +540,7 @@
             <Label Name="error_description" Height="30" Width="200" FontFamily="Vani"/>
         </Border>
 
-        <Canvas Height="380" Margin="274,60,282,169" Name="recruitment_page" Visibility="Visible">
+        <Canvas Height="380" Margin="274,60,282,169" Name="recruitment_page" Visibility="Hidden">
             <Canvas.Background>
                 <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Recruitment_menu.png"/>
             </Canvas.Background>
@@ -536,7 +557,6 @@
 
                 <Label Name="cityguard_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="cityguard_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="cityguard_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Berserker Recruitment -->
@@ -550,7 +570,6 @@
 
                 <Label Name="berserker_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="berserker_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="berserker_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Crossbow Recruitment -->
@@ -564,7 +583,6 @@
 
                 <Label Name="crossbow_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="crossbow_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="crossbow_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Guardian Recruitment -->
@@ -578,7 +596,6 @@
 
                 <Label Name="guardian_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="guardian_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="guardian_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Knight Recruitment -->
@@ -592,7 +609,6 @@
 
                 <Label Name="knight_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="knight_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="knight_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Paladin Recruitment -->
@@ -606,7 +622,6 @@
 
                 <Label Name="paladin_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="paladin_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="paladin_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Templar Recruitment -->
@@ -620,7 +635,6 @@
 
                 <Label Name="templar_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="templar_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="templar_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Ranger Recruitment -->
@@ -634,7 +648,6 @@
 
                 <Label Name="ranger_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="ranger_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="ranger_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Scout Recruitment -->
@@ -648,7 +661,6 @@
 
                 <Label Name="scout_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="scout_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="scout_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Mage Recruitment -->
@@ -662,7 +674,6 @@
 
                 <Label Name="mage_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="mage_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="mage_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <!-- Warlock Recruitment -->
@@ -676,7 +687,6 @@
 
                 <Label Name="warlock_recruitment_limit" Content="0" Width="40" Height="25" Canvas.Left="83" Canvas.Top="17"/>
                 <TextBox Name="warlock_recruitment_count" Text="0" MaxLength="6" Canvas.Left="67" Canvas.Top="41" Width="45" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
-                <Label Name="warlock_recruitment_max" Content="Max 0" Cursor="Hand" Canvas.Left="65" Canvas.Top="61" FontWeight="Bold" Foreground="#FF2F8310"/>
             </Canvas>
 
             <Label Content="Total Wood:" Canvas.Left="452" Canvas.Top="232" Foreground="#443025" FontSize="10.667"/>

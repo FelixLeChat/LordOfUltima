@@ -1,4 +1,8 @@
-﻿namespace LordOfUltima.Score
+﻿using System;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace LordOfUltima.Score
 {
     class Score
     {
@@ -32,6 +36,30 @@
                 return "King";
 
             return "Emperor";
+        }
+
+        public ImageBrush GetCity()
+        {
+            var imgUrl = "pack://application:,,,/Resources/Images/Town/town_";
+
+            if (ScoreValue < 100)
+                imgUrl += "1.png";
+            else if (ScoreValue < 200)
+                imgUrl += "2.png";
+            else if (ScoreValue < 400)
+                imgUrl += "3.png";
+            else if (ScoreValue < 800)
+                imgUrl += "4.png";
+            else if (ScoreValue < 1500)
+                imgUrl += "5.png";
+            else if (ScoreValue < 2000)
+                imgUrl += "6.png";
+            else if (ScoreValue < 3000)
+                imgUrl += "7.png";
+            else
+                imgUrl += "8.png";
+
+            return new ImageBrush { ImageSource = new BitmapImage(new Uri(@imgUrl, UriKind.RelativeOrAbsolute)) };
         }
     }
 }

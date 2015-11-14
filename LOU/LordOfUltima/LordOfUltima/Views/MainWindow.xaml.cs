@@ -664,13 +664,13 @@ namespace LordOfUltima
         private void Button_Click_21(object sender, RoutedEventArgs e)
         {
             var count = Int32.Parse(guardian_recruitment_count.Text);
-            _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+            _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Knight, count);
         }
 
         private void Button_Click_22(object sender, RoutedEventArgs e)
         {
             var count = Int32.Parse(guardian_recruitment_count.Text);
-            _recruitmentManager.DecrCount(guardian_recruitment_count, UnitEntity.Guardian, count);
+            _recruitmentManager.DecrCount(guardian_recruitment_count, UnitEntity.Knight, count);
         }
 
         private void Button_Click_23(object sender, RoutedEventArgs e)
