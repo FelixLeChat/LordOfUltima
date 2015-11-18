@@ -70,6 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dungeon\DungeonManager.cs" />
+    <Compile Include="Dungeon\DungeonType.cs" />
+    <Compile Include="Dungeon\DungeonUnitManager.cs" />
+    <Compile Include="Dungeon\DungeonUnitType.cs" />
     <Compile Include="Error\Error.cs" />
     <Compile Include="Error\ErrorManager.cs" />
     <Compile Include="Error\LoadException.cs" />
