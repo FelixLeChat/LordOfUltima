@@ -64,7 +64,6 @@ namespace LordOfUltima.Events
             }
         }
 
-
         public void ui_thread_updateChat()
         {
             MainWindow mainWindow = MainWindow.MIns;

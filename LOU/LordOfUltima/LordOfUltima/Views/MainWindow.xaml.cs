@@ -132,8 +132,8 @@ namespace LordOfUltima
             DungeonVisibility.Instance.HideDungeon();
 
             // Start Chat thread
-            /*_chatEvents = ChatEvents.Instance;
-            BackgroundWorker bw = new BackgroundWorker();
+            _chatEvents = ChatEvents.Instance;
+            /*BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += _chatEvents.UpdateChat;
             bw.RunWorkerAsync();*/
         }
@@ -669,14 +669,14 @@ namespace LordOfUltima
 
         private void Button_Click_21(object sender, RoutedEventArgs e)
         {
-            var count = Int32.Parse(guardian_recruitment_count.Text);
-            _recruitmentManager.IncrCount(guardian_recruitment_count, UnitEntity.Knight, count);
+            var count = Int32.Parse(knight_recruitment_count.Text);
+            _recruitmentManager.IncrCount(knight_recruitment_count, UnitEntity.Knight, count);
         }
 
         private void Button_Click_22(object sender, RoutedEventArgs e)
         {
-            var count = Int32.Parse(guardian_recruitment_count.Text);
-            _recruitmentManager.DecrCount(guardian_recruitment_count, UnitEntity.Knight, count);
+            var count = Int32.Parse(knight_recruitment_count.Text);
+            _recruitmentManager.DecrCount(knight_recruitment_count, UnitEntity.Knight, count);
         }
 
         private void Button_Click_23(object sender, RoutedEventArgs e)
