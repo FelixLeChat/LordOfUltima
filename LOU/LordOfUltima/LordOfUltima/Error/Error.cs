@@ -42,7 +42,8 @@
             INVALID_TIME,
 
             // No more ressources for recruitment
-            RECRUITMENT_RESSOURCES_CAP
+            RECRUITMENT_RESSOURCES_CAP,
+            RECRUITMENT_FOOD_MISSING
         }
 
         public string GetDescriptionString()
@@ -85,6 +86,9 @@
                     break;
                 case Type.RECRUITMENT_RESSOURCES_CAP:
                     result = "Not enough ressources for recruitment";
+                    break;
+                case Type.RECRUITMENT_FOOD_MISSING:
+                    result = "Missing food, units are dying.";
                     break;
             }
             return result;

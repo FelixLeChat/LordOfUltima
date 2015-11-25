@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Reflection.Emit;
+using System.Linq;
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -7,6 +7,8 @@ using LordOfUltima.Error;
 using LordOfUltima.MGameboard;
 using LordOfUltima.Research;
 using LordOfUltima.RessourcesStorage;
+using LordOfUltima.Units;
+using LordOfUltima.Units.Units;
 
 namespace LordOfUltima.RessourcesProduction
 {
@@ -36,7 +38,7 @@ namespace LordOfUltima.RessourcesProduction
         public void StartRessourcesManager()
         {
             // timer for ressources updates
-            _ressourcesUpdateTimer = new Timer(obj => { updateRessourcesValues(); }, null, 0, 1000);
+            _ressourcesUpdateTimer = new Timer(obj => { UpdateRessourcesValues(); }, null, 0, 1000);
         }
 
         // time scale on wich we apply the points
@@ -53,12 +55,12 @@ namespace LordOfUltima.RessourcesProduction
             } 
         }
 
-        private void updateRessourcesValues()
+        private void UpdateRessourcesValues()
         {
             if (_timeScale <= 0)
                 return;
 
-            Ressources ressources = Ressources.Instance;
+            var ressources = Ressources.Instance;
 
             ressources.WoodQty += _ressourcesProduction.WoodQty/_timeScale;
             ressources.StoneQty += _ressourcesProduction.StoneQty/_timeScale;
@@ -67,10 +69,14 @@ namespace LordOfUltima.RessourcesProduction
             ressources.GoldQty += _ressourcesProduction.GoldQty/_timeScale;
             ressources.ResearchQty += _ressourcesProduction.ResearchQty/_timeScale;
 
-            checkStorage();
+            // verify if storage is enough
+            CheckStorage();
+
+            // verify if unit survives
+            CheckUnitFoodCost();
         }
 
-        private void checkStorage()
+        private static void CheckStorage()
         {
             var storage = Storage.Instance;
             var ressources = Ressources.Instance;
@@ -115,15 +121,18 @@ namespace LordOfUltima.RessourcesProduction
             {
                 if (element.HasElement && element.Level > 0)
                 {
-                    assignRessources(element);
+                    AssignRessources(element);
                 }
             }
 
+            // Add the unit food cost
+            UpdateUnitsFoodCost();
+
             // update UI
-            updateRessourceProductionUI();
+            UpdateRessourceProductionUI();
         }
 
-        private void assignRessources(Element element)
+        private void AssignRessources(Element element)
         {      
             // check the Element Type
             IElementType elementType = element.GetElementType();
@@ -140,7 +149,7 @@ namespace LordOfUltima.RessourcesProduction
             if (elementProduction == null)
                 return;
 
-            updateElementTotalBonus(element);
+            UpdateElementTotalBonus(element);
 
             // Get Wood bonus
             var woodResearch = _researchHandler.WoodResearchType;
@@ -174,41 +183,41 @@ namespace LordOfUltima.RessourcesProduction
                 goldBonus = goldResearch.GetResearchBonus(goldResearch.GetLevel()).GoldBonus;
 
 
-            _ressourcesProduction.WoodQty += calculateRessource(elementProduction.Wood, element.TotalBonus, woodBonus);
-            _ressourcesProduction.StoneQty += calculateRessource(elementProduction.Stone, element.TotalBonus, stoneBonus);
-            _ressourcesProduction.IronQty += calculateRessource(elementProduction.Iron, element.TotalBonus, ironBonus);
-            _ressourcesProduction.FoodQty += calculateRessource(elementProduction.Food, element.TotalBonus, foodBonus);
-            _ressourcesProduction.GoldQty += calculateRessource(elementProduction.Gold, element.TotalBonus, goldBonus);
-            _ressourcesProduction.ResearchQty += calculateRessource(elementProduction.Research, element.TotalBonus);
+            _ressourcesProduction.WoodQty += CalculateRessource(elementProduction.Wood, element.TotalBonus, woodBonus);
+            _ressourcesProduction.StoneQty += CalculateRessource(elementProduction.Stone, element.TotalBonus, stoneBonus);
+            _ressourcesProduction.IronQty += CalculateRessource(elementProduction.Iron, element.TotalBonus, ironBonus);
+            _ressourcesProduction.FoodQty += CalculateRessource(elementProduction.Food, element.TotalBonus, foodBonus);
+            _ressourcesProduction.GoldQty += CalculateRessource(elementProduction.Gold, element.TotalBonus, goldBonus);
+            _ressourcesProduction.ResearchQty += CalculateRessource(elementProduction.Research, element.TotalBonus);
         }
 
-        private double calculateRessource(int baseProduction, double bonus = 0, int researchBonus = 0)
+        private static double CalculateRessource(int baseProduction, double bonus = 0, int researchBonus = 0)
         {
             double production = baseProduction;
             return production*((bonus + researchBonus)/100);
         }
 
-        private void updateElementTotalBonus(Element element)
+        private static void UpdateElementTotalBonus(Element element)
         {
-            IElementType elementType = element.GetElementType();
+            var elementType = element.GetElementType();
 
             // Get number of natural ressources around
-            int nbNaturalRessources = element.NbRessourcesAround;
+            var nbNaturalRessources = element.NbRessourcesAround;
 
-            int firstBonus = 0;
-            int secondBonus = 0;
-            IElementType bonusRessource = ElementType.GetTypeObject(ElementType.GetBonusRessource(elementType.GetElementType()));
+            var firstBonus = 0;
+            var secondBonus = 0;
+            var bonusRessource = ElementType.GetTypeObject(ElementType.GetBonusRessource(elementType.GetElementType()));
             if (bonusRessource != null)
             {
                 firstBonus = bonusRessource.GetElementProductionBonus(0).FirstBonus;
                 secondBonus = bonusRessource.GetElementProductionBonus(0).SecondBonus;
             }
 
-            int buildingBonus = 0;
-            Element bonusElement = element.BonusBuilding;
-            if (bonusElement != null && bonusElement.GetElementType() != null)
+            var buildingBonus = 0;
+            var bonusElement = element.BonusBuilding;
+            if (bonusElement?.GetElementType() != null)
             {
-                ElementProductionBonus elementProductionBonus =
+                var elementProductionBonus =
                     bonusElement.GetElementType().GetElementProductionBonus(bonusElement.Level);
                 if (elementProductionBonus != null)
                 {
@@ -216,11 +225,11 @@ namespace LordOfUltima.RessourcesProduction
                 }
             }
 
-            int fieldsCount = element.FieldsCount;
-            ElementProductionBonus fieldBonus = new FieldsElementType().GetElementProductionBonus(0);
+            var fieldsCount = element.FieldsCount;
+            var fieldBonus = new FieldsElementType().GetElementProductionBonus(0);
             
 
-            double bonus = 100;
+            var bonus = 100;
 
             // Natural ressources bonus
             if (nbNaturalRessources > 0)
@@ -249,9 +258,9 @@ namespace LordOfUltima.RessourcesProduction
             element.TotalBonus = bonus;
         }
 
-        private void updateRessourceProductionUI()
+        public void UpdateRessourceProductionUI()
         {
-            MainWindow mainWindow = MainWindow.MIns;
+            var mainWindow = MainWindow.MIns;
             if (mainWindow == null)
                 return;
 
@@ -265,17 +274,17 @@ namespace LordOfUltima.RessourcesProduction
 
         public void UpdateRessourceUi()
         {
-            MainWindow mainWindow = MainWindow.MIns;
+            var mainWindow = MainWindow.MIns;
             if (mainWindow == null)
                 return;
 
-            Ressources ressources = Ressources.Instance;
-            Storage storage = Storage.Instance;
+            var ressources = Ressources.Instance;
+            var storage = Storage.Instance;
 
-            int wood = (int)Math.Round(ressources.WoodQty);
-            int stone = (int)Math.Round(ressources.StoneQty);
-            int iron = (int)Math.Round(ressources.IronQty);
-            int food = (int)Math.Round(ressources.FoodQty);
+            var wood = (int)Math.Round(ressources.WoodQty);
+            var stone = (int)Math.Round(ressources.StoneQty);
+            var iron = (int)Math.Round(ressources.IronQty);
+            var food = (int)Math.Round(ressources.FoodQty);
 
             mainWindow.qty_wood.Content = wood;
             mainWindow.qty_stone.Content = stone;
@@ -285,13 +294,13 @@ namespace LordOfUltima.RessourcesProduction
             mainWindow.qty_research.Content = Math.Round(ressources.ResearchQty);
 
             // update visual for storage qty
-            updateStorageUI(wood, (int)storage.WoodStorage, mainWindow.qty_wood);
-            updateStorageUI(stone, (int)storage.StoneStorage, mainWindow.qty_stone);
-            updateStorageUI(iron, (int)storage.IronStorage, mainWindow.qty_iron);
-            updateStorageUI(food, (int)storage.FoodStorage, mainWindow.qty_grain);
+            UpdateStorageUI(wood, (int)storage.WoodStorage, mainWindow.qty_wood);
+            UpdateStorageUI(stone, (int)storage.StoneStorage, mainWindow.qty_stone);
+            UpdateStorageUI(iron, (int)storage.IronStorage, mainWindow.qty_iron);
+            UpdateStorageUI(food, (int)storage.FoodStorage, mainWindow.qty_grain);
         }
 
-        private void updateStorageUI(int currentQty, int max, System.Windows.Controls.Label label)
+        private static void UpdateStorageUI(int currentQty, int max, Label label)
         {
             if (currentQty == max)
             {
@@ -307,6 +316,46 @@ namespace LordOfUltima.RessourcesProduction
             }
 
             label.ToolTip = new ToolTip() {Content = "Storage max : " + max};
+        }
+
+        private void UpdateUnitsFoodCost()
+        {
+            var units = UnitManager.Instance.UnitsAvailables;
+            var unitDescription = UnitManager.Instance.Units;
+
+            var totalFoodCost = (from unit in units let foodCost = unitDescription[unit.Key].GetUnitStats().FoodUsage select foodCost*unit.Value).Sum();
+
+            _ressourcesProduction.FoodQty -= totalFoodCost;
+        }
+
+        private void CheckUnitFoodCost()
+        {
+            if (Ressources.Instance.FoodQty < 0)
+            {
+                // missing food error
+                ErrorManager.Instance.AddError(new Error.Error() {Description = Error.Error.Type.RECRUITMENT_FOOD_MISSING});
+                var foodProduction = _ressourcesProduction.FoodQty;
+
+                while (foodProduction < 0)
+                {
+                    // Kill random units to make for need of foods
+                    var units = UnitManager.Instance.UnitsAvailables;
+                    var unitDescription = UnitManager.Instance.Units;
+
+                    //var key = units.FirstOrDefault(x => x.Value > 0).Key;
+                    var random = new Random();
+                    var unitsRecruited = units.Where(x => x.Value > 0);
+                    var key = unitsRecruited.ElementAt(random.Next(0, unitsRecruited.Count()-1)).Key;
+                    
+                    // Kill
+                    units[key]--;
+                    var foodUsage = unitDescription[key].GetUnitStats().FoodUsage;
+                    foodProduction += foodUsage;
+                    _ressourcesProduction.FoodQty = foodProduction;
+                }
+                Ressources.Instance.FoodQty = 0;
+                RecruitmentManager.Instance.UnitKilled = true;
+            }
         }
     }
 }

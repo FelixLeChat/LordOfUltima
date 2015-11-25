@@ -13,6 +13,7 @@ namespace LordOfUltima.Units.Units
         private Dictionary<UnitEntity, int> _recruitmentCount = new Dictionary<UnitEntity, int>();
         private UnitCost totalUnitCost = new UnitCost();
         private bool _canRecruit = true;
+        public bool UnitKilled = false;
 
         public static RecruitmentManager Instance
         {
@@ -143,6 +144,9 @@ namespace LordOfUltima.Units.Units
             UpdateTotalTroupsCost();
 
             UpdateCurrentUnitCount();
+
+            // Update food ressources count
+            RessourcesManager.Instance.CalculateRessources();
         }
 
         /// <summary>
@@ -218,8 +222,10 @@ namespace LordOfUltima.Units.Units
             var space = unit.GetUnitStats().Space;
             var max = UnitManager.Instance.TotalUnits / space;
 
-            int value = int.Parse(textBox.Text);
+            var value = 0;
+            var result = int.TryParse(textBox.Text, out value);
 
+            if (!result) return;
             _recruitmentCount[unitEntity] = value;
 
             if (value > max)

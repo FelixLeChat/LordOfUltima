@@ -4,6 +4,7 @@ using System.Threading;
 using LordOfUltima.Error;
 using LordOfUltima.RessourcesProduction;
 using LordOfUltima.Score;
+using LordOfUltima.Units.Units;
 
 namespace LordOfUltima.Events
 {
@@ -43,12 +44,20 @@ namespace LordOfUltima.Events
 
             // Update ressources
             RessourcesManager.Instance.UpdateRessourceUi();
+            RessourcesManager.Instance.UpdateRessourceProductionUI();
 
             // Update error
             ErrorManager.Instance.DispatchErrors();
 
             // Update Score
             ScoreManager.Instance.UpdateVisual();
+
+            // Update Unit Count if killed
+            if (RecruitmentManager.Instance.UnitKilled)
+            {
+                RecruitmentManager.Instance.UpdateCurrentUnitCount();
+                RecruitmentManager.Instance.UnitKilled = false;
+            }
         }
     }
 }

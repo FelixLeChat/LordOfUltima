@@ -156,7 +156,7 @@ namespace LordOfUltima
                 _point = e.MouseDevice.GetPosition(canvas1);
             }
 
-            Matrix m = canvas1.RenderTransform.Value;
+            var m = canvas1.RenderTransform.Value;
             if (e.Delta > 0)
             {
                 if(_scale * ScaleRate > ScaleMax)
@@ -223,11 +223,11 @@ namespace LordOfUltima
                 _isMouseMove = true;
             }
 
-            Point currentMousePos = Mouse.GetPosition(canvas_mouse_pos);
+            var currentMousePos = Mouse.GetPosition(canvas_mouse_pos);
 
-            double maxDeplacement = 100 * Math.Pow(_scale,3);
-            double dx = _oldPos.X + (currentMousePos.X - _startMousePos.X);
-            double dy = _oldPos.Y + (currentMousePos.Y - _startMousePos.Y);
+            var maxDeplacement = 100 * Math.Pow(_scale,3);
+            var dx = _oldPos.X + (currentMousePos.X - _startMousePos.X);
+            var dy = _oldPos.Y + (currentMousePos.Y - _startMousePos.Y);
 
             // Calcul du mouse move totale
             _totalMove += dx + dy;
@@ -271,7 +271,7 @@ namespace LordOfUltima
         private void reset_map_Click(object sender, RoutedEventArgs e)
         {
             // Show messagebox for confirmation
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", MessageBoxButton.YesNo);
+            var messageBoxResult = MessageBox.Show("Are you sure you want to reset map?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 ResetMapElements.Instance.ResetMap();
@@ -294,7 +294,7 @@ namespace LordOfUltima
         */
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Element element in _gameboard.GetMap())
+            foreach (var element in _gameboard.GetMap())
             {
                 canvas1.Children.Remove(element.GetElement());
                 canvas1.Children.Remove(element.GetLevelElement());
@@ -303,7 +303,7 @@ namespace LordOfUltima
             }
             ResetMapElements.Instance.ResetMap();
 
-            LoginWindow window = new LoginWindow();
+            var window = new LoginWindow();
             window.Show();
             Close();
         }
@@ -321,7 +321,7 @@ namespace LordOfUltima
         */
         private void game_load_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", MessageBoxButton.YesNo);
+            var messageBoxResult = MessageBox.Show("Are you sure you want to load the last save?", "Load Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 if (SaveGame.Instance.SaveExist())
@@ -343,7 +343,7 @@ namespace LordOfUltima
         {
             if (UpdateTimeOption.Instance == null)
             {
-                UpdateTimeOption timeOption = new UpdateTimeOption();
+                var timeOption = new UpdateTimeOption();
                 timeOption.Show();
             }
             else
@@ -356,7 +356,7 @@ namespace LordOfUltima
         {
             if (MusicOption.Instance == null)
             {
-                MusicOption musicOption = new MusicOption();
+                var musicOption = new MusicOption();
                 musicOption.Show();
             }
             else
@@ -467,7 +467,7 @@ namespace LordOfUltima
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButton.YesNo);
+            var messageBoxResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 DeleteElement.Instance.Delete();
@@ -613,7 +613,7 @@ namespace LordOfUltima
 
         private static bool IsTextAllowed(string text)
         {
-            Regex regex = new Regex("[^0-9]+"); //regex that matches disallowed text
+            var regex = new Regex("[^0-9]+"); //regex that matches disallowed text
             var match = !regex.IsMatch(text);
             return match;
         }
