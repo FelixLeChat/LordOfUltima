@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using LordOfUltima.Units.Units;
 
 namespace LordOfUltima.Dungeon
@@ -37,6 +41,41 @@ namespace LordOfUltima.Dungeon
             var mainWindow = MainWindow.MIns;
             if (mainWindow == null)
                 return;
+
+            mainWindow.dungeon_attack_page.Visibility = Visibility.Visible;
+            mainWindow.dungeon_type.Content = dungeonType.ToString();
+            mainWindow.dungeon_level.Content = dungeonLevel;
+            SetImageDungeon(dungeonType, mainWindow.dungeon_image);
+        }
+
+        public void CloseDungeon()
+        {
+            var mainWindow = MainWindow.MIns;
+            if (mainWindow == null)
+                return;
+
+            mainWindow.dungeon_attack_page.Visibility = Visibility.Collapsed;
+        }
+
+        private void SetImageDungeon(DungeonType dungeonType, Rectangle rect)
+        {
+            var imgUrl = "pack://application:,,,/Resources/Images/Dungeons/Npccamp_";
+
+            switch (dungeonType)
+            {
+                case DungeonType.Forest:
+                    imgUrl += "woods";
+                    break;
+                case DungeonType.Mountain:
+                    imgUrl += "mountains";
+                    break;
+                case DungeonType.Hill:
+                    imgUrl += "hill";
+                    break;
+            }
+
+            imgUrl += "_active.png";
+            rect.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri(@imgUrl, UriKind.RelativeOrAbsolute))};
         }
     }
 }

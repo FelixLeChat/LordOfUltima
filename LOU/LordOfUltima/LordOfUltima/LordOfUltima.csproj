@@ -672,6 +672,9 @@
     <Resource Include="Resources\Images\Dungeons\Npccamp_woods_inactive.png" />
     <Resource Include="Resources\Images\Dungeons\pirate_stronghold.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UI\Dungeon_menu.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

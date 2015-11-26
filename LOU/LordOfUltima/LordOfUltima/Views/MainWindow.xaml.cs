@@ -35,6 +35,7 @@ namespace LordOfUltima
         private readonly MusicPlayer _musicPlayer;
         private readonly ResearchHandler _researchHandler;
         private readonly RecruitmentManager _recruitmentManager;
+        private readonly DungeonManager _dungeonManager;
 
         public static MainWindow MIns;
         public MainWindow()
@@ -72,6 +73,10 @@ namespace LordOfUltima
             // Hide Building Details menu
             _buildingDetailsVisibility = BuildingDetailsVisibility.Instance;
             _buildingDetailsVisibility.HideBuildingDetails();
+
+            // Hide Dungeon page
+            _dungeonManager = DungeonManager.Instance;
+            _dungeonManager.CloseDungeon();
 
             // Initialise Research
             _researchHandler = ResearchHandler.Instance;
@@ -760,47 +765,52 @@ namespace LordOfUltima
         #region Open Dungeon
         private void dungeon_wood_1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Forest, 1);
+            _dungeonManager.OpenDungeon(DungeonType.Forest, 1);
         }
 
         private void dungeon_wood_2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Forest, 2);
+            _dungeonManager.OpenDungeon(DungeonType.Forest, 2);
         }
 
         private void dungeon_wood_3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Forest, 3);
+            _dungeonManager.OpenDungeon(DungeonType.Forest, 3);
         }
 
         private void dungeon_mountain_1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Mountain, 1);
+            _dungeonManager.OpenDungeon(DungeonType.Mountain, 1);
         }
 
         private void dungeon_mountain_2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Mountain, 2);
+            _dungeonManager.OpenDungeon(DungeonType.Mountain, 2);
         }
 
         private void dungeon_mountain_3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Mountain, 3);
+            _dungeonManager.OpenDungeon(DungeonType.Mountain, 3);
         }
 
         private void dungeon_hill_1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Hill, 1);
+            _dungeonManager.OpenDungeon(DungeonType.Hill, 1);
         }
 
         private void dungeon_hill_2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Hill, 2);
+            _dungeonManager.OpenDungeon(DungeonType.Hill, 2);
         }
 
         private void dungeon_hill_3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DungeonManager.Instance.OpenDungeon(DungeonType.Hill, 3);
+            _dungeonManager.OpenDungeon(DungeonType.Hill, 3);
+        }
+
+        private void close_dungeon_page_Click(object sender, RoutedEventArgs e)
+        {
+            _dungeonManager.CloseDungeon();
         }
         #endregion
     }

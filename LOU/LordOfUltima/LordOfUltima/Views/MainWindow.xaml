@@ -22,6 +22,7 @@
             </Canvas>
         </Canvas>
 
+        <!-- Dungeon Map -->
         <Canvas Name="dungeon_map" HorizontalAlignment="Left" Margin="268,23,0,0" Height="580" Width="891" Visibility="Visible">
             <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/Images/dungeon_map.jpg"/>
@@ -35,7 +36,7 @@
             </Rectangle>
 
 
-            <Rectangle Name="dungeon_wood_1" Width="89" Height="92" Canvas.Left="460" Canvas.Top="143" MouseLeftButtonUp="dungeon_wood_1_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_wood_1" Width="89" Height="92" Canvas.Left="460" Canvas.Top="143" MouseLeftButtonUp="dungeon_wood_1_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
@@ -47,7 +48,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="501" Canvas.Top="206" FontSize="16"/>
 
-            <Rectangle Name="dungeon_wood_2" Width="89" Height="92" Canvas.Left="653" Canvas.Top="86" MouseLeftButtonUp="dungeon_wood_2_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_wood_2" Width="89" Height="92" Canvas.Left="653" Canvas.Top="86" MouseLeftButtonUp="dungeon_wood_2_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
@@ -59,7 +60,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="695" Canvas.Top="147" FontSize="16"/>
 
-            <Rectangle Name="dungeon_wood_3" Width="89" Height="92" Canvas.Left="356" Canvas.Top="26" MouseLeftButtonUp="dungeon_wood_3_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_wood_3" Width="89" Height="92" Canvas.Left="356" Canvas.Top="26" MouseLeftButtonUp="dungeon_wood_3_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_woods_active.png"/>
                 </Rectangle.Fill>
@@ -71,7 +72,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="400" Canvas.Top="90" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_1" Width="89" Height="92" Canvas.Left="155" Canvas.Top="132" MouseLeftButtonUp="dungeon_mountain_1_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_mountain_1" Width="89" Height="92" Canvas.Left="155" Canvas.Top="132" MouseLeftButtonUp="dungeon_mountain_1_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -83,7 +84,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="189" Canvas.Top="213" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_2" Width="89" Height="92" Canvas.Left="155" Canvas.Top="308" MouseLeftButtonUp="dungeon_mountain_2_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_mountain_2" Width="89" Height="92" Canvas.Left="155" Canvas.Top="308" MouseLeftButtonUp="dungeon_mountain_2_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -95,7 +96,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="189" Canvas.Top="390" FontSize="16"/>
 
-            <Rectangle Name="dungeon_mountain_3" Width="89" Height="92" Canvas.Left="665" Canvas.Top="325" MouseLeftButtonUp="dungeon_mountain_3_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_mountain_3" Width="89" Height="92" Canvas.Left="665" Canvas.Top="325" MouseLeftButtonUp="dungeon_mountain_3_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_mountains_active.png"/>
                 </Rectangle.Fill>
@@ -107,7 +108,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="3" Foreground="White" Canvas.Left="700" Canvas.Top="409" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_1" Width="89" Height="92" Canvas.Left="561" Canvas.Top="298" MouseLeftButtonUp="dungeon_hill_1_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_hill_1" Width="89" Height="92" Canvas.Left="561" Canvas.Top="298" MouseLeftButtonUp="dungeon_hill_1_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
@@ -119,7 +120,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="1" Foreground="White" Canvas.Left="598" Canvas.Top="374" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_2" Width="89" Height="92" Canvas.Left="359" Canvas.Top="452" MouseLeftButtonUp="dungeon_hill_2_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_hill_2" Width="89" Height="92" Canvas.Left="359" Canvas.Top="452" MouseLeftButtonUp="dungeon_hill_2_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
@@ -131,7 +132,7 @@
             </Rectangle>
             <Label Width="20" Height="30" Content="2" Foreground="White" Canvas.Left="399" Canvas.Top="531" FontSize="16"/>
 
-            <Rectangle Name="dungeon_hill_3" Width="89" Height="92" Canvas.Left="59" Canvas.Top="26" MouseLeftButtonUp="dungeon_hill_3_MouseLeftButtonUp">
+            <Rectangle Name="dungeon_hill_3" Width="89" Height="92" Canvas.Left="59" Canvas.Top="26" MouseLeftButtonUp="dungeon_hill_3_MouseLeftButtonUp" Cursor="Hand">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
                 </Rectangle.Fill>
@@ -145,9 +146,39 @@
 
         </Canvas>
 
-        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="267,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
+        <!-- Dungeon Attack -->
+        <Canvas Height="380" Margin="274,60,282,169" Name="dungeon_attack_page">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/Dungeon_menu.png"/>
+            </Canvas.Background>
+            <Button Name="close_dungeon_page" Cursor="Hand" Width="23" Height="20" Canvas.Left="587" Opacity="0.01" Canvas.Top="6" Click="close_dungeon_page_Click" ></Button>
 
-        <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7">
+            <Label Content="Dungeon Stats" FontSize="20" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="20" Canvas.Top="29"/>
+            <Label Content="Dungeon Type :" Canvas.Left="20" Canvas.Top="63" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+            <Label Name="dungeon_type" Content="NONE" Canvas.Left="119" Canvas.Top="63" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+
+            <Label Content="Dungeon Level :" Canvas.Left="20" Canvas.Top="83" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+            <Label Name="dungeon_level" Content="0" Canvas.Left="119" Canvas.Top="83" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+
+            <Label Content="Troups in dungeon :" Canvas.Left="20" Canvas.Top="103" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+            <Label Name="dungeon_troups_count" Content="0" Canvas.Left="141" Canvas.Top="103" FontFamily="Vani" Foreground="#443025" FontWeight="Bold"/>
+
+            <Rectangle Name="dungeon_image" Width="89" Height="92" Canvas.Left="495" Canvas.Top="43">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/Dungeons/Npccamp_hill_active.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle Width="571" Height="10" Canvas.Left="22" Canvas.Top="136">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
+
+        <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="266,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>
+
+        <Border Name="chat_box" BorderBrush="#FF816430" BorderThickness="2" CornerRadius="5" Background="#7F171313" Opacity="0.7" RenderTransformOrigin="0.5,0.5" Margin="268,440,570,7" Visibility="Collapsed">
             <StackPanel Height="135" Width="324">
                 <Canvas x:Name="chat_button_down" Width="20" Height="20" Margin="282,0,0,-7">
                     <Canvas.Background>
@@ -1080,7 +1111,7 @@
 
         </Canvas>
 
-        <!-- Dungeon Map -->
+        <!-- Dungeon Button -->
         <Canvas Margin="980,40,0,0" Width="155" Height="30" VerticalAlignment="Top">
             <Button Content="Dungeons" Width="70" Height="23" Click="Button_Click_7">
                 <Button.Background>
