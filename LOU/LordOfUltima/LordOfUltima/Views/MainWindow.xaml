@@ -174,6 +174,143 @@
                     <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/research_menu_div.png"/>
                 </Rectangle.Fill>
             </Rectangle>
+
+            <Label Content="Infantery" FontSize="16" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Top="145" Canvas.Left="50"/>
+            <Label Content="Cavalery" FontSize="16" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Top="145" Canvas.Left="235"/>
+            <Label Content="Magic" FontSize="16" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Top="145" Canvas.Left="440"/>
+
+            <Canvas Width="150" Height="30" Canvas.Left="16" Canvas.Top="170">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Cityguard :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="cityguard_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="16" Canvas.Top="205">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Berserker :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="berserker_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="16" Canvas.Top="240">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Guardian :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="guardian_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="16" Canvas.Top="275">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Templar :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="templar_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="16" Canvas.Top="310">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Ranger :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="ranger_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="200" Canvas.Top="170">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Crossbow :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="crossbow_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="200" Canvas.Top="205">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Knight :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="knight_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="200" Canvas.Top="240">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Paladin :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="paladin_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="200" Canvas.Top="275">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Scout :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="scout_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="390" Canvas.Top="170">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Mage :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="mage_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
+            <Canvas Width="150" Height="30" Canvas.Left="390" Canvas.Top="205">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/LordOfUltima;component/Resources/Images/UI/DungeonSelectorBackground.png"/>
+                </Canvas.Background>
+
+                <Label Content="Warlock :" FontFamily="Vani" Foreground="#443025" FontWeight="Bold" Canvas.Left="3" Canvas.Top="3"/>
+                <Button Width="15" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="3"/>
+                <Button Width="13" Height="10" Opacity="0.01" Cursor="Hand" Canvas.Left="132" Canvas.Top="18"/>
+
+                <TextBox Name="warlock_attack_count" Text="0" MaxLength="6" Canvas.Left="75" Canvas.Top="4" Width="54" Height="22" PreviewTextInput="PreviewTextInput" TextChanged="TextChanged"/>
+            </Canvas>
+
         </Canvas>
 
         <Rectangle HorizontalAlignment="Left" Height="580" VerticalAlignment="Top" Width="891" Margin="266,22,0,0" Name="canvas_fog" IsHitTestVisible="false"/>

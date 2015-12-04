@@ -36,6 +36,17 @@ namespace LordOfUltima.Dungeon
             _dungeonContent[DungeonType.Forest].Add(3, new List<Tuple<DungeonUnitType, int>>());
         }
 
+        private void InitDungeonMonsters()
+        {
+            foreach (var dungeonType in _dungeonContent)
+            {
+                foreach (var dungeonList in dungeonType.Value)
+                {
+                    dungeonList.Value.Add(new Tuple<DungeonUnitType, int>(DungeonUnitType.Orc, 30));
+                }
+            }
+        }
+
         public void OpenDungeon(DungeonType dungeonType, int dungeonLevel)
         {
             var mainWindow = MainWindow.MIns;
