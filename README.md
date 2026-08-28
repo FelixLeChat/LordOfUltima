@@ -1,3 +1,5 @@
+
+
 ### What is this repository for? ###
 
 * This repo is for recreating the now extinct game Lord Of Ultima (LOU2.0)
@@ -12,7 +14,7 @@
 * Play the music you want (including the vanilla music)
 * Choose your window skin (currently only light and dark)
 * Do research (YES RESEARCH) with the research building
-* Recruit troups to help you fight in dungeons and boss
+* Recruit troops to help you fight in dungeons and boss
 * Save your game localy
 * Chat between instances of the game (something went wrong some time ago, need to fix it)
    * Websockets will need to be implemented
